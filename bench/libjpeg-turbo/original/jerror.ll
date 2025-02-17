@@ -142,51 +142,51 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define ptr @jpeg_std_error(ptr noundef %0) #0 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !3
+  %3 = load ptr, ptr %2, align 8, !tbaa !3
   call void @llvm.memset.p0.i64(ptr align 8 %3, i8 0, i64 168, i1 false)
-  %4 = load ptr, ptr %2, align 8
-  %5 = getelementptr inbounds %struct.jpeg_error_mgr, ptr %4, i32 0, i32 0
-  store ptr @error_exit, ptr %5, align 8
-  %6 = load ptr, ptr %2, align 8
-  %7 = getelementptr inbounds %struct.jpeg_error_mgr, ptr %6, i32 0, i32 1
-  store ptr @emit_message, ptr %7, align 8
-  %8 = load ptr, ptr %2, align 8
-  %9 = getelementptr inbounds %struct.jpeg_error_mgr, ptr %8, i32 0, i32 2
-  store ptr @output_message, ptr %9, align 8
-  %10 = load ptr, ptr %2, align 8
-  %11 = getelementptr inbounds %struct.jpeg_error_mgr, ptr %10, i32 0, i32 3
-  store ptr @format_message, ptr %11, align 8
-  %12 = load ptr, ptr %2, align 8
-  %13 = getelementptr inbounds %struct.jpeg_error_mgr, ptr %12, i32 0, i32 4
-  store ptr @reset_error_mgr, ptr %13, align 8
-  %14 = load ptr, ptr %2, align 8
-  %15 = getelementptr inbounds %struct.jpeg_error_mgr, ptr %14, i32 0, i32 9
-  store ptr @jpeg_std_message_table, ptr %15, align 8
-  %16 = load ptr, ptr %2, align 8
-  %17 = getelementptr inbounds %struct.jpeg_error_mgr, ptr %16, i32 0, i32 10
-  store i32 129, ptr %17, align 8
-  %18 = load ptr, ptr %2, align 8
+  %4 = load ptr, ptr %2, align 8, !tbaa !3
+  %5 = getelementptr inbounds nuw %struct.jpeg_error_mgr, ptr %4, i32 0, i32 0
+  store ptr @error_exit, ptr %5, align 8, !tbaa !8
+  %6 = load ptr, ptr %2, align 8, !tbaa !3
+  %7 = getelementptr inbounds nuw %struct.jpeg_error_mgr, ptr %6, i32 0, i32 1
+  store ptr @emit_message, ptr %7, align 8, !tbaa !13
+  %8 = load ptr, ptr %2, align 8, !tbaa !3
+  %9 = getelementptr inbounds nuw %struct.jpeg_error_mgr, ptr %8, i32 0, i32 2
+  store ptr @output_message, ptr %9, align 8, !tbaa !14
+  %10 = load ptr, ptr %2, align 8, !tbaa !3
+  %11 = getelementptr inbounds nuw %struct.jpeg_error_mgr, ptr %10, i32 0, i32 3
+  store ptr @format_message, ptr %11, align 8, !tbaa !15
+  %12 = load ptr, ptr %2, align 8, !tbaa !3
+  %13 = getelementptr inbounds nuw %struct.jpeg_error_mgr, ptr %12, i32 0, i32 4
+  store ptr @reset_error_mgr, ptr %13, align 8, !tbaa !16
+  %14 = load ptr, ptr %2, align 8, !tbaa !3
+  %15 = getelementptr inbounds nuw %struct.jpeg_error_mgr, ptr %14, i32 0, i32 9
+  store ptr @jpeg_std_message_table, ptr %15, align 8, !tbaa !17
+  %16 = load ptr, ptr %2, align 8, !tbaa !3
+  %17 = getelementptr inbounds nuw %struct.jpeg_error_mgr, ptr %16, i32 0, i32 10
+  store i32 129, ptr %17, align 8, !tbaa !18
+  %18 = load ptr, ptr %2, align 8, !tbaa !3
   ret ptr %18
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr nocapture writeonly, i8, i64, i1 immarg) #1
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #1
 
 ; Function Attrs: nounwind uwtable
 define internal void @error_exit(ptr noundef %0) #0 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %struct.jpeg_common_struct, ptr %3, i32 0, i32 0
-  %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds %struct.jpeg_error_mgr, ptr %5, i32 0, i32 2
-  %7 = load ptr, ptr %6, align 8
-  %8 = load ptr, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !19
+  %3 = load ptr, ptr %2, align 8, !tbaa !19
+  %4 = getelementptr inbounds nuw %struct.jpeg_common_struct, ptr %3, i32 0, i32 0
+  %5 = load ptr, ptr %4, align 8, !tbaa !21
+  %6 = getelementptr inbounds nuw %struct.jpeg_error_mgr, ptr %5, i32 0, i32 2
+  %7 = load ptr, ptr %6, align 8, !tbaa !14
+  %8 = load ptr, ptr %2, align 8, !tbaa !19
   call void %7(ptr noundef %8)
-  %9 = load ptr, ptr %2, align 8
+  %9 = load ptr, ptr %2, align 8, !tbaa !19
   call void @jpeg_destroy(ptr noundef %9)
-  call void @exit(i32 noundef 1) #5
+  call void @exit(i32 noundef 1) #6
   unreachable
 }
 
@@ -195,59 +195,60 @@ define internal void @emit_message(ptr noundef %0, i32 noundef %1) #0 {
   %3 = alloca ptr, align 8
   %4 = alloca i32, align 4
   %5 = alloca ptr, align 8
-  store ptr %0, ptr %3, align 8
-  store i32 %1, ptr %4, align 4
-  %6 = load ptr, ptr %3, align 8
-  %7 = getelementptr inbounds %struct.jpeg_common_struct, ptr %6, i32 0, i32 0
-  %8 = load ptr, ptr %7, align 8
-  store ptr %8, ptr %5, align 8
-  %9 = load i32, ptr %4, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !19
+  store i32 %1, ptr %4, align 4, !tbaa !25
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #7
+  %6 = load ptr, ptr %3, align 8, !tbaa !19
+  %7 = getelementptr inbounds nuw %struct.jpeg_common_struct, ptr %6, i32 0, i32 0
+  %8 = load ptr, ptr %7, align 8, !tbaa !21
+  store ptr %8, ptr %5, align 8, !tbaa !3
+  %9 = load i32, ptr %4, align 4, !tbaa !25
   %10 = icmp slt i32 %9, 0
   br i1 %10, label %11, label %31
 
 11:                                               ; preds = %2
-  %12 = load ptr, ptr %5, align 8
-  %13 = getelementptr inbounds %struct.jpeg_error_mgr, ptr %12, i32 0, i32 8
-  %14 = load i64, ptr %13, align 8
+  %12 = load ptr, ptr %5, align 8, !tbaa !3
+  %13 = getelementptr inbounds nuw %struct.jpeg_error_mgr, ptr %12, i32 0, i32 8
+  %14 = load i64, ptr %13, align 8, !tbaa !26
   %15 = icmp eq i64 %14, 0
   br i1 %15, label %21, label %16
 
 16:                                               ; preds = %11
-  %17 = load ptr, ptr %5, align 8
-  %18 = getelementptr inbounds %struct.jpeg_error_mgr, ptr %17, i32 0, i32 7
-  %19 = load i32, ptr %18, align 4
+  %17 = load ptr, ptr %5, align 8, !tbaa !3
+  %18 = getelementptr inbounds nuw %struct.jpeg_error_mgr, ptr %17, i32 0, i32 7
+  %19 = load i32, ptr %18, align 4, !tbaa !27
   %20 = icmp sge i32 %19, 3
   br i1 %20, label %21, label %26
 
 21:                                               ; preds = %16, %11
-  %22 = load ptr, ptr %5, align 8
-  %23 = getelementptr inbounds %struct.jpeg_error_mgr, ptr %22, i32 0, i32 2
-  %24 = load ptr, ptr %23, align 8
-  %25 = load ptr, ptr %3, align 8
+  %22 = load ptr, ptr %5, align 8, !tbaa !3
+  %23 = getelementptr inbounds nuw %struct.jpeg_error_mgr, ptr %22, i32 0, i32 2
+  %24 = load ptr, ptr %23, align 8, !tbaa !14
+  %25 = load ptr, ptr %3, align 8, !tbaa !19
   call void %24(ptr noundef %25)
   br label %26
 
 26:                                               ; preds = %21, %16
-  %27 = load ptr, ptr %5, align 8
-  %28 = getelementptr inbounds %struct.jpeg_error_mgr, ptr %27, i32 0, i32 8
-  %29 = load i64, ptr %28, align 8
+  %27 = load ptr, ptr %5, align 8, !tbaa !3
+  %28 = getelementptr inbounds nuw %struct.jpeg_error_mgr, ptr %27, i32 0, i32 8
+  %29 = load i64, ptr %28, align 8, !tbaa !26
   %30 = add nsw i64 %29, 1
-  store i64 %30, ptr %28, align 8
+  store i64 %30, ptr %28, align 8, !tbaa !26
   br label %43
 
 31:                                               ; preds = %2
-  %32 = load ptr, ptr %5, align 8
-  %33 = getelementptr inbounds %struct.jpeg_error_mgr, ptr %32, i32 0, i32 7
-  %34 = load i32, ptr %33, align 4
-  %35 = load i32, ptr %4, align 4
+  %32 = load ptr, ptr %5, align 8, !tbaa !3
+  %33 = getelementptr inbounds nuw %struct.jpeg_error_mgr, ptr %32, i32 0, i32 7
+  %34 = load i32, ptr %33, align 4, !tbaa !27
+  %35 = load i32, ptr %4, align 4, !tbaa !25
   %36 = icmp sge i32 %34, %35
   br i1 %36, label %37, label %42
 
 37:                                               ; preds = %31
-  %38 = load ptr, ptr %5, align 8
-  %39 = getelementptr inbounds %struct.jpeg_error_mgr, ptr %38, i32 0, i32 2
-  %40 = load ptr, ptr %39, align 8
-  %41 = load ptr, ptr %3, align 8
+  %38 = load ptr, ptr %5, align 8, !tbaa !3
+  %39 = getelementptr inbounds nuw %struct.jpeg_error_mgr, ptr %38, i32 0, i32 2
+  %40 = load ptr, ptr %39, align 8, !tbaa !14
+  %41 = load ptr, ptr %3, align 8, !tbaa !19
   call void %40(ptr noundef %41)
   br label %42
 
@@ -255,6 +256,7 @@ define internal void @emit_message(ptr noundef %0, i32 noundef %1) #0 {
   br label %43
 
 43:                                               ; preds = %42, %26
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #7
   ret void
 }
 
@@ -262,18 +264,20 @@ define internal void @emit_message(ptr noundef %0, i32 noundef %1) #0 {
 define internal void @output_message(ptr noundef %0) #0 {
   %2 = alloca ptr, align 8
   %3 = alloca [200 x i8], align 16
-  store ptr %0, ptr %2, align 8
-  %4 = load ptr, ptr %2, align 8
-  %5 = getelementptr inbounds %struct.jpeg_common_struct, ptr %4, i32 0, i32 0
-  %6 = load ptr, ptr %5, align 8
-  %7 = getelementptr inbounds %struct.jpeg_error_mgr, ptr %6, i32 0, i32 3
-  %8 = load ptr, ptr %7, align 8
-  %9 = load ptr, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !19
+  call void @llvm.lifetime.start.p0(i64 200, ptr %3) #7
+  %4 = load ptr, ptr %2, align 8, !tbaa !19
+  %5 = getelementptr inbounds nuw %struct.jpeg_common_struct, ptr %4, i32 0, i32 0
+  %6 = load ptr, ptr %5, align 8, !tbaa !21
+  %7 = getelementptr inbounds nuw %struct.jpeg_error_mgr, ptr %6, i32 0, i32 3
+  %8 = load ptr, ptr %7, align 8, !tbaa !15
+  %9 = load ptr, ptr %2, align 8, !tbaa !19
   %10 = getelementptr inbounds [200 x i8], ptr %3, i64 0, i64 0
   call void %8(ptr noundef %9, ptr noundef %10)
-  %11 = load ptr, ptr @stderr, align 8
+  %11 = load ptr, ptr @stderr, align 8, !tbaa !28
   %12 = getelementptr inbounds [200 x i8], ptr %3, i64 0, i64 0
-  %13 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %11, ptr noundef @.str, ptr noundef %12) #6
+  %13 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %11, ptr noundef @.str, ptr noundef %12) #7
+  call void @llvm.lifetime.end.p0(i64 200, ptr %3) #7
   ret void
 }
 
@@ -287,209 +291,221 @@ define internal void @format_message(ptr noundef %0, ptr noundef %1) #0 {
   %8 = alloca ptr, align 8
   %9 = alloca i8, align 1
   %10 = alloca i32, align 4
-  store ptr %0, ptr %3, align 8
-  store ptr %1, ptr %4, align 8
-  %11 = load ptr, ptr %3, align 8
-  %12 = getelementptr inbounds %struct.jpeg_common_struct, ptr %11, i32 0, i32 0
-  %13 = load ptr, ptr %12, align 8
-  store ptr %13, ptr %5, align 8
-  %14 = load ptr, ptr %5, align 8
-  %15 = getelementptr inbounds %struct.jpeg_error_mgr, ptr %14, i32 0, i32 5
-  %16 = load i32, ptr %15, align 8
-  store i32 %16, ptr %6, align 4
-  store ptr null, ptr %7, align 8
-  %17 = load i32, ptr %6, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !19
+  store ptr %1, ptr %4, align 8, !tbaa !30
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #7
+  %11 = load ptr, ptr %3, align 8, !tbaa !19
+  %12 = getelementptr inbounds nuw %struct.jpeg_common_struct, ptr %11, i32 0, i32 0
+  %13 = load ptr, ptr %12, align 8, !tbaa !21
+  store ptr %13, ptr %5, align 8, !tbaa !3
+  call void @llvm.lifetime.start.p0(i64 4, ptr %6) #7
+  %14 = load ptr, ptr %5, align 8, !tbaa !3
+  %15 = getelementptr inbounds nuw %struct.jpeg_error_mgr, ptr %14, i32 0, i32 5
+  %16 = load i32, ptr %15, align 8, !tbaa !32
+  store i32 %16, ptr %6, align 4, !tbaa !25
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #7
+  store ptr null, ptr %7, align 8, !tbaa !30
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #7
+  call void @llvm.lifetime.start.p0(i64 1, ptr %9) #7
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #7
+  %17 = load i32, ptr %6, align 4, !tbaa !25
   %18 = icmp sgt i32 %17, 0
   br i1 %18, label %19, label %33
 
 19:                                               ; preds = %2
-  %20 = load i32, ptr %6, align 4
-  %21 = load ptr, ptr %5, align 8
-  %22 = getelementptr inbounds %struct.jpeg_error_mgr, ptr %21, i32 0, i32 10
-  %23 = load i32, ptr %22, align 8
+  %20 = load i32, ptr %6, align 4, !tbaa !25
+  %21 = load ptr, ptr %5, align 8, !tbaa !3
+  %22 = getelementptr inbounds nuw %struct.jpeg_error_mgr, ptr %21, i32 0, i32 10
+  %23 = load i32, ptr %22, align 8, !tbaa !18
   %24 = icmp sle i32 %20, %23
   br i1 %24, label %25, label %33
 
 25:                                               ; preds = %19
-  %26 = load ptr, ptr %5, align 8
-  %27 = getelementptr inbounds %struct.jpeg_error_mgr, ptr %26, i32 0, i32 9
-  %28 = load ptr, ptr %27, align 8
-  %29 = load i32, ptr %6, align 4
+  %26 = load ptr, ptr %5, align 8, !tbaa !3
+  %27 = getelementptr inbounds nuw %struct.jpeg_error_mgr, ptr %26, i32 0, i32 9
+  %28 = load ptr, ptr %27, align 8, !tbaa !17
+  %29 = load i32, ptr %6, align 4, !tbaa !25
   %30 = sext i32 %29 to i64
   %31 = getelementptr inbounds ptr, ptr %28, i64 %30
-  %32 = load ptr, ptr %31, align 8
-  store ptr %32, ptr %7, align 8
+  %32 = load ptr, ptr %31, align 8, !tbaa !30
+  store ptr %32, ptr %7, align 8, !tbaa !30
   br label %63
 
 33:                                               ; preds = %19, %2
-  %34 = load ptr, ptr %5, align 8
-  %35 = getelementptr inbounds %struct.jpeg_error_mgr, ptr %34, i32 0, i32 11
-  %36 = load ptr, ptr %35, align 8
+  %34 = load ptr, ptr %5, align 8, !tbaa !3
+  %35 = getelementptr inbounds nuw %struct.jpeg_error_mgr, ptr %34, i32 0, i32 11
+  %36 = load ptr, ptr %35, align 8, !tbaa !33
   %37 = icmp ne ptr %36, null
   br i1 %37, label %38, label %62
 
 38:                                               ; preds = %33
-  %39 = load i32, ptr %6, align 4
-  %40 = load ptr, ptr %5, align 8
-  %41 = getelementptr inbounds %struct.jpeg_error_mgr, ptr %40, i32 0, i32 12
-  %42 = load i32, ptr %41, align 8
+  %39 = load i32, ptr %6, align 4, !tbaa !25
+  %40 = load ptr, ptr %5, align 8, !tbaa !3
+  %41 = getelementptr inbounds nuw %struct.jpeg_error_mgr, ptr %40, i32 0, i32 12
+  %42 = load i32, ptr %41, align 8, !tbaa !34
   %43 = icmp sge i32 %39, %42
   br i1 %43, label %44, label %62
 
 44:                                               ; preds = %38
-  %45 = load i32, ptr %6, align 4
-  %46 = load ptr, ptr %5, align 8
-  %47 = getelementptr inbounds %struct.jpeg_error_mgr, ptr %46, i32 0, i32 13
-  %48 = load i32, ptr %47, align 4
+  %45 = load i32, ptr %6, align 4, !tbaa !25
+  %46 = load ptr, ptr %5, align 8, !tbaa !3
+  %47 = getelementptr inbounds nuw %struct.jpeg_error_mgr, ptr %46, i32 0, i32 13
+  %48 = load i32, ptr %47, align 4, !tbaa !35
   %49 = icmp sle i32 %45, %48
   br i1 %49, label %50, label %62
 
 50:                                               ; preds = %44
-  %51 = load ptr, ptr %5, align 8
-  %52 = getelementptr inbounds %struct.jpeg_error_mgr, ptr %51, i32 0, i32 11
-  %53 = load ptr, ptr %52, align 8
-  %54 = load i32, ptr %6, align 4
-  %55 = load ptr, ptr %5, align 8
-  %56 = getelementptr inbounds %struct.jpeg_error_mgr, ptr %55, i32 0, i32 12
-  %57 = load i32, ptr %56, align 8
+  %51 = load ptr, ptr %5, align 8, !tbaa !3
+  %52 = getelementptr inbounds nuw %struct.jpeg_error_mgr, ptr %51, i32 0, i32 11
+  %53 = load ptr, ptr %52, align 8, !tbaa !33
+  %54 = load i32, ptr %6, align 4, !tbaa !25
+  %55 = load ptr, ptr %5, align 8, !tbaa !3
+  %56 = getelementptr inbounds nuw %struct.jpeg_error_mgr, ptr %55, i32 0, i32 12
+  %57 = load i32, ptr %56, align 8, !tbaa !34
   %58 = sub nsw i32 %54, %57
   %59 = sext i32 %58 to i64
   %60 = getelementptr inbounds ptr, ptr %53, i64 %59
-  %61 = load ptr, ptr %60, align 8
-  store ptr %61, ptr %7, align 8
+  %61 = load ptr, ptr %60, align 8, !tbaa !30
+  store ptr %61, ptr %7, align 8, !tbaa !30
   br label %62
 
 62:                                               ; preds = %50, %44, %38, %33
   br label %63
 
 63:                                               ; preds = %62, %25
-  %64 = load ptr, ptr %7, align 8
+  %64 = load ptr, ptr %7, align 8, !tbaa !30
   %65 = icmp eq ptr %64, null
   br i1 %65, label %66, label %76
 
 66:                                               ; preds = %63
-  %67 = load i32, ptr %6, align 4
-  %68 = load ptr, ptr %5, align 8
-  %69 = getelementptr inbounds %struct.jpeg_error_mgr, ptr %68, i32 0, i32 6
+  %67 = load i32, ptr %6, align 4, !tbaa !25
+  %68 = load ptr, ptr %5, align 8, !tbaa !3
+  %69 = getelementptr inbounds nuw %struct.jpeg_error_mgr, ptr %68, i32 0, i32 6
   %70 = getelementptr inbounds [8 x i32], ptr %69, i64 0, i64 0
-  store i32 %67, ptr %70, align 4
-  %71 = load ptr, ptr %5, align 8
-  %72 = getelementptr inbounds %struct.jpeg_error_mgr, ptr %71, i32 0, i32 9
-  %73 = load ptr, ptr %72, align 8
+  store i32 %67, ptr %70, align 4, !tbaa !36
+  %71 = load ptr, ptr %5, align 8, !tbaa !3
+  %72 = getelementptr inbounds nuw %struct.jpeg_error_mgr, ptr %71, i32 0, i32 9
+  %73 = load ptr, ptr %72, align 8, !tbaa !17
   %74 = getelementptr inbounds ptr, ptr %73, i64 0
-  %75 = load ptr, ptr %74, align 8
-  store ptr %75, ptr %7, align 8
+  %75 = load ptr, ptr %74, align 8, !tbaa !30
+  store ptr %75, ptr %7, align 8, !tbaa !30
   br label %76
 
 76:                                               ; preds = %66, %63
-  store i32 0, ptr %10, align 4
-  %77 = load ptr, ptr %7, align 8
-  store ptr %77, ptr %8, align 8
+  store i32 0, ptr %10, align 4, !tbaa !25
+  %77 = load ptr, ptr %7, align 8, !tbaa !30
+  store ptr %77, ptr %8, align 8, !tbaa !30
   br label %78
 
 78:                                               ; preds = %95, %76
-  %79 = load ptr, ptr %8, align 8
-  %80 = getelementptr inbounds i8, ptr %79, i32 1
-  store ptr %80, ptr %8, align 8
-  %81 = load i8, ptr %79, align 1
-  store i8 %81, ptr %9, align 1
+  %79 = load ptr, ptr %8, align 8, !tbaa !30
+  %80 = getelementptr inbounds nuw i8, ptr %79, i32 1
+  store ptr %80, ptr %8, align 8, !tbaa !30
+  %81 = load i8, ptr %79, align 1, !tbaa !36
+  store i8 %81, ptr %9, align 1, !tbaa !36
   %82 = sext i8 %81 to i32
   %83 = icmp ne i32 %82, 0
   br i1 %83, label %84, label %96
 
 84:                                               ; preds = %78
-  %85 = load i8, ptr %9, align 1
+  %85 = load i8, ptr %9, align 1, !tbaa !36
   %86 = sext i8 %85 to i32
   %87 = icmp eq i32 %86, 37
   br i1 %87, label %88, label %95
 
 88:                                               ; preds = %84
-  %89 = load ptr, ptr %8, align 8
-  %90 = load i8, ptr %89, align 1
+  %89 = load ptr, ptr %8, align 8, !tbaa !30
+  %90 = load i8, ptr %89, align 1, !tbaa !36
   %91 = sext i8 %90 to i32
   %92 = icmp eq i32 %91, 115
   br i1 %92, label %93, label %94
 
 93:                                               ; preds = %88
-  store i32 1, ptr %10, align 4
+  store i32 1, ptr %10, align 4, !tbaa !25
   br label %94
 
 94:                                               ; preds = %93, %88
   br label %96
 
 95:                                               ; preds = %84
-  br label %78, !llvm.loop !4
+  br label %78, !llvm.loop !37
 
 96:                                               ; preds = %94, %78
-  %97 = load i32, ptr %10, align 4
+  %97 = load i32, ptr %10, align 4, !tbaa !25
   %98 = icmp ne i32 %97, 0
   br i1 %98, label %99, label %106
 
 99:                                               ; preds = %96
-  %100 = load ptr, ptr %4, align 8
-  %101 = load ptr, ptr %7, align 8
-  %102 = load ptr, ptr %5, align 8
-  %103 = getelementptr inbounds %struct.jpeg_error_mgr, ptr %102, i32 0, i32 6
+  %100 = load ptr, ptr %4, align 8, !tbaa !30
+  %101 = load ptr, ptr %7, align 8, !tbaa !30
+  %102 = load ptr, ptr %5, align 8, !tbaa !3
+  %103 = getelementptr inbounds nuw %struct.jpeg_error_mgr, ptr %102, i32 0, i32 6
   %104 = getelementptr inbounds [80 x i8], ptr %103, i64 0, i64 0
-  %105 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %100, i64 noundef 200, ptr noundef %101, ptr noundef %104) #6
+  %105 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %100, i64 noundef 200, ptr noundef %101, ptr noundef %104) #7
   br label %142
 
 106:                                              ; preds = %96
-  %107 = load ptr, ptr %4, align 8
-  %108 = load ptr, ptr %7, align 8
-  %109 = load ptr, ptr %5, align 8
-  %110 = getelementptr inbounds %struct.jpeg_error_mgr, ptr %109, i32 0, i32 6
+  %107 = load ptr, ptr %4, align 8, !tbaa !30
+  %108 = load ptr, ptr %7, align 8, !tbaa !30
+  %109 = load ptr, ptr %5, align 8, !tbaa !3
+  %110 = getelementptr inbounds nuw %struct.jpeg_error_mgr, ptr %109, i32 0, i32 6
   %111 = getelementptr inbounds [8 x i32], ptr %110, i64 0, i64 0
-  %112 = load i32, ptr %111, align 4
-  %113 = load ptr, ptr %5, align 8
-  %114 = getelementptr inbounds %struct.jpeg_error_mgr, ptr %113, i32 0, i32 6
+  %112 = load i32, ptr %111, align 4, !tbaa !36
+  %113 = load ptr, ptr %5, align 8, !tbaa !3
+  %114 = getelementptr inbounds nuw %struct.jpeg_error_mgr, ptr %113, i32 0, i32 6
   %115 = getelementptr inbounds [8 x i32], ptr %114, i64 0, i64 1
-  %116 = load i32, ptr %115, align 4
-  %117 = load ptr, ptr %5, align 8
-  %118 = getelementptr inbounds %struct.jpeg_error_mgr, ptr %117, i32 0, i32 6
+  %116 = load i32, ptr %115, align 4, !tbaa !36
+  %117 = load ptr, ptr %5, align 8, !tbaa !3
+  %118 = getelementptr inbounds nuw %struct.jpeg_error_mgr, ptr %117, i32 0, i32 6
   %119 = getelementptr inbounds [8 x i32], ptr %118, i64 0, i64 2
-  %120 = load i32, ptr %119, align 4
-  %121 = load ptr, ptr %5, align 8
-  %122 = getelementptr inbounds %struct.jpeg_error_mgr, ptr %121, i32 0, i32 6
+  %120 = load i32, ptr %119, align 4, !tbaa !36
+  %121 = load ptr, ptr %5, align 8, !tbaa !3
+  %122 = getelementptr inbounds nuw %struct.jpeg_error_mgr, ptr %121, i32 0, i32 6
   %123 = getelementptr inbounds [8 x i32], ptr %122, i64 0, i64 3
-  %124 = load i32, ptr %123, align 4
-  %125 = load ptr, ptr %5, align 8
-  %126 = getelementptr inbounds %struct.jpeg_error_mgr, ptr %125, i32 0, i32 6
+  %124 = load i32, ptr %123, align 4, !tbaa !36
+  %125 = load ptr, ptr %5, align 8, !tbaa !3
+  %126 = getelementptr inbounds nuw %struct.jpeg_error_mgr, ptr %125, i32 0, i32 6
   %127 = getelementptr inbounds [8 x i32], ptr %126, i64 0, i64 4
-  %128 = load i32, ptr %127, align 4
-  %129 = load ptr, ptr %5, align 8
-  %130 = getelementptr inbounds %struct.jpeg_error_mgr, ptr %129, i32 0, i32 6
+  %128 = load i32, ptr %127, align 4, !tbaa !36
+  %129 = load ptr, ptr %5, align 8, !tbaa !3
+  %130 = getelementptr inbounds nuw %struct.jpeg_error_mgr, ptr %129, i32 0, i32 6
   %131 = getelementptr inbounds [8 x i32], ptr %130, i64 0, i64 5
-  %132 = load i32, ptr %131, align 4
-  %133 = load ptr, ptr %5, align 8
-  %134 = getelementptr inbounds %struct.jpeg_error_mgr, ptr %133, i32 0, i32 6
+  %132 = load i32, ptr %131, align 4, !tbaa !36
+  %133 = load ptr, ptr %5, align 8, !tbaa !3
+  %134 = getelementptr inbounds nuw %struct.jpeg_error_mgr, ptr %133, i32 0, i32 6
   %135 = getelementptr inbounds [8 x i32], ptr %134, i64 0, i64 6
-  %136 = load i32, ptr %135, align 4
-  %137 = load ptr, ptr %5, align 8
-  %138 = getelementptr inbounds %struct.jpeg_error_mgr, ptr %137, i32 0, i32 6
+  %136 = load i32, ptr %135, align 4, !tbaa !36
+  %137 = load ptr, ptr %5, align 8, !tbaa !3
+  %138 = getelementptr inbounds nuw %struct.jpeg_error_mgr, ptr %137, i32 0, i32 6
   %139 = getelementptr inbounds [8 x i32], ptr %138, i64 0, i64 7
-  %140 = load i32, ptr %139, align 4
-  %141 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %107, i64 noundef 200, ptr noundef %108, i32 noundef %112, i32 noundef %116, i32 noundef %120, i32 noundef %124, i32 noundef %128, i32 noundef %132, i32 noundef %136, i32 noundef %140) #6
+  %140 = load i32, ptr %139, align 4, !tbaa !36
+  %141 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef %107, i64 noundef 200, ptr noundef %108, i32 noundef %112, i32 noundef %116, i32 noundef %120, i32 noundef %124, i32 noundef %128, i32 noundef %132, i32 noundef %136, i32 noundef %140) #7
   br label %142
 
 142:                                              ; preds = %106, %99
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #7
+  call void @llvm.lifetime.end.p0(i64 1, ptr %9) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #7
+  call void @llvm.lifetime.end.p0(i64 4, ptr %6) #7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #7
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
 define internal void @reset_error_mgr(ptr noundef %0) #0 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
-  %4 = getelementptr inbounds %struct.jpeg_common_struct, ptr %3, i32 0, i32 0
-  %5 = load ptr, ptr %4, align 8
-  %6 = getelementptr inbounds %struct.jpeg_error_mgr, ptr %5, i32 0, i32 8
-  store i64 0, ptr %6, align 8
-  %7 = load ptr, ptr %2, align 8
-  %8 = getelementptr inbounds %struct.jpeg_common_struct, ptr %7, i32 0, i32 0
-  %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds %struct.jpeg_error_mgr, ptr %9, i32 0, i32 5
-  store i32 0, ptr %10, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !19
+  %3 = load ptr, ptr %2, align 8, !tbaa !19
+  %4 = getelementptr inbounds nuw %struct.jpeg_common_struct, ptr %3, i32 0, i32 0
+  %5 = load ptr, ptr %4, align 8, !tbaa !21
+  %6 = getelementptr inbounds nuw %struct.jpeg_error_mgr, ptr %5, i32 0, i32 8
+  store i64 0, ptr %6, align 8, !tbaa !26
+  %7 = load ptr, ptr %2, align 8, !tbaa !19
+  %8 = getelementptr inbounds nuw %struct.jpeg_common_struct, ptr %7, i32 0, i32 0
+  %9 = load ptr, ptr %8, align 8, !tbaa !21
+  %10 = getelementptr inbounds nuw %struct.jpeg_error_mgr, ptr %9, i32 0, i32 5
+  store i32 0, ptr %10, align 8, !tbaa !32
   ret void
 }
 
@@ -498,25 +514,65 @@ declare void @jpeg_destroy(ptr noundef) #2
 ; Function Attrs: noreturn nounwind
 declare void @exit(i32 noundef) #3
 
-; Function Attrs: nounwind
-declare i32 @fprintf(ptr noundef, ptr noundef, ...) #4
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #4
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #4
 
 ; Function Attrs: nounwind
-declare i32 @snprintf(ptr noundef, i64 noundef, ptr noundef, ...) #4
+declare i32 @fprintf(ptr noundef, ptr noundef, ...) #5
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+; Function Attrs: nounwind
+declare i32 @snprintf(ptr noundef, i64 noundef, ptr noundef, ...) #5
+
+attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #2 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { noreturn nounwind }
-attributes #6 = { nounwind }
+attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { noreturn nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #5 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { noreturn nounwind }
+attributes #7 = { nounwind }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.mustprogress"}
+!3 = !{!4, !4, i64 0}
+!4 = !{!"p1 _ZTS14jpeg_error_mgr", !5, i64 0}
+!5 = !{!"any pointer", !6, i64 0}
+!6 = !{!"omnipotent char", !7, i64 0}
+!7 = !{!"Simple C/C++ TBAA"}
+!8 = !{!9, !5, i64 0}
+!9 = !{!"jpeg_error_mgr", !5, i64 0, !5, i64 8, !5, i64 16, !5, i64 24, !5, i64 32, !10, i64 40, !6, i64 44, !10, i64 124, !11, i64 128, !12, i64 136, !10, i64 144, !12, i64 152, !10, i64 160, !10, i64 164}
+!10 = !{!"int", !6, i64 0}
+!11 = !{!"long", !6, i64 0}
+!12 = !{!"p2 omnipotent char", !5, i64 0}
+!13 = !{!9, !5, i64 8}
+!14 = !{!9, !5, i64 16}
+!15 = !{!9, !5, i64 24}
+!16 = !{!9, !5, i64 32}
+!17 = !{!9, !12, i64 136}
+!18 = !{!9, !10, i64 144}
+!19 = !{!20, !20, i64 0}
+!20 = !{!"p1 _ZTS18jpeg_common_struct", !5, i64 0}
+!21 = !{!22, !4, i64 0}
+!22 = !{!"jpeg_common_struct", !4, i64 0, !23, i64 8, !24, i64 16, !5, i64 24, !10, i64 32, !10, i64 36}
+!23 = !{!"p1 _ZTS15jpeg_memory_mgr", !5, i64 0}
+!24 = !{!"p1 _ZTS17jpeg_progress_mgr", !5, i64 0}
+!25 = !{!10, !10, i64 0}
+!26 = !{!9, !11, i64 128}
+!27 = !{!9, !10, i64 124}
+!28 = !{!29, !29, i64 0}
+!29 = !{!"p1 _ZTS8_IO_FILE", !5, i64 0}
+!30 = !{!31, !31, i64 0}
+!31 = !{!"p1 omnipotent char", !5, i64 0}
+!32 = !{!9, !10, i64 40}
+!33 = !{!9, !12, i64 152}
+!34 = !{!9, !10, i64 160}
+!35 = !{!9, !10, i64 164}
+!36 = !{!6, !6, i64 0}
+!37 = distinct !{!37, !38}
+!38 = !{!"llvm.loop.mustprogress"}

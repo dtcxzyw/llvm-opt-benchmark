@@ -27,6 +27,7 @@ supported_project = [
     "kcp",
     "libdeflate",
     "libevent",
+    "libjpeg-turbo",
 ]
 
 modify_only = [

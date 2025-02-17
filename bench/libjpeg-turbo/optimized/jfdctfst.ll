@@ -10,36 +10,36 @@ define void @jpeg_fdct_ifast(ptr noundef captures(none) %0) local_unnamed_addr #
 2:                                                ; preds = %1, %2
   %.0145 = phi i32 [ 7, %1 ], [ %68, %2 ]
   %.0141144 = phi ptr [ %0, %1 ], [ %67, %2 ]
-  %3 = load i16, ptr %.0141144, align 2
+  %3 = load i16, ptr %.0141144, align 2, !tbaa !3
   %4 = getelementptr inbounds nuw i8, ptr %.0141144, i64 14
-  %5 = load i16, ptr %4, align 2
+  %5 = load i16, ptr %4, align 2, !tbaa !3
   %6 = add i16 %5, %3
   %7 = sub i16 %3, %5
   %8 = getelementptr inbounds nuw i8, ptr %.0141144, i64 2
-  %9 = load i16, ptr %8, align 2
+  %9 = load i16, ptr %8, align 2, !tbaa !3
   %10 = getelementptr inbounds nuw i8, ptr %.0141144, i64 12
-  %11 = load i16, ptr %10, align 2
+  %11 = load i16, ptr %10, align 2, !tbaa !3
   %12 = add i16 %11, %9
   %13 = sub i16 %9, %11
   %14 = getelementptr inbounds nuw i8, ptr %.0141144, i64 4
-  %15 = load i16, ptr %14, align 2
+  %15 = load i16, ptr %14, align 2, !tbaa !3
   %16 = getelementptr inbounds nuw i8, ptr %.0141144, i64 10
-  %17 = load i16, ptr %16, align 2
+  %17 = load i16, ptr %16, align 2, !tbaa !3
   %18 = add i16 %17, %15
   %19 = sub i16 %15, %17
   %20 = getelementptr inbounds nuw i8, ptr %.0141144, i64 6
-  %21 = load i16, ptr %20, align 2
+  %21 = load i16, ptr %20, align 2, !tbaa !3
   %22 = getelementptr inbounds nuw i8, ptr %.0141144, i64 8
-  %23 = load i16, ptr %22, align 2
+  %23 = load i16, ptr %22, align 2, !tbaa !3
   %24 = add i16 %23, %21
   %25 = add i16 %24, %6
   %26 = sub i16 %6, %24
   %27 = add i16 %18, %12
   %28 = sub i16 %12, %18
   %29 = add i16 %25, %27
-  store i16 %29, ptr %.0141144, align 2
+  store i16 %29, ptr %.0141144, align 2, !tbaa !3
   %30 = sub i16 %25, %27
-  store i16 %30, ptr %22, align 2
+  store i16 %30, ptr %22, align 2, !tbaa !3
   %31 = sext i16 %28 to i32
   %32 = sext i16 %26 to i32
   %33 = add nsw i32 %32, %31
@@ -47,9 +47,9 @@ define void @jpeg_fdct_ifast(ptr noundef captures(none) %0) local_unnamed_addr #
   %35 = lshr i32 %34, 16
   %36 = trunc nuw i32 %35 to i16
   %37 = add i16 %26, %36
-  store i16 %37, ptr %14, align 2
+  store i16 %37, ptr %14, align 2, !tbaa !3
   %38 = sub i16 %26, %36
-  store i16 %38, ptr %10, align 2
+  store i16 %38, ptr %10, align 2, !tbaa !3
   %39 = add i16 %19, %21
   %40 = sub i16 %39, %23
   %41 = add i16 %19, %13
@@ -72,54 +72,54 @@ define void @jpeg_fdct_ifast(ptr noundef captures(none) %0) local_unnamed_addr #
   %58 = lshr i32 %57, 16
   %59 = trunc nuw i32 %58 to i16
   %60 = add i16 %55, %59
-  store i16 %60, ptr %16, align 2
+  store i16 %60, ptr %16, align 2, !tbaa !3
   %61 = sub i16 %55, %59
-  store i16 %61, ptr %20, align 2
+  store i16 %61, ptr %20, align 2, !tbaa !3
   %62 = add i32 %47, %49
   %63 = lshr i32 %62, 16
   %64 = trunc nuw i32 %63 to i16
   %65 = add i16 %54, %64
-  store i16 %65, ptr %8, align 2
+  store i16 %65, ptr %8, align 2, !tbaa !3
   %66 = sub i16 %54, %64
-  store i16 %66, ptr %4, align 2
+  store i16 %66, ptr %4, align 2, !tbaa !3
   %67 = getelementptr inbounds nuw i8, ptr %.0141144, i64 16
   %68 = add nsw i32 %.0145, -1
   %.not = icmp eq i32 %.0145, 0
-  br i1 %.not, label %.preheader, label %2, !llvm.loop !4
+  br i1 %.not, label %.preheader, label %2, !llvm.loop !7
 
 .preheader:                                       ; preds = %2, %.preheader
   %.1147 = phi i32 [ %134, %.preheader ], [ 7, %2 ]
   %.1142146 = phi ptr [ %133, %.preheader ], [ %0, %2 ]
-  %69 = load i16, ptr %.1142146, align 2
+  %69 = load i16, ptr %.1142146, align 2, !tbaa !3
   %70 = getelementptr inbounds nuw i8, ptr %.1142146, i64 112
-  %71 = load i16, ptr %70, align 2
+  %71 = load i16, ptr %70, align 2, !tbaa !3
   %72 = add i16 %71, %69
   %73 = sub i16 %69, %71
   %74 = getelementptr inbounds nuw i8, ptr %.1142146, i64 16
-  %75 = load i16, ptr %74, align 2
+  %75 = load i16, ptr %74, align 2, !tbaa !3
   %76 = getelementptr inbounds nuw i8, ptr %.1142146, i64 96
-  %77 = load i16, ptr %76, align 2
+  %77 = load i16, ptr %76, align 2, !tbaa !3
   %78 = add i16 %77, %75
   %79 = sub i16 %75, %77
   %80 = getelementptr inbounds nuw i8, ptr %.1142146, i64 32
-  %81 = load i16, ptr %80, align 2
+  %81 = load i16, ptr %80, align 2, !tbaa !3
   %82 = getelementptr inbounds nuw i8, ptr %.1142146, i64 80
-  %83 = load i16, ptr %82, align 2
+  %83 = load i16, ptr %82, align 2, !tbaa !3
   %84 = add i16 %83, %81
   %85 = sub i16 %81, %83
   %86 = getelementptr inbounds nuw i8, ptr %.1142146, i64 48
-  %87 = load i16, ptr %86, align 2
+  %87 = load i16, ptr %86, align 2, !tbaa !3
   %88 = getelementptr inbounds nuw i8, ptr %.1142146, i64 64
-  %89 = load i16, ptr %88, align 2
+  %89 = load i16, ptr %88, align 2, !tbaa !3
   %90 = add i16 %89, %87
   %91 = add i16 %90, %72
   %92 = sub i16 %72, %90
   %93 = add i16 %84, %78
   %94 = sub i16 %78, %84
   %95 = add i16 %91, %93
-  store i16 %95, ptr %.1142146, align 2
+  store i16 %95, ptr %.1142146, align 2, !tbaa !3
   %96 = sub i16 %91, %93
-  store i16 %96, ptr %88, align 2
+  store i16 %96, ptr %88, align 2, !tbaa !3
   %97 = sext i16 %94 to i32
   %98 = sext i16 %92 to i32
   %99 = add nsw i32 %98, %97
@@ -127,9 +127,9 @@ define void @jpeg_fdct_ifast(ptr noundef captures(none) %0) local_unnamed_addr #
   %101 = lshr i32 %100, 16
   %102 = trunc nuw i32 %101 to i16
   %103 = add i16 %92, %102
-  store i16 %103, ptr %80, align 2
+  store i16 %103, ptr %80, align 2, !tbaa !3
   %104 = sub i16 %92, %102
-  store i16 %104, ptr %76, align 2
+  store i16 %104, ptr %76, align 2, !tbaa !3
   %105 = add i16 %85, %87
   %106 = sub i16 %105, %89
   %107 = add i16 %85, %79
@@ -152,33 +152,36 @@ define void @jpeg_fdct_ifast(ptr noundef captures(none) %0) local_unnamed_addr #
   %124 = lshr i32 %123, 16
   %125 = trunc nuw i32 %124 to i16
   %126 = add i16 %121, %125
-  store i16 %126, ptr %82, align 2
+  store i16 %126, ptr %82, align 2, !tbaa !3
   %127 = sub i16 %121, %125
-  store i16 %127, ptr %86, align 2
+  store i16 %127, ptr %86, align 2, !tbaa !3
   %128 = add i32 %113, %115
   %129 = lshr i32 %128, 16
   %130 = trunc nuw i32 %129 to i16
   %131 = add i16 %120, %130
-  store i16 %131, ptr %74, align 2
+  store i16 %131, ptr %74, align 2, !tbaa !3
   %132 = sub i16 %120, %130
-  store i16 %132, ptr %70, align 2
+  store i16 %132, ptr %70, align 2, !tbaa !3
   %133 = getelementptr inbounds nuw i8, ptr %.1142146, i64 2
   %134 = add nsw i32 %.1147, -1
   %.not148 = icmp eq i32 %.1147, 0
-  br i1 %.not148, label %135, label %.preheader, !llvm.loop !6
+  br i1 %.not148, label %135, label %.preheader, !llvm.loop !9
 
 135:                                              ; preds = %.preheader
   ret void
 }
 
-attributes #0 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
+!3 = !{!4, !4, i64 0}
+!4 = !{!"short", !5, i64 0}
+!5 = !{!"omnipotent char", !6, i64 0}
+!6 = !{!"Simple C/C++ TBAA"}
+!7 = distinct !{!7, !8}
+!8 = !{!"llvm.loop.mustprogress"}
+!9 = distinct !{!9, !8}

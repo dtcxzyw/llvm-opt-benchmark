@@ -5,92 +5,92 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define dso_local void @MD5Init(ptr noundef writeonly captures(none) initializes((0, 24)) %0) local_unnamed_addr #0 {
-  store i32 1732584193, ptr %0, align 4
+  store i32 1732584193, ptr %0, align 4, !tbaa !4
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 -271733879, ptr %2, align 4
+  store i32 -271733879, ptr %2, align 4, !tbaa !4
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 -1732584194, ptr %3, align 4
+  store i32 -1732584194, ptr %3, align 4, !tbaa !4
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  store i32 271733878, ptr %4, align 4
+  store i32 271733878, ptr %4, align 4, !tbaa !4
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i32 0, ptr %5, align 4
+  store i32 0, ptr %5, align 4, !tbaa !4
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  store i32 0, ptr %6, align 4
+  store i32 0, ptr %6, align 4, !tbaa !4
   ret void
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define dso_local void @MD5Update(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #1 {
-._crit_edge46:
+._crit_edge52:
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %4 = load i32, ptr %3, align 4
+  %4 = load i32, ptr %3, align 4, !tbaa !4
   %5 = shl i32 %2, 3
   %6 = add i32 %4, %5
-  store i32 %6, ptr %3, align 4
+  store i32 %6, ptr %3, align 4, !tbaa !4
   %7 = icmp ult i32 %6, %4
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  %9 = load i32, ptr %8, align 4
+  %9 = load i32, ptr %8, align 4, !tbaa !4
   %10 = zext i1 %7 to i32
   %11 = add i32 %9, %10
   %12 = lshr i32 %2, 29
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %14 = add i32 %11, %12
-  store i32 %14, ptr %13, align 4
+  store i32 %14, ptr %13, align 4, !tbaa !4
   %15 = lshr i32 %4, 3
   %16 = and i32 %15, 63
   %.not = icmp eq i32 %16, 0
-  br i1 %.not, label %29, label %17
+  br i1 %.not, label %27, label %17
 
-17:                                               ; preds = %._crit_edge46
+17:                                               ; preds = %._crit_edge52
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %19 = zext nneg i32 %16 to i64
   %20 = getelementptr inbounds nuw i8, ptr %18, i64 %19
   %21 = sub nuw nsw i32 64, %16
-  %22 = icmp ult i32 %2, %21
-  br i1 %22, label %23, label %25
+  %.not45 = icmp ult i32 %2, %21
+  br i1 %.not45, label %.thread, label %23
+
+.thread:                                          ; preds = %17
+  %22 = zext nneg i32 %2 to i64
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %20, ptr align 1 %1, i64 %22, i1 false)
+  br label %36
 
 23:                                               ; preds = %17
-  %24 = zext nneg i32 %2 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %20, ptr align 1 %1, i64 %24, i1 false)
-  br label %38
-
-25:                                               ; preds = %17
-  %26 = zext nneg i32 %21 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %20, ptr noundef nonnull align 1 dereferenceable(1) %1, i64 %26, i1 false)
+  %24 = zext nneg i32 %21 to i64
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %20, ptr noundef nonnull align 1 dereferenceable(1) %1, i64 %24, i1 false)
   tail call void @MD5Transform(ptr noundef nonnull %0, ptr noundef nonnull %18)
-  %27 = getelementptr inbounds nuw i8, ptr %1, i64 %26
-  %28 = sub nuw i32 %2, %21
-  br label %29
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 %24
+  %26 = sub nuw i32 %2, %21
+  br label %27
 
-29:                                               ; preds = %25, %._crit_edge46
-  %.036 = phi i32 [ %28, %25 ], [ %2, %._crit_edge46 ]
-  %.0 = phi ptr [ %27, %25 ], [ %1, %._crit_edge46 ]
-  %30 = icmp ugt i32 %.036, 63
-  br i1 %30, label %.lr.ph, label %._crit_edge
+27:                                               ; preds = %23, %._crit_edge52
+  %.038 = phi i32 [ %26, %23 ], [ %2, %._crit_edge52 ]
+  %.037 = phi ptr [ %25, %23 ], [ %1, %._crit_edge52 ]
+  %28 = icmp ugt i32 %.038, 63
+  br i1 %28, label %.lr.ph, label %._crit_edge
 
-.lr.ph:                                           ; preds = %29
-  %31 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  br label %32
+.lr.ph:                                           ; preds = %27
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  br label %30
 
-32:                                               ; preds = %.lr.ph, %32
-  %.143 = phi ptr [ %.0, %.lr.ph ], [ %33, %32 ]
-  %.13742 = phi i32 [ %.036, %.lr.ph ], [ %34, %32 ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %31, ptr noundef nonnull align 1 dereferenceable(64) %.143, i64 64, i1 false)
-  tail call void @MD5Transform(ptr noundef nonnull %0, ptr noundef nonnull %31)
-  %33 = getelementptr inbounds nuw i8, ptr %.143, i64 64
-  %34 = add i32 %.13742, -64
-  %35 = icmp ugt i32 %34, 63
-  br i1 %35, label %32, label %._crit_edge, !llvm.loop !5
+30:                                               ; preds = %.lr.ph, %30
+  %.249 = phi ptr [ %.037, %.lr.ph ], [ %31, %30 ]
+  %.24048 = phi i32 [ %.038, %.lr.ph ], [ %32, %30 ]
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(64) %29, ptr noundef nonnull align 1 dereferenceable(64) %.249, i64 64, i1 false)
+  tail call void @MD5Transform(ptr noundef nonnull %0, ptr noundef nonnull %29)
+  %31 = getelementptr inbounds nuw i8, ptr %.249, i64 64
+  %32 = add i32 %.24048, -64
+  %33 = icmp ugt i32 %32, 63
+  br i1 %33, label %30, label %._crit_edge, !llvm.loop !8
 
-._crit_edge:                                      ; preds = %32, %29
-  %.137.lcssa = phi i32 [ %.036, %29 ], [ %34, %32 ]
-  %.1.lcssa = phi ptr [ %.0, %29 ], [ %33, %32 ]
-  %36 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %37 = zext nneg i32 %.137.lcssa to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %36, ptr align 1 %.1.lcssa, i64 %37, i1 false)
-  br label %38
+._crit_edge:                                      ; preds = %30, %27
+  %.240.lcssa = phi i32 [ %.038, %27 ], [ %32, %30 ]
+  %.2.lcssa = phi ptr [ %.037, %27 ], [ %31, %30 ]
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %35 = zext nneg i32 %.240.lcssa to i64
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %34, ptr align 1 %.2.lcssa, i64 %35, i1 false)
+  br label %36
 
-38:                                               ; preds = %._crit_edge, %23
+36:                                               ; preds = %.thread, %._crit_edge
   ret void
 }
 
@@ -99,17 +99,17 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr no
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define dso_local void @MD5Transform(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #3 {
-  %3 = load i32, ptr %0, align 4
+  %3 = load i32, ptr %0, align 4, !tbaa !4
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %5 = load i32, ptr %4, align 4
+  %5 = load i32, ptr %4, align 4, !tbaa !4
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %7 = load i32, ptr %6, align 4
+  %7 = load i32, ptr %6, align 4, !tbaa !4
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %9 = load i32, ptr %8, align 4
+  %9 = load i32, ptr %8, align 4, !tbaa !4
   %10 = xor i32 %9, %7
   %11 = and i32 %10, %5
   %12 = xor i32 %11, %9
-  %13 = load i32, ptr %1, align 4
+  %13 = load i32, ptr %1, align 4, !tbaa !4
   %14 = add i32 %3, -680876936
   %15 = add i32 %14, %13
   %16 = add i32 %15, %12
@@ -119,7 +119,7 @@ define dso_local void @MD5Transform(ptr noundef captures(none) %0, ptr noundef r
   %20 = and i32 %18, %19
   %21 = xor i32 %20, %7
   %22 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %23 = load i32, ptr %22, align 4
+  %23 = load i32, ptr %22, align 4, !tbaa !4
   %24 = add i32 %9, -389564586
   %25 = add i32 %24, %23
   %26 = add i32 %25, %21
@@ -129,7 +129,7 @@ define dso_local void @MD5Transform(ptr noundef captures(none) %0, ptr noundef r
   %30 = and i32 %28, %29
   %31 = xor i32 %30, %5
   %32 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %33 = load i32, ptr %32, align 4
+  %33 = load i32, ptr %32, align 4, !tbaa !4
   %34 = add i32 %7, 606105819
   %35 = add i32 %34, %33
   %36 = add i32 %35, %31
@@ -139,7 +139,7 @@ define dso_local void @MD5Transform(ptr noundef captures(none) %0, ptr noundef r
   %40 = and i32 %38, %39
   %41 = xor i32 %40, %18
   %42 = getelementptr inbounds nuw i8, ptr %1, i64 12
-  %43 = load i32, ptr %42, align 4
+  %43 = load i32, ptr %42, align 4, !tbaa !4
   %44 = add i32 %5, -1044525330
   %45 = add i32 %44, %43
   %46 = add i32 %45, %41
@@ -149,7 +149,7 @@ define dso_local void @MD5Transform(ptr noundef captures(none) %0, ptr noundef r
   %50 = and i32 %48, %49
   %51 = xor i32 %50, %28
   %52 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %53 = load i32, ptr %52, align 4
+  %53 = load i32, ptr %52, align 4, !tbaa !4
   %54 = add i32 %53, -176418897
   %55 = add i32 %54, %18
   %56 = add i32 %55, %51
@@ -159,7 +159,7 @@ define dso_local void @MD5Transform(ptr noundef captures(none) %0, ptr noundef r
   %60 = and i32 %58, %59
   %61 = xor i32 %60, %38
   %62 = getelementptr inbounds nuw i8, ptr %1, i64 20
-  %63 = load i32, ptr %62, align 4
+  %63 = load i32, ptr %62, align 4, !tbaa !4
   %64 = add i32 %63, 1200080426
   %65 = add i32 %64, %28
   %66 = add i32 %65, %61
@@ -169,7 +169,7 @@ define dso_local void @MD5Transform(ptr noundef captures(none) %0, ptr noundef r
   %70 = and i32 %68, %69
   %71 = xor i32 %70, %48
   %72 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %73 = load i32, ptr %72, align 4
+  %73 = load i32, ptr %72, align 4, !tbaa !4
   %74 = add i32 %73, -1473231341
   %75 = add i32 %74, %38
   %76 = add i32 %75, %71
@@ -179,7 +179,7 @@ define dso_local void @MD5Transform(ptr noundef captures(none) %0, ptr noundef r
   %80 = and i32 %78, %79
   %81 = xor i32 %80, %58
   %82 = getelementptr inbounds nuw i8, ptr %1, i64 28
-  %83 = load i32, ptr %82, align 4
+  %83 = load i32, ptr %82, align 4, !tbaa !4
   %84 = add i32 %83, -45705983
   %85 = add i32 %84, %48
   %86 = add i32 %85, %81
@@ -189,7 +189,7 @@ define dso_local void @MD5Transform(ptr noundef captures(none) %0, ptr noundef r
   %90 = and i32 %88, %89
   %91 = xor i32 %90, %68
   %92 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %93 = load i32, ptr %92, align 4
+  %93 = load i32, ptr %92, align 4, !tbaa !4
   %94 = add i32 %93, 1770035416
   %95 = add i32 %94, %58
   %96 = add i32 %95, %91
@@ -199,7 +199,7 @@ define dso_local void @MD5Transform(ptr noundef captures(none) %0, ptr noundef r
   %100 = and i32 %98, %99
   %101 = xor i32 %100, %78
   %102 = getelementptr inbounds nuw i8, ptr %1, i64 36
-  %103 = load i32, ptr %102, align 4
+  %103 = load i32, ptr %102, align 4, !tbaa !4
   %104 = add i32 %103, -1958414417
   %105 = add i32 %104, %68
   %106 = add i32 %105, %101
@@ -209,7 +209,7 @@ define dso_local void @MD5Transform(ptr noundef captures(none) %0, ptr noundef r
   %110 = and i32 %108, %109
   %111 = xor i32 %110, %88
   %112 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %113 = load i32, ptr %112, align 4
+  %113 = load i32, ptr %112, align 4, !tbaa !4
   %114 = add i32 %113, -42063
   %115 = add i32 %114, %78
   %116 = add i32 %115, %111
@@ -219,7 +219,7 @@ define dso_local void @MD5Transform(ptr noundef captures(none) %0, ptr noundef r
   %120 = and i32 %118, %119
   %121 = xor i32 %120, %98
   %122 = getelementptr inbounds nuw i8, ptr %1, i64 44
-  %123 = load i32, ptr %122, align 4
+  %123 = load i32, ptr %122, align 4, !tbaa !4
   %124 = add i32 %123, -1990404162
   %125 = add i32 %124, %88
   %126 = add i32 %125, %121
@@ -229,7 +229,7 @@ define dso_local void @MD5Transform(ptr noundef captures(none) %0, ptr noundef r
   %130 = and i32 %128, %129
   %131 = xor i32 %130, %108
   %132 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %133 = load i32, ptr %132, align 4
+  %133 = load i32, ptr %132, align 4, !tbaa !4
   %134 = add i32 %133, 1804603682
   %135 = add i32 %134, %98
   %136 = add i32 %135, %131
@@ -239,7 +239,7 @@ define dso_local void @MD5Transform(ptr noundef captures(none) %0, ptr noundef r
   %140 = and i32 %138, %139
   %141 = xor i32 %140, %118
   %142 = getelementptr inbounds nuw i8, ptr %1, i64 52
-  %143 = load i32, ptr %142, align 4
+  %143 = load i32, ptr %142, align 4, !tbaa !4
   %144 = add i32 %143, -40341101
   %145 = add i32 %144, %108
   %146 = add i32 %145, %141
@@ -249,7 +249,7 @@ define dso_local void @MD5Transform(ptr noundef captures(none) %0, ptr noundef r
   %150 = and i32 %148, %149
   %151 = xor i32 %150, %128
   %152 = getelementptr inbounds nuw i8, ptr %1, i64 56
-  %153 = load i32, ptr %152, align 4
+  %153 = load i32, ptr %152, align 4, !tbaa !4
   %154 = add i32 %153, -1502002290
   %155 = add i32 %154, %118
   %156 = add i32 %155, %151
@@ -259,7 +259,7 @@ define dso_local void @MD5Transform(ptr noundef captures(none) %0, ptr noundef r
   %160 = and i32 %158, %159
   %161 = xor i32 %160, %138
   %162 = getelementptr inbounds nuw i8, ptr %1, i64 60
-  %163 = load i32, ptr %162, align 4
+  %163 = load i32, ptr %162, align 4, !tbaa !4
   %164 = add i32 %163, 1236535329
   %165 = add i32 %164, %128
   %166 = add i32 %165, %161
@@ -632,14 +632,14 @@ define dso_local void @MD5Transform(ptr noundef captures(none) %0, ptr noundef r
   %533 = add i32 %532, %530
   %534 = tail call i32 @llvm.fshl.i32(i32 %533, i32 %533, i32 21)
   %535 = add i32 %511, %3
-  store i32 %535, ptr %0, align 4
+  store i32 %535, ptr %0, align 4, !tbaa !4
   %536 = add i32 %527, %5
   %537 = add i32 %536, %534
-  store i32 %537, ptr %4, align 4
+  store i32 %537, ptr %4, align 4, !tbaa !4
   %538 = add i32 %527, %7
-  store i32 %538, ptr %6, align 4
+  store i32 %538, ptr %6, align 4, !tbaa !4
   %539 = add i32 %519, %9
-  store i32 %539, ptr %8, align 4
+  store i32 %539, ptr %8, align 4, !tbaa !4
   ret void
 }
 
@@ -647,13 +647,13 @@ define dso_local void @MD5Transform(ptr noundef captures(none) %0, ptr noundef r
 define dso_local void @MD5Final(ptr noundef writeonly captures(none) initializes((0, 16)) %0, ptr noundef captures(none) %1) local_unnamed_addr #3 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %5 = load i32, ptr %4, align 4
+  %5 = load i32, ptr %4, align 4, !tbaa !4
   %6 = lshr i32 %5, 3
   %7 = and i32 %6, 63
   %8 = zext nneg i32 %7 to i64
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 %8
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 1
-  store i8 -128, ptr %9, align 1
+  store i8 -128, ptr %9, align 1, !tbaa !10
   %11 = xor i32 %7, 63
   %12 = icmp samesign ult i32 %11, 8
   br i1 %12, label %13, label %15
@@ -663,7 +663,7 @@ define dso_local void @MD5Final(ptr noundef writeonly captures(none) initializes
   tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %10, i8 0, i64 %14, i1 false)
   tail call void @MD5Transform(ptr noundef nonnull %1, ptr noundef nonnull %3)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(56) %3, i8 0, i64 56, i1 false)
-  %.pre = load i32, ptr %4, align 4
+  %.pre = load i32, ptr %4, align 4, !tbaa !4
   br label %18
 
 15:                                               ; preds = %2
@@ -675,11 +675,11 @@ define dso_local void @MD5Final(ptr noundef writeonly captures(none) initializes
 18:                                               ; preds = %15, %13
   %19 = phi i32 [ %5, %15 ], [ %.pre, %13 ]
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 80
-  store i32 %19, ptr %20, align 4
+  store i32 %19, ptr %20, align 4, !tbaa !4
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 20
-  %22 = load i32, ptr %21, align 4
+  %22 = load i32, ptr %21, align 4, !tbaa !4
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 84
-  store i32 %22, ptr %23, align 4
+  store i32 %22, ptr %23, align 4, !tbaa !4
   tail call void @MD5Transform(ptr noundef nonnull %1, ptr noundef nonnull %3)
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %0, ptr noundef nonnull align 4 dereferenceable(16) %1, i64 16, i1 false)
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(88) %1, i8 0, i64 88, i1 false)
@@ -692,19 +692,23 @@ declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immar
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.fshl.i32(i32, i32, i32) #5
 
-attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #5 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 
-!llvm.module.flags = !{!0, !1, !2, !3, !4}
+!llvm.module.flags = !{!0, !1, !2, !3}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
-!4 = !{i32 7, !"frame-pointer", i32 2}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
+!4 = !{!5, !5, i64 0}
+!5 = !{!"int", !6, i64 0}
+!6 = !{!"omnipotent char", !7, i64 0}
+!7 = !{!"Simple C/C++ TBAA"}
+!8 = distinct !{!8, !9}
+!9 = !{!"llvm.loop.mustprogress"}
+!10 = !{!6, !6, i64 0}
