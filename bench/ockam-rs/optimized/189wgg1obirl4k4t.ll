@@ -1879,25 +1879,27 @@ define hidden void @"_ZN9hashbrown3map24HashMap$LT$K$C$V$C$S$GT$24with_capacity_
   %4 = alloca { ptr, [3 x i64] }, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4), !noalias !330
   call void @"_ZN9hashbrown3raw22RawTableInner$LT$A$GT$22fallible_with_capacity17h8ffebdbcfcf4bf4bE.llvm.9199192478571720831"(ptr noalias noundef nonnull sret({ ptr, [3 x i64] }) align 8 captures(none) dereferenceable(32) %4, i64 noundef 48, i64 noundef 16, i64 noundef %1, i1 noundef zeroext true), !noalias !330
-  %5 = load ptr, ptr %4, align 8, !noalias !330, !nonnull !5, !noundef !5
-  %6 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %7 = load i64, ptr %6, align 8, !noalias !330
-  %8 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %9 = load i64, ptr %8, align 8, !noalias !330
+  %5 = load ptr, ptr %4, align 8, !noalias !330, !noundef !5
+  %6 = icmp eq ptr %5, null
+  %7 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %8 = load i64, ptr %7, align 8, !noalias !330
+  %9 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %10 = load i64, ptr %9, align 8, !noalias !330
   %.sroa.6.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %4, i64 24
   %.sroa.6.0.copyload.i = load i64, ptr %.sroa.6.0..sroa_idx.i, align 8
+  %.sroa.6.0 = select i1 %6, i64 undef, i64 %.sroa.6.0.copyload.i
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4), !noalias !330
-  %10 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store i64 %2, ptr %10, align 8
-  %11 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store i64 %3, ptr %11, align 8
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  store i64 %2, ptr %11, align 8
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  store i64 %3, ptr %12, align 8
   store ptr %5, ptr %0, align 8
   %.sroa.0.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %7, ptr %.sroa.0.sroa.4.0..sroa_idx, align 8
+  store i64 %8, ptr %.sroa.0.sroa.4.0..sroa_idx, align 8
   %.sroa.0.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %9, ptr %.sroa.0.sroa.5.0..sroa_idx, align 8
+  store i64 %10, ptr %.sroa.0.sroa.5.0..sroa_idx, align 8
   %.sroa.0.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i64 %.sroa.6.0.copyload.i, ptr %.sroa.0.sroa.6.0..sroa_idx, align 8
+  store i64 %.sroa.6.0, ptr %.sroa.0.sroa.6.0..sroa_idx, align 8
   ret void
 }
 

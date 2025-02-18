@@ -8395,6 +8395,8 @@ define dso_local noundef zeroext i1 @_ZNK4llvm14CombinerHelper29matchOptBrCondBy
   %.0.copyload.i.i.i.i.i.i.i.i.i.i.i.i.i.i = load i64, ptr %1, align 8
   %9 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i.i.i.i.i, -8
   %10 = inttoptr i64 %9 to ptr
+  %.not.i.i.i.i.i.i.i = icmp ne i64 %9, 0
+  tail call void @llvm.assume(i1 %.not.i.i.i.i.i.i.i)
   %.0.copyload.i.i.i.i.i.i.i.i.i8.i.i.i = load i64, ptr %10, align 8
   %11 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i8.i.i.i, 4
   %.not.i.i.i9.i.i.i = icmp eq i64 %11, 0

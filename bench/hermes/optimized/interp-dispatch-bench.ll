@@ -1282,7 +1282,7 @@ _ZNSt10unique_ptrIN6hermes3hbc14BytecodeModuleESt14default_deleteIS2_EED2Ev.exit
   %58 = load ptr, ptr %stackPointer_.i.i.i.i, align 8
   %nativeCallFrameDepth_.i.i.i = getelementptr inbounds nuw i8, ptr %18, i64 9504
   %59 = load i32, ptr %nativeCallFrameDepth_.i.i.i, align 8
-  %inc.i.i.i = add nsw i32 %59, 1
+  %inc.i.i.i = add i32 %59, 1
   store i32 %inc.i.i.i, ptr %nativeCallFrameDepth_.i.i.i, align 8
   %registerStackEnd_.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %18, i64 9464
   %60 = load ptr, ptr %registerStackEnd_.i.i.i.i.i.i, align 8
@@ -1291,7 +1291,9 @@ _ZNSt10unique_ptrIN6hermes3hbc14BytecodeModuleESt14default_deleteIS2_EED2Ev.exit
   %sub.ptr.sub.i.i.i.i.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i.i.i.i, %sub.ptr.rhs.cast.i.i.i.i.i.i
   %61 = and i64 %sub.ptr.sub.i.i.i.i.i.i, 34359738360
   %cmp.i.i.i.i116.i = icmp samesign ugt i64 %61, 327
+  %cmp.i2.i.i.i.i = icmp ult i32 %inc.i.i.i, 385
   call void @llvm.assume(i1 %cmp.i.i.i.i116.i)
+  call void @llvm.assume(i1 %cmp.i2.i.i.i.i)
   %add.ptr.i.i.i.i = getelementptr inbounds nuw i8, ptr %58, i64 72
   store ptr %add.ptr.i.i.i.i, ptr %stackPointer_.i.i.i.i, align 8
   %currentFrame_.i.i.i = getelementptr inbounds nuw i8, ptr %18, i64 9496

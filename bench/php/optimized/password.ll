@@ -1538,7 +1538,7 @@ zend_parse_arg_str_or_long.exit.thread:           ; preds = %21, %25, %23, %zend
   %.06894 = phi ptr [ %18, %zend_parse_arg_str_or_long.exit ], [ %11, %zend_parse_arg_str_ex.exit ], [ null, %9 ], [ %29, %28 ]
   %.06993 = phi i32 [ 29, %zend_parse_arg_str_or_long.exit ], [ 4, %zend_parse_arg_str_ex.exit ], [ 0, %9 ], [ 6, %28 ]
   call void @zend_wrong_parameter_error(i32 noundef %.06795, i32 noundef %.096, ptr noundef null, i32 noundef %.06993, ptr noundef %.06894) #12
-  br label %53
+  br label %48
 
 .critedge:                                        ; preds = %zend_parse_arg_str_or_long.exit.thread, %.thread107
   %.079106 = phi ptr [ %33, %.thread107 ], [ null, %zend_parse_arg_str_or_long.exit.thread ]
@@ -1546,46 +1546,36 @@ zend_parse_arg_str_or_long.exit.thread:           ; preds = %21, %25, %23, %zend
   %35 = load i64, ptr %5, align 8, !tbaa !17
   %36 = call fastcc ptr @php_password_algo_find_zval(ptr noundef %34, i64 noundef %35, i1 noundef zeroext %.18185)
   %.not73 = icmp eq ptr %36, null
-  br i1 %.not73, label %37, label %40
+  br i1 %.not73, label %37, label %38
 
 37:                                               ; preds = %.critedge
   call void (i32, ptr, ...) @zend_argument_value_error(i32 noundef 2, ptr noundef nonnull @.str.6) #12
-  %38 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 960), align 8, !tbaa !31
-  %39 = icmp ne ptr %38, null
-  call void @llvm.assume(i1 %39)
-  br label %53
+  br label %48
 
-40:                                               ; preds = %.critedge
-  %41 = getelementptr inbounds nuw i8, ptr %36, i64 8
-  %42 = load ptr, ptr %41, align 8, !tbaa !61
-  %43 = load ptr, ptr %3, align 8, !tbaa !22
-  %44 = call ptr %42(ptr noundef %43, ptr noundef %.079106) #12
-  %.not74 = icmp eq ptr %44, null
-  br i1 %.not74, label %45, label %51
+38:                                               ; preds = %.critedge
+  %39 = getelementptr inbounds nuw i8, ptr %36, i64 8
+  %40 = load ptr, ptr %39, align 8, !tbaa !31
+  %41 = load ptr, ptr %3, align 8, !tbaa !22
+  %42 = call ptr %40(ptr noundef %41, ptr noundef %.079106) #12
+  %.not74 = icmp eq ptr %42, null
+  br i1 %.not74, label %43, label %46
 
-45:                                               ; preds = %40
-  %46 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 960), align 8, !tbaa !31
-  %.not75 = icmp eq ptr %46, null
-  br i1 %.not75, label %47, label %49
+43:                                               ; preds = %38
+  %44 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 960), align 8, !tbaa !32
+  %.not75 = icmp eq ptr %44, null
+  br i1 %.not75, label %45, label %48
 
-47:                                               ; preds = %45
+45:                                               ; preds = %43
   call void (ptr, ptr, ...) @zend_throw_error(ptr noundef null, ptr noundef nonnull @.str.7) #12
-  %.pre = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 960), align 8, !tbaa !31
-  %48 = icmp ne ptr %.pre, null
-  br label %49
+  br label %48
 
-49:                                               ; preds = %45, %47
-  %50 = phi i1 [ true, %45 ], [ %48, %47 ]
-  call void @llvm.assume(i1 %50)
-  br label %53
+46:                                               ; preds = %38
+  store ptr %42, ptr %1, align 8, !tbaa !8
+  %47 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  store i32 262, ptr %47, align 8, !tbaa !8
+  br label %48
 
-51:                                               ; preds = %40
-  store ptr %44, ptr %1, align 8, !tbaa !8
-  %52 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store i32 262, ptr %52, align 8, !tbaa !8
-  br label %53
-
-53:                                               ; preds = %.thread, %51, %49, %37
+48:                                               ; preds = %.thread, %45, %43, %46, %37
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #12
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #12
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #12
@@ -1773,37 +1763,37 @@ attributes #13 = { nounwind allocsize(0) }
 !28 = !{!"branch_weights", !"expected", i32 1, i32 2000}
 !29 = !{!19, !5, i64 24}
 !30 = !{!19, !5, i64 16}
-!31 = !{!32, !49, i64 960}
-!32 = !{!"_zend_executor_globals", !33, i64 0, !33, i64 16, !6, i64 32, !34, i64 288, !34, i64 296, !35, i64 304, !35, i64 360, !36, i64 416, !12, i64 424, !37, i64 428, !33, i64 432, !12, i64 448, !38, i64 456, !38, i64 464, !38, i64 472, !39, i64 480, !39, i64 488, !40, i64 496, !13, i64 504, !41, i64 512, !42, i64 520, !12, i64 528, !41, i64 536, !12, i64 544, !13, i64 552, !12, i64 560, !12, i64 564, !12, i64 568, !37, i64 572, !37, i64 573, !43, i64 574, !43, i64 575, !38, i64 576, !13, i64 584, !5, i64 592, !5, i64 600, !35, i64 608, !35, i64 664, !12, i64 720, !37, i64 724, !33, i64 728, !33, i64 744, !44, i64 760, !44, i64 784, !44, i64 808, !42, i64 832, !12, i64 840, !12, i64 844, !13, i64 848, !38, i64 856, !38, i64 864, !45, i64 872, !46, i64 880, !48, i64 904, !49, i64 960, !49, i64 968, !50, i64 976, !6, i64 984, !51, i64 1080, !37, i64 1088, !6, i64 1089, !13, i64 1096, !12, i64 1104, !12, i64 1108, !52, i64 1112, !6, i64 1120, !5, i64 1376, !6, i64 1384, !53, i64 1640, !35, i64 1672, !13, i64 1728, !54, i64 1736, !55, i64 1760, !55, i64 1768, !56, i64 1776, !13, i64 1784, !37, i64 1792, !12, i64 1796, !57, i64 1800, !23, i64 1808, !13, i64 1816, !58, i64 1824, !13, i64 1840, !13, i64 1848, !59, i64 1856, !6, i64 1936}
-!33 = !{!"_zval_struct", !6, i64 0, !6, i64 8, !6, i64 12}
-!34 = !{!"p2 _ZTS11_zend_array", !5, i64 0}
-!35 = !{!"_zend_array", !11, i64 0, !6, i64 8, !12, i64 12, !6, i64 16, !12, i64 24, !12, i64 28, !12, i64 32, !12, i64 36, !13, i64 40, !5, i64 48}
-!36 = !{!"p1 _ZTS13__jmp_buf_tag", !5, i64 0}
-!37 = !{!"_Bool", !6, i64 0}
-!38 = !{!"p1 _ZTS11_zend_array", !5, i64 0}
-!39 = !{!"p1 _ZTS12_zval_struct", !5, i64 0}
-!40 = !{!"p1 _ZTS14_zend_vm_stack", !5, i64 0}
-!41 = !{!"p1 _ZTS18_zend_execute_data", !5, i64 0}
-!42 = !{!"p1 _ZTS17_zend_class_entry", !5, i64 0}
-!43 = !{!"zend_atomic_bool_s", !6, i64 0}
-!44 = !{!"_zend_stack", !12, i64 0, !12, i64 4, !12, i64 8, !5, i64 16}
-!45 = !{!"p1 _ZTS15_zend_ini_entry", !5, i64 0}
-!46 = !{!"_zend_objects_store", !47, i64 0, !12, i64 8, !12, i64 12, !12, i64 16}
-!47 = !{!"p2 _ZTS12_zend_object", !5, i64 0}
-!48 = !{!"_zend_lazy_objects_store", !35, i64 0}
-!49 = !{!"p1 _ZTS12_zend_object", !5, i64 0}
-!50 = !{!"p1 _ZTS8_zend_op", !5, i64 0}
-!51 = !{!"p1 _ZTS18_zend_module_entry", !5, i64 0}
-!52 = !{!"p1 _ZTS18_HashTableIterator", !5, i64 0}
-!53 = !{!"_zend_op", !5, i64 0, !6, i64 8, !6, i64 12, !6, i64 16, !12, i64 20, !12, i64 24, !6, i64 28, !6, i64 29, !6, i64 30, !6, i64 31}
-!54 = !{!"", !39, i64 0, !39, i64 8, !39, i64 16}
-!55 = !{!"p1 _ZTS19_zend_fiber_context", !5, i64 0}
-!56 = !{!"p1 _ZTS11_zend_fiber", !5, i64 0}
-!57 = !{!"p2 _ZTS16_zend_error_info", !5, i64 0}
-!58 = !{!"_zend_call_stack", !5, i64 0, !13, i64 8}
-!59 = !{!"_zend_strtod_state", !6, i64 0, !60, i64 64, !20, i64 72}
-!60 = !{!"p1 _ZTS19_zend_strtod_bigint", !5, i64 0}
-!61 = !{!19, !5, i64 8}
-!62 = !{!35, !12, i64 24}
+!31 = !{!19, !5, i64 8}
+!32 = !{!33, !50, i64 960}
+!33 = !{!"_zend_executor_globals", !34, i64 0, !34, i64 16, !6, i64 32, !35, i64 288, !35, i64 296, !36, i64 304, !36, i64 360, !37, i64 416, !12, i64 424, !38, i64 428, !34, i64 432, !12, i64 448, !39, i64 456, !39, i64 464, !39, i64 472, !40, i64 480, !40, i64 488, !41, i64 496, !13, i64 504, !42, i64 512, !43, i64 520, !12, i64 528, !42, i64 536, !12, i64 544, !13, i64 552, !12, i64 560, !12, i64 564, !12, i64 568, !38, i64 572, !38, i64 573, !44, i64 574, !44, i64 575, !39, i64 576, !13, i64 584, !5, i64 592, !5, i64 600, !36, i64 608, !36, i64 664, !12, i64 720, !38, i64 724, !34, i64 728, !34, i64 744, !45, i64 760, !45, i64 784, !45, i64 808, !43, i64 832, !12, i64 840, !12, i64 844, !13, i64 848, !39, i64 856, !39, i64 864, !46, i64 872, !47, i64 880, !49, i64 904, !50, i64 960, !50, i64 968, !51, i64 976, !6, i64 984, !52, i64 1080, !38, i64 1088, !6, i64 1089, !13, i64 1096, !12, i64 1104, !12, i64 1108, !53, i64 1112, !6, i64 1120, !5, i64 1376, !6, i64 1384, !54, i64 1640, !36, i64 1672, !13, i64 1728, !55, i64 1736, !56, i64 1760, !56, i64 1768, !57, i64 1776, !13, i64 1784, !38, i64 1792, !12, i64 1796, !58, i64 1800, !23, i64 1808, !13, i64 1816, !59, i64 1824, !13, i64 1840, !13, i64 1848, !60, i64 1856, !6, i64 1936}
+!34 = !{!"_zval_struct", !6, i64 0, !6, i64 8, !6, i64 12}
+!35 = !{!"p2 _ZTS11_zend_array", !5, i64 0}
+!36 = !{!"_zend_array", !11, i64 0, !6, i64 8, !12, i64 12, !6, i64 16, !12, i64 24, !12, i64 28, !12, i64 32, !12, i64 36, !13, i64 40, !5, i64 48}
+!37 = !{!"p1 _ZTS13__jmp_buf_tag", !5, i64 0}
+!38 = !{!"_Bool", !6, i64 0}
+!39 = !{!"p1 _ZTS11_zend_array", !5, i64 0}
+!40 = !{!"p1 _ZTS12_zval_struct", !5, i64 0}
+!41 = !{!"p1 _ZTS14_zend_vm_stack", !5, i64 0}
+!42 = !{!"p1 _ZTS18_zend_execute_data", !5, i64 0}
+!43 = !{!"p1 _ZTS17_zend_class_entry", !5, i64 0}
+!44 = !{!"zend_atomic_bool_s", !6, i64 0}
+!45 = !{!"_zend_stack", !12, i64 0, !12, i64 4, !12, i64 8, !5, i64 16}
+!46 = !{!"p1 _ZTS15_zend_ini_entry", !5, i64 0}
+!47 = !{!"_zend_objects_store", !48, i64 0, !12, i64 8, !12, i64 12, !12, i64 16}
+!48 = !{!"p2 _ZTS12_zend_object", !5, i64 0}
+!49 = !{!"_zend_lazy_objects_store", !36, i64 0}
+!50 = !{!"p1 _ZTS12_zend_object", !5, i64 0}
+!51 = !{!"p1 _ZTS8_zend_op", !5, i64 0}
+!52 = !{!"p1 _ZTS18_zend_module_entry", !5, i64 0}
+!53 = !{!"p1 _ZTS18_HashTableIterator", !5, i64 0}
+!54 = !{!"_zend_op", !5, i64 0, !6, i64 8, !6, i64 12, !6, i64 16, !12, i64 20, !12, i64 24, !6, i64 28, !6, i64 29, !6, i64 30, !6, i64 31}
+!55 = !{!"", !40, i64 0, !40, i64 8, !40, i64 16}
+!56 = !{!"p1 _ZTS19_zend_fiber_context", !5, i64 0}
+!57 = !{!"p1 _ZTS11_zend_fiber", !5, i64 0}
+!58 = !{!"p2 _ZTS16_zend_error_info", !5, i64 0}
+!59 = !{!"_zend_call_stack", !5, i64 0, !13, i64 8}
+!60 = !{!"_zend_strtod_state", !6, i64 0, !61, i64 64, !20, i64 72}
+!61 = !{!"p1 _ZTS19_zend_strtod_bigint", !5, i64 0}
+!62 = !{!36, !12, i64 24}
 !63 = !{!64, !23, i64 24}
-!64 = !{!"_Bucket", !33, i64 0, !13, i64 16, !23, i64 24}
+!64 = !{!"_Bucket", !34, i64 0, !13, i64 16, !23, i64 24}

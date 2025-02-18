@@ -26678,9 +26678,6 @@ default.unreachable:                              ; preds = %6
 
 "_ZN3std3sys12thread_local4lazy21LazyKeyInner$LT$T$GT$10initialize17h8d7fda8bee7aa450E.exit.i.i": ; preds = %33, %30, %"_ZN16futures_executor10local_pool21CURRENT_THREAD_NOTIFY7__getit28_$u7b$$u7b$closure$u7d$$u7d$17h7fff9ed98c5608f8E.exit.i.i.i"
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3), !noalias !4862
-  %34 = load ptr, ptr @_ZN16futures_executor10local_pool21CURRENT_THREAD_NOTIFY7__getit5__KEY17hc04f050f4facf522E, align 8, !noalias !4862, !noundef !4
-  %35 = icmp ne ptr %34, null
-  call void @llvm.assume(i1 %35)
   br label %"_ZN3std3sys12thread_local10fast_local12Key$LT$T$GT$3get17h356f2ee8749fdd9aE.exit"
 
 "_ZN3std3sys12thread_local10fast_local12Key$LT$T$GT$3get17h356f2ee8749fdd9aE.exit": ; preds = %1, %6, %"_ZN3std3sys12thread_local4lazy21LazyKeyInner$LT$T$GT$10initialize17h8d7fda8bee7aa450E.exit.i.i"

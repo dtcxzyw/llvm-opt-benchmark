@@ -82646,11 +82646,11 @@ _ZL21XXH3_scrambleAcc_sse2PvPKv.exit.i:           ; preds = %_ZL20XXH3_accumulat
 
 .lr.ph8:                                          ; preds = %.lr.ph8.preheader, %_ZL24XXH3_accumulate_512_sse2PvPKvS1_.exit7
   %.0.i.i6 = phi i64 [ %188, %_ZL24XXH3_accumulate_512_sse2PvPKvS1_.exit7 ], [ 0, %.lr.ph8.preheader ]
-  %165 = shl nuw nsw i64 %.0.i.i6, 6
+  %165 = shl i64 %.0.i.i6, 6
   %166 = getelementptr inbounds nuw i8, ptr %163, i64 %165
   %167 = getelementptr inbounds nuw i8, ptr %166, i64 320
   tail call void @llvm.prefetch.p0(ptr nonnull %167, i32 0, i32 3, i32 1)
-  %168 = shl nuw nsw i64 %.0.i.i6, 3
+  %168 = shl i64 %.0.i.i6, 3
   %169 = getelementptr inbounds nuw i8, ptr @_ZZN5arrow8internal17ComputeStringHashILm0EEEmPKvlE12kXxh3Secrets, i64 %168
   br label %170
 

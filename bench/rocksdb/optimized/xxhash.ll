@@ -2771,17 +2771,18 @@ if.then45:                                        ; preds = %if.end39
   %add.ptr63 = getelementptr inbounds i8, ptr %cond, i64 %mul62
   %cmp5.not.i = icmp eq i64 %36, %37
   %.pre6 = load <8 x i64>, ptr %state, align 64
-  br i1 %cmp5.not.i, label %if.then45._ZL22XXH3_accumulate_avx512PmPKhS1_m.exit_crit_edge, label %for.body.i
-
-if.then45._ZL22XXH3_accumulate_avx512PmPKhS1_m.exit_crit_edge: ; preds = %if.then45
   %.pre11 = ptrtoint ptr %state to i64
   %.pre12 = and i64 %.pre11, 63
   %38 = icmp eq i64 %.pre12, 0
-  br label %_ZL22XXH3_accumulate_avx512PmPKhS1_m.exit
+  br i1 %cmp5.not.i, label %_ZL22XXH3_accumulate_avx512PmPKhS1_m.exit, label %for.body.lr.ph.i
 
-for.body.i:                                       ; preds = %if.then45, %for.body.i
-  %add.i.i7.i = phi <8 x i64> [ %add.i.i.i115, %for.body.i ], [ %.pre6, %if.then45 ]
-  %n.06.i = phi i64 [ %inc.i, %for.body.i ], [ 0, %if.then45 ]
+for.body.lr.ph.i:                                 ; preds = %if.then45
+  tail call void @llvm.assume(i1 %38)
+  br label %for.body.i
+
+for.body.i:                                       ; preds = %for.body.i, %for.body.lr.ph.i
+  %add.i.i7.i = phi <8 x i64> [ %.pre6, %for.body.lr.ph.i ], [ %add.i.i.i115, %for.body.i ]
+  %n.06.i = phi i64 [ 0, %for.body.lr.ph.i ], [ %inc.i, %for.body.i ]
   %mul.i = shl i64 %n.06.i, 6
   %add.ptr.i = getelementptr inbounds i8, ptr %input.addr.0, i64 %mul.i
   %add.ptr1.i = getelementptr inbounds nuw i8, ptr %add.ptr.i, i64 320
@@ -2802,9 +2803,9 @@ for.body.i:                                       ; preds = %if.then45, %for.bod
   %exitcond.not.i = icmp eq i64 %inc.i, %sub57
   br i1 %exitcond.not.i, label %_ZL22XXH3_accumulate_avx512PmPKhS1_m.exit, label %for.body.i, !llvm.loop !18
 
-_ZL22XXH3_accumulate_avx512PmPKhS1_m.exit:        ; preds = %for.body.i, %if.then45._ZL22XXH3_accumulate_avx512PmPKhS1_m.exit_crit_edge
-  %and.i.pre-phi = phi i1 [ %38, %if.then45._ZL22XXH3_accumulate_avx512PmPKhS1_m.exit_crit_edge ], [ true, %for.body.i ]
-  %45 = phi <8 x i64> [ %.pre6, %if.then45._ZL22XXH3_accumulate_avx512PmPKhS1_m.exit_crit_edge ], [ %add.i.i.i115, %for.body.i ]
+_ZL22XXH3_accumulate_avx512PmPKhS1_m.exit:        ; preds = %for.body.i, %if.then45
+  %and.i.pre-phi = phi i1 [ %38, %if.then45 ], [ true, %for.body.i ]
+  %45 = phi <8 x i64> [ %.pre6, %if.then45 ], [ %add.i.i.i115, %for.body.i ]
   %secretLimit64 = getelementptr inbounds nuw i8, ptr %state, i64 544
   %46 = load i64, ptr %secretLimit64, align 32
   %add.ptr65 = getelementptr inbounds i8, ptr %cond, i64 %46
@@ -3190,6 +3191,10 @@ if.then:                                          ; preds = %entry
   br i1 %cmp4.not.i, label %if.else.i, label %for.body.lr.ph.i.i
 
 for.body.lr.ph.i.i:                               ; preds = %if.then
+  %4 = ptrtoint ptr %acc to i64
+  %and.i.i.i = and i64 %4, 63
+  %cmp.i.i.i = icmp eq i64 %and.i.i.i, 0
+  tail call void @llvm.assume(i1 %cmp.i.i.i)
   %acc.promoted.i.i = load <8 x i64>, ptr %acc, align 64
   br label %for.body.i.i
 
@@ -3202,15 +3207,15 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %for.
   tail call void @llvm.prefetch.p0(ptr nonnull readonly %add.ptr1.i.i, i32 0, i32 3, i32 1)
   %mul2.i.i = shl i64 %n.06.i.i, 3
   %add.ptr3.i.i = getelementptr inbounds i8, ptr %add.ptr13.i, i64 %mul2.i.i
-  %4 = load <8 x i64>, ptr %add.ptr.i.i, align 1
-  %5 = load <8 x i64>, ptr %add.ptr3.i.i, align 1
-  %xor.i.i.i.i = xor <8 x i64> %5, %4
-  %6 = lshr <8 x i64> %xor.i.i.i.i, splat (i64 32)
-  %7 = and <8 x i64> %xor.i.i.i.i, splat (i64 4294967295)
-  %8 = mul nuw <8 x i64> %7, %6
-  %9 = shufflevector <8 x i64> %4, <8 x i64> poison, <8 x i32> <i32 1, i32 0, i32 3, i32 2, i32 5, i32 4, i32 7, i32 6>
-  %add.i12.i.i.i = add <8 x i64> %add.i.i7.i.i, %9
-  %add.i.i.i.i = add <8 x i64> %add.i12.i.i.i, %8
+  %5 = load <8 x i64>, ptr %add.ptr.i.i, align 1
+  %6 = load <8 x i64>, ptr %add.ptr3.i.i, align 1
+  %xor.i.i.i.i = xor <8 x i64> %6, %5
+  %7 = lshr <8 x i64> %xor.i.i.i.i, splat (i64 32)
+  %8 = and <8 x i64> %xor.i.i.i.i, splat (i64 4294967295)
+  %9 = mul nuw <8 x i64> %8, %7
+  %10 = shufflevector <8 x i64> %5, <8 x i64> poison, <8 x i32> <i32 1, i32 0, i32 3, i32 2, i32 5, i32 4, i32 7, i32 6>
+  %add.i12.i.i.i = add <8 x i64> %add.i.i7.i.i, %10
+  %add.i.i.i.i = add <8 x i64> %add.i12.i.i.i, %9
   store <8 x i64> %add.i.i.i.i, ptr %acc, align 64
   %inc.i.i = add nuw i64 %n.06.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %inc.i.i, %sub.i
@@ -3219,17 +3224,17 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %for.
 _ZL22XXH3_accumulate_avx512PmPKhS1_m.exit.i:      ; preds = %for.body.i.i
   %sub7.i = sub nuw nsw i64 %conv, %sub.i
   %add.ptr8.i = getelementptr inbounds i8, ptr %secret, i64 %3
-  %10 = lshr <8 x i64> %add.i.i.i.i, splat (i64 47)
-  %11 = load <16 x i32>, ptr %add.ptr8.i, align 1
-  %12 = bitcast <8 x i64> %add.i.i.i.i to <16 x i32>
-  %13 = bitcast <8 x i64> %10 to <16 x i32>
-  %14 = tail call <16 x i32> @llvm.x86.avx512.pternlog.d.512(<16 x i32> %11, <16 x i32> %12, <16 x i32> %13, i32 150)
-  %15 = bitcast <16 x i32> %14 to <8 x i64>
-  %16 = lshr <8 x i64> %15, splat (i64 32)
-  %17 = and <8 x i64> %15, splat (i64 4294967295)
-  %18 = mul nuw <8 x i64> %17, splat (i64 2654435761)
-  %19 = mul <8 x i64> %16, splat (i64 -7046029290881679360)
-  %add.i.i.i = add <8 x i64> %18, %19
+  %11 = lshr <8 x i64> %add.i.i.i.i, splat (i64 47)
+  %12 = load <16 x i32>, ptr %add.ptr8.i, align 1
+  %13 = bitcast <8 x i64> %add.i.i.i.i to <16 x i32>
+  %14 = bitcast <8 x i64> %11 to <16 x i32>
+  %15 = tail call <16 x i32> @llvm.x86.avx512.pternlog.d.512(<16 x i32> %12, <16 x i32> %13, <16 x i32> %14, i32 150)
+  %16 = bitcast <16 x i32> %15 to <8 x i64>
+  %17 = lshr <8 x i64> %16, splat (i64 32)
+  %18 = and <8 x i64> %16, splat (i64 4294967295)
+  %19 = mul nuw <8 x i64> %18, splat (i64 2654435761)
+  %20 = mul <8 x i64> %17, splat (i64 -7046029290881679360)
+  %add.i.i.i = add <8 x i64> %19, %20
   store <8 x i64> %add.i.i.i, ptr %acc, align 64
   %mul9.i = shl nuw nsw i64 %sub.i, 6
   %add.ptr10.i = getelementptr inbounds nuw i8, ptr %buffer, i64 %mul9.i
@@ -3245,15 +3250,15 @@ for.body.i32.i:                                   ; preds = %_ZL22XXH3_accumulat
   tail call void @llvm.prefetch.p0(ptr nonnull readonly %add.ptr1.i37.i, i32 0, i32 3, i32 1)
   %mul2.i38.i = shl i64 %n.06.i34.i, 3
   %add.ptr3.i39.i = getelementptr inbounds i8, ptr %secret, i64 %mul2.i38.i
-  %20 = load <8 x i64>, ptr %add.ptr.i36.i, align 1
-  %21 = load <8 x i64>, ptr %add.ptr3.i39.i, align 1
-  %xor.i.i.i40.i = xor <8 x i64> %21, %20
-  %22 = lshr <8 x i64> %xor.i.i.i40.i, splat (i64 32)
-  %23 = and <8 x i64> %xor.i.i.i40.i, splat (i64 4294967295)
-  %24 = mul nuw <8 x i64> %23, %22
-  %25 = shufflevector <8 x i64> %20, <8 x i64> poison, <8 x i32> <i32 1, i32 0, i32 3, i32 2, i32 5, i32 4, i32 7, i32 6>
-  %add.i12.i.i42.i = add <8 x i64> %add.i.i7.i33.i, %25
-  %add.i.i.i43.i = add <8 x i64> %add.i12.i.i42.i, %24
+  %21 = load <8 x i64>, ptr %add.ptr.i36.i, align 1
+  %22 = load <8 x i64>, ptr %add.ptr3.i39.i, align 1
+  %xor.i.i.i40.i = xor <8 x i64> %22, %21
+  %23 = lshr <8 x i64> %xor.i.i.i40.i, splat (i64 32)
+  %24 = and <8 x i64> %xor.i.i.i40.i, splat (i64 4294967295)
+  %25 = mul nuw <8 x i64> %24, %23
+  %26 = shufflevector <8 x i64> %21, <8 x i64> poison, <8 x i32> <i32 1, i32 0, i32 3, i32 2, i32 5, i32 4, i32 7, i32 6>
+  %add.i12.i.i42.i = add <8 x i64> %add.i.i7.i33.i, %26
+  %add.i.i.i43.i = add <8 x i64> %add.i12.i.i42.i, %25
   store <8 x i64> %add.i.i.i43.i, ptr %acc, align 64
   %inc.i44.i = add nuw i64 %n.06.i34.i, 1
   %exitcond.not.i45.i = icmp eq i64 %inc.i44.i, %sub7.i
@@ -3262,57 +3267,58 @@ for.body.i32.i:                                   ; preds = %_ZL22XXH3_accumulat
 if.else.i:                                        ; preds = %if.then
   %cmp5.not.i47.i = icmp eq i32 %0, 64
   %.pre = load <8 x i64>, ptr %acc, align 64
-  br i1 %cmp5.not.i47.i, label %if.else.i._ZL19XXH3_consumeStripesPmS_mPKhmS1_mPFvS_S1_S1_mEPFvPvPKvE.exit_crit_edge, label %for.body.i52.i
-
-if.else.i._ZL19XXH3_consumeStripesPmS_mPKhmS1_mPFvS_S1_S1_mEPFvPvPKvE.exit_crit_edge: ; preds = %if.else.i
   %.pre34 = ptrtoint ptr %acc to i64
   %.pre35 = and i64 %.pre34, 63
-  %26 = icmp eq i64 %.pre35, 0
-  br label %_ZL19XXH3_consumeStripesPmS_mPKhmS1_mPFvS_S1_S1_mEPFvPvPKvE.exit
+  %27 = icmp eq i64 %.pre35, 0
+  br i1 %cmp5.not.i47.i, label %_ZL19XXH3_consumeStripesPmS_mPKhmS1_mPFvS_S1_S1_mEPFvPvPKvE.exit, label %for.body.lr.ph.i48.i
 
-for.body.i52.i:                                   ; preds = %if.else.i, %for.body.i52.i
-  %add.i.i7.i53.i = phi <8 x i64> [ %add.i.i.i63.i, %for.body.i52.i ], [ %.pre, %if.else.i ]
-  %n.06.i54.i = phi i64 [ %inc.i64.i, %for.body.i52.i ], [ 0, %if.else.i ]
+for.body.lr.ph.i48.i:                             ; preds = %if.else.i
+  tail call void @llvm.assume(i1 %27)
+  br label %for.body.i52.i
+
+for.body.i52.i:                                   ; preds = %for.body.i52.i, %for.body.lr.ph.i48.i
+  %add.i.i7.i53.i = phi <8 x i64> [ %.pre, %for.body.lr.ph.i48.i ], [ %add.i.i.i63.i, %for.body.i52.i ]
+  %n.06.i54.i = phi i64 [ 0, %for.body.lr.ph.i48.i ], [ %inc.i64.i, %for.body.i52.i ]
   %mul.i55.i = shl i64 %n.06.i54.i, 6
   %add.ptr.i56.i = getelementptr inbounds i8, ptr %buffer, i64 %mul.i55.i
   %add.ptr1.i57.i = getelementptr inbounds nuw i8, ptr %add.ptr.i56.i, i64 320
   tail call void @llvm.prefetch.p0(ptr nonnull readonly %add.ptr1.i57.i, i32 0, i32 3, i32 1)
   %mul2.i58.i = shl i64 %n.06.i54.i, 3
   %add.ptr3.i59.i = getelementptr inbounds i8, ptr %add.ptr13.i, i64 %mul2.i58.i
-  %27 = load <8 x i64>, ptr %add.ptr.i56.i, align 1
-  %28 = load <8 x i64>, ptr %add.ptr3.i59.i, align 1
-  %xor.i.i.i60.i = xor <8 x i64> %28, %27
-  %29 = lshr <8 x i64> %xor.i.i.i60.i, splat (i64 32)
-  %30 = and <8 x i64> %xor.i.i.i60.i, splat (i64 4294967295)
-  %31 = mul nuw <8 x i64> %30, %29
-  %32 = shufflevector <8 x i64> %27, <8 x i64> poison, <8 x i32> <i32 1, i32 0, i32 3, i32 2, i32 5, i32 4, i32 7, i32 6>
-  %add.i12.i.i62.i = add <8 x i64> %add.i.i7.i53.i, %32
-  %add.i.i.i63.i = add <8 x i64> %add.i12.i.i62.i, %31
+  %28 = load <8 x i64>, ptr %add.ptr.i56.i, align 1
+  %29 = load <8 x i64>, ptr %add.ptr3.i59.i, align 1
+  %xor.i.i.i60.i = xor <8 x i64> %29, %28
+  %30 = lshr <8 x i64> %xor.i.i.i60.i, splat (i64 32)
+  %31 = and <8 x i64> %xor.i.i.i60.i, splat (i64 4294967295)
+  %32 = mul nuw <8 x i64> %31, %30
+  %33 = shufflevector <8 x i64> %28, <8 x i64> poison, <8 x i32> <i32 1, i32 0, i32 3, i32 2, i32 5, i32 4, i32 7, i32 6>
+  %add.i12.i.i62.i = add <8 x i64> %add.i.i7.i53.i, %33
+  %add.i.i.i63.i = add <8 x i64> %add.i12.i.i62.i, %32
   store <8 x i64> %add.i.i.i63.i, ptr %acc, align 64
   %inc.i64.i = add nuw nsw i64 %n.06.i54.i, 1
   %exitcond.not.i65.i = icmp eq i64 %inc.i64.i, %conv
   br i1 %exitcond.not.i65.i, label %_ZL19XXH3_consumeStripesPmS_mPKhmS1_mPFvS_S1_S1_mEPFvPvPKvE.exit, label %for.body.i52.i, !llvm.loop !18
 
-_ZL19XXH3_consumeStripesPmS_mPKhmS1_mPFvS_S1_S1_mEPFvPvPKvE.exit: ; preds = %for.body.i32.i, %for.body.i52.i, %if.else.i._ZL19XXH3_consumeStripesPmS_mPKhmS1_mPFvS_S1_S1_mEPFvPvPKvE.exit_crit_edge, %_ZL22XXH3_accumulate_avx512PmPKhS1_m.exit.i
-  %and.i.pre-phi = phi i1 [ %26, %if.else.i._ZL19XXH3_consumeStripesPmS_mPKhmS1_mPFvS_S1_S1_mEPFvPvPKvE.exit_crit_edge ], [ true, %_ZL22XXH3_accumulate_avx512PmPKhS1_m.exit.i ], [ true, %for.body.i52.i ], [ true, %for.body.i32.i ]
-  %33 = phi <8 x i64> [ %.pre, %if.else.i._ZL19XXH3_consumeStripesPmS_mPKhmS1_mPFvS_S1_S1_mEPFvPvPKvE.exit_crit_edge ], [ %add.i.i.i, %_ZL22XXH3_accumulate_avx512PmPKhS1_m.exit.i ], [ %add.i.i.i63.i, %for.body.i52.i ], [ %add.i.i.i43.i, %for.body.i32.i ]
-  %34 = load i32, ptr %bufferedSize, align 64
-  %idx.ext = zext i32 %34 to i64
+_ZL19XXH3_consumeStripesPmS_mPKhmS1_mPFvS_S1_S1_mEPFvPvPKvE.exit: ; preds = %for.body.i32.i, %for.body.i52.i, %if.else.i, %_ZL22XXH3_accumulate_avx512PmPKhS1_m.exit.i
+  %and.i.pre-phi = phi i1 [ true, %_ZL22XXH3_accumulate_avx512PmPKhS1_m.exit.i ], [ %27, %if.else.i ], [ true, %for.body.i52.i ], [ true, %for.body.i32.i ]
+  %34 = phi <8 x i64> [ %add.i.i.i, %_ZL22XXH3_accumulate_avx512PmPKhS1_m.exit.i ], [ %.pre, %if.else.i ], [ %add.i.i.i63.i, %for.body.i52.i ], [ %add.i.i.i43.i, %for.body.i32.i ]
+  %35 = load i32, ptr %bufferedSize, align 64
+  %idx.ext = zext i32 %35 to i64
   %add.ptr = getelementptr inbounds nuw i8, ptr %buffer, i64 %idx.ext
   %add.ptr8 = getelementptr inbounds i8, ptr %add.ptr, i64 -64
-  %35 = load i64, ptr %secretLimit, align 32
-  %add.ptr10 = getelementptr inbounds i8, ptr %secret, i64 %35
+  %36 = load i64, ptr %secretLimit, align 32
+  %add.ptr10 = getelementptr inbounds i8, ptr %secret, i64 %36
   %add.ptr11 = getelementptr inbounds i8, ptr %add.ptr10, i64 -7
   tail call void @llvm.assume(i1 %and.i.pre-phi)
-  %36 = load <8 x i64>, ptr %add.ptr8, align 1
-  %37 = load <8 x i64>, ptr %add.ptr11, align 1
-  %xor.i.i = xor <8 x i64> %37, %36
-  %38 = lshr <8 x i64> %xor.i.i, splat (i64 32)
-  %39 = and <8 x i64> %xor.i.i, splat (i64 4294967295)
-  %40 = mul nuw <8 x i64> %39, %38
-  %41 = shufflevector <8 x i64> %36, <8 x i64> poison, <8 x i32> <i32 1, i32 0, i32 3, i32 2, i32 5, i32 4, i32 7, i32 6>
-  %add.i12.i = add <8 x i64> %33, %41
-  %add.i.i = add <8 x i64> %add.i12.i, %40
+  %37 = load <8 x i64>, ptr %add.ptr8, align 1
+  %38 = load <8 x i64>, ptr %add.ptr11, align 1
+  %xor.i.i = xor <8 x i64> %38, %37
+  %39 = lshr <8 x i64> %xor.i.i, splat (i64 32)
+  %40 = and <8 x i64> %xor.i.i, splat (i64 4294967295)
+  %41 = mul nuw <8 x i64> %40, %39
+  %42 = shufflevector <8 x i64> %37, <8 x i64> poison, <8 x i32> <i32 1, i32 0, i32 3, i32 2, i32 5, i32 4, i32 7, i32 6>
+  %add.i12.i = add <8 x i64> %34, %42
+  %add.i.i = add <8 x i64> %add.i12.i, %41
   br label %if.end35
 
 if.else:                                          ; preds = %entry
@@ -3328,23 +3334,23 @@ if.else:                                          ; preds = %entry
   %conv29 = zext nneg i32 %0 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr25, ptr nonnull readonly align 1 %buffer19, i64 %conv29, i1 false)
   %secretLimit32 = getelementptr inbounds nuw i8, ptr %state, i64 544
-  %42 = load i64, ptr %secretLimit32, align 32
-  %add.ptr33 = getelementptr inbounds i8, ptr %secret, i64 %42
+  %43 = load i64, ptr %secretLimit32, align 32
+  %add.ptr33 = getelementptr inbounds i8, ptr %secret, i64 %43
   %add.ptr34 = getelementptr inbounds i8, ptr %add.ptr33, i64 -7
-  %43 = ptrtoint ptr %acc to i64
-  %and.i25 = and i64 %43, 63
+  %44 = ptrtoint ptr %acc to i64
+  %and.i25 = and i64 %44, 63
   %cmp.i26 = icmp eq i64 %and.i25, 0
   tail call void @llvm.assume(i1 %cmp.i26)
-  %44 = load <8 x i64>, ptr %lastStripe, align 16
-  %45 = load <8 x i64>, ptr %add.ptr34, align 1
-  %xor.i.i27 = xor <8 x i64> %45, %44
-  %46 = lshr <8 x i64> %xor.i.i27, splat (i64 32)
-  %47 = and <8 x i64> %xor.i.i27, splat (i64 4294967295)
-  %48 = mul nuw <8 x i64> %47, %46
-  %49 = shufflevector <8 x i64> %44, <8 x i64> poison, <8 x i32> <i32 1, i32 0, i32 3, i32 2, i32 5, i32 4, i32 7, i32 6>
-  %50 = load <8 x i64>, ptr %acc, align 64
-  %add.i12.i29 = add <8 x i64> %50, %49
-  %add.i.i30 = add <8 x i64> %add.i12.i29, %48
+  %45 = load <8 x i64>, ptr %lastStripe, align 16
+  %46 = load <8 x i64>, ptr %add.ptr34, align 1
+  %xor.i.i27 = xor <8 x i64> %46, %45
+  %47 = lshr <8 x i64> %xor.i.i27, splat (i64 32)
+  %48 = and <8 x i64> %xor.i.i27, splat (i64 4294967295)
+  %49 = mul nuw <8 x i64> %48, %47
+  %50 = shufflevector <8 x i64> %45, <8 x i64> poison, <8 x i32> <i32 1, i32 0, i32 3, i32 2, i32 5, i32 4, i32 7, i32 6>
+  %51 = load <8 x i64>, ptr %acc, align 64
+  %add.i12.i29 = add <8 x i64> %51, %50
+  %add.i.i30 = add <8 x i64> %add.i12.i29, %49
   br label %if.end35
 
 if.end35:                                         ; preds = %if.else, %_ZL19XXH3_consumeStripesPmS_mPKhmS1_mPFvS_S1_S1_mEPFvPvPKvE.exit

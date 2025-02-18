@@ -17252,7 +17252,7 @@ Vec_StrCountEntry.exit22:                         ; preds = %Vec_StrCountEntry.e
   %23 = udiv i32 %8, %22
   %24 = add nsw i32 %23, -1
   %25 = add nsw i32 %8, -1
-  %26 = zext nneg i32 %25 to i64
+  %26 = sext i32 %25 to i64
   %27 = tail call i64 @fwrite(ptr noundef nonnull %11, i64 noundef 1, i64 noundef %26, ptr noundef nonnull %3)
   %28 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.61, ptr noundef %1, i32 noundef %17, i32 noundef %24)
   br label %29
