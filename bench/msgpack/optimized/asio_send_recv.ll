@@ -22215,15 +22215,15 @@ define internal void @"_ZN5boost4asio6detail23reactive_socket_recv_opINS0_17muta
   %11 = alloca %"class.boost::asio::detail::binder2", align 8
   %12 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %13 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  %14 = getelementptr inbounds nuw i8, ptr %1, i64 104
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 104
   %15 = getelementptr inbounds nuw i8, ptr %10, i64 16
-  %16 = getelementptr inbounds nuw i8, ptr %1, i64 120
-  %17 = load ptr, ptr %16, align 8
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 120
+  %17 = load ptr, ptr %14, align 8
   store ptr %17, ptr %15, align 8
-  %18 = getelementptr inbounds nuw i8, ptr %10, i64 32
-  %19 = getelementptr inbounds nuw i8, ptr %1, i64 136
-  %20 = load ptr, ptr %19, align 8
-  store ptr %20, ptr %18, align 8
+  %16 = getelementptr inbounds nuw i8, ptr %10, i64 32
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 136
+  %18 = load ptr, ptr %17, align 8
+  store ptr %18, ptr %16, align 8
   store ptr @_ZZN5boost4asio9execution6detail17any_executor_base16object_fns_tableIvEEPKNS3_10object_fnsEPNSt9enable_ifIXsr7is_sameIT_vEE5valueEvE4typeEE3fns, ptr %16, align 8
   store ptr @_ZZN5boost4asio9execution6detail17any_executor_base16target_fns_tableIvEEPKNS3_10target_fnsEPNSt9enable_ifIXsr7is_sameIT_vEE5valueEvE4typeEE3fns, ptr %19, align 8
   %21 = getelementptr inbounds nuw i8, ptr %17, i64 16
@@ -22231,14 +22231,14 @@ define internal void @"_ZN5boost4asio6detail23reactive_socket_recv_opINS0_17muta
   invoke void %22(ptr noundef nonnull align 8 dereferenceable(48) %10, ptr noundef nonnull align 8 dereferenceable(48) %14)
           to label %26 unwind label %23
 
-23:                                               ; preds = %4
-  %24 = landingpad { ptr, i32 }
+24:                                               ; preds = %4
+  %25 = landingpad { ptr, i32 }
           catch ptr null
-  %25 = extractvalue { ptr, i32 } %24, 0
-  call void @__clang_call_terminate(ptr %25) #32
+  %26 = extractvalue { ptr, i32 } %25, 0
+  call void @__clang_call_terminate(ptr %26) #32
   unreachable
 
-26:                                               ; preds = %4
+27:                                               ; preds = %4
   %27 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %28 = getelementptr inbounds nuw i8, ptr %1, i64 128
   store ptr null, ptr %28, align 8
@@ -22261,14 +22261,14 @@ define internal void @"_ZN5boost4asio6detail23reactive_socket_recv_opINS0_17muta
   invoke void %38(ptr noundef nonnull align 8 dereferenceable(48) %14)
           to label %42 unwind label %39
 
-39:                                               ; preds = %26
+39:                                               ; preds = %27
   %40 = landingpad { ptr, i32 }
           catch ptr null
   %41 = extractvalue { ptr, i32 } %40, 0
   call void @__clang_call_terminate(ptr %41) #32
   unreachable
 
-42:                                               ; preds = %26
+42:                                               ; preds = %27
   store ptr null, ptr %13, align 8
   %43 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN5boost4asio6detail15keyword_tss_ptrINS1_10call_stackINS1_14thread_contextENS1_16thread_info_baseEE7contextEE6value_E)
   %44 = load ptr, ptr %43, align 8

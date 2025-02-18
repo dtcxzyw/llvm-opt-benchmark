@@ -51,7 +51,7 @@ define void @"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6to_vec17
 
 20:                                               ; preds = %3
   %21 = load i64, ptr %13, align 8
-  call void @_ZN5alloc7raw_vec12handle_error17h0fc9691652206c4fE(i64 %12, i64 %21) #6
+  call void @_ZN5alloc7raw_vec12handle_error17h0fc9691652206c4fE(i64 %12, i64 %21) #7
   unreachable
 
 .loopexit:                                        ; preds = %.lr.ph, %37
@@ -66,7 +66,7 @@ define void @"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6to_vec17
 
 22:                                               ; preds = %.loopexit.split-lp, %.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
-  invoke void @"_ZN4core3ptr145drop_in_place$LT$$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$..to_vec..DropGuard$LT$logos_codegen..mir..Mir$C$alloc..alloc..Global$GT$$GT$17h09e0e24fb0248e79E"(ptr nonnull align 8 %7) #7
+  invoke void @"_ZN4core3ptr145drop_in_place$LT$$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$..to_vec..DropGuard$LT$logos_codegen..mir..Mir$C$alloc..alloc..Global$GT$$GT$17h09e0e24fb0248e79E"(ptr nonnull align 8 %7) #8
           to label %45 unwind label %43
 
 23:                                               ; preds = %14
@@ -110,7 +110,7 @@ define void @"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6to_vec17
           to label %40 unwind label %.loopexit
 
 38:                                               ; preds = %35
-  invoke void @_ZN4core9panicking18panic_bounds_check17hd7e618b1b39cc1c3E(i64 %32, i64 %25, ptr nonnull align 8 @anon.0bd0d872490927865d589593d9801a8f.4) #6
+  invoke void @_ZN4core9panicking18panic_bounds_check17hd7e618b1b39cc1c3E(i64 %32, i64 %25, ptr nonnull align 8 @anon.0bd0d872490927865d589593d9801a8f.4) #7
           to label %39 unwind label %.loopexit.split-lp
 
 39:                                               ; preds = %38
@@ -126,11 +126,11 @@ define void @"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6to_vec17
 43:                                               ; preds = %45, %22
   %44 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #8
+  call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #9
   unreachable
 
 45:                                               ; preds = %22
-  invoke void @"_ZN4core3ptr67drop_in_place$LT$alloc..vec..Vec$LT$logos_codegen..mir..Mir$GT$$GT$17hc20cac6ab2edaf04E"(ptr nonnull align 8 %8) #7
+  invoke void @"_ZN4core3ptr67drop_in_place$LT$alloc..vec..Vec$LT$logos_codegen..mir..Mir$GT$$GT$17hc20cac6ab2edaf04E"(ptr nonnull align 8 %8) #8
           to label %46 unwind label %43
 
 46:                                               ; preds = %45

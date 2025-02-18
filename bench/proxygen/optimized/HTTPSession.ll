@@ -18205,10 +18205,10 @@ cond.true58:                                      ; preds = %if.else54
 cond.false61:                                     ; preds = %if.else54
   %22 = load i32, ptr %21, align 4
   %cmp62 = icmp sgt i32 %22, 3
-  br i1 %cmp62, label %cond.false68, label %if.then.i
+  br i1 %cmp62, label %cond.false68, label %_ZNSt4pairItSt10unique_ptrIN5folly5IOBufESt14default_deleteIS2_EEED2Ev.exit33
 
 cond.end63:                                       ; preds = %cond.true58
-  br i1 %call60, label %cond.false68, label %if.then.i
+  br i1 %call60, label %cond.false68, label %_ZNSt4pairItSt10unique_ptrIN5folly5IOBufESt14default_deleteIS2_EEED2Ev.exit33
 
 cond.false68:                                     ; preds = %cond.false61, %cond.end63
   invoke void @_ZN6google10LogMessageC1EPKci(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp71, ptr noundef nonnull @.str, i32 noundef 1366)
@@ -18224,7 +18224,7 @@ invoke.cont75:                                    ; preds = %invoke.cont72
 
 cleanup.action82:                                 ; preds = %invoke.cont75
   call void @_ZN6google10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(96) %ref.tmp71) #41
-  br label %if.then.i
+  br label %_ZNSt4pairItSt10unique_ptrIN5folly5IOBufESt14default_deleteIS2_EEED2Ev.exit33
 
 lpad74:                                           ; preds = %invoke.cont75, %invoke.cont72
   %23 = landingpad { ptr, i32 }
@@ -18270,11 +18270,11 @@ _ZNKSt14default_deleteIN5folly5IOBufEEclEPS1_.exit.i28: ; preds = %invoke.cont94
 
 _ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EED2Ev.exit29: ; preds = %invoke.cont94, %_ZNKSt14default_deleteIN5folly5IOBufEEclEPS1_.exit.i28
   store ptr null, ptr %agg.tmp90, align 8
-  br i1 %cmp96.not, label %if.then.i, label %if.then97
+  br i1 %cmp96.not, label %_ZNSt4pairItSt10unique_ptrIN5folly5IOBufESt14default_deleteIS2_EEED2Ev.exit33, label %if.then97
 
 if.then97:                                        ; preds = %_ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EED2Ev.exit29
   invoke void @_ZN8proxygen11HTTPSession13scheduleWriteEv(ptr noundef nonnull align 8 dereferenceable(2504) %this)
-          to label %if.then.i unwind label %lpad26.loopexit.split-lp
+          to label %_ZNSt4pairItSt10unique_ptrIN5folly5IOBufESt14default_deleteIS2_EEED2Ev.exit33 unwind label %lpad26.loopexit.split-lp
 
 lpad93:                                           ; preds = %invoke.cont88
   %29 = landingpad { ptr, i32 }
@@ -18282,7 +18282,7 @@ lpad93:                                           ; preds = %invoke.cont88
   call void @_ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %agg.tmp90) #41
   br label %ehcleanup
 
-if.then.i:                                        ; preds = %cond.false61, %_ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EED2Ev.exit29, %if.then97, %cleanup.action82, %cond.end63, %cleanup.done
+_ZNSt4pairItSt10unique_ptrIN5folly5IOBufESt14default_deleteIS2_EEED2Ev.exit33: ; preds = %cond.false61, %_ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EED2Ev.exit29, %if.then97, %cleanup.action82, %cond.end63, %cleanup.done
   %guardCount_.i35 = getelementptr inbounds nuw i8, ptr %this, i64 72
   %30 = load i32, ptr %guardCount_.i35, align 8
   %dec.i = add i32 %30, -1

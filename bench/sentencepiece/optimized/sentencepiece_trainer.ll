@@ -8868,8 +8868,8 @@ define void @_ZN13sentencepiece23SentencePieceNormalizer23LoadFromSerializedProt
   invoke void @_ZN13sentencepiece10ModelProtoC2EPN6google8protobuf5ArenaE(ptr noundef nonnull align 8 dereferenceable(104) %9, ptr noundef null)
           to label %_ZSt11make_uniqueIN13sentencepiece10ModelProtoEJEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit unwind label %10, !noalias !71
 
-common.resume:                                    ; preds = %42, %10
-  %common.resume.op = phi { ptr, i32 } [ %11, %10 ], [ %.pn, %42 ]
+common.resume:                                    ; preds = %43, %10
+  %common.resume.op = phi { ptr, i32 } [ %11, %10 ], [ %.pn, %43 ]
   resume { ptr, i32 } %common.resume.op
 
 10:                                               ; preds = %4
@@ -8891,7 +8891,7 @@ _ZSt11make_uniqueIN13sentencepiece10ModelProtoEJEENSt8__detail9_MakeUniqIT_E15__
 16:                                               ; preds = %18, %_ZSt11make_uniqueIN13sentencepiece10ModelProtoEJEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit
   %17 = landingpad { ptr, i32 }
           cleanup
-  br label %42
+  br label %43
 
 18:                                               ; preds = %15
   store i32 13, ptr %7, align 8
@@ -8934,7 +8934,7 @@ _ZN13sentencepiece4util13StatusBuilderlsIA3_cEERS1_RKT_.exit: ; preds = %_ZN13se
   %28 = extractvalue { i64, ptr } %27, 0
   %29 = extractvalue { i64, ptr } %27, 1
   invoke void @_ZN13sentencepiece4util6StatusC1ENS0_10StatusCodeESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef %26, i64 %28, ptr %29)
-          to label %_ZNKSt14default_deleteIN13sentencepiece10ModelProtoEEclEPS1_.exit.i5 unwind label %30
+          to label %42 unwind label %30
 
 30:                                               ; preds = %.noexc
   %31 = landingpad { ptr, i32 }
@@ -8950,7 +8950,7 @@ _ZN13sentencepiece4util13StatusBuilderlsIA3_cEERS1_RKT_.exit: ; preds = %_ZN13se
 .body:                                            ; preds = %30, %32
   %eh.lpad-body = phi { ptr, i32 } [ %33, %32 ], [ %31, %30 ]
   call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %19) #25
-  br label %42
+  br label %43
 
 34:                                               ; preds = %15
   store i64 %13, ptr %8, align 8
@@ -8970,16 +8970,16 @@ _ZN13sentencepiece4util13StatusBuilderlsIA3_cEERS1_RKT_.exit: ; preds = %_ZN13se
   %41 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt10unique_ptrIN13sentencepiece10ModelProtoESt14default_deleteIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %8) #25
-  br label %42
+  br label %43
 
-_ZNKSt14default_deleteIN13sentencepiece10ModelProtoEEclEPS1_.exit.i5: ; preds = %.noexc
+42:                                               ; preds = %.noexc
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #25
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
   call void @_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(112) %19) #25
   br label %_ZNSt10unique_ptrIN13sentencepiece10ModelProtoESt14default_deleteIS1_EED2Ev.exit6.sink.split
 
-_ZNSt10unique_ptrIN13sentencepiece10ModelProtoESt14default_deleteIS1_EED2Ev.exit6.sink.split: ; preds = %38, %_ZNKSt14default_deleteIN13sentencepiece10ModelProtoEEclEPS1_.exit.i5
-  %.sink8 = phi ptr [ %9, %_ZNKSt14default_deleteIN13sentencepiece10ModelProtoEEclEPS1_.exit.i5 ], [ %39, %38 ]
+_ZNSt10unique_ptrIN13sentencepiece10ModelProtoESt14default_deleteIS1_EED2Ev.exit6.sink.split: ; preds = %38, %43
+  %.sink8 = phi ptr [ %9, %42 ], [ %39, %38 ]
   call void @_ZN13sentencepiece10ModelProtoD1Ev(ptr noundef nonnull align 8 dereferenceable(104) %.sink8) #25
   call void @_ZdlPvm(ptr noundef nonnull %.sink8, i64 noundef 104) #26
   br label %_ZNSt10unique_ptrIN13sentencepiece10ModelProtoESt14default_deleteIS1_EED2Ev.exit6
@@ -8987,7 +8987,7 @@ _ZNSt10unique_ptrIN13sentencepiece10ModelProtoESt14default_deleteIS1_EED2Ev.exit
 _ZNSt10unique_ptrIN13sentencepiece10ModelProtoESt14default_deleteIS1_EED2Ev.exit6: ; preds = %_ZNSt10unique_ptrIN13sentencepiece10ModelProtoESt14default_deleteIS1_EED2Ev.exit6.sink.split, %38
   ret void
 
-42:                                               ; preds = %40, %.body, %16
+43:                                               ; preds = %40, %.body, %16
   %.pn = phi { ptr, i32 } [ %41, %40 ], [ %eh.lpad-body, %.body ], [ %17, %16 ]
   call void @_ZNSt10unique_ptrIN13sentencepiece10ModelProtoESt14default_deleteIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %6) #25
   br label %common.resume

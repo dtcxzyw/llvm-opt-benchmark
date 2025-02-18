@@ -272,22 +272,22 @@ define align 8 ptr @"_ZN69_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..c
   store ptr %6, ptr %3, align 8
   %8 = load ptr, ptr %0, align 8
   invoke void @"_ZN53_$LT$T$u20$as$u20$alloc..alloc..WriteCloneIntoRaw$GT$20write_clone_into_raw17h6b70d1392ed7dc9eE"(ptr align 8 %8, ptr nonnull %6)
-          to label %9 unwind label %11
+          to label %9 unwind label %12
 
 9:                                                ; preds = %"_ZN5alloc5boxed16Box$LT$T$C$A$GT$13new_uninit_in17hc200ed6d3ba73b0fE.exit"
   ret ptr %6
 
-10:                                               ; preds = %11
-  resume { ptr, i32 } %12
+11:                                               ; preds = %12
+  resume { ptr, i32 } %13
 
-11:                                               ; preds = %"_ZN5alloc5boxed16Box$LT$T$C$A$GT$13new_uninit_in17hc200ed6d3ba73b0fE.exit"
-  %12 = landingpad { ptr, i32 }
+12:                                               ; preds = %"_ZN5alloc5boxed16Box$LT$T$C$A$GT$13new_uninit_in17hc200ed6d3ba73b0fE.exit"
+  %13 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr113drop_in_place$LT$alloc..boxed..Box$LT$core..mem..maybe_uninit..MaybeUninit$LT$logos_codegen..mir..Mir$GT$$GT$$GT$17ha5912881fdf25d9aE"(ptr nonnull align 8 %3) #8
-          to label %10 unwind label %13
+          to label %11 unwind label %14
 
-13:                                               ; preds = %11
-  %14 = landingpad { ptr, i32 }
+14:                                               ; preds = %12
+  %15 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #9
   unreachable
@@ -314,22 +314,22 @@ define align 4 ptr @"_ZN69_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..c
   store ptr %6, ptr %3, align 8
   %8 = load ptr, ptr %0, align 8
   invoke void @"_ZN53_$LT$T$u20$as$u20$alloc..alloc..WriteCloneIntoRaw$GT$20write_clone_into_raw17h97e34f09bf8cb9abE"(ptr align 4 %8, ptr nonnull %6)
-          to label %9 unwind label %11
+          to label %9 unwind label %12
 
 9:                                                ; preds = %"_ZN5alloc5boxed16Box$LT$T$C$A$GT$13new_uninit_in17haa38dee6695b1035E.exit"
   ret ptr %6
 
-10:                                               ; preds = %11
-  resume { ptr, i32 } %12
+11:                                               ; preds = %12
+  resume { ptr, i32 } %13
 
-11:                                               ; preds = %"_ZN5alloc5boxed16Box$LT$T$C$A$GT$13new_uninit_in17haa38dee6695b1035E.exit"
-  %12 = landingpad { ptr, i32 }
+12:                                               ; preds = %"_ZN5alloc5boxed16Box$LT$T$C$A$GT$13new_uninit_in17haa38dee6695b1035E.exit"
+  %13 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr169drop_in_place$LT$alloc..boxed..Box$LT$core..mem..maybe_uninit..MaybeUninit$LT$$u5b$core..option..Option$LT$logos_codegen..graph..NodeId$GT$$u3b$$u20$256$u5d$$GT$$GT$$GT$17h822d22e5414dac4eE"(ptr nonnull align 8 %3) #8
-          to label %10 unwind label %13
+          to label %11 unwind label %14
 
-13:                                               ; preds = %11
-  %14 = landingpad { ptr, i32 }
+14:                                               ; preds = %12
+  %15 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hd62aa59d1fda1c9fE() #9
   unreachable

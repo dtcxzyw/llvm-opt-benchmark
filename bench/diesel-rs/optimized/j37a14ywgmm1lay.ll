@@ -520,7 +520,7 @@ define hidden noundef nonnull align 8 dereferenceable(24) ptr @"_ZN5alloc2rc15Rc
   %.val10 = load i64, ptr %18, align 8, !alias.scope !98, !noalias !101, !noundef !7
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3)
   invoke void @"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6to_vec17h2e69f22f34ac3b15E.llvm.12119415816518131457"(ptr noalias noundef nonnull sret({ { i64, ptr }, i64 }) align 8 captures(none) dereferenceable(24) %3, ptr noalias noundef nonnull readonly align 8 %.val, i64 noundef %.val10)
-          to label %38 unwind label %40
+          to label %40 unwind label %42
 
 19:                                               ; preds = %8
   call void @llvm.lifetime.start.p0(i64 0, ptr nonnull %2)
@@ -553,44 +553,44 @@ define hidden noundef nonnull align 8 dereferenceable(24) ptr @"_ZN5alloc2rc15Rc
   %31 = add i64 %30, -1
   store i64 %31, ptr %5, align 8
   %.val11 = load i64, ptr %9, align 8, !noundef !7
-  %32 = add i64 %.val11, -1
+  %33 = add i64 %.val11, -1
   store i64 %32, ptr %9, align 8
   store ptr %.fca.1.extract2.i.i16, ptr %0, align 8
   br label %23
 
-33:                                               ; preds = %36, %40
-  %.pn8 = phi { ptr, i32 } [ %41, %40 ], [ %37, %36 ]
+35:                                               ; preds = %38, %42
+  %.pn8 = phi { ptr, i32 } [ %43, %42 ], [ %39, %38 ]
   resume { ptr, i32 } %.pn8
 
-34:                                               ; preds = %40
-  %35 = landingpad { ptr, i32 }
+36:                                               ; preds = %42
+  %37 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17h55eb1d85cadde1a1E() #20
   unreachable
 
-36:                                               ; preds = %38
-  %37 = landingpad { ptr, i32 }
+38:                                               ; preds = %40
+  %39 = landingpad { ptr, i32 }
           cleanup
   store ptr %.fca.1.extract2.i.i, ptr %0, align 8
-  br label %33
+  br label %35
 
-38:                                               ; preds = %"_ZN5alloc2rc15Rc$LT$T$C$A$GT$13new_uninit_in17h39ffe85fa3734726E.exit"
-  %39 = getelementptr inbounds nuw i8, ptr %.fca.1.extract2.i.i, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %39, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false)
+40:                                               ; preds = %"_ZN5alloc2rc15Rc$LT$T$C$A$GT$13new_uninit_in17h39ffe85fa3734726E.exit"
+  %41 = getelementptr inbounds nuw i8, ptr %.fca.1.extract2.i.i, i64 16
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %41, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
   invoke void @"_ZN68_$LT$alloc..rc..Rc$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h14c97c97d22a5e9eE.llvm.566609780180471337"(ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
-          to label %"_ZN4core3ptr87drop_in_place$LT$alloc..rc..Rc$LT$alloc..vec..Vec$LT$proc_macro2..TokenTree$GT$$GT$$GT$17h86ea14ea1e40e8a4E.exit" unwind label %36
+          to label %"_ZN4core3ptr87drop_in_place$LT$alloc..rc..Rc$LT$alloc..vec..Vec$LT$proc_macro2..TokenTree$GT$$GT$$GT$17h86ea14ea1e40e8a4E.exit" unwind label %38
 
-"_ZN4core3ptr87drop_in_place$LT$alloc..rc..Rc$LT$alloc..vec..Vec$LT$proc_macro2..TokenTree$GT$$GT$$GT$17h86ea14ea1e40e8a4E.exit": ; preds = %38
+"_ZN4core3ptr87drop_in_place$LT$alloc..rc..Rc$LT$alloc..vec..Vec$LT$proc_macro2..TokenTree$GT$$GT$$GT$17h86ea14ea1e40e8a4E.exit": ; preds = %40
   store ptr %.fca.1.extract2.i.i, ptr %0, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   br label %23
 
-40:                                               ; preds = %"_ZN5alloc2rc15Rc$LT$T$C$A$GT$13new_uninit_in17h39ffe85fa3734726E.exit"
-  %41 = landingpad { ptr, i32 }
+42:                                               ; preds = %"_ZN5alloc2rc15Rc$LT$T$C$A$GT$13new_uninit_in17h39ffe85fa3734726E.exit"
+  %43 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr131drop_in_place$LT$alloc..rc..Rc$LT$core..mem..maybe_uninit..MaybeUninit$LT$alloc..vec..Vec$LT$proc_macro2..TokenTree$GT$$GT$$GT$$GT$17h157620fcc85ece4eE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %4) #19
-          to label %33 unwind label %34
+          to label %35 unwind label %36
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable

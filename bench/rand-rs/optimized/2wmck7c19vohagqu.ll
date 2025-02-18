@@ -152,16 +152,16 @@ define hidden noundef nonnull ptr @_ZN4rand4rngs6thread14THREAD_RNG_KEY6__init17
   store i64 1, ptr %.sroa.4.0..fca.0.extract.i.sroa_idx.i, align 8, !noalias !34
   %.sroa.5.0..fca.0.extract.i.sroa_idx.i = getelementptr inbounds nuw i8, ptr %.fca.0.extract.i.i, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(256) %.sroa.5.0..fca.0.extract.i.sroa_idx.i, ptr noundef nonnull align 16 dereferenceable(256) %.sroa.02.sroa.0, i64 256, i1 false)
-  %.sroa.02.sroa.4.0..sroa.5.0..fca.0.extract.i.sroa_idx.i.sroa_idx = getelementptr inbounds nuw i8, ptr %.fca.0.extract.i.i, i64 272
-  store i64 64, ptr %.sroa.02.sroa.4.0..sroa.5.0..fca.0.extract.i.sroa_idx.i.sroa_idx, align 16
-  %.sroa.02.sroa.5.0..sroa.5.0..fca.0.extract.i.sroa_idx.i.sroa_idx = getelementptr inbounds nuw i8, ptr %.fca.0.extract.i.i, i64 280
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %.sroa.02.sroa.5.0..sroa.5.0..fca.0.extract.i.sroa_idx.i.sroa_idx, ptr noundef nonnull align 8 dereferenceable(56) %.sroa.5.sroa.0, i64 56, i1 false)
-  %.sroa.02.sroa.5.sroa.4.0..sroa.02.sroa.5.0..sroa.5.0..fca.0.extract.i.sroa_idx.i.sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %.fca.0.extract.i.i, i64 336
-  store i64 65536, ptr %.sroa.02.sroa.5.sroa.4.0..sroa.02.sroa.5.0..sroa.5.0..fca.0.extract.i.sroa_idx.i.sroa_idx.sroa_idx, align 8
-  %.sroa.02.sroa.5.sroa.5.0..sroa.02.sroa.5.0..sroa.5.0..fca.0.extract.i.sroa_idx.i.sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %.fca.0.extract.i.i, i64 344
-  store i64 65536, ptr %.sroa.02.sroa.5.sroa.5.0..sroa.02.sroa.5.0..sroa.5.0..fca.0.extract.i.sroa_idx.i.sroa_idx.sroa_idx, align 8
-  %.sroa.02.sroa.5.sroa.6.0..sroa.02.sroa.5.0..sroa.5.0..fca.0.extract.i.sroa_idx.i.sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %.fca.0.extract.i.i, i64 352
-  store i64 0, ptr %.sroa.02.sroa.5.sroa.6.0..sroa.02.sroa.5.0..sroa.5.0..fca.0.extract.i.sroa_idx.i.sroa_idx.sroa_idx, align 8
+  %.sroa.5.i.sroa.4.0..sroa.5.0..fca.0.extract.i.sroa_idx.i.sroa_idx = getelementptr inbounds nuw i8, ptr %.fca.0.extract.i.i, i64 272
+  store i64 64, ptr %.sroa.5.i.sroa.4.0..sroa.5.0..fca.0.extract.i.sroa_idx.i.sroa_idx, align 16
+  %.sroa.5.i.sroa.5.0..sroa.5.0..fca.0.extract.i.sroa_idx.i.sroa_idx = getelementptr inbounds nuw i8, ptr %.fca.0.extract.i.i, i64 280
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %.sroa.5.i.sroa.5.0..sroa.5.0..fca.0.extract.i.sroa_idx.i.sroa_idx, ptr noundef nonnull align 8 dereferenceable(56) %.sroa.5.sroa.0, i64 56, i1 false)
+  %.sroa.5.i.sroa.6.0..sroa.5.0..fca.0.extract.i.sroa_idx.i.sroa_idx = getelementptr inbounds nuw i8, ptr %.fca.0.extract.i.i, i64 336
+  store i64 65536, ptr %.sroa.5.i.sroa.6.0..sroa.5.0..fca.0.extract.i.sroa_idx.i.sroa_idx, align 8
+  %.sroa.5.i.sroa.7.0..sroa.5.0..fca.0.extract.i.sroa_idx.i.sroa_idx = getelementptr inbounds nuw i8, ptr %.fca.0.extract.i.i, i64 344
+  store i64 65536, ptr %.sroa.5.i.sroa.7.0..sroa.5.0..fca.0.extract.i.sroa_idx.i.sroa_idx, align 8
+  %.sroa.5.i.sroa.8.0..sroa.5.0..fca.0.extract.i.sroa_idx.i.sroa_idx = getelementptr inbounds nuw i8, ptr %.fca.0.extract.i.i, i64 352
+  store i64 0, ptr %.sroa.5.i.sroa.8.0..sroa.5.0..fca.0.extract.i.sroa_idx.i.sroa_idx, align 8
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %.sroa.02.sroa.0)
   ret ptr %.fca.0.extract.i.i
 }
@@ -290,16 +290,16 @@ _ZN4rand4rngs6thread14THREAD_RNG_KEY6__init17hc27273a17d87af9eE.llvm.99459165677
   store i64 1, ptr %.sroa.4.0..fca.0.extract.i.sroa_idx.i.i, align 8, !noalias !60
   %.sroa.5.0..fca.0.extract.i.sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %.fca.0.extract.i.i.i, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(256) %.sroa.5.0..fca.0.extract.i.sroa_idx.i.i, ptr noundef nonnull align 16 dereferenceable(256) %.sroa.02.sroa.0.i, i64 256, i1 false)
-  %.sroa.02.sroa.4.0..sroa.5.0..fca.0.extract.i.sroa_idx.i.sroa_idx.i = getelementptr inbounds nuw i8, ptr %.fca.0.extract.i.i.i, i64 272
-  store i64 64, ptr %.sroa.02.sroa.4.0..sroa.5.0..fca.0.extract.i.sroa_idx.i.sroa_idx.i, align 16
-  %.sroa.02.sroa.5.0..sroa.5.0..fca.0.extract.i.sroa_idx.i.sroa_idx.i = getelementptr inbounds nuw i8, ptr %.fca.0.extract.i.i.i, i64 280
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %.sroa.02.sroa.5.0..sroa.5.0..fca.0.extract.i.sroa_idx.i.sroa_idx.i, ptr noundef nonnull align 8 dereferenceable(56) %.sroa.5.sroa.0.i, i64 56, i1 false)
-  %.sroa.02.sroa.5.sroa.4.0..sroa.02.sroa.5.0..sroa.5.0..fca.0.extract.i.sroa_idx.i.sroa_idx.sroa_idx.i = getelementptr inbounds nuw i8, ptr %.fca.0.extract.i.i.i, i64 336
-  store i64 65536, ptr %.sroa.02.sroa.5.sroa.4.0..sroa.02.sroa.5.0..sroa.5.0..fca.0.extract.i.sroa_idx.i.sroa_idx.sroa_idx.i, align 8
-  %.sroa.02.sroa.5.sroa.5.0..sroa.02.sroa.5.0..sroa.5.0..fca.0.extract.i.sroa_idx.i.sroa_idx.sroa_idx.i = getelementptr inbounds nuw i8, ptr %.fca.0.extract.i.i.i, i64 344
-  store i64 65536, ptr %.sroa.02.sroa.5.sroa.5.0..sroa.02.sroa.5.0..sroa.5.0..fca.0.extract.i.sroa_idx.i.sroa_idx.sroa_idx.i, align 8
-  %.sroa.02.sroa.5.sroa.6.0..sroa.02.sroa.5.0..sroa.5.0..fca.0.extract.i.sroa_idx.i.sroa_idx.sroa_idx.i = getelementptr inbounds nuw i8, ptr %.fca.0.extract.i.i.i, i64 352
-  store i64 0, ptr %.sroa.02.sroa.5.sroa.6.0..sroa.02.sroa.5.0..sroa.5.0..fca.0.extract.i.sroa_idx.i.sroa_idx.sroa_idx.i, align 8
+  %.sroa.5.i.sroa.4.0..sroa.5.0..fca.0.extract.i.sroa_idx.i.sroa_idx.i = getelementptr inbounds nuw i8, ptr %.fca.0.extract.i.i.i, i64 272
+  store i64 64, ptr %.sroa.5.i.sroa.4.0..sroa.5.0..fca.0.extract.i.sroa_idx.i.sroa_idx.i, align 16
+  %.sroa.5.i.sroa.5.0..sroa.5.0..fca.0.extract.i.sroa_idx.i.sroa_idx.i = getelementptr inbounds nuw i8, ptr %.fca.0.extract.i.i.i, i64 280
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %.sroa.5.i.sroa.5.0..sroa.5.0..fca.0.extract.i.sroa_idx.i.sroa_idx.i, ptr noundef nonnull align 8 dereferenceable(56) %.sroa.5.sroa.0.i, i64 56, i1 false)
+  %.sroa.5.i.sroa.6.0..sroa.5.0..fca.0.extract.i.sroa_idx.i.sroa_idx.i = getelementptr inbounds nuw i8, ptr %.fca.0.extract.i.i.i, i64 336
+  store i64 65536, ptr %.sroa.5.i.sroa.6.0..sroa.5.0..fca.0.extract.i.sroa_idx.i.sroa_idx.i, align 8
+  %.sroa.5.i.sroa.7.0..sroa.5.0..fca.0.extract.i.sroa_idx.i.sroa_idx.i = getelementptr inbounds nuw i8, ptr %.fca.0.extract.i.i.i, i64 344
+  store i64 65536, ptr %.sroa.5.i.sroa.7.0..sroa.5.0..fca.0.extract.i.sroa_idx.i.sroa_idx.i, align 8
+  %.sroa.5.i.sroa.8.0..sroa.5.0..fca.0.extract.i.sroa_idx.i.sroa_idx.i = getelementptr inbounds nuw i8, ptr %.fca.0.extract.i.i.i, i64 352
+  store i64 0, ptr %.sroa.5.i.sroa.8.0..sroa.5.0..fca.0.extract.i.sroa_idx.i.sroa_idx.i, align 8
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %.sroa.02.sroa.0.i)
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %.sroa.5.sroa.0.i)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %.sroa.0)

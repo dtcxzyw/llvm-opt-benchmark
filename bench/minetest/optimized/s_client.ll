@@ -2262,21 +2262,21 @@ invoke.cont46:                                    ; preds = %try.cont
   br label %cleanup
 
 cleanup:                                          ; preds = %invoke.cont42, %invoke.cont46
-  %retval.0 = phi i1 [ %tobool, %invoke.cont46 ], [ true, %invoke.cont42 ]
+  %12 = phi i1 [ %tobool, %invoke.cont46 ], [ true, %invoke.cont42 ]
   invoke void @lua_settop(ptr noundef %1, i32 noundef %call.i71)
           to label %_ZNSt11unique_lockISt15recursive_mutexED2Ev.exit unwind label %terminate.lpad.i
 
 terminate.lpad.i:                                 ; preds = %cleanup
-  %12 = landingpad { ptr, i32 }
+  %14 = landingpad { ptr, i32 }
           catch ptr null
-  %13 = extractvalue { ptr, i32 } %12, 0
-  call void @__clang_call_terminate(ptr %13) #25
+  %15 = extractvalue { ptr, i32 } %14, 0
+  call void @__clang_call_terminate(ptr %15) #25
   unreachable
 
 _ZNSt11unique_lockISt15recursive_mutexED2Ev.exit: ; preds = %cleanup
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %stack_unroller) #22
-  %14 = load i32, ptr %m_lock_recursion_count, align 4, !tbaa !14
-  %dec.i = add nsw i32 %14, -1
+  %16 = load i32, ptr %m_lock_recursion_count, align 4, !tbaa !14
+  %dec.i = add nsw i32 %16, -1
   store i32 %dec.i, ptr %m_lock_recursion_count, align 4, !tbaa !14
   %call1.i.i.i.i.i74 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %m_luastackmutex) #22
   ret i1 %retval.0
@@ -2293,17 +2293,17 @@ ehcleanup50:                                      ; preds = %ehcleanup48, %lpad2
 
 _ZNSt11unique_lockISt15recursive_mutexED2Ev.exit82: ; preds = %ehcleanup50, %lpad14
   %lpad.val63.merged = phi { ptr, i32 } [ %.merged, %ehcleanup50 ], [ %2, %lpad14 ]
-  %15 = load i32, ptr %m_lock_recursion_count, align 4, !tbaa !14
-  %dec.i75 = add nsw i32 %15, -1
+  %17 = load i32, ptr %m_lock_recursion_count, align 4, !tbaa !14
+  %dec.i75 = add nsw i32 %17, -1
   store i32 %dec.i75, ptr %m_lock_recursion_count, align 4, !tbaa !14
   %call1.i.i.i.i.i81 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %m_luastackmutex) #22
   resume { ptr, i32 } %lpad.val63.merged
 
 terminate.lpad:                                   ; preds = %lpad39
-  %16 = landingpad { ptr, i32 }
+  %18 = landingpad { ptr, i32 }
           catch ptr null
-  %17 = extractvalue { ptr, i32 } %16, 0
-  call void @__clang_call_terminate(ptr %17) #25
+  %19 = extractvalue { ptr, i32 } %18, 0
+  call void @__clang_call_terminate(ptr %19) #25
   unreachable
 }
 
@@ -2452,21 +2452,21 @@ try.cont:                                         ; preds = %invoke.cont28
           to label %cleanup unwind label %lpad24
 
 cleanup:                                          ; preds = %invoke.cont42, %try.cont
-  %retval.0 = phi i1 [ %call47, %try.cont ], [ true, %invoke.cont42 ]
+  %12 = phi i1 [ %call47, %try.cont ], [ true, %invoke.cont42 ]
   invoke void @lua_settop(ptr noundef %1, i32 noundef %call.i71)
           to label %_ZNSt11unique_lockISt15recursive_mutexED2Ev.exit unwind label %terminate.lpad.i
 
 terminate.lpad.i:                                 ; preds = %cleanup
-  %12 = landingpad { ptr, i32 }
+  %14 = landingpad { ptr, i32 }
           catch ptr null
-  %13 = extractvalue { ptr, i32 } %12, 0
-  call void @__clang_call_terminate(ptr %13) #25
+  %15 = extractvalue { ptr, i32 } %14, 0
+  call void @__clang_call_terminate(ptr %15) #25
   unreachable
 
 _ZNSt11unique_lockISt15recursive_mutexED2Ev.exit: ; preds = %cleanup
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %stack_unroller) #22
-  %14 = load i32, ptr %m_lock_recursion_count, align 4, !tbaa !14
-  %dec.i = add nsw i32 %14, -1
+  %16 = load i32, ptr %m_lock_recursion_count, align 4, !tbaa !14
+  %dec.i = add nsw i32 %16, -1
   store i32 %dec.i, ptr %m_lock_recursion_count, align 4, !tbaa !14
   %call1.i.i.i.i.i74 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %m_luastackmutex) #22
   ret i1 %retval.0
@@ -2483,17 +2483,17 @@ ehcleanup50:                                      ; preds = %ehcleanup48, %lpad2
 
 _ZNSt11unique_lockISt15recursive_mutexED2Ev.exit82: ; preds = %ehcleanup50, %lpad14
   %lpad.val63.merged = phi { ptr, i32 } [ %.merged, %ehcleanup50 ], [ %2, %lpad14 ]
-  %15 = load i32, ptr %m_lock_recursion_count, align 4, !tbaa !14
-  %dec.i75 = add nsw i32 %15, -1
+  %17 = load i32, ptr %m_lock_recursion_count, align 4, !tbaa !14
+  %dec.i75 = add nsw i32 %17, -1
   store i32 %dec.i75, ptr %m_lock_recursion_count, align 4, !tbaa !14
   %call1.i.i.i.i.i81 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull %m_luastackmutex) #22
   resume { ptr, i32 } %lpad.val63.merged
 
 terminate.lpad:                                   ; preds = %lpad39
-  %16 = landingpad { ptr, i32 }
+  %18 = landingpad { ptr, i32 }
           catch ptr null
-  %17 = extractvalue { ptr, i32 } %16, 0
-  call void @__clang_call_terminate(ptr %17) #25
+  %19 = extractvalue { ptr, i32 } %18, 0
+  call void @__clang_call_terminate(ptr %19) #25
   unreachable
 }
 

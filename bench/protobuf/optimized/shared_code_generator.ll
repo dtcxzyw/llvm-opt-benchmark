@@ -866,7 +866,7 @@ invoke.cont94:                                    ; preds = %if.end91
 
 if.end.i.i:                                       ; preds = %invoke.cont94
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.i.i, i8 0, i64 24, i1 false)
-  invoke void @_ZN6google8protobuf2io7Printer8AnnotateESt17basic_string_viewIcSt11char_traitsIcEES6_S6_RKSt6vectorIiSaIiEESt8optionalINS1_19AnnotationCollector8SemanticEE(ptr noundef nonnull align 8 dereferenceable(256) %call31, i64 9, ptr nonnull @.str.10, i64 9, ptr nonnull @.str.10, ptr noundef nonnull byval(%"class.std::basic_string_view") align 8 %agg.tmp42.i, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.i.i, i64 0)
+  invoke void @_ZN6google8protobuf2io7Printer8AnnotateESt17basic_string_viewIcSt11char_traitsIcEES6_S6_RKSt6vectorIiSaIiEESt8optionalINS1_19AnnotationCollector8SemanticEE(ptr noundef nonnull align 8 dereferenceable(256) %.pre, i64 9, ptr nonnull @.str.10, i64 9, ptr nonnull @.str.10, ptr noundef nonnull byval(%"class.std::basic_string_view") align 8 %agg.tmp42.i, ptr noundef nonnull align 8 dereferenceable(24) %ref.tmp.i.i, i64 0)
           to label %invoke.cont.i.i unwind label %lpad.i.i
 
 invoke.cont.i.i:                                  ; preds = %if.end.i.i

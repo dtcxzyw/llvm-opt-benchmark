@@ -1934,7 +1934,7 @@ lpad2.i.i.i.i.i:                                  ; preds = %invoke.cont3.i.i.i.
   %123 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
-          to label %if.then.i.i.i unwind label %terminate.lpad.i.i.i.i.i
+          to label %lpad.i.body unwind label %terminate.lpad.i.i.i.i.i
 
 terminate.lpad.i.i.i.i.i:                         ; preds = %lpad2.i.i.i.i.i
   %124 = landingpad { ptr, i32 }
@@ -1951,7 +1951,7 @@ lpad.i.body.thread:                               ; preds = %invoke.cont487
           cleanup
   br label %lpad492.body
 
-if.then.i.i.i:                                    ; preds = %lpad2.i.i.i.i.i
+lpad.i.body:                                      ; preds = %lpad2.i.i.i.i.i
   call void @_ZdlPv(ptr noundef nonnull %call5.i.i.i.i185) #24
   br label %lpad492.body
 
@@ -4163,7 +4163,7 @@ lpad4.i.i.i.i.i.i.i.i.i.i.i:                      ; preds = %lpad.i.i.i.i.i.i.i.
   %4 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
-          to label %if.then.i.i3.i.i.i.i.i.i.i.i.i unwind label %terminate.lpad.i.i.i.i.i.i.i.i.i.i.i
+          to label %lpad.body.i.i.i.i.i.i.i.i.i unwind label %terminate.lpad.i.i.i.i.i.i.i.i.i.i.i
 
 terminate.lpad.i.i.i.i.i.i.i.i.i.i.i:             ; preds = %lpad4.i.i.i.i.i.i.i.i.i.i.i
   %5 = landingpad { ptr, i32 }
@@ -4180,7 +4180,7 @@ lpad.body.i.i.i.i.thread.i.i.i.i.i:               ; preds = %for.body.i.preheade
           cleanup
   br label %_ZNSt10unique_ptrISt6vectorIN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapS0_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdN12_GLOBAL__N_112my_allocatorENS2_14adl_serializerES0_IhSaIhEEvEENSC_ISG_EEEZNSG_6createISI_JN9__gnu_cxx17__normal_iteratorIPKSA_S0_ISA_SaISA_EEEESQ_EEEPT_DpOT0_EUlPSI_E_ED2Ev.exit7.i.i.i.i.i
 
-if.then.i.i3.i.i.i.i.i.i.i.i.i:                   ; preds = %lpad4.i.i.i.i.i.i.i.i.i.i.i
+lpad.body.i.i.i.i.i.i.i.i.i:                      ; preds = %lpad4.i.i.i.i.i.i.i.i.i.i.i
   tail call void @_ZdlPv(ptr noundef nonnull %call5.i.i.i.i2.i.i.i.i.i.i.i.i.i) #24
   br label %_ZNSt10unique_ptrISt6vectorIN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapS0_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdN12_GLOBAL__N_112my_allocatorENS2_14adl_serializerES0_IhSaIhEEvEENSC_ISG_EEEZNSG_6createISI_JN9__gnu_cxx17__normal_iteratorIPKSA_S0_ISA_SaISA_EEEESQ_EEEPT_DpOT0_EUlPSI_E_ED2Ev.exit7.i.i.i.i.i
 
@@ -4189,7 +4189,7 @@ lpad4.i.i.i.i.i:                                  ; preds = %if.then.i.i.i.i.i.i
           cleanup
   br label %_ZNSt10unique_ptrISt6vectorIN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapS0_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdN12_GLOBAL__N_112my_allocatorENS2_14adl_serializerES0_IhSaIhEEvEENSC_ISG_EEEZNSG_6createISI_JN9__gnu_cxx17__normal_iteratorIPKSA_S0_ISA_SaISA_EEEESQ_EEEPT_DpOT0_EUlPSI_E_ED2Ev.exit7.i.i.i.i.i
 
-_ZNSt10unique_ptrISt6vectorIN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapS0_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdN12_GLOBAL__N_112my_allocatorENS2_14adl_serializerES0_IhSaIhEEvEENSC_ISG_EEEZNSG_6createISI_JN9__gnu_cxx17__normal_iteratorIPKSA_S0_ISA_SaISA_EEEESQ_EEEPT_DpOT0_EUlPSI_E_ED2Ev.exit7.i.i.i.i.i: ; preds = %lpad4.i.i.i.i.i, %if.then.i.i3.i.i.i.i.i.i.i.i.i, %lpad.body.i.i.i.i.thread.i.i.i.i.i
+_ZNSt10unique_ptrISt6vectorIN8nlohmann16json_abi_v3_11_310basic_jsonISt3mapS0_NSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdN12_GLOBAL__N_112my_allocatorENS2_14adl_serializerES0_IhSaIhEEvEENSC_ISG_EEEZNSG_6createISI_JN9__gnu_cxx17__normal_iteratorIPKSA_S0_ISA_SaISA_EEEESQ_EEEPT_DpOT0_EUlPSI_E_ED2Ev.exit7.i.i.i.i.i: ; preds = %lpad4.i.i.i.i.i, %lpad.body.i.i.i.i.i.i.i.i.i, %lpad.body.i.i.i.i.thread.i.i.i.i.i
   %eh.lpad-body.i.i.i.i.i = phi { ptr, i32 } [ %8, %lpad4.i.i.i.i.i ], [ %4, %if.then.i.i3.i.i.i.i.i.i.i.i.i ], [ %7, %lpad.body.i.i.i.i.thread.i.i.i.i.i ]
   tail call void @_ZdlPv(ptr noundef nonnull %call5.i.i2.i.i.i.i.i1) #24
   br label %lpad.body

@@ -8158,8 +8158,8 @@ if.end12:                                         ; preds = %_ZNSt8optionalISt17
   br i1 %call14, label %if.then15, label %if.end16
 
 if.then15:                                        ; preds = %if.end12
-  %5 = load ptr, ptr @stderr, align 8
-  call void @_ZN4node7FPrintFIJRPKcEEEvP8_IO_FILES2_DpOT_(ptr noundef %5, ptr noundef nonnull @.str.148, ptr noundef nonnull align 8 dereferenceable(8) %out_path.addr) #24
+  %6 = load ptr, ptr @stderr, align 8
+  call void @_ZN4node7FPrintFIJRPKcEEEvP8_IO_FILES2_DpOT_(ptr noundef %6, ptr noundef nonnull @.str.148, ptr noundef nonnull align 8 dereferenceable(8) %out_path.addr) #24
   br label %cleanup31
 
 if.end16:                                         ; preds = %if.end12
@@ -8197,8 +8197,8 @@ _ZN4node15SnapshotBuilder8GenerateEPNS_12SnapshotDataERKSt6vectorINSt7__cxx1112b
   br label %cleanup
 
 if.end.i13:                                       ; preds = %if.end16
-  %6 = load i32, ptr %config, align 8
-  %and.i.i.i.i = and i32 %6, 1
+  %7 = load i32, ptr %config, align 8
+  %and.i.i.i.i = and i32 %7, 1
   %tobool.i.i.not.i = icmp eq i32 %and.i.i.i.i, 0
   br i1 %tobool.i.i.not.i, label %_ZN4node15SnapshotBuilder8GenerateEPNS_12SnapshotDataERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS9_EESD_St8optionalISt17basic_string_viewIcS7_EERKNS_14SnapshotConfigE.exit, label %_ZN4node15SnapshotBuilder8GenerateEPNS_12SnapshotDataERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS9_EESD_St8optionalISt17basic_string_viewIcS7_EERKNS_14SnapshotConfigE.exit.thread
 

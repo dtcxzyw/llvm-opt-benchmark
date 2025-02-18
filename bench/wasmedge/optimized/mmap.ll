@@ -27,7 +27,7 @@ define void @_ZN8WasmEdge4MMapC2ERKNSt10filesystem7__cxx114pathE(ptr noundef non
   %7 = invoke i32 (ptr, i32, ...) @open(ptr noundef %6, i32 noundef 0)
           to label %8 unwind label %14, !noalias !4
 
-8:                                                ; preds = %.noexc
+8:     ; preds = %.noexc
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i32 %7, ptr %9, align 8, !noalias !4
   %10 = icmp slt i32 %7, 0

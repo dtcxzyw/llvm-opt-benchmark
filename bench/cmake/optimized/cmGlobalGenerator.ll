@@ -28053,13 +28053,13 @@ define dso_local void @_ZN17cmGlobalGenerator22CreateGeneratorTargetsENS_11Targe
   br i1 %.not49, label %._crit_edge, label %.lr.ph
 
 ._crit_edge.loopexit:                             ; preds = %_ZNSt10unique_ptrI17cmGeneratorTargetSt14default_deleteIS0_EED2Ev.exit31
-  %.pre = load ptr, ptr %12, align 8, !tbaa !218
-  %.pre65 = load ptr, ptr %11, align 8, !tbaa !217
+  %.pre65 = load ptr, ptr %12, align 8, !tbaa !218
+  %.pre66 = load ptr, ptr %11, align 8, !tbaa !217
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %20
-  %30 = phi ptr [ %.pre65, %._crit_edge.loopexit ], [ %21, %20 ]
-  %31 = phi ptr [ %.pre, %._crit_edge.loopexit ], [ %22, %20 ]
+  %30 = phi ptr [ %.pre66, %._crit_edge.loopexit ], [ %21, %20 ]
+  %31 = phi ptr [ %.pre65, %._crit_edge.loopexit ], [ %22, %20 ]
   %32 = add i32 %.01651, 1
   %33 = zext i32 %32 to i64
   %34 = ptrtoint ptr %31 to i64
@@ -28070,7 +28070,7 @@ define dso_local void @_ZN17cmGlobalGenerator22CreateGeneratorTargetsENS_11Targe
   br i1 %38, label %20, label %.preheader, !llvm.loop !1250
 
 .lr.ph:                                           ; preds = %20, %_ZNSt10unique_ptrI17cmGeneratorTargetSt14default_deleteIS0_EED2Ev.exit31
-  %.sroa.034.050 = phi ptr [ %80, %_ZNSt10unique_ptrI17cmGeneratorTargetSt14default_deleteIS0_EED2Ev.exit31 ], [ %27, %20 ]
+  %.sroa.034.050 = phi ptr [ %81, %_ZNSt10unique_ptrI17cmGeneratorTargetSt14default_deleteIS0_EED2Ev.exit31 ], [ %27, %20 ]
   %39 = load ptr, ptr %15, align 8, !tbaa !211
   %40 = getelementptr inbounds nuw %"class.std::unique_ptr.564", ptr %39, i64 %23
   %41 = load ptr, ptr %40, align 8, !tbaa !213
@@ -28078,7 +28078,7 @@ define dso_local void @_ZN17cmGlobalGenerator22CreateGeneratorTargetsENS_11Targe
   %42 = load ptr, ptr %.sroa.034.050, align 8, !tbaa !1251
   call void @llvm.experimental.noalias.scope.decl(metadata !1252)
   %43 = invoke noalias noundef nonnull dereferenceable(2912) ptr @_Znwm(i64 noundef 2912) #35
-          to label %.noexc unwind label %81
+          to label %.noexc unwind label %82
 
 .noexc:                                           ; preds = %.lr.ph
   invoke void @_ZN17cmGeneratorTargetC1EP8cmTargetP16cmLocalGenerator(ptr noundef nonnull align 8 dereferenceable(2912) %43, ptr noundef %42, ptr noundef %41)
@@ -28125,7 +28125,7 @@ _ZNSt3mapIP8cmTargetP17cmGeneratorTargetSt4lessIS1_ESaISt4pairIKS1_S3_EEE11lower
 .critedge.i:                                      ; preds = %54, %_ZNSt3mapIP8cmTargetP17cmGeneratorTargetSt4lessIS1_ESaISt4pairIKS1_S3_EEE11lower_boundERS7_.exit.i, %46
   %.08.lcssa.i.i.i14.i = phi ptr [ %.19.i.i.i.i, %54 ], [ %.19.i.i.i.i, %_ZNSt3mapIP8cmTargetP17cmGeneratorTargetSt4lessIS1_ESaISt4pairIKS1_S3_EEE11lower_boundERS7_.exit.i ], [ %6, %46 ]
   %57 = invoke noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #35
-          to label %.noexc26 unwind label %83
+          to label %.noexc26 unwind label %84
 
 .noexc26:                                         ; preds = %.critedge.i
   %58 = getelementptr inbounds nuw i8, ptr %57, i64 32
@@ -28174,89 +28174,89 @@ _ZNSt8_Rb_treeIP8cmTargetSt4pairIKS1_P17cmGeneratorTargetESt10_Select1stIS6_ESt4
 
 76:                                               ; preds = %75, %.thread.i.i, %54
   %.sroa.09.0.i = phi ptr [ %.19.i.i.i.i, %54 ], [ %57, %.thread.i.i ], [ %62, %75 ]
-  %77 = getelementptr inbounds nuw i8, ptr %.sroa.09.0.i, i64 40
-  store ptr %43, ptr %77, align 8, !tbaa !281
+  %78 = getelementptr inbounds nuw i8, ptr %.sroa.09.0.i, i64 40
+  store ptr %43, ptr %78, align 8, !tbaa !281
   store i64 %49, ptr %5, align 8, !tbaa !281
   store ptr null, ptr %4, align 8, !tbaa !281
   invoke void @_ZN16cmLocalGenerator31AddOwnedImportedGeneratorTargetESt10unique_ptrI17cmGeneratorTargetSt14default_deleteIS1_EE(ptr noundef nonnull align 8 dereferenceable(760) %41, ptr noundef nonnull %5)
-          to label %78 unwind label %85
+          to label %79 unwind label %86
 
-78:                                               ; preds = %76
-  %79 = load ptr, ptr %5, align 8, !tbaa !281
-  %.not.i = icmp eq ptr %79, null
+79:                                               ; preds = %76
+  %80 = load ptr, ptr %5, align 8, !tbaa !281
+  %.not.i = icmp eq ptr %80, null
   br i1 %.not.i, label %_ZNSt10unique_ptrI17cmGeneratorTargetSt14default_deleteIS0_EED2Ev.exit31, label %_ZNKSt14default_deleteI17cmGeneratorTargetEclEPS0_.exit.i
 
-_ZNKSt14default_deleteI17cmGeneratorTargetEclEPS0_.exit.i: ; preds = %78
-  call void @_ZN17cmGeneratorTargetD1Ev(ptr noundef nonnull align 8 dereferenceable(2912) %79) #31
-  call void @_ZdlPvm(ptr noundef nonnull %79, i64 noundef 2912) #32
+_ZNKSt14default_deleteI17cmGeneratorTargetEclEPS0_.exit.i: ; preds = %79
+  call void @_ZN17cmGeneratorTargetD1Ev(ptr noundef nonnull align 8 dereferenceable(2912) %80) #31
+  call void @_ZdlPvm(ptr noundef nonnull %80, i64 noundef 2912) #32
   br label %_ZNSt10unique_ptrI17cmGeneratorTargetSt14default_deleteIS0_EED2Ev.exit31
 
-_ZNSt10unique_ptrI17cmGeneratorTargetSt14default_deleteIS0_EED2Ev.exit31: ; preds = %_ZNKSt14default_deleteI17cmGeneratorTargetEclEPS0_.exit.i, %78
+_ZNSt10unique_ptrI17cmGeneratorTargetSt14default_deleteIS0_EED2Ev.exit31: ; preds = %_ZNKSt14default_deleteI17cmGeneratorTargetEclEPS0_.exit.i, %79
   store ptr null, ptr %5, align 8, !tbaa !281
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #31
-  %80 = getelementptr inbounds nuw i8, ptr %.sroa.034.050, i64 8
-  %.not = icmp eq ptr %80, %29
+  %81 = getelementptr inbounds nuw i8, ptr %.sroa.034.050, i64 8
+  %.not = icmp eq ptr %81, %29
   br i1 %.not, label %._crit_edge.loopexit, label %.lr.ph
 
-81:                                               ; preds = %.lr.ph
-  %82 = landingpad { ptr, i32 }
+82:                                               ; preds = %.lr.ph
+  %83 = landingpad { ptr, i32 }
           cleanup
   br label %.body
 
-83:                                               ; preds = %.critedge.i
-  %84 = landingpad { ptr, i32 }
+84:                                               ; preds = %.critedge.i
+  %85 = landingpad { ptr, i32 }
           cleanup
   br label %.body27
 
-85:                                               ; preds = %76
-  %86 = landingpad { ptr, i32 }
+86:                                               ; preds = %76
+  %87 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt10unique_ptrI17cmGeneratorTargetSt14default_deleteIS0_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #31
   br label %.body27
 
-.body27:                                          ; preds = %83, %_ZNSt8_Rb_treeIP8cmTargetSt4pairIKS1_P17cmGeneratorTargetESt10_Select1stIS6_ESt4lessIS1_ESaIS6_EE10_Auto_nodeD2Ev.exit.i.i, %85
-  %.pn = phi { ptr, i32 } [ %86, %85 ], [ %84, %83 ], [ %74, %_ZNSt8_Rb_treeIP8cmTargetSt4pairIKS1_P17cmGeneratorTargetESt10_Select1stIS6_ESt4lessIS1_ESaIS6_EE10_Auto_nodeD2Ev.exit.i.i ]
+.body27:                                          ; preds = %84, %_ZNSt8_Rb_treeIP8cmTargetSt4pairIKS1_P17cmGeneratorTargetESt10_Select1stIS6_ESt4lessIS1_ESaIS6_EE10_Auto_nodeD2Ev.exit.i.i, %86
+  %.pn = phi { ptr, i32 } [ %87, %86 ], [ %85, %84 ], [ %74, %_ZNSt8_Rb_treeIP8cmTargetSt4pairIKS1_P17cmGeneratorTargetESt10_Select1stIS6_ESt4lessIS1_ESaIS6_EE10_Auto_nodeD2Ev.exit.i.i ]
   call void @_ZNSt10unique_ptrI17cmGeneratorTargetSt14default_deleteIS0_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %4) #31
   br label %.body
 
-.body:                                            ; preds = %81, %44, %.body27
-  %.pn.pn = phi { ptr, i32 } [ %.pn, %.body27 ], [ %82, %81 ], [ %45, %44 ]
+.body:                                            ; preds = %82, %44, %.body27
+  %.pn.pn = phi { ptr, i32 } [ %.pn, %.body27 ], [ %83, %82 ], [ %45, %44 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #31
-  br label %110
+  br label %111
 
-._crit_edge56:                                    ; preds = %98, %.preheader
-  %87 = load ptr, ptr %7, align 8, !tbaa !166
-  invoke void @_ZNSt8_Rb_treeIP8cmTargetSt4pairIKS1_P17cmGeneratorTargetESt10_Select1stIS6_ESt4lessIS1_ESaIS6_EE8_M_eraseEPSt13_Rb_tree_nodeIS6_E(ptr noundef nonnull align 8 dereferenceable(48) %3, ptr noundef %87)
-          to label %_ZNSt3mapIP8cmTargetP17cmGeneratorTargetSt4lessIS1_ESaISt4pairIKS1_S3_EEED2Ev.exit unwind label %88
+._crit_edge56:                                    ; preds = %99, %.preheader
+  %88 = load ptr, ptr %7, align 8, !tbaa !166
+  invoke void @_ZNSt8_Rb_treeIP8cmTargetSt4pairIKS1_P17cmGeneratorTargetESt10_Select1stIS6_ESt4lessIS1_ESaIS6_EE8_M_eraseEPSt13_Rb_tree_nodeIS6_E(ptr noundef nonnull align 8 dereferenceable(48) %3, ptr noundef %88)
+          to label %_ZNSt3mapIP8cmTargetP17cmGeneratorTargetSt4lessIS1_ESaISt4pairIKS1_S3_EEED2Ev.exit unwind label %89
 
-88:                                               ; preds = %._crit_edge56
-  %89 = landingpad { ptr, i32 }
+89:                                               ; preds = %._crit_edge56
+  %90 = landingpad { ptr, i32 }
           catch ptr null
-  %90 = extractvalue { ptr, i32 } %89, 0
-  call void @__clang_call_terminate(ptr %90) #34
+  %91 = extractvalue { ptr, i32 } %90, 0
+  call void @__clang_call_terminate(ptr %91) #34
   unreachable
 
 _ZNSt3mapIP8cmTargetP17cmGeneratorTargetSt4lessIS1_ESaISt4pairIKS1_S3_EEED2Ev.exit: ; preds = %._crit_edge56
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %3) #31
   ret void
 
-.lr.ph55:                                         ; preds = %.preheader, %98
-  %91 = phi ptr [ %102, %98 ], [ %19, %.preheader ]
-  %92 = phi i64 [ %100, %98 ], [ 0, %.preheader ]
-  %.054 = phi i32 [ %99, %98 ], [ 0, %.preheader ]
-  %93 = load ptr, ptr %11, align 8, !tbaa !217
-  %94 = getelementptr inbounds nuw %"class.std::unique_ptr.793", ptr %93, i64 %92
-  %95 = load ptr, ptr %94, align 8, !tbaa !219
-  %96 = getelementptr inbounds nuw %"class.std::unique_ptr.564", ptr %91, i64 %92
-  %97 = load ptr, ptr %96, align 8, !tbaa !213
-  invoke void @_ZN17cmGlobalGenerator22CreateGeneratorTargetsENS_11TargetTypesEP10cmMakefileP16cmLocalGeneratorRKSt3mapIP8cmTargetP17cmGeneratorTargetSt4lessIS7_ESaISt4pairIKS7_S9_EEE(ptr nonnull align 8 poison, i32 noundef %1, ptr noundef %95, ptr noundef %97, ptr noundef nonnull align 8 dereferenceable(48) %3)
-          to label %98 unwind label %108
+.lr.ph55:                                         ; preds = %.preheader, %99
+  %92 = phi ptr [ %103, %99 ], [ %19, %.preheader ]
+  %93 = phi i64 [ %101, %99 ], [ 0, %.preheader ]
+  %.054 = phi i32 [ %100, %99 ], [ 0, %.preheader ]
+  %94 = load ptr, ptr %11, align 8, !tbaa !217
+  %95 = getelementptr inbounds nuw %"class.std::unique_ptr.793", ptr %94, i64 %93
+  %96 = load ptr, ptr %95, align 8, !tbaa !219
+  %97 = getelementptr inbounds nuw %"class.std::unique_ptr.564", ptr %92, i64 %93
+  %98 = load ptr, ptr %97, align 8, !tbaa !213
+  invoke void @_ZN17cmGlobalGenerator22CreateGeneratorTargetsENS_11TargetTypesEP10cmMakefileP16cmLocalGeneratorRKSt3mapIP8cmTargetP17cmGeneratorTargetSt4lessIS7_ESaISt4pairIKS7_S9_EEE(ptr nonnull align 8 poison, i32 noundef %1, ptr noundef %96, ptr noundef %98, ptr noundef nonnull align 8 dereferenceable(48) %3)
+          to label %99 unwind label %109
 
-98:                                               ; preds = %.lr.ph55
-  %99 = add i32 %.054, 1
-  %100 = zext i32 %99 to i64
-  %101 = load ptr, ptr %17, align 8, !tbaa !212
-  %102 = load ptr, ptr %16, align 8, !tbaa !211
+99:                                               ; preds = %.lr.ph55
+  %100 = add i32 %.054, 1
+  %101 = zext i32 %100 to i64
+  %102 = load ptr, ptr %17, align 8, !tbaa !212
+  %103 = load ptr, ptr %16, align 8, !tbaa !211
   %103 = ptrtoint ptr %101 to i64
   %104 = ptrtoint ptr %102 to i64
   %105 = sub i64 %103, %104
@@ -28264,13 +28264,13 @@ _ZNSt3mapIP8cmTargetP17cmGeneratorTargetSt4lessIS1_ESaISt4pairIKS1_S3_EEED2Ev.ex
   %107 = icmp ugt i64 %106, %100
   br i1 %107, label %.lr.ph55, label %._crit_edge56, !llvm.loop !1259
 
-108:                                              ; preds = %.lr.ph55
-  %109 = landingpad { ptr, i32 }
+109:                                              ; preds = %.lr.ph55
+  %110 = landingpad { ptr, i32 }
           cleanup
-  br label %110
+  br label %111
 
-110:                                              ; preds = %108, %.body
-  %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %.body ], [ %109, %108 ]
+111:                                              ; preds = %109, %.body
+  %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %.body ], [ %110, %109 ]
   call void @_ZNSt3mapIP8cmTargetP17cmGeneratorTargetSt4lessIS1_ESaISt4pairIKS1_S3_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(48) %3) #31
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %3) #31
   resume { ptr, i32 } %.pn.pn.pn

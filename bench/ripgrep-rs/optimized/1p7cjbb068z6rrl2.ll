@@ -74,7 +74,7 @@ common.resume:                                    ; preds = %.body, %11
 .body:                                            ; preds = %28, %16
   %eh.lpad-body = phi { ptr, i32 } [ %17, %16 ], [ %29, %28 ]
   invoke void @"_ZN4core3ptr61drop_in_place$LT$grep_printer..hyperlink..HyperlinkConfig$GT$17h7e045ad75e23a7ceE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %4) #14
-          to label %common.resume unwind label %42
+          to label %common.resume unwind label %43
 
 18:                                               ; preds = %"_ZN68_$LT$alloc..sync..Arc$LT$T$GT$$u20$as$u20$core..default..Default$GT$7default17hf8dcb19d1cf94de9E.exit"
   %19 = extractvalue { i64, ptr } %15, 0
@@ -161,26 +161,26 @@ common.resume:                                    ; preds = %.body, %11
   store i8 11, ptr %.sroa.37.0..sroa_idx, align 4
   %.sroa.38.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 88
   store i8 11, ptr %.sroa.38.0..sroa_idx, align 8
-  %35 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %8, ptr %35, align 8
-  %36 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  %.sroa.38.sroa.4.0..sroa.38.0..sroa_idx.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store ptr %8, ptr %.sroa.38.sroa.4.0..sroa.38.0..sroa_idx.sroa_idx, align 8
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 96
   store i8 0, ptr %36, align 8
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 97
   store i8 1, ptr %37, align 1
   store i64 0, ptr %0, align 8
-  %38 = getelementptr inbounds nuw i8, ptr %0, i64 98
-  store i8 1, ptr %38, align 2
-  %39 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr %25, ptr %39, align 8
-  %40 = getelementptr inbounds nuw i8, ptr %0, i64 92
-  store i8 0, ptr %40, align 4
-  %41 = getelementptr inbounds nuw i8, ptr %0, i64 94
-  store i8 0, ptr %41, align 2
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 98
+  store i8 1, ptr %39, align 2
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  store ptr %25, ptr %40, align 8
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 92
+  store i8 0, ptr %41, align 4
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 94
+  store i8 0, ptr %42, align 2
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   ret void
 
-42:                                               ; preds = %.body
-  %43 = landingpad { ptr, i32 }
+43:                                               ; preds = %.body
+  %44 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17h76c6e1c84248d3ffE() #15
   unreachable

@@ -735,7 +735,7 @@ _ZNSt6vectorIN3ozz9animation7offline16RawTrackKeyframeIfEENS0_12StdAllocatorIS4_
   %300 = getelementptr inbounds nuw i8, ptr %299, i64 24
   %301 = load ptr, ptr %300, align 8
   invoke void %301(ptr noundef nonnull align 8 dereferenceable(8) %291, ptr noundef %298)
-          to label %_ZNSt6vectorIbN3ozz12StdAllocatorIbEEED2Ev.exit.i.i unwind label %302
+          to label %_ZNSt16allocator_traitsIN3ozz12StdAllocatorImEEE10deallocateERS2_Pmm.exit.i.i.i.i.i unwind label %302
 
 302:                                              ; preds = %292, %289
   %303 = landingpad { ptr, i32 }
@@ -744,7 +744,7 @@ _ZNSt6vectorIN3ozz9animation7offline16RawTrackKeyframeIfEENS0_12StdAllocatorIS4_
   call void @__clang_call_terminate(ptr %304) #16
   unreachable
 
-_ZNSt6vectorIbN3ozz12StdAllocatorIbEEED2Ev.exit.i.i: ; preds = %292, %287
+_ZNSt16allocator_traitsIN3ozz12StdAllocatorImEEE10deallocateERS2_Pmm.exit.i.i.i.i.i: ; preds = %292, %287
   %305 = load ptr, ptr %4, align 8
   %.not.i.i.i89.i.i = icmp eq ptr %305, null
   br i1 %.not.i.i.i89.i.i, label %_ZN3ozz9animation7offline8DecimateISt6vectorINS1_16RawTrackKeyframeIfEENS_12StdAllocatorIS5_EEENS1_12_GLOBAL__N_17AdapterIS5_EEEEvRKT_RKT0_fPSC_.exit.i, label %306
@@ -1457,7 +1457,7 @@ _ZNSt6vectorIN3ozz9animation7offline16RawTrackKeyframeINS0_4math6Float2EEENS0_12
   %315 = getelementptr inbounds nuw i8, ptr %314, i64 24
   %316 = load ptr, ptr %315, align 8
   invoke void %316(ptr noundef nonnull align 8 dereferenceable(8) %306, ptr noundef %313)
-          to label %_ZNSt6vectorIbN3ozz12StdAllocatorIbEEED2Ev.exit.i.i unwind label %317
+          to label %_ZNSt16allocator_traitsIN3ozz12StdAllocatorImEEE10deallocateERS2_Pmm.exit.i.i.i.i.i unwind label %317
 
 317:                                              ; preds = %307, %304
   %318 = landingpad { ptr, i32 }
@@ -1466,7 +1466,7 @@ _ZNSt6vectorIN3ozz9animation7offline16RawTrackKeyframeINS0_4math6Float2EEENS0_12
   call void @__clang_call_terminate(ptr %319) #16
   unreachable
 
-_ZNSt6vectorIbN3ozz12StdAllocatorIbEEED2Ev.exit.i.i: ; preds = %307, %302
+_ZNSt16allocator_traitsIN3ozz12StdAllocatorImEEE10deallocateERS2_Pmm.exit.i.i.i.i.i: ; preds = %307, %302
   %320 = load ptr, ptr %4, align 8
   %.not.i.i.i90.i.i = icmp eq ptr %320, null
   br i1 %.not.i.i.i90.i.i, label %_ZN3ozz9animation7offline8DecimateISt6vectorINS1_16RawTrackKeyframeINS_4math6Float2EEENS_12StdAllocatorIS7_EEENS1_12_GLOBAL__N_17AdapterIS7_EEEEvRKT_RKT0_fPSE_.exit.i, label %321
@@ -2197,7 +2197,7 @@ _ZNSt6vectorIN3ozz9animation7offline16RawTrackKeyframeINS0_4math6Float3EEENS0_12
   %339 = getelementptr inbounds nuw i8, ptr %338, i64 24
   %340 = load ptr, ptr %339, align 8
   invoke void %340(ptr noundef nonnull align 8 dereferenceable(8) %330, ptr noundef %337)
-          to label %_ZNSt6vectorIbN3ozz12StdAllocatorIbEEED2Ev.exit.i.i unwind label %341
+          to label %_ZNSt16allocator_traitsIN3ozz12StdAllocatorImEEE10deallocateERS2_Pmm.exit.i.i.i.i.i unwind label %341
 
 341:                                              ; preds = %331, %328
   %342 = landingpad { ptr, i32 }
@@ -2206,7 +2206,7 @@ _ZNSt6vectorIN3ozz9animation7offline16RawTrackKeyframeINS0_4math6Float3EEENS0_12
   call void @__clang_call_terminate(ptr %343) #16
   unreachable
 
-_ZNSt6vectorIbN3ozz12StdAllocatorIbEEED2Ev.exit.i.i: ; preds = %331, %326
+_ZNSt16allocator_traitsIN3ozz12StdAllocatorImEEE10deallocateERS2_Pmm.exit.i.i.i.i.i: ; preds = %331, %326
   %344 = load ptr, ptr %4, align 8
   %.not.i.i.i82.i.i = icmp eq ptr %344, null
   br i1 %.not.i.i.i82.i.i, label %_ZN3ozz9animation7offline8DecimateISt6vectorINS1_16RawTrackKeyframeINS_4math6Float3EEENS_12StdAllocatorIS7_EEENS1_12_GLOBAL__N_17AdapterIS7_EEEEvRKT_RKT0_fPSE_.exit.i, label %345
@@ -2953,7 +2953,7 @@ _ZNSt6vectorIN3ozz9animation7offline16RawTrackKeyframeINS0_4math6Float4EEENS0_12
   %355 = getelementptr inbounds nuw i8, ptr %354, i64 24
   %356 = load ptr, ptr %355, align 8
   invoke void %356(ptr noundef nonnull align 8 dereferenceable(8) %346, ptr noundef %353)
-          to label %_ZNSt6vectorIbN3ozz12StdAllocatorIbEEED2Ev.exit.i.i unwind label %357
+          to label %_ZNSt16allocator_traitsIN3ozz12StdAllocatorImEEE10deallocateERS2_Pmm.exit.i.i.i.i.i unwind label %357
 
 357:                                              ; preds = %347, %344
   %358 = landingpad { ptr, i32 }
@@ -2962,7 +2962,7 @@ _ZNSt6vectorIN3ozz9animation7offline16RawTrackKeyframeINS0_4math6Float4EEENS0_12
   call void @__clang_call_terminate(ptr %359) #16
   unreachable
 
-_ZNSt6vectorIbN3ozz12StdAllocatorIbEEED2Ev.exit.i.i: ; preds = %347, %342
+_ZNSt16allocator_traitsIN3ozz12StdAllocatorImEEE10deallocateERS2_Pmm.exit.i.i.i.i.i: ; preds = %347, %342
   %360 = load ptr, ptr %4, align 8
   %.not.i.i.i82.i.i = icmp eq ptr %360, null
   br i1 %.not.i.i.i82.i.i, label %_ZN3ozz9animation7offline8DecimateISt6vectorINS1_16RawTrackKeyframeINS_4math6Float4EEENS_12StdAllocatorIS7_EEENS1_12_GLOBAL__N_17AdapterIS7_EEEEvRKT_RKT0_fPSE_.exit.i, label %361
@@ -3720,7 +3720,7 @@ _ZNSt6vectorIN3ozz9animation7offline16RawTrackKeyframeINS0_4math10QuaternionEEEN
   %367 = getelementptr inbounds nuw i8, ptr %366, i64 24
   %368 = load ptr, ptr %367, align 8
   invoke void %368(ptr noundef nonnull align 8 dereferenceable(8) %358, ptr noundef %365)
-          to label %_ZNSt6vectorIbN3ozz12StdAllocatorIbEEED2Ev.exit.i.i unwind label %369
+          to label %_ZNSt16allocator_traitsIN3ozz12StdAllocatorImEEE10deallocateERS2_Pmm.exit.i.i.i.i.i unwind label %369
 
 369:                                              ; preds = %359, %356
   %370 = landingpad { ptr, i32 }
@@ -3729,7 +3729,7 @@ _ZNSt6vectorIN3ozz9animation7offline16RawTrackKeyframeINS0_4math10QuaternionEEEN
   call void @__clang_call_terminate(ptr %371) #16
   unreachable
 
-_ZNSt6vectorIbN3ozz12StdAllocatorIbEEED2Ev.exit.i.i: ; preds = %359, %354
+_ZNSt16allocator_traitsIN3ozz12StdAllocatorImEEE10deallocateERS2_Pmm.exit.i.i.i.i.i: ; preds = %359, %354
   %372 = load ptr, ptr %4, align 8
   %.not.i.i.i81.i.i = icmp eq ptr %372, null
   br i1 %.not.i.i.i81.i.i, label %_ZN3ozz9animation7offline8DecimateISt6vectorINS1_16RawTrackKeyframeINS_4math10QuaternionEEENS_12StdAllocatorIS7_EEENS1_12_GLOBAL__N_17AdapterIS7_EEEEvRKT_RKT0_fPSE_.exit.i, label %373

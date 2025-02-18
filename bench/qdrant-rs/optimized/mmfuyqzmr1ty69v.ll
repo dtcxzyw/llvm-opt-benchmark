@@ -1338,7 +1338,7 @@ define void @_ZN6sparse5index14search_context13SearchContext12plain_search17h411
 
 24:                                               ; preds = %4
   call void @llvm.lifetime.end.p0(i64 0, ptr nonnull %5)
-  %25 = getelementptr inbounds i32, ptr %18, i64 %3
+  %.sroa.046.0.copyload = getelementptr inbounds i32, ptr %18, i64 %3
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %14)
   store ptr %18, ptr %14, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %14, i64 8

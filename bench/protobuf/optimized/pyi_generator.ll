@@ -1119,7 +1119,7 @@ lpad12.loopexit.split-lp:                         ; preds = %while.end, %if.end
   br label %ehcleanup
 
 while.end:                                        ; preds = %invoke.cont18
-  %call25 = invoke noundef zeroext i1 @_ZN6google8protobuf8compiler6python21ContainsPythonKeywordESt17basic_string_viewIcSt11char_traitsIcEE(i64 %3, ptr %5)
+  %agg.tmp23.sroa.0.0.copyload = invoke noundef zeroext i1 @_ZN6google8protobuf8compiler6python21ContainsPythonKeywordESt17basic_string_viewIcSt11char_traitsIcEE(i64 %3, ptr %5)
           to label %invoke.cont24 unwind label %lpad12.loopexit.split-lp
 
 invoke.cont24:                                    ; preds = %while.end
@@ -1181,7 +1181,7 @@ if.end:                                           ; preds = %invoke.cont28, %if.
 if.else:                                          ; preds = %invoke.cont24
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %import_statement) #25
   %cmp32 = icmp eq i64 %retval.0.i, -1
-  br i1 %cmp32, label %invoke.cont37, label %invoke.cont57
+  br i1 %cmp32, label %invoke.cont37, label %invoke.cont53
 
 invoke.cont37:                                    ; preds = %if.else
   store i64 7, ptr %ref.tmp35, align 8
@@ -1199,7 +1199,7 @@ lpad36:                                           ; preds = %if.then.i.i.i.i.i.i
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %import_statement) #25
   br label %ehcleanup
 
-invoke.cont57:                                    ; preds = %if.else
+invoke.cont53:                                    ; preds = %if.else
   store i64 5, ptr %ref.tmp45, align 8
   %25 = getelementptr inbounds nuw i8, ptr %ref.tmp45, i64 8
   store ptr @.str.15, ptr %25, align 8

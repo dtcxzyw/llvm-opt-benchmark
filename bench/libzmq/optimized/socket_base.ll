@@ -5888,15 +5888,15 @@ if.then.i.i19:                                    ; preds = %if.then.i16
   %15 = load ptr, ptr @stderr, align 8
   %call3.i.i21 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %15, ptr noundef nonnull @.str.9, ptr noundef %call2.i.i20, ptr noundef nonnull @.str.23, i32 noundef 125) #37
   %16 = load ptr, ptr @stderr, align 8
-  %call4.i.i22 = call i32 @fflush(ptr noundef %16)
+  %call3.i.i21 = call i32 @fflush(ptr noundef %16)
   invoke void @_ZN3zmq9zmq_abortEPKc(ptr noundef %call2.i.i20)
           to label %_ZN3zmq22scoped_optional_lock_tD2Ev.exit unwind label %terminate.lpad.i
 
 terminate.lpad.i:                                 ; preds = %if.then.i.i19
-  %17 = landingpad { ptr, i32 }
+  %18 = landingpad { ptr, i32 }
           catch ptr null
-  %18 = extractvalue { ptr, i32 } %17, 0
-  call void @__clang_call_terminate(ptr %18) #38
+  %19 = extractvalue { ptr, i32 } %18, 0
+  call void @__clang_call_terminate(ptr %19) #38
   unreachable
 
 _ZN3zmq22scoped_optional_lock_tD2Ev.exit:         ; preds = %cleanup90, %if.then.i16, %if.then.i.i19

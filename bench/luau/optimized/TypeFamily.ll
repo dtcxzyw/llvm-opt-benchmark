@@ -8524,7 +8524,7 @@ _ZN4Luau9isPendingEPKNS_4TypeEPNS_16ConstraintSolverE.exit83.thread166.thread: ;
 
 195:                                              ; preds = %192
   %.sroa.022.0.copyload = load ptr, ptr %190, align 8
-  %196 = invoke { ptr, i8 } @_ZN4Luau18findMetatableEntryENS_7NotNullINS_12BuiltinTypesEEERSt6vectorINS_9TypeErrorESaIS4_EEPKNS_4TypeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_8LocationE(ptr %.sroa.022.0.copyload, ptr noundef nonnull align 8 dereferenceable(24) %17, ptr noundef %.0162, ptr noundef nonnull align 8 dereferenceable(32) %5, i64 %.sroa.025.0.copyload, i64 %.sroa.226.0.copyload)
+  %.sroa.020.0.copyload = invoke { ptr, i8 } @_ZN4Luau18findMetatableEntryENS_7NotNullINS_12BuiltinTypesEEERSt6vectorINS_9TypeErrorESaIS4_EEPKNS_4TypeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_8LocationE(ptr %.sroa.022.0.copyload, ptr noundef nonnull align 8 dereferenceable(24) %17, ptr noundef %.0162, ptr noundef nonnull align 8 dereferenceable(32) %5, i64 %.sroa.025.0.copyload, i64 %.sroa.226.0.copyload)
           to label %197 unwind label %199
 
 197:                                              ; preds = %195
