@@ -29,7 +29,7 @@ define ptr @cs_post(ptr noundef readonly captures(address_is_null) %0, i32 nound
 .lr.ph58.preheader:                               ; preds = %9
   %16 = zext nneg i32 %1 to i64
   %17 = shl nuw nsw i64 %16, 2
-  tail call void @llvm.memset.p0.i64(ptr nonnull align 4 %6, i8 -1, i64 %17, i1 false)
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 4 %6, i8 -1, i64 %17, i1 false), !tbaa !3
   %18 = zext nneg i32 %1 to i64
   br label %.lr.ph58
 
@@ -41,32 +41,32 @@ define ptr @cs_post(ptr noundef readonly captures(address_is_null) %0, i32 nound
   %indvars.iv = phi i64 [ %18, %.lr.ph58.preheader ], [ %indvars.iv.next, %31 ]
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %19 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv.next
-  %20 = load i32, ptr %19, align 4
+  %20 = load i32, ptr %19, align 4, !tbaa !3
   %21 = icmp eq i32 %20, -1
   br i1 %21, label %31, label %22
 
 22:                                               ; preds = %.lr.ph58
   %23 = sext i32 %20 to i64
   %24 = getelementptr inbounds i32, ptr %6, i64 %23
-  %25 = load i32, ptr %24, align 4
+  %25 = load i32, ptr %24, align 4, !tbaa !3
   %26 = getelementptr inbounds nuw i32, ptr %11, i64 %indvars.iv.next
-  store i32 %25, ptr %26, align 4
-  %27 = load i32, ptr %19, align 4
+  store i32 %25, ptr %26, align 4, !tbaa !3
+  %27 = load i32, ptr %19, align 4, !tbaa !3
   %28 = sext i32 %27 to i64
   %29 = getelementptr inbounds i32, ptr %6, i64 %28
   %30 = trunc nuw nsw i64 %indvars.iv.next to i32
-  store i32 %30, ptr %29, align 4
+  store i32 %30, ptr %29, align 4, !tbaa !3
   br label %31
 
 31:                                               ; preds = %.lr.ph58, %22
   %32 = icmp samesign ugt i64 %indvars.iv, 1
-  br i1 %32, label %.lr.ph58, label %.lr.ph61.preheader, !llvm.loop !4
+  br i1 %32, label %.lr.ph58, label %.lr.ph61.preheader, !llvm.loop !7
 
 .lr.ph61:                                         ; preds = %.lr.ph61.preheader, %38
   %indvars.iv64 = phi i64 [ 0, %.lr.ph61.preheader ], [ %indvars.iv.next65, %38 ]
   %.04659 = phi i32 [ 0, %.lr.ph61.preheader ], [ %.147, %38 ]
   %33 = getelementptr inbounds nuw i32, ptr %0, i64 %indvars.iv64
-  %34 = load i32, ptr %33, align 4
+  %34 = load i32, ptr %33, align 4, !tbaa !3
   %.not53 = icmp eq i32 %34, -1
   br i1 %.not53, label %35, label %38
 
@@ -79,7 +79,7 @@ define ptr @cs_post(ptr noundef readonly captures(address_is_null) %0, i32 nound
   %.147 = phi i32 [ %.04659, %.lr.ph61 ], [ %37, %35 ]
   %indvars.iv.next65 = add nuw nsw i64 %indvars.iv64, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next65, %wide.trip.count
-  br i1 %exitcond.not, label %.sink.split, label %.lr.ph61, !llvm.loop !6
+  br i1 %exitcond.not, label %.sink.split, label %.lr.ph61, !llvm.loop !9
 
 .sink.split:                                      ; preds = %38, %9, %3
   %.sink = phi i32 [ 0, %3 ], [ 1, %9 ], [ 1, %38 ]
@@ -100,17 +100,20 @@ declare i32 @cs_tdfs(i32 noundef, i32 noundef, ptr noundef, ptr noundef, ptr nou
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #3 = { nounwind }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
+!3 = !{!4, !4, i64 0}
+!4 = !{!"int", !5, i64 0}
+!5 = !{!"omnipotent char", !6, i64 0}
+!6 = !{!"Simple C/C++ TBAA"}
+!7 = distinct !{!7, !8}
+!8 = !{!"llvm.loop.mustprogress"}
+!9 = distinct !{!9, !8}

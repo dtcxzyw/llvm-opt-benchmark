@@ -10,7 +10,7 @@ define range(i32 0, 2) i32 @cs_qrsol(i32 noundef %0, ptr noundef %1, ptr noundef
 
 4:                                                ; preds = %3
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %6 = load i32, ptr %5, align 8
+  %6 = load i32, ptr %5, align 8, !tbaa !3
   %7 = icmp eq i32 %6, -1
   %8 = icmp ne ptr %2, null
   %or.cond = and i1 %8, %7
@@ -18,9 +18,9 @@ define range(i32 0, 2) i32 @cs_qrsol(i32 noundef %0, ptr noundef %1, ptr noundef
 
 9:                                                ; preds = %4
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %11 = load i32, ptr %10, align 8
+  %11 = load i32, ptr %10, align 8, !tbaa !11
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %13 = load i32, ptr %12, align 4
+  %13 = load i32, ptr %12, align 4, !tbaa !12
   %.not90 = icmp slt i32 %13, %11
   br i1 %.not90, label %44, label %14
 
@@ -32,7 +32,7 @@ define range(i32 0, 2) i32 @cs_qrsol(i32 noundef %0, ptr noundef %1, ptr noundef
 
 18:                                               ; preds = %14
   %19 = getelementptr inbounds nuw i8, ptr %15, i64 40
-  %20 = load i32, ptr %19, align 8
+  %20 = load i32, ptr %19, align 8, !tbaa !13
   br label %21
 
 21:                                               ; preds = %14, %18
@@ -45,7 +45,7 @@ define range(i32 0, 2) i32 @cs_qrsol(i32 noundef %0, ptr noundef %1, ptr noundef
   br i1 %spec.select, label %26, label %78
 
 26:                                               ; preds = %21
-  %27 = load ptr, ptr %15, align 8
+  %27 = load ptr, ptr %15, align 8, !tbaa !16
   %28 = tail call i32 @cs_ipvec(ptr noundef %27, ptr noundef nonnull %2, ptr noundef nonnull %23, i32 noundef %13) #2
   %29 = icmp sgt i32 %11, 0
   br i1 %29, label %.lr.ph, label %._crit_edge
@@ -57,22 +57,22 @@ define range(i32 0, 2) i32 @cs_qrsol(i32 noundef %0, ptr noundef %1, ptr noundef
 
 31:                                               ; preds = %.lr.ph, %31
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %31 ]
-  %32 = load ptr, ptr %16, align 8
-  %33 = load ptr, ptr %30, align 8
+  %32 = load ptr, ptr %16, align 8, !tbaa !17
+  %33 = load ptr, ptr %30, align 8, !tbaa !20
   %34 = getelementptr inbounds nuw double, ptr %33, i64 %indvars.iv
-  %35 = load double, ptr %34, align 8
+  %35 = load double, ptr %34, align 8, !tbaa !21
   %36 = trunc nuw nsw i64 %indvars.iv to i32
   %37 = tail call i32 @cs_happly(ptr noundef %32, i32 noundef %36, double noundef %35, ptr noundef nonnull %23) #2
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %31, !llvm.loop !4
+  br i1 %exitcond.not, label %._crit_edge, label %31, !llvm.loop !22
 
 ._crit_edge:                                      ; preds = %31, %26
   %38 = getelementptr inbounds nuw i8, ptr %16, i64 8
-  %39 = load ptr, ptr %38, align 8
+  %39 = load ptr, ptr %38, align 8, !tbaa !24
   %40 = tail call i32 @cs_usolve(ptr noundef %39, ptr noundef nonnull %23) #2
   %41 = getelementptr inbounds nuw i8, ptr %15, i64 8
-  %42 = load ptr, ptr %41, align 8
+  %42 = load ptr, ptr %41, align 8, !tbaa !25
   %43 = tail call i32 @cs_ipvec(ptr noundef %42, ptr noundef nonnull %23, ptr noundef nonnull %2, i32 noundef %11) #2
   br label %78
 
@@ -85,7 +85,7 @@ define range(i32 0, 2) i32 @cs_qrsol(i32 noundef %0, ptr noundef %1, ptr noundef
 
 49:                                               ; preds = %44
   %50 = getelementptr inbounds nuw i8, ptr %46, i64 40
-  %51 = load i32, ptr %50, align 8
+  %51 = load i32, ptr %50, align 8, !tbaa !13
   br label %52
 
 52:                                               ; preds = %44, %49
@@ -101,10 +101,10 @@ define range(i32 0, 2) i32 @cs_qrsol(i32 noundef %0, ptr noundef %1, ptr noundef
 
 58:                                               ; preds = %52
   %59 = getelementptr inbounds nuw i8, ptr %46, i64 8
-  %60 = load ptr, ptr %59, align 8
+  %60 = load ptr, ptr %59, align 8, !tbaa !25
   %61 = tail call i32 @cs_pvec(ptr noundef %60, ptr noundef nonnull %2, ptr noundef nonnull %54, i32 noundef %13) #2
   %62 = getelementptr inbounds nuw i8, ptr %47, i64 8
-  %63 = load ptr, ptr %62, align 8
+  %63 = load ptr, ptr %62, align 8, !tbaa !24
   %64 = tail call i32 @cs_utsolve(ptr noundef %63, ptr noundef nonnull %54) #2
   %65 = icmp sgt i32 %13, 0
   br i1 %65, label %.lr.ph95, label %._crit_edge96
@@ -117,17 +117,17 @@ define range(i32 0, 2) i32 @cs_qrsol(i32 noundef %0, ptr noundef %1, ptr noundef
 68:                                               ; preds = %.lr.ph95, %68
   %indvars.iv98 = phi i64 [ %67, %.lr.ph95 ], [ %indvars.iv.next99, %68 ]
   %indvars.iv.next99 = add nsw i64 %indvars.iv98, -1
-  %69 = load ptr, ptr %47, align 8
-  %70 = load ptr, ptr %66, align 8
+  %69 = load ptr, ptr %47, align 8, !tbaa !17
+  %70 = load ptr, ptr %66, align 8, !tbaa !20
   %71 = getelementptr inbounds nuw double, ptr %70, i64 %indvars.iv.next99
-  %72 = load double, ptr %71, align 8
+  %72 = load double, ptr %71, align 8, !tbaa !21
   %73 = trunc nuw nsw i64 %indvars.iv.next99 to i32
   %74 = tail call i32 @cs_happly(ptr noundef %69, i32 noundef %73, double noundef %72, ptr noundef nonnull %54) #2
   %75 = icmp samesign ugt i64 %indvars.iv98, 1
-  br i1 %75, label %68, label %._crit_edge96, !llvm.loop !6
+  br i1 %75, label %68, label %._crit_edge96, !llvm.loop !26
 
 ._crit_edge96:                                    ; preds = %68, %58
-  %76 = load ptr, ptr %46, align 8
+  %76 = load ptr, ptr %46, align 8, !tbaa !16
   %77 = tail call i32 @cs_pvec(ptr noundef %76, ptr noundef nonnull %54, ptr noundef nonnull %2, i32 noundef %11) #2
   br label %78
 
@@ -174,16 +174,36 @@ declare ptr @cs_nfree(ptr noundef) local_unnamed_addr #1
 
 declare ptr @cs_spfree(ptr noundef) local_unnamed_addr #1
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { nounwind }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
+!3 = !{!4, !5, i64 40}
+!4 = !{!"cs_sparse", !5, i64 0, !5, i64 4, !5, i64 8, !8, i64 16, !8, i64 24, !10, i64 32, !5, i64 40}
+!5 = !{!"int", !6, i64 0}
+!6 = !{!"omnipotent char", !7, i64 0}
+!7 = !{!"Simple C/C++ TBAA"}
+!8 = !{!"p1 int", !9, i64 0}
+!9 = !{!"any pointer", !6, i64 0}
+!10 = !{!"p1 double", !9, i64 0}
+!11 = !{!4, !5, i64 8}
+!12 = !{!4, !5, i64 4}
+!13 = !{!14, !5, i64 40}
+!14 = !{!"cs_symbolic", !8, i64 0, !8, i64 8, !8, i64 16, !8, i64 24, !8, i64 32, !5, i64 40, !15, i64 48, !15, i64 56}
+!15 = !{!"double", !6, i64 0}
+!16 = !{!14, !8, i64 0}
+!17 = !{!18, !19, i64 0}
+!18 = !{!"cs_numeric", !19, i64 0, !19, i64 8, !8, i64 16, !10, i64 24}
+!19 = !{!"p1 _ZTS9cs_sparse", !9, i64 0}
+!20 = !{!18, !10, i64 24}
+!21 = !{!15, !15, i64 0}
+!22 = distinct !{!22, !23}
+!23 = !{!"llvm.loop.mustprogress"}
+!24 = !{!18, !19, i64 8}
+!25 = !{!14, !8, i64 8}
+!26 = distinct !{!26, !23}

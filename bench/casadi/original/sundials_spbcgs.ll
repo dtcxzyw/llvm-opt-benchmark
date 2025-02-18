@@ -16,216 +16,249 @@ define ptr @SpbcgMalloc(i32 noundef %0, ptr noundef %1) #0 {
   %11 = alloca ptr, align 8
   %12 = alloca ptr, align 8
   %13 = alloca ptr, align 8
-  store i32 %0, ptr %4, align 4
-  store ptr %1, ptr %5, align 8
-  %14 = load i32, ptr %4, align 4
-  %15 = icmp sle i32 %14, 0
-  br i1 %15, label %16, label %17
-
-16:                                               ; preds = %2
-  store ptr null, ptr %3, align 8
-  br label %118
+  %14 = alloca i32, align 4
+  store i32 %0, ptr %4, align 4, !tbaa !3
+  store ptr %1, ptr %5, align 8, !tbaa !7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %6) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %9) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %10) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %11) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %12) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %13) #5
+  %15 = load i32, ptr %4, align 4, !tbaa !3
+  %16 = icmp sle i32 %15, 0
+  br i1 %16, label %17, label %18
 
 17:                                               ; preds = %2
-  %18 = load ptr, ptr %5, align 8
-  %19 = call ptr @N_VClone(ptr noundef %18)
-  store ptr %19, ptr %7, align 8
-  %20 = load ptr, ptr %7, align 8
-  %21 = icmp eq ptr %20, null
-  br i1 %21, label %22, label %23
-
-22:                                               ; preds = %17
   store ptr null, ptr %3, align 8
-  br label %118
+  store i32 1, ptr %14, align 4
+  br label %119
 
-23:                                               ; preds = %17
-  %24 = load ptr, ptr %5, align 8
-  %25 = call ptr @N_VClone(ptr noundef %24)
-  store ptr %25, ptr %8, align 8
-  %26 = load ptr, ptr %8, align 8
-  %27 = icmp eq ptr %26, null
-  br i1 %27, label %28, label %30
+18:                                               ; preds = %2
+  %19 = load ptr, ptr %5, align 8, !tbaa !7
+  %20 = call ptr @N_VClone(ptr noundef %19)
+  store ptr %20, ptr %7, align 8, !tbaa !7
+  %21 = load ptr, ptr %7, align 8, !tbaa !7
+  %22 = icmp eq ptr %21, null
+  br i1 %22, label %23, label %24
 
-28:                                               ; preds = %23
-  %29 = load ptr, ptr %7, align 8
-  call void @N_VDestroy(ptr noundef %29)
+23:                                               ; preds = %18
   store ptr null, ptr %3, align 8
-  br label %118
+  store i32 1, ptr %14, align 4
+  br label %119
 
-30:                                               ; preds = %23
-  %31 = load ptr, ptr %5, align 8
-  %32 = call ptr @N_VClone(ptr noundef %31)
-  store ptr %32, ptr %9, align 8
-  %33 = load ptr, ptr %9, align 8
-  %34 = icmp eq ptr %33, null
-  br i1 %34, label %35, label %38
+24:                                               ; preds = %18
+  %25 = load ptr, ptr %5, align 8, !tbaa !7
+  %26 = call ptr @N_VClone(ptr noundef %25)
+  store ptr %26, ptr %8, align 8, !tbaa !7
+  %27 = load ptr, ptr %8, align 8, !tbaa !7
+  %28 = icmp eq ptr %27, null
+  br i1 %28, label %29, label %31
 
-35:                                               ; preds = %30
-  %36 = load ptr, ptr %7, align 8
-  call void @N_VDestroy(ptr noundef %36)
-  %37 = load ptr, ptr %8, align 8
+29:                                               ; preds = %24
+  %30 = load ptr, ptr %7, align 8, !tbaa !7
+  call void @N_VDestroy(ptr noundef %30)
+  store ptr null, ptr %3, align 8
+  store i32 1, ptr %14, align 4
+  br label %119
+
+31:                                               ; preds = %24
+  %32 = load ptr, ptr %5, align 8, !tbaa !7
+  %33 = call ptr @N_VClone(ptr noundef %32)
+  store ptr %33, ptr %9, align 8, !tbaa !7
+  %34 = load ptr, ptr %9, align 8, !tbaa !7
+  %35 = icmp eq ptr %34, null
+  br i1 %35, label %36, label %39
+
+36:                                               ; preds = %31
+  %37 = load ptr, ptr %7, align 8, !tbaa !7
   call void @N_VDestroy(ptr noundef %37)
+  %38 = load ptr, ptr %8, align 8, !tbaa !7
+  call void @N_VDestroy(ptr noundef %38)
   store ptr null, ptr %3, align 8
-  br label %118
+  store i32 1, ptr %14, align 4
+  br label %119
 
-38:                                               ; preds = %30
-  %39 = load ptr, ptr %5, align 8
-  %40 = call ptr @N_VClone(ptr noundef %39)
-  store ptr %40, ptr %10, align 8
-  %41 = load ptr, ptr %10, align 8
-  %42 = icmp eq ptr %41, null
-  br i1 %42, label %43, label %47
+39:                                               ; preds = %31
+  %40 = load ptr, ptr %5, align 8, !tbaa !7
+  %41 = call ptr @N_VClone(ptr noundef %40)
+  store ptr %41, ptr %10, align 8, !tbaa !7
+  %42 = load ptr, ptr %10, align 8, !tbaa !7
+  %43 = icmp eq ptr %42, null
+  br i1 %43, label %44, label %48
 
-43:                                               ; preds = %38
-  %44 = load ptr, ptr %7, align 8
-  call void @N_VDestroy(ptr noundef %44)
-  %45 = load ptr, ptr %8, align 8
+44:                                               ; preds = %39
+  %45 = load ptr, ptr %7, align 8, !tbaa !7
   call void @N_VDestroy(ptr noundef %45)
-  %46 = load ptr, ptr %9, align 8
+  %46 = load ptr, ptr %8, align 8, !tbaa !7
   call void @N_VDestroy(ptr noundef %46)
+  %47 = load ptr, ptr %9, align 8, !tbaa !7
+  call void @N_VDestroy(ptr noundef %47)
   store ptr null, ptr %3, align 8
-  br label %118
+  store i32 1, ptr %14, align 4
+  br label %119
 
-47:                                               ; preds = %38
-  %48 = load ptr, ptr %5, align 8
-  %49 = call ptr @N_VClone(ptr noundef %48)
-  store ptr %49, ptr %11, align 8
-  %50 = load ptr, ptr %11, align 8
-  %51 = icmp eq ptr %50, null
-  br i1 %51, label %52, label %57
+48:                                               ; preds = %39
+  %49 = load ptr, ptr %5, align 8, !tbaa !7
+  %50 = call ptr @N_VClone(ptr noundef %49)
+  store ptr %50, ptr %11, align 8, !tbaa !7
+  %51 = load ptr, ptr %11, align 8, !tbaa !7
+  %52 = icmp eq ptr %51, null
+  br i1 %52, label %53, label %58
 
-52:                                               ; preds = %47
-  %53 = load ptr, ptr %7, align 8
-  call void @N_VDestroy(ptr noundef %53)
-  %54 = load ptr, ptr %8, align 8
+53:                                               ; preds = %48
+  %54 = load ptr, ptr %7, align 8, !tbaa !7
   call void @N_VDestroy(ptr noundef %54)
-  %55 = load ptr, ptr %9, align 8
+  %55 = load ptr, ptr %8, align 8, !tbaa !7
   call void @N_VDestroy(ptr noundef %55)
-  %56 = load ptr, ptr %10, align 8
+  %56 = load ptr, ptr %9, align 8, !tbaa !7
   call void @N_VDestroy(ptr noundef %56)
+  %57 = load ptr, ptr %10, align 8, !tbaa !7
+  call void @N_VDestroy(ptr noundef %57)
   store ptr null, ptr %3, align 8
-  br label %118
+  store i32 1, ptr %14, align 4
+  br label %119
 
-57:                                               ; preds = %47
-  %58 = load ptr, ptr %5, align 8
-  %59 = call ptr @N_VClone(ptr noundef %58)
-  store ptr %59, ptr %12, align 8
-  %60 = load ptr, ptr %12, align 8
-  %61 = icmp eq ptr %60, null
-  br i1 %61, label %62, label %68
+58:                                               ; preds = %48
+  %59 = load ptr, ptr %5, align 8, !tbaa !7
+  %60 = call ptr @N_VClone(ptr noundef %59)
+  store ptr %60, ptr %12, align 8, !tbaa !7
+  %61 = load ptr, ptr %12, align 8, !tbaa !7
+  %62 = icmp eq ptr %61, null
+  br i1 %62, label %63, label %69
 
-62:                                               ; preds = %57
-  %63 = load ptr, ptr %7, align 8
-  call void @N_VDestroy(ptr noundef %63)
-  %64 = load ptr, ptr %8, align 8
+63:                                               ; preds = %58
+  %64 = load ptr, ptr %7, align 8, !tbaa !7
   call void @N_VDestroy(ptr noundef %64)
-  %65 = load ptr, ptr %9, align 8
+  %65 = load ptr, ptr %8, align 8, !tbaa !7
   call void @N_VDestroy(ptr noundef %65)
-  %66 = load ptr, ptr %10, align 8
+  %66 = load ptr, ptr %9, align 8, !tbaa !7
   call void @N_VDestroy(ptr noundef %66)
-  %67 = load ptr, ptr %11, align 8
+  %67 = load ptr, ptr %10, align 8, !tbaa !7
   call void @N_VDestroy(ptr noundef %67)
+  %68 = load ptr, ptr %11, align 8, !tbaa !7
+  call void @N_VDestroy(ptr noundef %68)
   store ptr null, ptr %3, align 8
-  br label %118
+  store i32 1, ptr %14, align 4
+  br label %119
 
-68:                                               ; preds = %57
-  %69 = load ptr, ptr %5, align 8
-  %70 = call ptr @N_VClone(ptr noundef %69)
-  store ptr %70, ptr %13, align 8
-  %71 = load ptr, ptr %13, align 8
-  %72 = icmp eq ptr %71, null
-  br i1 %72, label %73, label %80
+69:                                               ; preds = %58
+  %70 = load ptr, ptr %5, align 8, !tbaa !7
+  %71 = call ptr @N_VClone(ptr noundef %70)
+  store ptr %71, ptr %13, align 8, !tbaa !7
+  %72 = load ptr, ptr %13, align 8, !tbaa !7
+  %73 = icmp eq ptr %72, null
+  br i1 %73, label %74, label %81
 
-73:                                               ; preds = %68
-  %74 = load ptr, ptr %7, align 8
-  call void @N_VDestroy(ptr noundef %74)
-  %75 = load ptr, ptr %8, align 8
+74:                                               ; preds = %69
+  %75 = load ptr, ptr %7, align 8, !tbaa !7
   call void @N_VDestroy(ptr noundef %75)
-  %76 = load ptr, ptr %9, align 8
+  %76 = load ptr, ptr %8, align 8, !tbaa !7
   call void @N_VDestroy(ptr noundef %76)
-  %77 = load ptr, ptr %10, align 8
+  %77 = load ptr, ptr %9, align 8, !tbaa !7
   call void @N_VDestroy(ptr noundef %77)
-  %78 = load ptr, ptr %11, align 8
+  %78 = load ptr, ptr %10, align 8, !tbaa !7
   call void @N_VDestroy(ptr noundef %78)
-  %79 = load ptr, ptr %12, align 8
+  %79 = load ptr, ptr %11, align 8, !tbaa !7
   call void @N_VDestroy(ptr noundef %79)
+  %80 = load ptr, ptr %12, align 8, !tbaa !7
+  call void @N_VDestroy(ptr noundef %80)
   store ptr null, ptr %3, align 8
-  br label %118
+  store i32 1, ptr %14, align 4
+  br label %119
 
-80:                                               ; preds = %68
-  store ptr null, ptr %6, align 8
-  %81 = call noalias ptr @malloc(i64 noundef 64) #4
-  store ptr %81, ptr %6, align 8
-  %82 = load ptr, ptr %6, align 8
-  %83 = icmp eq ptr %82, null
-  br i1 %83, label %84, label %92
+81:                                               ; preds = %69
+  store ptr null, ptr %6, align 8, !tbaa !10
+  %82 = call noalias ptr @malloc(i64 noundef 64) #6
+  store ptr %82, ptr %6, align 8, !tbaa !10
+  %83 = load ptr, ptr %6, align 8, !tbaa !10
+  %84 = icmp eq ptr %83, null
+  br i1 %84, label %85, label %93
 
-84:                                               ; preds = %80
-  %85 = load ptr, ptr %7, align 8
-  call void @N_VDestroy(ptr noundef %85)
-  %86 = load ptr, ptr %8, align 8
+85:                                               ; preds = %81
+  %86 = load ptr, ptr %7, align 8, !tbaa !7
   call void @N_VDestroy(ptr noundef %86)
-  %87 = load ptr, ptr %9, align 8
+  %87 = load ptr, ptr %8, align 8, !tbaa !7
   call void @N_VDestroy(ptr noundef %87)
-  %88 = load ptr, ptr %10, align 8
+  %88 = load ptr, ptr %9, align 8, !tbaa !7
   call void @N_VDestroy(ptr noundef %88)
-  %89 = load ptr, ptr %11, align 8
+  %89 = load ptr, ptr %10, align 8, !tbaa !7
   call void @N_VDestroy(ptr noundef %89)
-  %90 = load ptr, ptr %12, align 8
+  %90 = load ptr, ptr %11, align 8, !tbaa !7
   call void @N_VDestroy(ptr noundef %90)
-  %91 = load ptr, ptr %13, align 8
+  %91 = load ptr, ptr %12, align 8, !tbaa !7
   call void @N_VDestroy(ptr noundef %91)
+  %92 = load ptr, ptr %13, align 8, !tbaa !7
+  call void @N_VDestroy(ptr noundef %92)
   store ptr null, ptr %3, align 8
-  br label %118
+  store i32 1, ptr %14, align 4
+  br label %119
 
-92:                                               ; preds = %80
-  %93 = load i32, ptr %4, align 4
-  %94 = load ptr, ptr %6, align 8
-  %95 = getelementptr inbounds %struct.SpbcgMemRec, ptr %94, i32 0, i32 0
-  store i32 %93, ptr %95, align 8
-  %96 = load ptr, ptr %7, align 8
-  %97 = load ptr, ptr %6, align 8
-  %98 = getelementptr inbounds %struct.SpbcgMemRec, ptr %97, i32 0, i32 1
-  store ptr %96, ptr %98, align 8
-  %99 = load ptr, ptr %8, align 8
-  %100 = load ptr, ptr %6, align 8
-  %101 = getelementptr inbounds %struct.SpbcgMemRec, ptr %100, i32 0, i32 2
-  store ptr %99, ptr %101, align 8
-  %102 = load ptr, ptr %9, align 8
-  %103 = load ptr, ptr %6, align 8
-  %104 = getelementptr inbounds %struct.SpbcgMemRec, ptr %103, i32 0, i32 3
-  store ptr %102, ptr %104, align 8
-  %105 = load ptr, ptr %10, align 8
-  %106 = load ptr, ptr %6, align 8
-  %107 = getelementptr inbounds %struct.SpbcgMemRec, ptr %106, i32 0, i32 4
-  store ptr %105, ptr %107, align 8
-  %108 = load ptr, ptr %11, align 8
-  %109 = load ptr, ptr %6, align 8
-  %110 = getelementptr inbounds %struct.SpbcgMemRec, ptr %109, i32 0, i32 5
-  store ptr %108, ptr %110, align 8
-  %111 = load ptr, ptr %12, align 8
-  %112 = load ptr, ptr %6, align 8
-  %113 = getelementptr inbounds %struct.SpbcgMemRec, ptr %112, i32 0, i32 6
-  store ptr %111, ptr %113, align 8
-  %114 = load ptr, ptr %13, align 8
-  %115 = load ptr, ptr %6, align 8
-  %116 = getelementptr inbounds %struct.SpbcgMemRec, ptr %115, i32 0, i32 7
-  store ptr %114, ptr %116, align 8
-  %117 = load ptr, ptr %6, align 8
-  store ptr %117, ptr %3, align 8
-  br label %118
+93:                                               ; preds = %81
+  %94 = load i32, ptr %4, align 4, !tbaa !3
+  %95 = load ptr, ptr %6, align 8, !tbaa !10
+  %96 = getelementptr inbounds nuw %struct.SpbcgMemRec, ptr %95, i32 0, i32 0
+  store i32 %94, ptr %96, align 8, !tbaa !11
+  %97 = load ptr, ptr %7, align 8, !tbaa !7
+  %98 = load ptr, ptr %6, align 8, !tbaa !10
+  %99 = getelementptr inbounds nuw %struct.SpbcgMemRec, ptr %98, i32 0, i32 1
+  store ptr %97, ptr %99, align 8, !tbaa !13
+  %100 = load ptr, ptr %8, align 8, !tbaa !7
+  %101 = load ptr, ptr %6, align 8, !tbaa !10
+  %102 = getelementptr inbounds nuw %struct.SpbcgMemRec, ptr %101, i32 0, i32 2
+  store ptr %100, ptr %102, align 8, !tbaa !14
+  %103 = load ptr, ptr %9, align 8, !tbaa !7
+  %104 = load ptr, ptr %6, align 8, !tbaa !10
+  %105 = getelementptr inbounds nuw %struct.SpbcgMemRec, ptr %104, i32 0, i32 3
+  store ptr %103, ptr %105, align 8, !tbaa !15
+  %106 = load ptr, ptr %10, align 8, !tbaa !7
+  %107 = load ptr, ptr %6, align 8, !tbaa !10
+  %108 = getelementptr inbounds nuw %struct.SpbcgMemRec, ptr %107, i32 0, i32 4
+  store ptr %106, ptr %108, align 8, !tbaa !16
+  %109 = load ptr, ptr %11, align 8, !tbaa !7
+  %110 = load ptr, ptr %6, align 8, !tbaa !10
+  %111 = getelementptr inbounds nuw %struct.SpbcgMemRec, ptr %110, i32 0, i32 5
+  store ptr %109, ptr %111, align 8, !tbaa !17
+  %112 = load ptr, ptr %12, align 8, !tbaa !7
+  %113 = load ptr, ptr %6, align 8, !tbaa !10
+  %114 = getelementptr inbounds nuw %struct.SpbcgMemRec, ptr %113, i32 0, i32 6
+  store ptr %112, ptr %114, align 8, !tbaa !18
+  %115 = load ptr, ptr %13, align 8, !tbaa !7
+  %116 = load ptr, ptr %6, align 8, !tbaa !10
+  %117 = getelementptr inbounds nuw %struct.SpbcgMemRec, ptr %116, i32 0, i32 7
+  store ptr %115, ptr %117, align 8, !tbaa !19
+  %118 = load ptr, ptr %6, align 8, !tbaa !10
+  store ptr %118, ptr %3, align 8
+  store i32 1, ptr %14, align 4
+  br label %119
 
-118:                                              ; preds = %92, %84, %73, %62, %52, %43, %35, %28, %22, %16
-  %119 = load ptr, ptr %3, align 8
-  ret ptr %119
+119:                                              ; preds = %93, %85, %74, %63, %53, %44, %36, %29, %23, %17
+  call void @llvm.lifetime.end.p0(i64 8, ptr %13) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %12) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %11) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %10) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %9) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %6) #5
+  %120 = load ptr, ptr %3, align 8
+  ret ptr %120
 }
 
-declare ptr @N_VClone(ptr noundef) #1
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
-declare void @N_VDestroy(ptr noundef) #1
+declare ptr @N_VClone(ptr noundef) #2
+
+declare void @N_VDestroy(ptr noundef) #2
 
 ; Function Attrs: nounwind allocsize(0)
-declare noalias ptr @malloc(i64 noundef) #2
+declare noalias ptr @malloc(i64 noundef) #3
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nounwind uwtable
 define i32 @SpbcgSolve(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, double noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef %8, ptr noundef %9, ptr noundef %10, ptr noundef %11, ptr noundef %12, ptr noundef %13) #0 {
@@ -267,691 +300,752 @@ define i32 @SpbcgSolve(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nound
   %50 = alloca i32, align 4
   %51 = alloca i32, align 4
   %52 = alloca i32, align 4
-  store ptr %0, ptr %16, align 8
-  store ptr %1, ptr %17, align 8
-  store ptr %2, ptr %18, align 8
-  store ptr %3, ptr %19, align 8
-  store i32 %4, ptr %20, align 4
-  store double %5, ptr %21, align 8
-  store ptr %6, ptr %22, align 8
-  store ptr %7, ptr %23, align 8
-  store ptr %8, ptr %24, align 8
-  store ptr %9, ptr %25, align 8
-  store ptr %10, ptr %26, align 8
-  store ptr %11, ptr %27, align 8
-  store ptr %12, ptr %28, align 8
-  store ptr %13, ptr %29, align 8
-  %53 = load ptr, ptr %16, align 8
-  %54 = icmp eq ptr %53, null
-  br i1 %54, label %55, label %56
-
-55:                                               ; preds = %14
-  store i32 -1, ptr %15, align 4
-  br label %455
+  %53 = alloca i32, align 4
+  store ptr %0, ptr %16, align 8, !tbaa !10
+  store ptr %1, ptr %17, align 8, !tbaa !10
+  store ptr %2, ptr %18, align 8, !tbaa !7
+  store ptr %3, ptr %19, align 8, !tbaa !7
+  store i32 %4, ptr %20, align 4, !tbaa !3
+  store double %5, ptr %21, align 8, !tbaa !20
+  store ptr %6, ptr %22, align 8, !tbaa !10
+  store ptr %7, ptr %23, align 8, !tbaa !7
+  store ptr %8, ptr %24, align 8, !tbaa !7
+  store ptr %9, ptr %25, align 8, !tbaa !10
+  store ptr %10, ptr %26, align 8, !tbaa !10
+  store ptr %11, ptr %27, align 8, !tbaa !22
+  store ptr %12, ptr %28, align 8, !tbaa !24
+  store ptr %13, ptr %29, align 8, !tbaa !24
+  call void @llvm.lifetime.start.p0(i64 8, ptr %30) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %31) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %32) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %33) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %34) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %35) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %36) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %37) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %38) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %39) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %40) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %41) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %42) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %43) #5
+  call void @llvm.lifetime.start.p0(i64 8, ptr %44) #5
+  call void @llvm.lifetime.start.p0(i64 4, ptr %45) #5
+  call void @llvm.lifetime.start.p0(i64 4, ptr %46) #5
+  call void @llvm.lifetime.start.p0(i64 4, ptr %47) #5
+  call void @llvm.lifetime.start.p0(i64 4, ptr %48) #5
+  call void @llvm.lifetime.start.p0(i64 4, ptr %49) #5
+  call void @llvm.lifetime.start.p0(i64 4, ptr %50) #5
+  call void @llvm.lifetime.start.p0(i64 4, ptr %51) #5
+  call void @llvm.lifetime.start.p0(i64 4, ptr %52) #5
+  %54 = load ptr, ptr %16, align 8, !tbaa !10
+  %55 = icmp eq ptr %54, null
+  br i1 %55, label %56, label %57
 
 56:                                               ; preds = %14
-  %57 = load ptr, ptr %16, align 8
-  %58 = getelementptr inbounds %struct.SpbcgMemRec, ptr %57, i32 0, i32 0
-  %59 = load i32, ptr %58, align 8
-  store i32 %59, ptr %51, align 4
-  %60 = load ptr, ptr %16, align 8
-  %61 = getelementptr inbounds %struct.SpbcgMemRec, ptr %60, i32 0, i32 1
-  %62 = load ptr, ptr %61, align 8
-  store ptr %62, ptr %38, align 8
-  %63 = load ptr, ptr %16, align 8
-  %64 = getelementptr inbounds %struct.SpbcgMemRec, ptr %63, i32 0, i32 2
-  %65 = load ptr, ptr %64, align 8
-  store ptr %65, ptr %39, align 8
-  %66 = load ptr, ptr %16, align 8
-  %67 = getelementptr inbounds %struct.SpbcgMemRec, ptr %66, i32 0, i32 3
-  %68 = load ptr, ptr %67, align 8
-  store ptr %68, ptr %40, align 8
-  %69 = load ptr, ptr %16, align 8
-  %70 = getelementptr inbounds %struct.SpbcgMemRec, ptr %69, i32 0, i32 4
-  %71 = load ptr, ptr %70, align 8
-  store ptr %71, ptr %41, align 8
-  %72 = load ptr, ptr %16, align 8
-  %73 = getelementptr inbounds %struct.SpbcgMemRec, ptr %72, i32 0, i32 5
-  %74 = load ptr, ptr %73, align 8
-  store ptr %74, ptr %42, align 8
-  %75 = load ptr, ptr %16, align 8
-  %76 = getelementptr inbounds %struct.SpbcgMemRec, ptr %75, i32 0, i32 6
-  %77 = load ptr, ptr %76, align 8
-  store ptr %77, ptr %43, align 8
-  %78 = load ptr, ptr %16, align 8
-  %79 = getelementptr inbounds %struct.SpbcgMemRec, ptr %78, i32 0, i32 7
-  %80 = load ptr, ptr %79, align 8
-  store ptr %80, ptr %44, align 8
-  %81 = load ptr, ptr %29, align 8
-  store i32 0, ptr %81, align 4
-  %82 = load ptr, ptr %28, align 8
-  store i32 0, ptr %82, align 4
-  store i32 0, ptr %49, align 4
-  %83 = load i32, ptr %20, align 4
-  %84 = icmp ne i32 %83, 1
-  br i1 %84, label %85, label %92
+  store i32 -1, ptr %15, align 4
+  store i32 1, ptr %53, align 4
+  br label %456
 
-85:                                               ; preds = %56
-  %86 = load i32, ptr %20, align 4
-  %87 = icmp ne i32 %86, 2
-  br i1 %87, label %88, label %92
+57:                                               ; preds = %14
+  %58 = load ptr, ptr %16, align 8, !tbaa !10
+  %59 = getelementptr inbounds nuw %struct.SpbcgMemRec, ptr %58, i32 0, i32 0
+  %60 = load i32, ptr %59, align 8, !tbaa !11
+  store i32 %60, ptr %51, align 4, !tbaa !3
+  %61 = load ptr, ptr %16, align 8, !tbaa !10
+  %62 = getelementptr inbounds nuw %struct.SpbcgMemRec, ptr %61, i32 0, i32 1
+  %63 = load ptr, ptr %62, align 8, !tbaa !13
+  store ptr %63, ptr %38, align 8, !tbaa !7
+  %64 = load ptr, ptr %16, align 8, !tbaa !10
+  %65 = getelementptr inbounds nuw %struct.SpbcgMemRec, ptr %64, i32 0, i32 2
+  %66 = load ptr, ptr %65, align 8, !tbaa !14
+  store ptr %66, ptr %39, align 8, !tbaa !7
+  %67 = load ptr, ptr %16, align 8, !tbaa !10
+  %68 = getelementptr inbounds nuw %struct.SpbcgMemRec, ptr %67, i32 0, i32 3
+  %69 = load ptr, ptr %68, align 8, !tbaa !15
+  store ptr %69, ptr %40, align 8, !tbaa !7
+  %70 = load ptr, ptr %16, align 8, !tbaa !10
+  %71 = getelementptr inbounds nuw %struct.SpbcgMemRec, ptr %70, i32 0, i32 4
+  %72 = load ptr, ptr %71, align 8, !tbaa !16
+  store ptr %72, ptr %41, align 8, !tbaa !7
+  %73 = load ptr, ptr %16, align 8, !tbaa !10
+  %74 = getelementptr inbounds nuw %struct.SpbcgMemRec, ptr %73, i32 0, i32 5
+  %75 = load ptr, ptr %74, align 8, !tbaa !17
+  store ptr %75, ptr %42, align 8, !tbaa !7
+  %76 = load ptr, ptr %16, align 8, !tbaa !10
+  %77 = getelementptr inbounds nuw %struct.SpbcgMemRec, ptr %76, i32 0, i32 6
+  %78 = load ptr, ptr %77, align 8, !tbaa !18
+  store ptr %78, ptr %43, align 8, !tbaa !7
+  %79 = load ptr, ptr %16, align 8, !tbaa !10
+  %80 = getelementptr inbounds nuw %struct.SpbcgMemRec, ptr %79, i32 0, i32 7
+  %81 = load ptr, ptr %80, align 8, !tbaa !19
+  store ptr %81, ptr %44, align 8, !tbaa !7
+  %82 = load ptr, ptr %29, align 8, !tbaa !24
+  store i32 0, ptr %82, align 4, !tbaa !3
+  %83 = load ptr, ptr %28, align 8, !tbaa !24
+  store i32 0, ptr %83, align 4, !tbaa !3
+  store i32 0, ptr %49, align 4, !tbaa !3
+  %84 = load i32, ptr %20, align 4, !tbaa !3
+  %85 = icmp ne i32 %84, 1
+  br i1 %85, label %86, label %93
 
-88:                                               ; preds = %85
-  %89 = load i32, ptr %20, align 4
-  %90 = icmp ne i32 %89, 3
-  br i1 %90, label %91, label %92
+86:                                               ; preds = %57
+  %87 = load i32, ptr %20, align 4, !tbaa !3
+  %88 = icmp ne i32 %87, 2
+  br i1 %88, label %89, label %93
 
-91:                                               ; preds = %88
-  store i32 0, ptr %20, align 4
-  br label %92
+89:                                               ; preds = %86
+  %90 = load i32, ptr %20, align 4, !tbaa !3
+  %91 = icmp ne i32 %90, 3
+  br i1 %91, label %92, label %93
 
-92:                                               ; preds = %91, %88, %85, %56
-  %93 = load i32, ptr %20, align 4
-  %94 = icmp eq i32 %93, 3
-  br i1 %94, label %98, label %95
+92:                                               ; preds = %89
+  store i32 0, ptr %20, align 4, !tbaa !3
+  br label %93
 
-95:                                               ; preds = %92
-  %96 = load i32, ptr %20, align 4
-  %97 = icmp eq i32 %96, 1
-  br label %98
+93:                                               ; preds = %92, %89, %86, %57
+  %94 = load i32, ptr %20, align 4, !tbaa !3
+  %95 = icmp eq i32 %94, 3
+  br i1 %95, label %99, label %96
 
-98:                                               ; preds = %95, %92
-  %99 = phi i1 [ true, %92 ], [ %97, %95 ]
-  %100 = zext i1 %99 to i32
-  store i32 %100, ptr %45, align 4
-  %101 = load i32, ptr %20, align 4
-  %102 = icmp eq i32 %101, 3
-  br i1 %102, label %106, label %103
+96:                                               ; preds = %93
+  %97 = load i32, ptr %20, align 4, !tbaa !3
+  %98 = icmp eq i32 %97, 1
+  br label %99
 
-103:                                              ; preds = %98
-  %104 = load i32, ptr %20, align 4
-  %105 = icmp eq i32 %104, 2
-  br label %106
+99:                                               ; preds = %96, %93
+  %100 = phi i1 [ true, %93 ], [ %98, %96 ]
+  %101 = zext i1 %100 to i32
+  store i32 %101, ptr %45, align 4, !tbaa !3
+  %102 = load i32, ptr %20, align 4, !tbaa !3
+  %103 = icmp eq i32 %102, 3
+  br i1 %103, label %107, label %104
 
-106:                                              ; preds = %103, %98
-  %107 = phi i1 [ true, %98 ], [ %105, %103 ]
-  %108 = zext i1 %107 to i32
-  store i32 %108, ptr %46, align 4
-  %109 = load ptr, ptr %23, align 8
-  %110 = icmp ne ptr %109, null
-  %111 = zext i1 %110 to i32
-  store i32 %111, ptr %47, align 4
-  %112 = load ptr, ptr %24, align 8
-  %113 = icmp ne ptr %112, null
-  %114 = zext i1 %113 to i32
-  store i32 %114, ptr %48, align 4
-  %115 = load ptr, ptr %18, align 8
-  %116 = load ptr, ptr %18, align 8
-  %117 = call double @N_VDotProd(ptr noundef %115, ptr noundef %116)
-  %118 = fcmp oeq double %117, 0.000000e+00
-  br i1 %118, label %119, label %122
+104:                                              ; preds = %99
+  %105 = load i32, ptr %20, align 4, !tbaa !3
+  %106 = icmp eq i32 %105, 2
+  br label %107
 
-119:                                              ; preds = %106
-  %120 = load ptr, ptr %19, align 8
-  %121 = load ptr, ptr %38, align 8
-  call void @N_VScale(double noundef 1.000000e+00, ptr noundef %120, ptr noundef %121)
-  br label %138
+107:                                              ; preds = %104, %99
+  %108 = phi i1 [ true, %99 ], [ %106, %104 ]
+  %109 = zext i1 %108 to i32
+  store i32 %109, ptr %46, align 4, !tbaa !3
+  %110 = load ptr, ptr %23, align 8, !tbaa !7
+  %111 = icmp ne ptr %110, null
+  %112 = zext i1 %111 to i32
+  store i32 %112, ptr %47, align 4, !tbaa !3
+  %113 = load ptr, ptr %24, align 8, !tbaa !7
+  %114 = icmp ne ptr %113, null
+  %115 = zext i1 %114 to i32
+  store i32 %115, ptr %48, align 4, !tbaa !3
+  %116 = load ptr, ptr %18, align 8, !tbaa !7
+  %117 = load ptr, ptr %18, align 8, !tbaa !7
+  %118 = call double @N_VDotProd(ptr noundef %116, ptr noundef %117)
+  %119 = fcmp oeq double %118, 0.000000e+00
+  br i1 %119, label %120, label %123
 
-122:                                              ; preds = %106
-  %123 = load ptr, ptr %25, align 8
-  %124 = load ptr, ptr %17, align 8
-  %125 = load ptr, ptr %18, align 8
-  %126 = load ptr, ptr %38, align 8
-  %127 = call i32 %123(ptr noundef %124, ptr noundef %125, ptr noundef %126)
-  store i32 %127, ptr %52, align 4
-  %128 = load i32, ptr %52, align 4
-  %129 = icmp ne i32 %128, 0
-  br i1 %129, label %130, label %134
+120:                                              ; preds = %107
+  %121 = load ptr, ptr %19, align 8, !tbaa !7
+  %122 = load ptr, ptr %38, align 8, !tbaa !7
+  call void @N_VScale(double noundef 1.000000e+00, ptr noundef %121, ptr noundef %122)
+  br label %139
 
-130:                                              ; preds = %122
-  %131 = load i32, ptr %52, align 4
-  %132 = icmp slt i32 %131, 0
-  %133 = select i1 %132, i32 -2, i32 4
-  store i32 %133, ptr %15, align 4
-  br label %455
+123:                                              ; preds = %107
+  %124 = load ptr, ptr %25, align 8, !tbaa !10
+  %125 = load ptr, ptr %17, align 8, !tbaa !10
+  %126 = load ptr, ptr %18, align 8, !tbaa !7
+  %127 = load ptr, ptr %38, align 8, !tbaa !7
+  %128 = call i32 %124(ptr noundef %125, ptr noundef %126, ptr noundef %127)
+  store i32 %128, ptr %52, align 4, !tbaa !3
+  %129 = load i32, ptr %52, align 4, !tbaa !3
+  %130 = icmp ne i32 %129, 0
+  br i1 %130, label %131, label %135
 
-134:                                              ; preds = %122
-  %135 = load ptr, ptr %19, align 8
-  %136 = load ptr, ptr %38, align 8
-  %137 = load ptr, ptr %38, align 8
-  call void @N_VLinearSum(double noundef 1.000000e+00, ptr noundef %135, double noundef -1.000000e+00, ptr noundef %136, ptr noundef %137)
-  br label %138
+131:                                              ; preds = %123
+  %132 = load i32, ptr %52, align 4, !tbaa !3
+  %133 = icmp slt i32 %132, 0
+  %134 = select i1 %133, i32 -2, i32 4
+  store i32 %134, ptr %15, align 4
+  store i32 1, ptr %53, align 4
+  br label %456
 
-138:                                              ; preds = %134, %119
-  %139 = load i32, ptr %45, align 4
-  %140 = icmp ne i32 %139, 0
-  br i1 %140, label %141, label %157
+135:                                              ; preds = %123
+  %136 = load ptr, ptr %19, align 8, !tbaa !7
+  %137 = load ptr, ptr %38, align 8, !tbaa !7
+  %138 = load ptr, ptr %38, align 8, !tbaa !7
+  call void @N_VLinearSum(double noundef 1.000000e+00, ptr noundef %136, double noundef -1.000000e+00, ptr noundef %137, ptr noundef %138)
+  br label %139
 
-141:                                              ; preds = %138
-  %142 = load ptr, ptr %26, align 8
-  %143 = load ptr, ptr %22, align 8
-  %144 = load ptr, ptr %38, align 8
-  %145 = load ptr, ptr %39, align 8
-  %146 = call i32 %142(ptr noundef %143, ptr noundef %144, ptr noundef %145, i32 noundef 1)
-  store i32 %146, ptr %52, align 4
-  %147 = load ptr, ptr %29, align 8
-  %148 = load i32, ptr %147, align 4
-  %149 = add nsw i32 %148, 1
-  store i32 %149, ptr %147, align 4
-  %150 = load i32, ptr %52, align 4
-  %151 = icmp ne i32 %150, 0
-  br i1 %151, label %152, label %156
+139:                                              ; preds = %135, %120
+  %140 = load i32, ptr %45, align 4, !tbaa !3
+  %141 = icmp ne i32 %140, 0
+  br i1 %141, label %142, label %158
 
-152:                                              ; preds = %141
-  %153 = load i32, ptr %52, align 4
-  %154 = icmp slt i32 %153, 0
-  %155 = select i1 %154, i32 -3, i32 3
-  store i32 %155, ptr %15, align 4
-  br label %455
+142:                                              ; preds = %139
+  %143 = load ptr, ptr %26, align 8, !tbaa !10
+  %144 = load ptr, ptr %22, align 8, !tbaa !10
+  %145 = load ptr, ptr %38, align 8, !tbaa !7
+  %146 = load ptr, ptr %39, align 8, !tbaa !7
+  %147 = call i32 %143(ptr noundef %144, ptr noundef %145, ptr noundef %146, i32 noundef 1)
+  store i32 %147, ptr %52, align 4, !tbaa !3
+  %148 = load ptr, ptr %29, align 8, !tbaa !24
+  %149 = load i32, ptr %148, align 4, !tbaa !3
+  %150 = add nsw i32 %149, 1
+  store i32 %150, ptr %148, align 4, !tbaa !3
+  %151 = load i32, ptr %52, align 4, !tbaa !3
+  %152 = icmp ne i32 %151, 0
+  br i1 %152, label %153, label %157
 
-156:                                              ; preds = %141
-  br label %160
+153:                                              ; preds = %142
+  %154 = load i32, ptr %52, align 4, !tbaa !3
+  %155 = icmp slt i32 %154, 0
+  %156 = select i1 %155, i32 -3, i32 3
+  store i32 %156, ptr %15, align 4
+  store i32 1, ptr %53, align 4
+  br label %456
 
-157:                                              ; preds = %138
-  %158 = load ptr, ptr %38, align 8
-  %159 = load ptr, ptr %39, align 8
-  call void @N_VScale(double noundef 1.000000e+00, ptr noundef %158, ptr noundef %159)
-  br label %160
+157:                                              ; preds = %142
+  br label %161
 
-160:                                              ; preds = %157, %156
-  %161 = load i32, ptr %48, align 4
-  %162 = icmp ne i32 %161, 0
-  br i1 %162, label %163, label %167
+158:                                              ; preds = %139
+  %159 = load ptr, ptr %38, align 8, !tbaa !7
+  %160 = load ptr, ptr %39, align 8, !tbaa !7
+  call void @N_VScale(double noundef 1.000000e+00, ptr noundef %159, ptr noundef %160)
+  br label %161
 
-163:                                              ; preds = %160
-  %164 = load ptr, ptr %24, align 8
-  %165 = load ptr, ptr %39, align 8
-  %166 = load ptr, ptr %38, align 8
-  call void @N_VProd(ptr noundef %164, ptr noundef %165, ptr noundef %166)
-  br label %170
+161:                                              ; preds = %158, %157
+  %162 = load i32, ptr %48, align 4, !tbaa !3
+  %163 = icmp ne i32 %162, 0
+  br i1 %163, label %164, label %168
 
-167:                                              ; preds = %160
-  %168 = load ptr, ptr %39, align 8
-  %169 = load ptr, ptr %38, align 8
-  call void @N_VScale(double noundef 1.000000e+00, ptr noundef %168, ptr noundef %169)
-  br label %170
+164:                                              ; preds = %161
+  %165 = load ptr, ptr %24, align 8, !tbaa !7
+  %166 = load ptr, ptr %39, align 8, !tbaa !7
+  %167 = load ptr, ptr %38, align 8, !tbaa !7
+  call void @N_VProd(ptr noundef %165, ptr noundef %166, ptr noundef %167)
+  br label %171
 
-170:                                              ; preds = %167, %163
-  %171 = load ptr, ptr %38, align 8
-  %172 = load ptr, ptr %38, align 8
-  %173 = call double @N_VDotProd(ptr noundef %171, ptr noundef %172)
-  store double %173, ptr %35, align 8
-  %174 = load double, ptr %35, align 8
-  %175 = call double @SUNRsqrt(double noundef %174)
-  store double %175, ptr %37, align 8
-  store double %175, ptr %36, align 8
-  %176 = load ptr, ptr %27, align 8
-  store double %175, ptr %176, align 8
-  %177 = load double, ptr %36, align 8
-  %178 = load double, ptr %21, align 8
-  %179 = fcmp ole double %177, %178
-  br i1 %179, label %180, label %181
+168:                                              ; preds = %161
+  %169 = load ptr, ptr %39, align 8, !tbaa !7
+  %170 = load ptr, ptr %38, align 8, !tbaa !7
+  call void @N_VScale(double noundef 1.000000e+00, ptr noundef %169, ptr noundef %170)
+  br label %171
 
-180:                                              ; preds = %170
+171:                                              ; preds = %168, %164
+  %172 = load ptr, ptr %38, align 8, !tbaa !7
+  %173 = load ptr, ptr %38, align 8, !tbaa !7
+  %174 = call double @N_VDotProd(ptr noundef %172, ptr noundef %173)
+  store double %174, ptr %35, align 8, !tbaa !20
+  %175 = load double, ptr %35, align 8, !tbaa !20
+  %176 = call double @SUNRsqrt(double noundef %175)
+  store double %176, ptr %37, align 8, !tbaa !20
+  store double %176, ptr %36, align 8, !tbaa !20
+  %177 = load ptr, ptr %27, align 8, !tbaa !22
+  store double %176, ptr %177, align 8, !tbaa !20
+  %178 = load double, ptr %36, align 8, !tbaa !20
+  %179 = load double, ptr %21, align 8, !tbaa !20
+  %180 = fcmp ole double %178, %179
+  br i1 %180, label %181, label %182
+
+181:                                              ; preds = %171
   store i32 0, ptr %15, align 4
-  br label %455
+  store i32 1, ptr %53, align 4
+  br label %456
 
-181:                                              ; preds = %170
-  %182 = load ptr, ptr %38, align 8
-  %183 = load ptr, ptr %39, align 8
-  call void @N_VScale(double noundef 1.000000e+00, ptr noundef %182, ptr noundef %183)
-  %184 = load ptr, ptr %38, align 8
-  %185 = load ptr, ptr %40, align 8
-  call void @N_VScale(double noundef 1.000000e+00, ptr noundef %184, ptr noundef %185)
-  store i32 0, ptr %50, align 4
-  br label %186
+182:                                              ; preds = %171
+  %183 = load ptr, ptr %38, align 8, !tbaa !7
+  %184 = load ptr, ptr %39, align 8, !tbaa !7
+  call void @N_VScale(double noundef 1.000000e+00, ptr noundef %183, ptr noundef %184)
+  %185 = load ptr, ptr %38, align 8, !tbaa !7
+  %186 = load ptr, ptr %40, align 8, !tbaa !7
+  call void @N_VScale(double noundef 1.000000e+00, ptr noundef %185, ptr noundef %186)
+  store i32 0, ptr %50, align 4, !tbaa !3
+  br label %187
 
-186:                                              ; preds = %411, %181
-  %187 = load i32, ptr %50, align 4
-  %188 = load i32, ptr %51, align 4
-  %189 = icmp slt i32 %187, %188
-  br i1 %189, label %190, label %414
+187:                                              ; preds = %412, %182
+  %188 = load i32, ptr %50, align 4, !tbaa !3
+  %189 = load i32, ptr %51, align 4, !tbaa !3
+  %190 = icmp slt i32 %188, %189
+  br i1 %190, label %191, label %415
 
-190:                                              ; preds = %186
-  %191 = load ptr, ptr %28, align 8
-  %192 = load i32, ptr %191, align 4
-  %193 = add nsw i32 %192, 1
-  store i32 %193, ptr %191, align 4
-  %194 = load i32, ptr %47, align 4
-  %195 = icmp ne i32 %194, 0
-  br i1 %195, label %196, label %200
+191:                                              ; preds = %187
+  %192 = load ptr, ptr %28, align 8, !tbaa !24
+  %193 = load i32, ptr %192, align 4, !tbaa !3
+  %194 = add nsw i32 %193, 1
+  store i32 %194, ptr %192, align 4, !tbaa !3
+  %195 = load i32, ptr %47, align 4, !tbaa !3
+  %196 = icmp ne i32 %195, 0
+  br i1 %196, label %197, label %201
 
-196:                                              ; preds = %190
-  %197 = load ptr, ptr %40, align 8
-  %198 = load ptr, ptr %23, align 8
-  %199 = load ptr, ptr %44, align 8
-  call void @N_VDiv(ptr noundef %197, ptr noundef %198, ptr noundef %199)
-  br label %203
+197:                                              ; preds = %191
+  %198 = load ptr, ptr %40, align 8, !tbaa !7
+  %199 = load ptr, ptr %23, align 8, !tbaa !7
+  %200 = load ptr, ptr %44, align 8, !tbaa !7
+  call void @N_VDiv(ptr noundef %198, ptr noundef %199, ptr noundef %200)
+  br label %204
 
-200:                                              ; preds = %190
-  %201 = load ptr, ptr %40, align 8
-  %202 = load ptr, ptr %44, align 8
-  call void @N_VScale(double noundef 1.000000e+00, ptr noundef %201, ptr noundef %202)
-  br label %203
+201:                                              ; preds = %191
+  %202 = load ptr, ptr %40, align 8, !tbaa !7
+  %203 = load ptr, ptr %44, align 8, !tbaa !7
+  call void @N_VScale(double noundef 1.000000e+00, ptr noundef %202, ptr noundef %203)
+  br label %204
 
-203:                                              ; preds = %200, %196
-  %204 = load i32, ptr %46, align 4
-  %205 = icmp ne i32 %204, 0
-  br i1 %205, label %206, label %224
+204:                                              ; preds = %201, %197
+  %205 = load i32, ptr %46, align 4, !tbaa !3
+  %206 = icmp ne i32 %205, 0
+  br i1 %206, label %207, label %225
 
-206:                                              ; preds = %203
-  %207 = load ptr, ptr %44, align 8
-  %208 = load ptr, ptr %43, align 8
-  call void @N_VScale(double noundef 1.000000e+00, ptr noundef %207, ptr noundef %208)
-  %209 = load ptr, ptr %26, align 8
-  %210 = load ptr, ptr %22, align 8
-  %211 = load ptr, ptr %43, align 8
-  %212 = load ptr, ptr %44, align 8
-  %213 = call i32 %209(ptr noundef %210, ptr noundef %211, ptr noundef %212, i32 noundef 2)
-  store i32 %213, ptr %52, align 4
-  %214 = load ptr, ptr %29, align 8
-  %215 = load i32, ptr %214, align 4
-  %216 = add nsw i32 %215, 1
-  store i32 %216, ptr %214, align 4
-  %217 = load i32, ptr %52, align 4
-  %218 = icmp ne i32 %217, 0
-  br i1 %218, label %219, label %223
+207:                                              ; preds = %204
+  %208 = load ptr, ptr %44, align 8, !tbaa !7
+  %209 = load ptr, ptr %43, align 8, !tbaa !7
+  call void @N_VScale(double noundef 1.000000e+00, ptr noundef %208, ptr noundef %209)
+  %210 = load ptr, ptr %26, align 8, !tbaa !10
+  %211 = load ptr, ptr %22, align 8, !tbaa !10
+  %212 = load ptr, ptr %43, align 8, !tbaa !7
+  %213 = load ptr, ptr %44, align 8, !tbaa !7
+  %214 = call i32 %210(ptr noundef %211, ptr noundef %212, ptr noundef %213, i32 noundef 2)
+  store i32 %214, ptr %52, align 4, !tbaa !3
+  %215 = load ptr, ptr %29, align 8, !tbaa !24
+  %216 = load i32, ptr %215, align 4, !tbaa !3
+  %217 = add nsw i32 %216, 1
+  store i32 %217, ptr %215, align 4, !tbaa !3
+  %218 = load i32, ptr %52, align 4, !tbaa !3
+  %219 = icmp ne i32 %218, 0
+  br i1 %219, label %220, label %224
 
-219:                                              ; preds = %206
-  %220 = load i32, ptr %52, align 4
-  %221 = icmp slt i32 %220, 0
-  %222 = select i1 %221, i32 -3, i32 3
-  store i32 %222, ptr %15, align 4
-  br label %455
+220:                                              ; preds = %207
+  %221 = load i32, ptr %52, align 4, !tbaa !3
+  %222 = icmp slt i32 %221, 0
+  %223 = select i1 %222, i32 -3, i32 3
+  store i32 %223, ptr %15, align 4
+  store i32 1, ptr %53, align 4
+  br label %456
 
-223:                                              ; preds = %206
-  br label %224
+224:                                              ; preds = %207
+  br label %225
 
-224:                                              ; preds = %223, %203
-  %225 = load ptr, ptr %25, align 8
-  %226 = load ptr, ptr %17, align 8
-  %227 = load ptr, ptr %44, align 8
-  %228 = load ptr, ptr %43, align 8
-  %229 = call i32 %225(ptr noundef %226, ptr noundef %227, ptr noundef %228)
-  store i32 %229, ptr %52, align 4
-  %230 = load i32, ptr %52, align 4
-  %231 = icmp ne i32 %230, 0
-  br i1 %231, label %232, label %236
+225:                                              ; preds = %224, %204
+  %226 = load ptr, ptr %25, align 8, !tbaa !10
+  %227 = load ptr, ptr %17, align 8, !tbaa !10
+  %228 = load ptr, ptr %44, align 8, !tbaa !7
+  %229 = load ptr, ptr %43, align 8, !tbaa !7
+  %230 = call i32 %226(ptr noundef %227, ptr noundef %228, ptr noundef %229)
+  store i32 %230, ptr %52, align 4, !tbaa !3
+  %231 = load i32, ptr %52, align 4, !tbaa !3
+  %232 = icmp ne i32 %231, 0
+  br i1 %232, label %233, label %237
 
-232:                                              ; preds = %224
-  %233 = load i32, ptr %52, align 4
-  %234 = icmp slt i32 %233, 0
-  %235 = select i1 %234, i32 -2, i32 4
-  store i32 %235, ptr %15, align 4
-  br label %455
+233:                                              ; preds = %225
+  %234 = load i32, ptr %52, align 4, !tbaa !3
+  %235 = icmp slt i32 %234, 0
+  %236 = select i1 %235, i32 -2, i32 4
+  store i32 %236, ptr %15, align 4
+  store i32 1, ptr %53, align 4
+  br label %456
 
-236:                                              ; preds = %224
-  %237 = load i32, ptr %45, align 4
-  %238 = icmp ne i32 %237, 0
-  br i1 %238, label %239, label %255
+237:                                              ; preds = %225
+  %238 = load i32, ptr %45, align 4, !tbaa !3
+  %239 = icmp ne i32 %238, 0
+  br i1 %239, label %240, label %256
 
-239:                                              ; preds = %236
-  %240 = load ptr, ptr %26, align 8
-  %241 = load ptr, ptr %22, align 8
-  %242 = load ptr, ptr %43, align 8
-  %243 = load ptr, ptr %44, align 8
-  %244 = call i32 %240(ptr noundef %241, ptr noundef %242, ptr noundef %243, i32 noundef 1)
-  store i32 %244, ptr %52, align 4
-  %245 = load ptr, ptr %29, align 8
-  %246 = load i32, ptr %245, align 4
-  %247 = add nsw i32 %246, 1
-  store i32 %247, ptr %245, align 4
-  %248 = load i32, ptr %52, align 4
-  %249 = icmp ne i32 %248, 0
-  br i1 %249, label %250, label %254
+240:                                              ; preds = %237
+  %241 = load ptr, ptr %26, align 8, !tbaa !10
+  %242 = load ptr, ptr %22, align 8, !tbaa !10
+  %243 = load ptr, ptr %43, align 8, !tbaa !7
+  %244 = load ptr, ptr %44, align 8, !tbaa !7
+  %245 = call i32 %241(ptr noundef %242, ptr noundef %243, ptr noundef %244, i32 noundef 1)
+  store i32 %245, ptr %52, align 4, !tbaa !3
+  %246 = load ptr, ptr %29, align 8, !tbaa !24
+  %247 = load i32, ptr %246, align 4, !tbaa !3
+  %248 = add nsw i32 %247, 1
+  store i32 %248, ptr %246, align 4, !tbaa !3
+  %249 = load i32, ptr %52, align 4, !tbaa !3
+  %250 = icmp ne i32 %249, 0
+  br i1 %250, label %251, label %255
 
-250:                                              ; preds = %239
-  %251 = load i32, ptr %52, align 4
-  %252 = icmp slt i32 %251, 0
-  %253 = select i1 %252, i32 -3, i32 3
-  store i32 %253, ptr %15, align 4
-  br label %455
+251:                                              ; preds = %240
+  %252 = load i32, ptr %52, align 4, !tbaa !3
+  %253 = icmp slt i32 %252, 0
+  %254 = select i1 %253, i32 -3, i32 3
+  store i32 %254, ptr %15, align 4
+  store i32 1, ptr %53, align 4
+  br label %456
 
-254:                                              ; preds = %239
-  br label %258
+255:                                              ; preds = %240
+  br label %259
 
-255:                                              ; preds = %236
-  %256 = load ptr, ptr %43, align 8
-  %257 = load ptr, ptr %44, align 8
-  call void @N_VScale(double noundef 1.000000e+00, ptr noundef %256, ptr noundef %257)
-  br label %258
+256:                                              ; preds = %237
+  %257 = load ptr, ptr %43, align 8, !tbaa !7
+  %258 = load ptr, ptr %44, align 8, !tbaa !7
+  call void @N_VScale(double noundef 1.000000e+00, ptr noundef %257, ptr noundef %258)
+  br label %259
 
-258:                                              ; preds = %255, %254
-  %259 = load i32, ptr %48, align 4
-  %260 = icmp ne i32 %259, 0
-  br i1 %260, label %261, label %265
+259:                                              ; preds = %256, %255
+  %260 = load i32, ptr %48, align 4, !tbaa !3
+  %261 = icmp ne i32 %260, 0
+  br i1 %261, label %262, label %266
 
-261:                                              ; preds = %258
-  %262 = load ptr, ptr %24, align 8
-  %263 = load ptr, ptr %44, align 8
-  %264 = load ptr, ptr %43, align 8
-  call void @N_VProd(ptr noundef %262, ptr noundef %263, ptr noundef %264)
-  br label %268
+262:                                              ; preds = %259
+  %263 = load ptr, ptr %24, align 8, !tbaa !7
+  %264 = load ptr, ptr %44, align 8, !tbaa !7
+  %265 = load ptr, ptr %43, align 8, !tbaa !7
+  call void @N_VProd(ptr noundef %263, ptr noundef %264, ptr noundef %265)
+  br label %269
 
-265:                                              ; preds = %258
-  %266 = load ptr, ptr %44, align 8
-  %267 = load ptr, ptr %43, align 8
-  call void @N_VScale(double noundef 1.000000e+00, ptr noundef %266, ptr noundef %267)
-  br label %268
+266:                                              ; preds = %259
+  %267 = load ptr, ptr %44, align 8, !tbaa !7
+  %268 = load ptr, ptr %43, align 8, !tbaa !7
+  call void @N_VScale(double noundef 1.000000e+00, ptr noundef %267, ptr noundef %268)
+  br label %269
 
-268:                                              ; preds = %265, %261
-  %269 = load ptr, ptr %39, align 8
-  %270 = load ptr, ptr %38, align 8
-  %271 = call double @N_VDotProd(ptr noundef %269, ptr noundef %270)
-  %272 = load ptr, ptr %43, align 8
-  %273 = load ptr, ptr %38, align 8
-  %274 = call double @N_VDotProd(ptr noundef %272, ptr noundef %273)
-  %275 = fdiv double %271, %274
-  store double %275, ptr %30, align 8
-  %276 = load ptr, ptr %39, align 8
-  %277 = load double, ptr %30, align 8
-  %278 = fneg double %277
-  %279 = load ptr, ptr %43, align 8
-  %280 = load ptr, ptr %41, align 8
-  call void @N_VLinearSum(double noundef 1.000000e+00, ptr noundef %276, double noundef %278, ptr noundef %279, ptr noundef %280)
-  %281 = load i32, ptr %47, align 4
-  %282 = icmp ne i32 %281, 0
-  br i1 %282, label %283, label %287
+269:                                              ; preds = %266, %262
+  %270 = load ptr, ptr %39, align 8, !tbaa !7
+  %271 = load ptr, ptr %38, align 8, !tbaa !7
+  %272 = call double @N_VDotProd(ptr noundef %270, ptr noundef %271)
+  %273 = load ptr, ptr %43, align 8, !tbaa !7
+  %274 = load ptr, ptr %38, align 8, !tbaa !7
+  %275 = call double @N_VDotProd(ptr noundef %273, ptr noundef %274)
+  %276 = fdiv double %272, %275
+  store double %276, ptr %30, align 8, !tbaa !20
+  %277 = load ptr, ptr %39, align 8, !tbaa !7
+  %278 = load double, ptr %30, align 8, !tbaa !20
+  %279 = fneg double %278
+  %280 = load ptr, ptr %43, align 8, !tbaa !7
+  %281 = load ptr, ptr %41, align 8, !tbaa !7
+  call void @N_VLinearSum(double noundef 1.000000e+00, ptr noundef %277, double noundef %279, ptr noundef %280, ptr noundef %281)
+  %282 = load i32, ptr %47, align 4, !tbaa !3
+  %283 = icmp ne i32 %282, 0
+  br i1 %283, label %284, label %288
 
-283:                                              ; preds = %268
-  %284 = load ptr, ptr %41, align 8
-  %285 = load ptr, ptr %23, align 8
-  %286 = load ptr, ptr %44, align 8
-  call void @N_VDiv(ptr noundef %284, ptr noundef %285, ptr noundef %286)
-  br label %290
+284:                                              ; preds = %269
+  %285 = load ptr, ptr %41, align 8, !tbaa !7
+  %286 = load ptr, ptr %23, align 8, !tbaa !7
+  %287 = load ptr, ptr %44, align 8, !tbaa !7
+  call void @N_VDiv(ptr noundef %285, ptr noundef %286, ptr noundef %287)
+  br label %291
 
-287:                                              ; preds = %268
-  %288 = load ptr, ptr %41, align 8
-  %289 = load ptr, ptr %44, align 8
-  call void @N_VScale(double noundef 1.000000e+00, ptr noundef %288, ptr noundef %289)
-  br label %290
+288:                                              ; preds = %269
+  %289 = load ptr, ptr %41, align 8, !tbaa !7
+  %290 = load ptr, ptr %44, align 8, !tbaa !7
+  call void @N_VScale(double noundef 1.000000e+00, ptr noundef %289, ptr noundef %290)
+  br label %291
 
-290:                                              ; preds = %287, %283
-  %291 = load i32, ptr %46, align 4
-  %292 = icmp ne i32 %291, 0
-  br i1 %292, label %293, label %311
+291:                                              ; preds = %288, %284
+  %292 = load i32, ptr %46, align 4, !tbaa !3
+  %293 = icmp ne i32 %292, 0
+  br i1 %293, label %294, label %312
 
-293:                                              ; preds = %290
-  %294 = load ptr, ptr %44, align 8
-  %295 = load ptr, ptr %42, align 8
-  call void @N_VScale(double noundef 1.000000e+00, ptr noundef %294, ptr noundef %295)
-  %296 = load ptr, ptr %26, align 8
-  %297 = load ptr, ptr %22, align 8
-  %298 = load ptr, ptr %42, align 8
-  %299 = load ptr, ptr %44, align 8
-  %300 = call i32 %296(ptr noundef %297, ptr noundef %298, ptr noundef %299, i32 noundef 2)
-  store i32 %300, ptr %52, align 4
-  %301 = load ptr, ptr %29, align 8
-  %302 = load i32, ptr %301, align 4
-  %303 = add nsw i32 %302, 1
-  store i32 %303, ptr %301, align 4
-  %304 = load i32, ptr %52, align 4
-  %305 = icmp ne i32 %304, 0
-  br i1 %305, label %306, label %310
+294:                                              ; preds = %291
+  %295 = load ptr, ptr %44, align 8, !tbaa !7
+  %296 = load ptr, ptr %42, align 8, !tbaa !7
+  call void @N_VScale(double noundef 1.000000e+00, ptr noundef %295, ptr noundef %296)
+  %297 = load ptr, ptr %26, align 8, !tbaa !10
+  %298 = load ptr, ptr %22, align 8, !tbaa !10
+  %299 = load ptr, ptr %42, align 8, !tbaa !7
+  %300 = load ptr, ptr %44, align 8, !tbaa !7
+  %301 = call i32 %297(ptr noundef %298, ptr noundef %299, ptr noundef %300, i32 noundef 2)
+  store i32 %301, ptr %52, align 4, !tbaa !3
+  %302 = load ptr, ptr %29, align 8, !tbaa !24
+  %303 = load i32, ptr %302, align 4, !tbaa !3
+  %304 = add nsw i32 %303, 1
+  store i32 %304, ptr %302, align 4, !tbaa !3
+  %305 = load i32, ptr %52, align 4, !tbaa !3
+  %306 = icmp ne i32 %305, 0
+  br i1 %306, label %307, label %311
 
-306:                                              ; preds = %293
-  %307 = load i32, ptr %52, align 4
-  %308 = icmp slt i32 %307, 0
-  %309 = select i1 %308, i32 -3, i32 3
-  store i32 %309, ptr %15, align 4
-  br label %455
+307:                                              ; preds = %294
+  %308 = load i32, ptr %52, align 4, !tbaa !3
+  %309 = icmp slt i32 %308, 0
+  %310 = select i1 %309, i32 -3, i32 3
+  store i32 %310, ptr %15, align 4
+  store i32 1, ptr %53, align 4
+  br label %456
 
-310:                                              ; preds = %293
-  br label %311
+311:                                              ; preds = %294
+  br label %312
 
-311:                                              ; preds = %310, %290
-  %312 = load ptr, ptr %25, align 8
-  %313 = load ptr, ptr %17, align 8
-  %314 = load ptr, ptr %44, align 8
-  %315 = load ptr, ptr %42, align 8
-  %316 = call i32 %312(ptr noundef %313, ptr noundef %314, ptr noundef %315)
-  store i32 %316, ptr %52, align 4
-  %317 = load i32, ptr %52, align 4
-  %318 = icmp ne i32 %317, 0
-  br i1 %318, label %319, label %323
+312:                                              ; preds = %311, %291
+  %313 = load ptr, ptr %25, align 8, !tbaa !10
+  %314 = load ptr, ptr %17, align 8, !tbaa !10
+  %315 = load ptr, ptr %44, align 8, !tbaa !7
+  %316 = load ptr, ptr %42, align 8, !tbaa !7
+  %317 = call i32 %313(ptr noundef %314, ptr noundef %315, ptr noundef %316)
+  store i32 %317, ptr %52, align 4, !tbaa !3
+  %318 = load i32, ptr %52, align 4, !tbaa !3
+  %319 = icmp ne i32 %318, 0
+  br i1 %319, label %320, label %324
 
-319:                                              ; preds = %311
-  %320 = load i32, ptr %52, align 4
-  %321 = icmp slt i32 %320, 0
-  %322 = select i1 %321, i32 -2, i32 4
-  store i32 %322, ptr %15, align 4
-  br label %455
+320:                                              ; preds = %312
+  %321 = load i32, ptr %52, align 4, !tbaa !3
+  %322 = icmp slt i32 %321, 0
+  %323 = select i1 %322, i32 -2, i32 4
+  store i32 %323, ptr %15, align 4
+  store i32 1, ptr %53, align 4
+  br label %456
 
-323:                                              ; preds = %311
-  %324 = load i32, ptr %45, align 4
-  %325 = icmp ne i32 %324, 0
-  br i1 %325, label %326, label %342
+324:                                              ; preds = %312
+  %325 = load i32, ptr %45, align 4, !tbaa !3
+  %326 = icmp ne i32 %325, 0
+  br i1 %326, label %327, label %343
 
-326:                                              ; preds = %323
-  %327 = load ptr, ptr %26, align 8
-  %328 = load ptr, ptr %22, align 8
-  %329 = load ptr, ptr %42, align 8
-  %330 = load ptr, ptr %44, align 8
-  %331 = call i32 %327(ptr noundef %328, ptr noundef %329, ptr noundef %330, i32 noundef 1)
-  store i32 %331, ptr %52, align 4
-  %332 = load ptr, ptr %29, align 8
-  %333 = load i32, ptr %332, align 4
-  %334 = add nsw i32 %333, 1
-  store i32 %334, ptr %332, align 4
-  %335 = load i32, ptr %52, align 4
-  %336 = icmp ne i32 %335, 0
-  br i1 %336, label %337, label %341
+327:                                              ; preds = %324
+  %328 = load ptr, ptr %26, align 8, !tbaa !10
+  %329 = load ptr, ptr %22, align 8, !tbaa !10
+  %330 = load ptr, ptr %42, align 8, !tbaa !7
+  %331 = load ptr, ptr %44, align 8, !tbaa !7
+  %332 = call i32 %328(ptr noundef %329, ptr noundef %330, ptr noundef %331, i32 noundef 1)
+  store i32 %332, ptr %52, align 4, !tbaa !3
+  %333 = load ptr, ptr %29, align 8, !tbaa !24
+  %334 = load i32, ptr %333, align 4, !tbaa !3
+  %335 = add nsw i32 %334, 1
+  store i32 %335, ptr %333, align 4, !tbaa !3
+  %336 = load i32, ptr %52, align 4, !tbaa !3
+  %337 = icmp ne i32 %336, 0
+  br i1 %337, label %338, label %342
 
-337:                                              ; preds = %326
-  %338 = load i32, ptr %52, align 4
-  %339 = icmp slt i32 %338, 0
-  %340 = select i1 %339, i32 -3, i32 3
-  store i32 %340, ptr %15, align 4
-  br label %455
+338:                                              ; preds = %327
+  %339 = load i32, ptr %52, align 4, !tbaa !3
+  %340 = icmp slt i32 %339, 0
+  %341 = select i1 %340, i32 -3, i32 3
+  store i32 %341, ptr %15, align 4
+  store i32 1, ptr %53, align 4
+  br label %456
 
-341:                                              ; preds = %326
-  br label %345
+342:                                              ; preds = %327
+  br label %346
 
-342:                                              ; preds = %323
-  %343 = load ptr, ptr %42, align 8
-  %344 = load ptr, ptr %44, align 8
-  call void @N_VScale(double noundef 1.000000e+00, ptr noundef %343, ptr noundef %344)
-  br label %345
+343:                                              ; preds = %324
+  %344 = load ptr, ptr %42, align 8, !tbaa !7
+  %345 = load ptr, ptr %44, align 8, !tbaa !7
+  call void @N_VScale(double noundef 1.000000e+00, ptr noundef %344, ptr noundef %345)
+  br label %346
 
-345:                                              ; preds = %342, %341
-  %346 = load i32, ptr %48, align 4
-  %347 = icmp ne i32 %346, 0
-  br i1 %347, label %348, label %352
+346:                                              ; preds = %343, %342
+  %347 = load i32, ptr %48, align 4, !tbaa !3
+  %348 = icmp ne i32 %347, 0
+  br i1 %348, label %349, label %353
 
-348:                                              ; preds = %345
-  %349 = load ptr, ptr %24, align 8
-  %350 = load ptr, ptr %44, align 8
-  %351 = load ptr, ptr %42, align 8
-  call void @N_VProd(ptr noundef %349, ptr noundef %350, ptr noundef %351)
-  br label %355
+349:                                              ; preds = %346
+  %350 = load ptr, ptr %24, align 8, !tbaa !7
+  %351 = load ptr, ptr %44, align 8, !tbaa !7
+  %352 = load ptr, ptr %42, align 8, !tbaa !7
+  call void @N_VProd(ptr noundef %350, ptr noundef %351, ptr noundef %352)
+  br label %356
 
-352:                                              ; preds = %345
-  %353 = load ptr, ptr %44, align 8
-  %354 = load ptr, ptr %42, align 8
-  call void @N_VScale(double noundef 1.000000e+00, ptr noundef %353, ptr noundef %354)
-  br label %355
+353:                                              ; preds = %346
+  %354 = load ptr, ptr %44, align 8, !tbaa !7
+  %355 = load ptr, ptr %42, align 8, !tbaa !7
+  call void @N_VScale(double noundef 1.000000e+00, ptr noundef %354, ptr noundef %355)
+  br label %356
 
-355:                                              ; preds = %352, %348
-  %356 = load ptr, ptr %42, align 8
-  %357 = load ptr, ptr %42, align 8
-  %358 = call double @N_VDotProd(ptr noundef %356, ptr noundef %357)
-  store double %358, ptr %33, align 8
-  %359 = load double, ptr %33, align 8
-  %360 = fcmp oeq double %359, 0.000000e+00
-  br i1 %360, label %361, label %362
+356:                                              ; preds = %353, %349
+  %357 = load ptr, ptr %42, align 8, !tbaa !7
+  %358 = load ptr, ptr %42, align 8, !tbaa !7
+  %359 = call double @N_VDotProd(ptr noundef %357, ptr noundef %358)
+  store double %359, ptr %33, align 8, !tbaa !20
+  %360 = load double, ptr %33, align 8, !tbaa !20
+  %361 = fcmp oeq double %360, 0.000000e+00
+  br i1 %361, label %362, label %363
 
-361:                                              ; preds = %355
-  store double 1.000000e+00, ptr %33, align 8
-  br label %362
+362:                                              ; preds = %356
+  store double 1.000000e+00, ptr %33, align 8, !tbaa !20
+  br label %363
 
-362:                                              ; preds = %361, %355
-  %363 = load ptr, ptr %42, align 8
-  %364 = load ptr, ptr %41, align 8
-  %365 = call double @N_VDotProd(ptr noundef %363, ptr noundef %364)
-  %366 = load double, ptr %33, align 8
-  %367 = fdiv double %365, %366
-  store double %367, ptr %32, align 8
-  %368 = load double, ptr %30, align 8
-  %369 = load ptr, ptr %40, align 8
-  %370 = load double, ptr %32, align 8
-  %371 = load ptr, ptr %41, align 8
-  %372 = load ptr, ptr %44, align 8
-  call void @N_VLinearSum(double noundef %368, ptr noundef %369, double noundef %370, ptr noundef %371, ptr noundef %372)
-  %373 = load ptr, ptr %18, align 8
-  %374 = load ptr, ptr %44, align 8
-  %375 = load ptr, ptr %18, align 8
-  call void @N_VLinearSum(double noundef 1.000000e+00, ptr noundef %373, double noundef 1.000000e+00, ptr noundef %374, ptr noundef %375)
-  %376 = load ptr, ptr %41, align 8
-  %377 = load double, ptr %32, align 8
-  %378 = fneg double %377
-  %379 = load ptr, ptr %42, align 8
-  %380 = load ptr, ptr %39, align 8
-  call void @N_VLinearSum(double noundef 1.000000e+00, ptr noundef %376, double noundef %378, ptr noundef %379, ptr noundef %380)
-  %381 = load ptr, ptr %39, align 8
-  %382 = load ptr, ptr %39, align 8
-  %383 = call double @N_VDotProd(ptr noundef %381, ptr noundef %382)
-  %384 = call double @SUNRsqrt(double noundef %383)
-  store double %384, ptr %37, align 8
-  %385 = load ptr, ptr %27, align 8
-  store double %384, ptr %385, align 8
-  %386 = load double, ptr %37, align 8
-  %387 = load double, ptr %21, align 8
-  %388 = fcmp ole double %386, %387
-  br i1 %388, label %389, label %390
+363:                                              ; preds = %362, %356
+  %364 = load ptr, ptr %42, align 8, !tbaa !7
+  %365 = load ptr, ptr %41, align 8, !tbaa !7
+  %366 = call double @N_VDotProd(ptr noundef %364, ptr noundef %365)
+  %367 = load double, ptr %33, align 8, !tbaa !20
+  %368 = fdiv double %366, %367
+  store double %368, ptr %32, align 8, !tbaa !20
+  %369 = load double, ptr %30, align 8, !tbaa !20
+  %370 = load ptr, ptr %40, align 8, !tbaa !7
+  %371 = load double, ptr %32, align 8, !tbaa !20
+  %372 = load ptr, ptr %41, align 8, !tbaa !7
+  %373 = load ptr, ptr %44, align 8, !tbaa !7
+  call void @N_VLinearSum(double noundef %369, ptr noundef %370, double noundef %371, ptr noundef %372, ptr noundef %373)
+  %374 = load ptr, ptr %18, align 8, !tbaa !7
+  %375 = load ptr, ptr %44, align 8, !tbaa !7
+  %376 = load ptr, ptr %18, align 8, !tbaa !7
+  call void @N_VLinearSum(double noundef 1.000000e+00, ptr noundef %374, double noundef 1.000000e+00, ptr noundef %375, ptr noundef %376)
+  %377 = load ptr, ptr %41, align 8, !tbaa !7
+  %378 = load double, ptr %32, align 8, !tbaa !20
+  %379 = fneg double %378
+  %380 = load ptr, ptr %42, align 8, !tbaa !7
+  %381 = load ptr, ptr %39, align 8, !tbaa !7
+  call void @N_VLinearSum(double noundef 1.000000e+00, ptr noundef %377, double noundef %379, ptr noundef %380, ptr noundef %381)
+  %382 = load ptr, ptr %39, align 8, !tbaa !7
+  %383 = load ptr, ptr %39, align 8, !tbaa !7
+  %384 = call double @N_VDotProd(ptr noundef %382, ptr noundef %383)
+  %385 = call double @SUNRsqrt(double noundef %384)
+  store double %385, ptr %37, align 8, !tbaa !20
+  %386 = load ptr, ptr %27, align 8, !tbaa !22
+  store double %385, ptr %386, align 8, !tbaa !20
+  %387 = load double, ptr %37, align 8, !tbaa !20
+  %388 = load double, ptr %21, align 8, !tbaa !20
+  %389 = fcmp ole double %387, %388
+  br i1 %389, label %390, label %391
 
-389:                                              ; preds = %362
-  store i32 1, ptr %49, align 4
-  br label %414
+390:                                              ; preds = %363
+  store i32 1, ptr %49, align 4, !tbaa !3
+  br label %415
 
-390:                                              ; preds = %362
-  %391 = load ptr, ptr %39, align 8
-  %392 = load ptr, ptr %38, align 8
-  %393 = call double @N_VDotProd(ptr noundef %391, ptr noundef %392)
-  store double %393, ptr %34, align 8
-  %394 = load double, ptr %34, align 8
-  %395 = load double, ptr %35, align 8
-  %396 = fdiv double %394, %395
-  %397 = load double, ptr %30, align 8
-  %398 = load double, ptr %32, align 8
-  %399 = fdiv double %397, %398
-  %400 = fmul double %396, %399
-  store double %400, ptr %31, align 8
-  %401 = load double, ptr %34, align 8
-  store double %401, ptr %35, align 8
-  %402 = load ptr, ptr %40, align 8
-  %403 = load double, ptr %32, align 8
-  %404 = fneg double %403
-  %405 = load ptr, ptr %43, align 8
-  %406 = load ptr, ptr %44, align 8
-  call void @N_VLinearSum(double noundef 1.000000e+00, ptr noundef %402, double noundef %404, ptr noundef %405, ptr noundef %406)
-  %407 = load ptr, ptr %39, align 8
-  %408 = load double, ptr %31, align 8
-  %409 = load ptr, ptr %44, align 8
-  %410 = load ptr, ptr %40, align 8
-  call void @N_VLinearSum(double noundef 1.000000e+00, ptr noundef %407, double noundef %408, ptr noundef %409, ptr noundef %410)
-  br label %411
+391:                                              ; preds = %363
+  %392 = load ptr, ptr %39, align 8, !tbaa !7
+  %393 = load ptr, ptr %38, align 8, !tbaa !7
+  %394 = call double @N_VDotProd(ptr noundef %392, ptr noundef %393)
+  store double %394, ptr %34, align 8, !tbaa !20
+  %395 = load double, ptr %34, align 8, !tbaa !20
+  %396 = load double, ptr %35, align 8, !tbaa !20
+  %397 = fdiv double %395, %396
+  %398 = load double, ptr %30, align 8, !tbaa !20
+  %399 = load double, ptr %32, align 8, !tbaa !20
+  %400 = fdiv double %398, %399
+  %401 = fmul double %397, %400
+  store double %401, ptr %31, align 8, !tbaa !20
+  %402 = load double, ptr %34, align 8, !tbaa !20
+  store double %402, ptr %35, align 8, !tbaa !20
+  %403 = load ptr, ptr %40, align 8, !tbaa !7
+  %404 = load double, ptr %32, align 8, !tbaa !20
+  %405 = fneg double %404
+  %406 = load ptr, ptr %43, align 8, !tbaa !7
+  %407 = load ptr, ptr %44, align 8, !tbaa !7
+  call void @N_VLinearSum(double noundef 1.000000e+00, ptr noundef %403, double noundef %405, ptr noundef %406, ptr noundef %407)
+  %408 = load ptr, ptr %39, align 8, !tbaa !7
+  %409 = load double, ptr %31, align 8, !tbaa !20
+  %410 = load ptr, ptr %44, align 8, !tbaa !7
+  %411 = load ptr, ptr %40, align 8, !tbaa !7
+  call void @N_VLinearSum(double noundef 1.000000e+00, ptr noundef %408, double noundef %409, ptr noundef %410, ptr noundef %411)
+  br label %412
 
-411:                                              ; preds = %390
-  %412 = load i32, ptr %50, align 4
-  %413 = add nsw i32 %412, 1
-  store i32 %413, ptr %50, align 4
-  br label %186, !llvm.loop !4
+412:                                              ; preds = %391
+  %413 = load i32, ptr %50, align 4, !tbaa !3
+  %414 = add nsw i32 %413, 1
+  store i32 %414, ptr %50, align 4, !tbaa !3
+  br label %187, !llvm.loop !26
 
-414:                                              ; preds = %389, %186
-  %415 = load i32, ptr %49, align 4
-  %416 = icmp eq i32 %415, 1
-  br i1 %416, label %421, label %417
+415:                                              ; preds = %390, %187
+  %416 = load i32, ptr %49, align 4, !tbaa !3
+  %417 = icmp eq i32 %416, 1
+  br i1 %417, label %422, label %418
 
-417:                                              ; preds = %414
-  %418 = load double, ptr %37, align 8
-  %419 = load double, ptr %36, align 8
-  %420 = fcmp olt double %418, %419
-  br i1 %420, label %421, label %454
+418:                                              ; preds = %415
+  %419 = load double, ptr %37, align 8, !tbaa !20
+  %420 = load double, ptr %36, align 8, !tbaa !20
+  %421 = fcmp olt double %419, %420
+  br i1 %421, label %422, label %455
 
-421:                                              ; preds = %417, %414
-  %422 = load i32, ptr %47, align 4
-  %423 = icmp ne i32 %422, 0
-  br i1 %423, label %424, label %428
+422:                                              ; preds = %418, %415
+  %423 = load i32, ptr %47, align 4, !tbaa !3
+  %424 = icmp ne i32 %423, 0
+  br i1 %424, label %425, label %429
 
-424:                                              ; preds = %421
-  %425 = load ptr, ptr %18, align 8
-  %426 = load ptr, ptr %23, align 8
-  %427 = load ptr, ptr %18, align 8
-  call void @N_VDiv(ptr noundef %425, ptr noundef %426, ptr noundef %427)
-  br label %428
+425:                                              ; preds = %422
+  %426 = load ptr, ptr %18, align 8, !tbaa !7
+  %427 = load ptr, ptr %23, align 8, !tbaa !7
+  %428 = load ptr, ptr %18, align 8, !tbaa !7
+  call void @N_VDiv(ptr noundef %426, ptr noundef %427, ptr noundef %428)
+  br label %429
 
-428:                                              ; preds = %424, %421
-  %429 = load i32, ptr %46, align 4
-  %430 = icmp ne i32 %429, 0
-  br i1 %430, label %431, label %449
+429:                                              ; preds = %425, %422
+  %430 = load i32, ptr %46, align 4, !tbaa !3
+  %431 = icmp ne i32 %430, 0
+  br i1 %431, label %432, label %450
 
-431:                                              ; preds = %428
-  %432 = load ptr, ptr %26, align 8
-  %433 = load ptr, ptr %22, align 8
-  %434 = load ptr, ptr %18, align 8
-  %435 = load ptr, ptr %44, align 8
-  %436 = call i32 %432(ptr noundef %433, ptr noundef %434, ptr noundef %435, i32 noundef 2)
-  store i32 %436, ptr %52, align 4
-  %437 = load ptr, ptr %29, align 8
-  %438 = load i32, ptr %437, align 4
-  %439 = add nsw i32 %438, 1
-  store i32 %439, ptr %437, align 4
-  %440 = load i32, ptr %52, align 4
-  %441 = icmp ne i32 %440, 0
-  br i1 %441, label %442, label %446
+432:                                              ; preds = %429
+  %433 = load ptr, ptr %26, align 8, !tbaa !10
+  %434 = load ptr, ptr %22, align 8, !tbaa !10
+  %435 = load ptr, ptr %18, align 8, !tbaa !7
+  %436 = load ptr, ptr %44, align 8, !tbaa !7
+  %437 = call i32 %433(ptr noundef %434, ptr noundef %435, ptr noundef %436, i32 noundef 2)
+  store i32 %437, ptr %52, align 4, !tbaa !3
+  %438 = load ptr, ptr %29, align 8, !tbaa !24
+  %439 = load i32, ptr %438, align 4, !tbaa !3
+  %440 = add nsw i32 %439, 1
+  store i32 %440, ptr %438, align 4, !tbaa !3
+  %441 = load i32, ptr %52, align 4, !tbaa !3
+  %442 = icmp ne i32 %441, 0
+  br i1 %442, label %443, label %447
 
-442:                                              ; preds = %431
-  %443 = load i32, ptr %52, align 4
-  %444 = icmp slt i32 %443, 0
-  %445 = select i1 %444, i32 -3, i32 3
-  store i32 %445, ptr %15, align 4
-  br label %455
+443:                                              ; preds = %432
+  %444 = load i32, ptr %52, align 4, !tbaa !3
+  %445 = icmp slt i32 %444, 0
+  %446 = select i1 %445, i32 -3, i32 3
+  store i32 %446, ptr %15, align 4
+  store i32 1, ptr %53, align 4
+  br label %456
 
-446:                                              ; preds = %431
-  %447 = load ptr, ptr %44, align 8
-  %448 = load ptr, ptr %18, align 8
-  call void @N_VScale(double noundef 1.000000e+00, ptr noundef %447, ptr noundef %448)
-  br label %449
+447:                                              ; preds = %432
+  %448 = load ptr, ptr %44, align 8, !tbaa !7
+  %449 = load ptr, ptr %18, align 8, !tbaa !7
+  call void @N_VScale(double noundef 1.000000e+00, ptr noundef %448, ptr noundef %449)
+  br label %450
 
-449:                                              ; preds = %446, %428
-  %450 = load i32, ptr %49, align 4
-  %451 = icmp eq i32 %450, 1
-  br i1 %451, label %452, label %453
+450:                                              ; preds = %447, %429
+  %451 = load i32, ptr %49, align 4, !tbaa !3
+  %452 = icmp eq i32 %451, 1
+  br i1 %452, label %453, label %454
 
-452:                                              ; preds = %449
+453:                                              ; preds = %450
   store i32 0, ptr %15, align 4
-  br label %455
+  store i32 1, ptr %53, align 4
+  br label %456
 
-453:                                              ; preds = %449
+454:                                              ; preds = %450
   store i32 1, ptr %15, align 4
-  br label %455
+  store i32 1, ptr %53, align 4
+  br label %456
 
-454:                                              ; preds = %417
+455:                                              ; preds = %418
   store i32 2, ptr %15, align 4
-  br label %455
+  store i32 1, ptr %53, align 4
+  br label %456
 
-455:                                              ; preds = %454, %453, %452, %442, %337, %319, %306, %250, %232, %219, %180, %152, %130, %55
-  %456 = load i32, ptr %15, align 4
-  ret i32 %456
+456:                                              ; preds = %455, %454, %453, %443, %338, %320, %307, %251, %233, %220, %181, %153, %131, %56
+  call void @llvm.lifetime.end.p0(i64 4, ptr %52) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %51) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %50) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %49) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %48) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %47) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %46) #5
+  call void @llvm.lifetime.end.p0(i64 4, ptr %45) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %44) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %43) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %42) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %41) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %40) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %39) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %38) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %37) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %36) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %35) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %34) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %33) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %32) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %31) #5
+  call void @llvm.lifetime.end.p0(i64 8, ptr %30) #5
+  %457 = load i32, ptr %15, align 4
+  ret i32 %457
 }
 
-declare double @N_VDotProd(ptr noundef, ptr noundef) #1
+declare double @N_VDotProd(ptr noundef, ptr noundef) #2
 
-declare void @N_VScale(double noundef, ptr noundef, ptr noundef) #1
+declare void @N_VScale(double noundef, ptr noundef, ptr noundef) #2
 
-declare void @N_VLinearSum(double noundef, ptr noundef, double noundef, ptr noundef, ptr noundef) #1
+declare void @N_VLinearSum(double noundef, ptr noundef, double noundef, ptr noundef, ptr noundef) #2
 
-declare void @N_VProd(ptr noundef, ptr noundef, ptr noundef) #1
+declare void @N_VProd(ptr noundef, ptr noundef, ptr noundef) #2
 
-declare double @SUNRsqrt(double noundef) #1
+declare double @SUNRsqrt(double noundef) #2
 
-declare void @N_VDiv(ptr noundef, ptr noundef, ptr noundef) #1
+declare void @N_VDiv(ptr noundef, ptr noundef, ptr noundef) #2
 
 ; Function Attrs: nounwind uwtable
 define void @SpbcgFree(ptr noundef %0) #0 {
   %2 = alloca ptr, align 8
-  store ptr %0, ptr %2, align 8
-  %3 = load ptr, ptr %2, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !10
+  %3 = load ptr, ptr %2, align 8, !tbaa !10
   %4 = icmp eq ptr %3, null
   br i1 %4, label %5, label %6
 
@@ -959,37 +1053,37 @@ define void @SpbcgFree(ptr noundef %0) #0 {
   br label %29
 
 6:                                                ; preds = %1
-  %7 = load ptr, ptr %2, align 8
-  %8 = getelementptr inbounds %struct.SpbcgMemRec, ptr %7, i32 0, i32 1
-  %9 = load ptr, ptr %8, align 8
+  %7 = load ptr, ptr %2, align 8, !tbaa !10
+  %8 = getelementptr inbounds nuw %struct.SpbcgMemRec, ptr %7, i32 0, i32 1
+  %9 = load ptr, ptr %8, align 8, !tbaa !13
   call void @N_VDestroy(ptr noundef %9)
-  %10 = load ptr, ptr %2, align 8
-  %11 = getelementptr inbounds %struct.SpbcgMemRec, ptr %10, i32 0, i32 2
-  %12 = load ptr, ptr %11, align 8
+  %10 = load ptr, ptr %2, align 8, !tbaa !10
+  %11 = getelementptr inbounds nuw %struct.SpbcgMemRec, ptr %10, i32 0, i32 2
+  %12 = load ptr, ptr %11, align 8, !tbaa !14
   call void @N_VDestroy(ptr noundef %12)
-  %13 = load ptr, ptr %2, align 8
-  %14 = getelementptr inbounds %struct.SpbcgMemRec, ptr %13, i32 0, i32 3
-  %15 = load ptr, ptr %14, align 8
+  %13 = load ptr, ptr %2, align 8, !tbaa !10
+  %14 = getelementptr inbounds nuw %struct.SpbcgMemRec, ptr %13, i32 0, i32 3
+  %15 = load ptr, ptr %14, align 8, !tbaa !15
   call void @N_VDestroy(ptr noundef %15)
-  %16 = load ptr, ptr %2, align 8
-  %17 = getelementptr inbounds %struct.SpbcgMemRec, ptr %16, i32 0, i32 4
-  %18 = load ptr, ptr %17, align 8
+  %16 = load ptr, ptr %2, align 8, !tbaa !10
+  %17 = getelementptr inbounds nuw %struct.SpbcgMemRec, ptr %16, i32 0, i32 4
+  %18 = load ptr, ptr %17, align 8, !tbaa !16
   call void @N_VDestroy(ptr noundef %18)
-  %19 = load ptr, ptr %2, align 8
-  %20 = getelementptr inbounds %struct.SpbcgMemRec, ptr %19, i32 0, i32 5
-  %21 = load ptr, ptr %20, align 8
+  %19 = load ptr, ptr %2, align 8, !tbaa !10
+  %20 = getelementptr inbounds nuw %struct.SpbcgMemRec, ptr %19, i32 0, i32 5
+  %21 = load ptr, ptr %20, align 8, !tbaa !17
   call void @N_VDestroy(ptr noundef %21)
-  %22 = load ptr, ptr %2, align 8
-  %23 = getelementptr inbounds %struct.SpbcgMemRec, ptr %22, i32 0, i32 6
-  %24 = load ptr, ptr %23, align 8
+  %22 = load ptr, ptr %2, align 8, !tbaa !10
+  %23 = getelementptr inbounds nuw %struct.SpbcgMemRec, ptr %22, i32 0, i32 6
+  %24 = load ptr, ptr %23, align 8, !tbaa !18
   call void @N_VDestroy(ptr noundef %24)
-  %25 = load ptr, ptr %2, align 8
-  %26 = getelementptr inbounds %struct.SpbcgMemRec, ptr %25, i32 0, i32 7
-  %27 = load ptr, ptr %26, align 8
+  %25 = load ptr, ptr %2, align 8, !tbaa !10
+  %26 = getelementptr inbounds nuw %struct.SpbcgMemRec, ptr %25, i32 0, i32 7
+  %27 = load ptr, ptr %26, align 8, !tbaa !19
   call void @N_VDestroy(ptr noundef %27)
-  %28 = load ptr, ptr %2, align 8
+  %28 = load ptr, ptr %2, align 8, !tbaa !10
   call void @free(ptr noundef %28) #5
-  store ptr null, ptr %2, align 8
+  store ptr null, ptr %2, align 8, !tbaa !10
   br label %29
 
 29:                                               ; preds = %6, %5
@@ -997,20 +1091,43 @@ define void @SpbcgFree(ptr noundef %0) #0 {
 }
 
 ; Function Attrs: nounwind
-declare void @free(ptr noundef) #3
+declare void @free(ptr noundef) #4
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { nounwind allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { nounwind allocsize(0) }
+attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nounwind allocsize(0) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { nounwind }
+attributes #6 = { nounwind allocsize(0) }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.mustprogress"}
+!3 = !{!4, !4, i64 0}
+!4 = !{!"int", !5, i64 0}
+!5 = !{!"omnipotent char", !6, i64 0}
+!6 = !{!"Simple C/C++ TBAA"}
+!7 = !{!8, !8, i64 0}
+!8 = !{!"p1 _ZTS17_generic_N_Vector", !9, i64 0}
+!9 = !{!"any pointer", !5, i64 0}
+!10 = !{!9, !9, i64 0}
+!11 = !{!12, !4, i64 0}
+!12 = !{!"", !4, i64 0, !8, i64 8, !8, i64 16, !8, i64 24, !8, i64 32, !8, i64 40, !8, i64 48, !8, i64 56}
+!13 = !{!12, !8, i64 8}
+!14 = !{!12, !8, i64 16}
+!15 = !{!12, !8, i64 24}
+!16 = !{!12, !8, i64 32}
+!17 = !{!12, !8, i64 40}
+!18 = !{!12, !8, i64 48}
+!19 = !{!12, !8, i64 56}
+!20 = !{!21, !21, i64 0}
+!21 = !{!"double", !5, i64 0}
+!22 = !{!23, !23, i64 0}
+!23 = !{!"p1 double", !9, i64 0}
+!24 = !{!25, !25, i64 0}
+!25 = !{!"p1 int", !9, i64 0}
+!26 = distinct !{!26, !27}
+!27 = !{!"llvm.loop.mustprogress"}

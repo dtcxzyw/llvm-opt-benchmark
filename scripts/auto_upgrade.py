@@ -72,6 +72,7 @@ supported_project = [
     "assimp",
     "box2d",
     "bullet3",
+    "casadi",
 ]
 
 modify_only = [
@@ -96,6 +97,7 @@ modify_only = [
     "wolfssl",
     "zstd",
     "assimp",
+    "casadi",
 ]
 
 

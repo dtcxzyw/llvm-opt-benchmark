@@ -63,7 +63,7 @@ define range(i32 -3, 1) i32 @CVSpilsSetPrecType(ptr noundef %0, i32 noundef %1) 
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 1696
-  %7 = load ptr, ptr %6, align 8
+  %7 = load ptr, ptr %6, align 8, !tbaa !3
   %8 = icmp eq ptr %7, null
   br i1 %8, label %9, label %10
 
@@ -81,7 +81,7 @@ define range(i32 -3, 1) i32 @CVSpilsSetPrecType(ptr noundef %0, i32 noundef %1) 
 
 12:                                               ; preds = %10
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 4
-  store i32 %1, ptr %13, align 4
+  store i32 %1, ptr %13, align 4, !tbaa !18
   br label %14
 
 14:                                               ; preds = %12, %11, %9, %4
@@ -102,7 +102,7 @@ define range(i32 -3, 1) i32 @CVSpilsSetGSType(ptr noundef %0, i32 noundef %1) lo
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 1696
-  %7 = load ptr, ptr %6, align 8
+  %7 = load ptr, ptr %6, align 8, !tbaa !3
   %8 = icmp eq ptr %7, null
   br i1 %8, label %9, label %10
 
@@ -111,7 +111,7 @@ define range(i32 -3, 1) i32 @CVSpilsSetGSType(ptr noundef %0, i32 noundef %1) lo
   br label %18
 
 10:                                               ; preds = %5
-  %11 = load i32, ptr %7, align 8
+  %11 = load i32, ptr %7, align 8, !tbaa !20
   %.not = icmp eq i32 %11, 1
   br i1 %.not, label %13, label %12
 
@@ -130,7 +130,7 @@ define range(i32 -3, 1) i32 @CVSpilsSetGSType(ptr noundef %0, i32 noundef %1) lo
 
 16:                                               ; preds = %13
   %17 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  store i32 %1, ptr %17, align 8
+  store i32 %1, ptr %17, align 8, !tbaa !21
   br label %18
 
 18:                                               ; preds = %16, %15, %12, %9, %4
@@ -149,7 +149,7 @@ define range(i32 -3, 1) i32 @CVSpilsSetMaxl(ptr noundef %0, i32 noundef %1) loca
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 1696
-  %7 = load ptr, ptr %6, align 8
+  %7 = load ptr, ptr %6, align 8, !tbaa !3
   %8 = icmp eq ptr %7, null
   br i1 %8, label %9, label %10
 
@@ -158,7 +158,7 @@ define range(i32 -3, 1) i32 @CVSpilsSetMaxl(ptr noundef %0, i32 noundef %1) loca
   br label %18
 
 10:                                               ; preds = %5
-  %11 = load i32, ptr %7, align 8
+  %11 = load i32, ptr %7, align 8, !tbaa !20
   %12 = icmp eq i32 %11, 1
   br i1 %12, label %13, label %14
 
@@ -170,7 +170,7 @@ define range(i32 -3, 1) i32 @CVSpilsSetMaxl(ptr noundef %0, i32 noundef %1) loca
   %15 = icmp slt i32 %1, 1
   %16 = select i1 %15, i32 5, i32 %1
   %17 = getelementptr inbounds nuw i8, ptr %7, i64 48
-  store i32 %16, ptr %17, align 8
+  store i32 %16, ptr %17, align 8, !tbaa !22
   br label %18
 
 18:                                               ; preds = %14, %13, %9, %4
@@ -189,7 +189,7 @@ define range(i32 -3, 1) i32 @CVSpilsSetEpsLin(ptr noundef %0, double noundef %1)
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 1696
-  %7 = load ptr, ptr %6, align 8
+  %7 = load ptr, ptr %6, align 8, !tbaa !3
   %8 = icmp eq ptr %7, null
   br i1 %8, label %9, label %10
 
@@ -209,7 +209,7 @@ define range(i32 -3, 1) i32 @CVSpilsSetEpsLin(ptr noundef %0, double noundef %1)
   %14 = fcmp oeq double %1, 0.000000e+00
   %15 = select i1 %14, double 5.000000e-02, double %1
   %16 = getelementptr inbounds nuw i8, ptr %7, i64 24
-  store double %15, ptr %16, align 8
+  store double %15, ptr %16, align 8, !tbaa !23
   br label %17
 
 17:                                               ; preds = %13, %12, %9, %4
@@ -228,7 +228,7 @@ define range(i32 -2, 1) i32 @CVSpilsSetPreconditioner(ptr noundef %0, ptr nounde
 
 6:                                                ; preds = %3
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 1696
-  %8 = load ptr, ptr %7, align 8
+  %8 = load ptr, ptr %7, align 8, !tbaa !3
   %9 = icmp eq ptr %8, null
   br i1 %9, label %10, label %11
 
@@ -238,9 +238,9 @@ define range(i32 -2, 1) i32 @CVSpilsSetPreconditioner(ptr noundef %0, ptr nounde
 
 11:                                               ; preds = %6
   %12 = getelementptr inbounds nuw i8, ptr %8, i64 152
-  store ptr %1, ptr %12, align 8
+  store ptr %1, ptr %12, align 8, !tbaa !24
   %13 = getelementptr inbounds nuw i8, ptr %8, i64 160
-  store ptr %2, ptr %13, align 8
+  store ptr %2, ptr %13, align 8, !tbaa !25
   br label %14
 
 14:                                               ; preds = %11, %10, %5
@@ -259,7 +259,7 @@ define range(i32 -2, 1) i32 @CVSpilsSetJacTimesVecFn(ptr noundef %0, ptr noundef
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 1696
-  %7 = load ptr, ptr %6, align 8
+  %7 = load ptr, ptr %6, align 8, !tbaa !3
   %8 = icmp eq ptr %7, null
   br i1 %8, label %9, label %10
 
@@ -273,13 +273,13 @@ define range(i32 -2, 1) i32 @CVSpilsSetJacTimesVecFn(ptr noundef %0, ptr noundef
   br i1 %.not, label %14, label %12
 
 12:                                               ; preds = %10
-  store i32 0, ptr %11, align 8
+  store i32 0, ptr %11, align 8, !tbaa !26
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 192
-  store ptr %1, ptr %13, align 8
+  store ptr %1, ptr %13, align 8, !tbaa !27
   br label %15
 
 14:                                               ; preds = %10
-  store i32 1, ptr %11, align 8
+  store i32 1, ptr %11, align 8, !tbaa !26
   br label %15
 
 15:                                               ; preds = %12, %14, %9, %4
@@ -298,7 +298,7 @@ define range(i32 -2, 1) i32 @CVSpilsGetWorkSpace(ptr noundef %0, ptr noundef wri
 
 6:                                                ; preds = %3
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 1696
-  %8 = load ptr, ptr %7, align 8
+  %8 = load ptr, ptr %7, align 8, !tbaa !3
   %9 = icmp eq ptr %8, null
   br i1 %9, label %10, label %11
 
@@ -307,7 +307,7 @@ define range(i32 -2, 1) i32 @CVSpilsGetWorkSpace(ptr noundef %0, ptr noundef wri
   br label %43
 
 11:                                               ; preds = %6
-  %12 = load i32, ptr %8, align 8
+  %12 = load i32, ptr %8, align 8, !tbaa !20
   switch i32 %12, label %43 [
     i32 1, label %13
     i32 2, label %29
@@ -316,9 +316,9 @@ define range(i32 -2, 1) i32 @CVSpilsGetWorkSpace(ptr noundef %0, ptr noundef wri
 
 13:                                               ; preds = %11
   %14 = getelementptr inbounds nuw i8, ptr %8, i64 48
-  %15 = load i32, ptr %14, align 8
+  %15 = load i32, ptr %14, align 8, !tbaa !22
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 1592
-  %17 = load i64, ptr %16, align 8
+  %17 = load i64, ptr %16, align 8, !tbaa !28
   %18 = add nsw i32 %15, 5
   %19 = sext i32 %18 to i64
   %20 = mul nsw i64 %17, %19
@@ -327,33 +327,33 @@ define range(i32 -2, 1) i32 @CVSpilsGetWorkSpace(ptr noundef %0, ptr noundef wri
   %23 = sext i32 %22 to i64
   %24 = add nsw i64 %23, 1
   %25 = add i64 %24, %20
-  store i64 %25, ptr %1, align 8
+  store i64 %25, ptr %1, align 8, !tbaa !29
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 1600
-  %27 = load i64, ptr %26, align 8
+  %27 = load i64, ptr %26, align 8, !tbaa !30
   %28 = mul nsw i64 %27, %19
-  store i64 %28, ptr %2, align 8
+  store i64 %28, ptr %2, align 8, !tbaa !29
   br label %43
 
 29:                                               ; preds = %11
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 1592
-  %31 = load i64, ptr %30, align 8
+  %31 = load i64, ptr %30, align 8, !tbaa !28
   %32 = mul nsw i64 %31, 9
-  store i64 %32, ptr %1, align 8
+  store i64 %32, ptr %1, align 8, !tbaa !29
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 1600
-  %34 = load i64, ptr %33, align 8
+  %34 = load i64, ptr %33, align 8, !tbaa !30
   %35 = mul nsw i64 %34, 9
-  store i64 %35, ptr %2, align 8
+  store i64 %35, ptr %2, align 8, !tbaa !29
   br label %43
 
 36:                                               ; preds = %11
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 1592
-  %38 = load i64, ptr %37, align 8
+  %38 = load i64, ptr %37, align 8, !tbaa !28
   %39 = mul nsw i64 %38, 11
-  store i64 %39, ptr %1, align 8
+  store i64 %39, ptr %1, align 8, !tbaa !29
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 1600
-  %41 = load i64, ptr %40, align 8
+  %41 = load i64, ptr %40, align 8, !tbaa !30
   %42 = mul nsw i64 %41, 11
-  store i64 %42, ptr %2, align 8
+  store i64 %42, ptr %2, align 8, !tbaa !29
   br label %43
 
 43:                                               ; preds = %11, %13, %29, %36, %10, %5
@@ -372,7 +372,7 @@ define range(i32 -2, 1) i32 @CVSpilsGetNumPrecEvals(ptr noundef %0, ptr noundef 
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 1696
-  %7 = load ptr, ptr %6, align 8
+  %7 = load ptr, ptr %6, align 8, !tbaa !3
   %8 = icmp eq ptr %7, null
   br i1 %8, label %9, label %10
 
@@ -382,8 +382,8 @@ define range(i32 -2, 1) i32 @CVSpilsGetNumPrecEvals(ptr noundef %0, ptr noundef 
 
 10:                                               ; preds = %5
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 64
-  %12 = load i64, ptr %11, align 8
-  store i64 %12, ptr %1, align 8
+  %12 = load i64, ptr %11, align 8, !tbaa !31
+  store i64 %12, ptr %1, align 8, !tbaa !29
   br label %13
 
 13:                                               ; preds = %10, %9, %4
@@ -402,7 +402,7 @@ define range(i32 -2, 1) i32 @CVSpilsGetNumPrecSolves(ptr noundef %0, ptr noundef
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 1696
-  %7 = load ptr, ptr %6, align 8
+  %7 = load ptr, ptr %6, align 8, !tbaa !3
   %8 = icmp eq ptr %7, null
   br i1 %8, label %9, label %10
 
@@ -412,8 +412,8 @@ define range(i32 -2, 1) i32 @CVSpilsGetNumPrecSolves(ptr noundef %0, ptr noundef
 
 10:                                               ; preds = %5
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 80
-  %12 = load i64, ptr %11, align 8
-  store i64 %12, ptr %1, align 8
+  %12 = load i64, ptr %11, align 8, !tbaa !32
+  store i64 %12, ptr %1, align 8, !tbaa !29
   br label %13
 
 13:                                               ; preds = %10, %9, %4
@@ -432,7 +432,7 @@ define range(i32 -2, 1) i32 @CVSpilsGetNumLinIters(ptr noundef %0, ptr noundef w
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 1696
-  %7 = load ptr, ptr %6, align 8
+  %7 = load ptr, ptr %6, align 8, !tbaa !3
   %8 = icmp eq ptr %7, null
   br i1 %8, label %9, label %10
 
@@ -442,8 +442,8 @@ define range(i32 -2, 1) i32 @CVSpilsGetNumLinIters(ptr noundef %0, ptr noundef w
 
 10:                                               ; preds = %5
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 72
-  %12 = load i64, ptr %11, align 8
-  store i64 %12, ptr %1, align 8
+  %12 = load i64, ptr %11, align 8, !tbaa !33
+  store i64 %12, ptr %1, align 8, !tbaa !29
   br label %13
 
 13:                                               ; preds = %10, %9, %4
@@ -462,7 +462,7 @@ define range(i32 -2, 1) i32 @CVSpilsGetNumConvFails(ptr noundef %0, ptr noundef 
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 1696
-  %7 = load ptr, ptr %6, align 8
+  %7 = load ptr, ptr %6, align 8, !tbaa !3
   %8 = icmp eq ptr %7, null
   br i1 %8, label %9, label %10
 
@@ -472,8 +472,8 @@ define range(i32 -2, 1) i32 @CVSpilsGetNumConvFails(ptr noundef %0, ptr noundef 
 
 10:                                               ; preds = %5
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 88
-  %12 = load i64, ptr %11, align 8
-  store i64 %12, ptr %1, align 8
+  %12 = load i64, ptr %11, align 8, !tbaa !34
+  store i64 %12, ptr %1, align 8, !tbaa !29
   br label %13
 
 13:                                               ; preds = %10, %9, %4
@@ -492,7 +492,7 @@ define range(i32 -2, 1) i32 @CVSpilsGetNumJtimesEvals(ptr noundef %0, ptr nounde
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 1696
-  %7 = load ptr, ptr %6, align 8
+  %7 = load ptr, ptr %6, align 8, !tbaa !3
   %8 = icmp eq ptr %7, null
   br i1 %8, label %9, label %10
 
@@ -502,8 +502,8 @@ define range(i32 -2, 1) i32 @CVSpilsGetNumJtimesEvals(ptr noundef %0, ptr nounde
 
 10:                                               ; preds = %5
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 96
-  %12 = load i64, ptr %11, align 8
-  store i64 %12, ptr %1, align 8
+  %12 = load i64, ptr %11, align 8, !tbaa !35
+  store i64 %12, ptr %1, align 8, !tbaa !29
   br label %13
 
 13:                                               ; preds = %10, %9, %4
@@ -522,7 +522,7 @@ define range(i32 -2, 1) i32 @CVSpilsGetNumRhsEvals(ptr noundef %0, ptr noundef w
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 1696
-  %7 = load ptr, ptr %6, align 8
+  %7 = load ptr, ptr %6, align 8, !tbaa !3
   %8 = icmp eq ptr %7, null
   br i1 %8, label %9, label %10
 
@@ -532,8 +532,8 @@ define range(i32 -2, 1) i32 @CVSpilsGetNumRhsEvals(ptr noundef %0, ptr noundef w
 
 10:                                               ; preds = %5
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 104
-  %12 = load i64, ptr %11, align 8
-  store i64 %12, ptr %1, align 8
+  %12 = load i64, ptr %11, align 8, !tbaa !36
+  store i64 %12, ptr %1, align 8, !tbaa !29
   br label %13
 
 13:                                               ; preds = %10, %9, %4
@@ -552,7 +552,7 @@ define range(i32 -2, 1) i32 @CVSpilsGetLastFlag(ptr noundef %0, ptr noundef writ
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 1696
-  %7 = load ptr, ptr %6, align 8
+  %7 = load ptr, ptr %6, align 8, !tbaa !3
   %8 = icmp eq ptr %7, null
   br i1 %8, label %9, label %10
 
@@ -562,8 +562,8 @@ define range(i32 -2, 1) i32 @CVSpilsGetLastFlag(ptr noundef %0, ptr noundef writ
 
 10:                                               ; preds = %5
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 208
-  %12 = load i64, ptr %11, align 8
-  store i64 %12, ptr %1, align 8
+  %12 = load i64, ptr %11, align 8, !tbaa !37
+  store i64 %12, ptr %1, align 8, !tbaa !29
   br label %13
 
 13:                                               ; preds = %10, %9, %4
@@ -631,30 +631,30 @@ declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #3
 ; Function Attrs: nounwind uwtable
 define i32 @CVSpilsAtimes(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 1696
-  %5 = load ptr, ptr %4, align 8
+  %5 = load ptr, ptr %4, align 8, !tbaa !3
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 192
-  %7 = load ptr, ptr %6, align 8
+  %7 = load ptr, ptr %6, align 8, !tbaa !27
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 984
-  %9 = load double, ptr %8, align 8
+  %9 = load double, ptr %8, align 8, !tbaa !38
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 128
-  %11 = load ptr, ptr %10, align 8
+  %11 = load ptr, ptr %10, align 8, !tbaa !39
   %12 = getelementptr inbounds nuw i8, ptr %5, i64 136
-  %13 = load ptr, ptr %12, align 8
+  %13 = load ptr, ptr %12, align 8, !tbaa !40
   %14 = getelementptr inbounds nuw i8, ptr %5, i64 200
-  %15 = load ptr, ptr %14, align 8
+  %15 = load ptr, ptr %14, align 8, !tbaa !41
   %16 = getelementptr inbounds nuw i8, ptr %5, i64 112
-  %17 = load ptr, ptr %16, align 8
+  %17 = load ptr, ptr %16, align 8, !tbaa !42
   %18 = tail call i32 %7(ptr noundef %1, ptr noundef %2, double noundef %9, ptr noundef %11, ptr noundef %13, ptr noundef %15, ptr noundef %17) #5
   %19 = getelementptr inbounds nuw i8, ptr %5, i64 96
-  %20 = load i64, ptr %19, align 8
+  %20 = load i64, ptr %19, align 8, !tbaa !35
   %21 = add nsw i64 %20, 1
-  store i64 %21, ptr %19, align 8
+  store i64 %21, ptr %19, align 8, !tbaa !35
   %.not = icmp eq i32 %18, 0
   br i1 %.not, label %22, label %26
 
 22:                                               ; preds = %3
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 1272
-  %24 = load double, ptr %23, align 8
+  %24 = load double, ptr %23, align 8, !tbaa !43
   %25 = fneg double %24
   tail call void @N_VLinearSum(double noundef 1.000000e+00, ptr noundef %1, double noundef %25, ptr noundef %2, ptr noundef %2) #5
   br label %26
@@ -668,23 +668,23 @@ declare void @N_VLinearSum(double noundef, ptr noundef, double noundef, ptr noun
 ; Function Attrs: nounwind uwtable
 define i32 @CVSpilsPSolve(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 1696
-  %6 = load ptr, ptr %5, align 8
+  %6 = load ptr, ptr %5, align 8, !tbaa !3
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 160
-  %8 = load ptr, ptr %7, align 8
+  %8 = load ptr, ptr %7, align 8, !tbaa !25
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 984
-  %10 = load double, ptr %9, align 8
+  %10 = load double, ptr %9, align 8, !tbaa !38
   %11 = getelementptr inbounds nuw i8, ptr %6, i64 128
-  %12 = load ptr, ptr %11, align 8
+  %12 = load ptr, ptr %11, align 8, !tbaa !39
   %13 = getelementptr inbounds nuw i8, ptr %6, i64 136
-  %14 = load ptr, ptr %13, align 8
+  %14 = load ptr, ptr %13, align 8, !tbaa !40
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 1272
-  %16 = load double, ptr %15, align 8
+  %16 = load double, ptr %15, align 8, !tbaa !43
   %17 = getelementptr inbounds nuw i8, ptr %6, i64 40
-  %18 = load double, ptr %17, align 8
+  %18 = load double, ptr %17, align 8, !tbaa !44
   %19 = getelementptr inbounds nuw i8, ptr %6, i64 176
-  %20 = load ptr, ptr %19, align 8
+  %20 = load ptr, ptr %19, align 8, !tbaa !45
   %21 = getelementptr inbounds nuw i8, ptr %6, i64 112
-  %22 = load ptr, ptr %21, align 8
+  %22 = load ptr, ptr %21, align 8, !tbaa !42
   %23 = tail call i32 %8(double noundef %10, ptr noundef %12, ptr noundef %14, ptr noundef %1, ptr noundef %2, double noundef %16, double noundef %18, i32 noundef %3, ptr noundef %20, ptr noundef %22) #5
   ret i32 %23
 }
@@ -692,9 +692,9 @@ define i32 @CVSpilsPSolve(ptr noundef readonly captures(none) %0, ptr noundef %1
 ; Function Attrs: nounwind uwtable
 define range(i32 -1, 2) i32 @CVSpilsDQJtimes(ptr noundef %0, ptr noundef %1, double noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef readonly captures(none) %5, ptr noundef %6) local_unnamed_addr #0 {
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 1696
-  %9 = load ptr, ptr %8, align 8
+  %9 = load ptr, ptr %8, align 8, !tbaa !3
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 424
-  %11 = load ptr, ptr %10, align 8
+  %11 = load ptr, ptr %10, align 8, !tbaa !46
   %12 = tail call double @N_VWrmsNorm(ptr noundef %0, ptr noundef %11) #5
   %13 = fdiv double 1.000000e+00, %12
   %14 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -706,12 +706,12 @@ define range(i32 -1, 2) i32 @CVSpilsDQJtimes(ptr noundef %0, ptr noundef %1, dou
   %.02634 = phi i32 [ 0, %7 ], [ %28, %26 ]
   %.02833 = phi double [ %13, %7 ], [ %27, %26 ]
   tail call void @N_VLinearSum(double noundef %.02833, ptr noundef %0, double noundef 1.000000e+00, ptr noundef %3, ptr noundef %6) #5
-  %18 = load ptr, ptr %14, align 8
-  %19 = load ptr, ptr %15, align 8
+  %18 = load ptr, ptr %14, align 8, !tbaa !47
+  %19 = load ptr, ptr %15, align 8, !tbaa !48
   %20 = tail call i32 %18(double noundef %2, ptr noundef %6, ptr noundef %1, ptr noundef %19) #5
-  %21 = load i64, ptr %16, align 8
+  %21 = load i64, ptr %16, align 8, !tbaa !36
   %22 = add nsw i64 %21, 1
-  store i64 %22, ptr %16, align 8
+  store i64 %22, ptr %16, align 8, !tbaa !36
   %23 = icmp eq i32 %20, 0
   br i1 %23, label %29, label %24
 
@@ -723,7 +723,7 @@ define range(i32 -1, 2) i32 @CVSpilsDQJtimes(ptr noundef %0, ptr noundef %1, dou
   %27 = fmul double %.02833, 2.500000e-01
   %28 = add nuw nsw i32 %.02634, 1
   %exitcond.not = icmp eq i32 %28, 3
-  br i1 %exitcond.not, label %.thread, label %17, !llvm.loop !4
+  br i1 %exitcond.not, label %.thread, label %17, !llvm.loop !49
 
 29:                                               ; preds = %17
   %30 = fdiv double 1.000000e+00, %.02833
@@ -749,7 +749,7 @@ define range(i32 -101, 1) i32 @CVSpilsSetPrecTypeB(ptr noundef %0, i32 noundef %
 
 6:                                                ; preds = %3
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 2200
-  %8 = load i32, ptr %7, align 8
+  %8 = load i32, ptr %7, align 8, !tbaa !51
   %9 = icmp eq i32 %8, 0
   br i1 %9, label %10, label %11
 
@@ -759,9 +759,9 @@ define range(i32 -101, 1) i32 @CVSpilsSetPrecTypeB(ptr noundef %0, i32 noundef %
 
 11:                                               ; preds = %6
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 2192
-  %13 = load ptr, ptr %12, align 8
+  %13 = load ptr, ptr %12, align 8, !tbaa !52
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 40
-  %15 = load i32, ptr %14, align 8
+  %15 = load i32, ptr %14, align 8, !tbaa !53
   %.not = icmp slt i32 %1, %15
   br i1 %.not, label %17, label %16
 
@@ -775,15 +775,15 @@ define range(i32 -101, 1) i32 @CVSpilsSetPrecTypeB(ptr noundef %0, i32 noundef %
 
 .lr.ph:                                           ; preds = %.lr.ph, %17
   %.017.sink.in = phi ptr [ %21, %.lr.ph ], [ %18, %17 ]
-  %.017.sink = load ptr, ptr %.017.sink.in, align 8, !nonnull !6, !noundef !6
-  %19 = load i32, ptr %.017.sink, align 8
+  %.017.sink = load ptr, ptr %.017.sink.in, align 8, !tbaa !58, !nonnull !59, !noundef !59
+  %19 = load i32, ptr %.017.sink, align 8, !tbaa !60
   %20 = icmp eq i32 %1, %19
   %21 = getelementptr inbounds nuw i8, ptr %.017.sink, i64 120
   br i1 %20, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph
   %22 = getelementptr inbounds nuw i8, ptr %.017.sink, i64 16
-  %23 = load ptr, ptr %22, align 8
+  %23 = load ptr, ptr %22, align 8, !tbaa !63
   %24 = icmp eq ptr %23, null
   br i1 %24, label %25, label %26
 
@@ -793,7 +793,7 @@ define range(i32 -101, 1) i32 @CVSpilsSetPrecTypeB(ptr noundef %0, i32 noundef %
 
 26:                                               ; preds = %._crit_edge
   %27 = getelementptr inbounds nuw i8, ptr %23, i64 1696
-  %28 = load ptr, ptr %27, align 8
+  %28 = load ptr, ptr %27, align 8, !tbaa !3
   %29 = icmp eq ptr %28, null
   br i1 %29, label %30, label %31
 
@@ -811,7 +811,7 @@ define range(i32 -101, 1) i32 @CVSpilsSetPrecTypeB(ptr noundef %0, i32 noundef %
 
 33:                                               ; preds = %31
   %34 = getelementptr inbounds nuw i8, ptr %28, i64 4
-  store i32 %2, ptr %34, align 4
+  store i32 %2, ptr %34, align 4, !tbaa !18
   br label %CVSpilsSetPrecType.exit
 
 CVSpilsSetPrecType.exit:                          ; preds = %33, %32, %30, %25, %16, %10, %5
@@ -830,7 +830,7 @@ define range(i32 -101, 1) i32 @CVSpilsSetGSTypeB(ptr noundef %0, i32 noundef %1,
 
 6:                                                ; preds = %3
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 2200
-  %8 = load i32, ptr %7, align 8
+  %8 = load i32, ptr %7, align 8, !tbaa !51
   %9 = icmp eq i32 %8, 0
   br i1 %9, label %10, label %11
 
@@ -840,9 +840,9 @@ define range(i32 -101, 1) i32 @CVSpilsSetGSTypeB(ptr noundef %0, i32 noundef %1,
 
 11:                                               ; preds = %6
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 2192
-  %13 = load ptr, ptr %12, align 8
+  %13 = load ptr, ptr %12, align 8, !tbaa !52
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 40
-  %15 = load i32, ptr %14, align 8
+  %15 = load i32, ptr %14, align 8, !tbaa !53
   %.not = icmp slt i32 %1, %15
   br i1 %.not, label %17, label %16
 
@@ -856,15 +856,15 @@ define range(i32 -101, 1) i32 @CVSpilsSetGSTypeB(ptr noundef %0, i32 noundef %1,
 
 .lr.ph:                                           ; preds = %.lr.ph, %17
   %.017.sink.in = phi ptr [ %21, %.lr.ph ], [ %18, %17 ]
-  %.017.sink = load ptr, ptr %.017.sink.in, align 8, !nonnull !6, !noundef !6
-  %19 = load i32, ptr %.017.sink, align 8
+  %.017.sink = load ptr, ptr %.017.sink.in, align 8, !tbaa !58, !nonnull !59, !noundef !59
+  %19 = load i32, ptr %.017.sink, align 8, !tbaa !60
   %20 = icmp eq i32 %1, %19
   %21 = getelementptr inbounds nuw i8, ptr %.017.sink, i64 120
   br i1 %20, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph
   %22 = getelementptr inbounds nuw i8, ptr %.017.sink, i64 16
-  %23 = load ptr, ptr %22, align 8
+  %23 = load ptr, ptr %22, align 8, !tbaa !63
   %24 = icmp eq ptr %23, null
   br i1 %24, label %25, label %26
 
@@ -874,7 +874,7 @@ define range(i32 -101, 1) i32 @CVSpilsSetGSTypeB(ptr noundef %0, i32 noundef %1,
 
 26:                                               ; preds = %._crit_edge
   %27 = getelementptr inbounds nuw i8, ptr %23, i64 1696
-  %28 = load ptr, ptr %27, align 8
+  %28 = load ptr, ptr %27, align 8, !tbaa !3
   %29 = icmp eq ptr %28, null
   br i1 %29, label %30, label %31
 
@@ -883,7 +883,7 @@ define range(i32 -101, 1) i32 @CVSpilsSetGSTypeB(ptr noundef %0, i32 noundef %1,
   br label %CVSpilsSetGSType.exit
 
 31:                                               ; preds = %26
-  %32 = load i32, ptr %28, align 8
+  %32 = load i32, ptr %28, align 8, !tbaa !20
   %.not.i = icmp eq i32 %32, 1
   br i1 %.not.i, label %34, label %33
 
@@ -902,7 +902,7 @@ define range(i32 -101, 1) i32 @CVSpilsSetGSTypeB(ptr noundef %0, i32 noundef %1,
 
 37:                                               ; preds = %34
   %38 = getelementptr inbounds nuw i8, ptr %28, i64 8
-  store i32 %2, ptr %38, align 8
+  store i32 %2, ptr %38, align 8, !tbaa !21
   br label %CVSpilsSetGSType.exit
 
 CVSpilsSetGSType.exit:                            ; preds = %37, %36, %33, %30, %25, %16, %10, %5
@@ -921,7 +921,7 @@ define range(i32 -101, 1) i32 @CVSpilsSetEpsLinB(ptr noundef %0, i32 noundef %1,
 
 6:                                                ; preds = %3
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 2200
-  %8 = load i32, ptr %7, align 8
+  %8 = load i32, ptr %7, align 8, !tbaa !51
   %9 = icmp eq i32 %8, 0
   br i1 %9, label %10, label %11
 
@@ -931,9 +931,9 @@ define range(i32 -101, 1) i32 @CVSpilsSetEpsLinB(ptr noundef %0, i32 noundef %1,
 
 11:                                               ; preds = %6
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 2192
-  %13 = load ptr, ptr %12, align 8
+  %13 = load ptr, ptr %12, align 8, !tbaa !52
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 40
-  %15 = load i32, ptr %14, align 8
+  %15 = load i32, ptr %14, align 8, !tbaa !53
   %.not = icmp slt i32 %1, %15
   br i1 %.not, label %17, label %16
 
@@ -947,15 +947,15 @@ define range(i32 -101, 1) i32 @CVSpilsSetEpsLinB(ptr noundef %0, i32 noundef %1,
 
 .lr.ph:                                           ; preds = %.lr.ph, %17
   %.017.sink.in = phi ptr [ %21, %.lr.ph ], [ %18, %17 ]
-  %.017.sink = load ptr, ptr %.017.sink.in, align 8, !nonnull !6, !noundef !6
-  %19 = load i32, ptr %.017.sink, align 8
+  %.017.sink = load ptr, ptr %.017.sink.in, align 8, !tbaa !58, !nonnull !59, !noundef !59
+  %19 = load i32, ptr %.017.sink, align 8, !tbaa !60
   %20 = icmp eq i32 %1, %19
   %21 = getelementptr inbounds nuw i8, ptr %.017.sink, i64 120
   br i1 %20, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph
   %22 = getelementptr inbounds nuw i8, ptr %.017.sink, i64 16
-  %23 = load ptr, ptr %22, align 8
+  %23 = load ptr, ptr %22, align 8, !tbaa !63
   %24 = icmp eq ptr %23, null
   br i1 %24, label %25, label %26
 
@@ -965,7 +965,7 @@ define range(i32 -101, 1) i32 @CVSpilsSetEpsLinB(ptr noundef %0, i32 noundef %1,
 
 26:                                               ; preds = %._crit_edge
   %27 = getelementptr inbounds nuw i8, ptr %23, i64 1696
-  %28 = load ptr, ptr %27, align 8
+  %28 = load ptr, ptr %27, align 8, !tbaa !3
   %29 = icmp eq ptr %28, null
   br i1 %29, label %30, label %31
 
@@ -985,7 +985,7 @@ define range(i32 -101, 1) i32 @CVSpilsSetEpsLinB(ptr noundef %0, i32 noundef %1,
   %35 = fcmp oeq double %2, 0.000000e+00
   %36 = select i1 %35, double 5.000000e-02, double %2
   %37 = getelementptr inbounds nuw i8, ptr %28, i64 24
-  store double %36, ptr %37, align 8
+  store double %36, ptr %37, align 8, !tbaa !23
   br label %CVSpilsSetEpsLin.exit
 
 CVSpilsSetEpsLin.exit:                            ; preds = %34, %33, %30, %25, %16, %10, %5
@@ -1004,7 +1004,7 @@ define range(i32 -101, 1) i32 @CVSpilsSetMaxlB(ptr noundef %0, i32 noundef %1, i
 
 6:                                                ; preds = %3
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 2200
-  %8 = load i32, ptr %7, align 8
+  %8 = load i32, ptr %7, align 8, !tbaa !51
   %9 = icmp eq i32 %8, 0
   br i1 %9, label %10, label %11
 
@@ -1014,9 +1014,9 @@ define range(i32 -101, 1) i32 @CVSpilsSetMaxlB(ptr noundef %0, i32 noundef %1, i
 
 11:                                               ; preds = %6
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 2192
-  %13 = load ptr, ptr %12, align 8
+  %13 = load ptr, ptr %12, align 8, !tbaa !52
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 40
-  %15 = load i32, ptr %14, align 8
+  %15 = load i32, ptr %14, align 8, !tbaa !53
   %.not = icmp slt i32 %1, %15
   br i1 %.not, label %17, label %16
 
@@ -1030,15 +1030,15 @@ define range(i32 -101, 1) i32 @CVSpilsSetMaxlB(ptr noundef %0, i32 noundef %1, i
 
 .lr.ph:                                           ; preds = %.lr.ph, %17
   %.017.sink.in = phi ptr [ %21, %.lr.ph ], [ %18, %17 ]
-  %.017.sink = load ptr, ptr %.017.sink.in, align 8, !nonnull !6, !noundef !6
-  %19 = load i32, ptr %.017.sink, align 8
+  %.017.sink = load ptr, ptr %.017.sink.in, align 8, !tbaa !58, !nonnull !59, !noundef !59
+  %19 = load i32, ptr %.017.sink, align 8, !tbaa !60
   %20 = icmp eq i32 %1, %19
   %21 = getelementptr inbounds nuw i8, ptr %.017.sink, i64 120
   br i1 %20, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph
   %22 = getelementptr inbounds nuw i8, ptr %.017.sink, i64 16
-  %23 = load ptr, ptr %22, align 8
+  %23 = load ptr, ptr %22, align 8, !tbaa !63
   %24 = icmp eq ptr %23, null
   br i1 %24, label %25, label %26
 
@@ -1048,7 +1048,7 @@ define range(i32 -101, 1) i32 @CVSpilsSetMaxlB(ptr noundef %0, i32 noundef %1, i
 
 26:                                               ; preds = %._crit_edge
   %27 = getelementptr inbounds nuw i8, ptr %23, i64 1696
-  %28 = load ptr, ptr %27, align 8
+  %28 = load ptr, ptr %27, align 8, !tbaa !3
   %29 = icmp eq ptr %28, null
   br i1 %29, label %30, label %31
 
@@ -1057,7 +1057,7 @@ define range(i32 -101, 1) i32 @CVSpilsSetMaxlB(ptr noundef %0, i32 noundef %1, i
   br label %CVSpilsSetMaxl.exit
 
 31:                                               ; preds = %26
-  %32 = load i32, ptr %28, align 8
+  %32 = load i32, ptr %28, align 8, !tbaa !20
   %33 = icmp eq i32 %32, 1
   br i1 %33, label %34, label %35
 
@@ -1069,7 +1069,7 @@ define range(i32 -101, 1) i32 @CVSpilsSetMaxlB(ptr noundef %0, i32 noundef %1, i
   %36 = icmp slt i32 %2, 1
   %37 = select i1 %36, i32 5, i32 %2
   %38 = getelementptr inbounds nuw i8, ptr %28, i64 48
-  store i32 %37, ptr %38, align 8
+  store i32 %37, ptr %38, align 8, !tbaa !22
   br label %CVSpilsSetMaxl.exit
 
 CVSpilsSetMaxl.exit:                              ; preds = %35, %34, %30, %25, %16, %10, %5
@@ -1088,7 +1088,7 @@ define range(i32 -102, 1) i32 @CVSpilsSetPreconditionerB(ptr noundef %0, i32 nou
 
 7:                                                ; preds = %4
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 2200
-  %9 = load i32, ptr %8, align 8
+  %9 = load i32, ptr %8, align 8, !tbaa !51
   %10 = icmp eq i32 %9, 0
   br i1 %10, label %11, label %12
 
@@ -1098,9 +1098,9 @@ define range(i32 -102, 1) i32 @CVSpilsSetPreconditionerB(ptr noundef %0, i32 nou
 
 12:                                               ; preds = %7
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 2192
-  %14 = load ptr, ptr %13, align 8
+  %14 = load ptr, ptr %13, align 8, !tbaa !52
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 40
-  %16 = load i32, ptr %15, align 8
+  %16 = load i32, ptr %15, align 8, !tbaa !53
   %.not = icmp slt i32 %1, %16
   br i1 %.not, label %18, label %17
 
@@ -1114,17 +1114,17 @@ define range(i32 -102, 1) i32 @CVSpilsSetPreconditionerB(ptr noundef %0, i32 nou
 
 .lr.ph:                                           ; preds = %.lr.ph, %18
   %.026.sink.in = phi ptr [ %22, %.lr.ph ], [ %19, %18 ]
-  %.026.sink = load ptr, ptr %.026.sink.in, align 8, !nonnull !6, !noundef !6
-  %20 = load i32, ptr %.026.sink, align 8
+  %.026.sink = load ptr, ptr %.026.sink.in, align 8, !tbaa !58, !nonnull !59, !noundef !59
+  %20 = load i32, ptr %.026.sink, align 8, !tbaa !60
   %21 = icmp eq i32 %1, %20
   %22 = getelementptr inbounds nuw i8, ptr %.026.sink, i64 120
   br i1 %21, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph
   %23 = getelementptr inbounds nuw i8, ptr %.026.sink, i64 16
-  %24 = load ptr, ptr %23, align 8
+  %24 = load ptr, ptr %23, align 8, !tbaa !63
   %25 = getelementptr inbounds nuw i8, ptr %.026.sink, i64 72
-  %26 = load ptr, ptr %25, align 8
+  %26 = load ptr, ptr %25, align 8, !tbaa !64
   %27 = icmp eq ptr %26, null
   br i1 %27, label %28, label %29
 
@@ -1134,9 +1134,9 @@ define range(i32 -102, 1) i32 @CVSpilsSetPreconditionerB(ptr noundef %0, i32 nou
 
 29:                                               ; preds = %._crit_edge
   %30 = getelementptr inbounds nuw i8, ptr %26, i64 16
-  store ptr %2, ptr %30, align 8
+  store ptr %2, ptr %30, align 8, !tbaa !65
   %31 = getelementptr inbounds nuw i8, ptr %26, i64 32
-  store ptr %3, ptr %31, align 8
+  store ptr %3, ptr %31, align 8, !tbaa !67
   %32 = icmp eq ptr %2, null
   %33 = icmp eq ptr %24, null
   br i1 %32, label %34, label %44
@@ -1150,7 +1150,7 @@ define range(i32 -102, 1) i32 @CVSpilsSetPreconditionerB(ptr noundef %0, i32 nou
 
 36:                                               ; preds = %34
   %37 = getelementptr inbounds nuw i8, ptr %24, i64 1696
-  %38 = load ptr, ptr %37, align 8
+  %38 = load ptr, ptr %37, align 8, !tbaa !3
   %39 = icmp eq ptr %38, null
   br i1 %39, label %40, label %41
 
@@ -1160,9 +1160,9 @@ define range(i32 -102, 1) i32 @CVSpilsSetPreconditionerB(ptr noundef %0, i32 nou
 
 41:                                               ; preds = %36
   %42 = getelementptr inbounds nuw i8, ptr %38, i64 152
-  store ptr null, ptr %42, align 8
+  store ptr null, ptr %42, align 8, !tbaa !24
   %43 = getelementptr inbounds nuw i8, ptr %38, i64 160
-  store ptr @cvSpilsPrecSolveBWrapper, ptr %43, align 8
+  store ptr @cvSpilsPrecSolveBWrapper, ptr %43, align 8, !tbaa !25
   br label %CVSpilsSetPreconditioner.exit
 
 44:                                               ; preds = %29
@@ -1174,7 +1174,7 @@ define range(i32 -102, 1) i32 @CVSpilsSetPreconditionerB(ptr noundef %0, i32 nou
 
 46:                                               ; preds = %44
   %47 = getelementptr inbounds nuw i8, ptr %24, i64 1696
-  %48 = load ptr, ptr %47, align 8
+  %48 = load ptr, ptr %47, align 8, !tbaa !3
   %49 = icmp eq ptr %48, null
   br i1 %49, label %50, label %51
 
@@ -1184,9 +1184,9 @@ define range(i32 -102, 1) i32 @CVSpilsSetPreconditionerB(ptr noundef %0, i32 nou
 
 51:                                               ; preds = %46
   %52 = getelementptr inbounds nuw i8, ptr %48, i64 152
-  store ptr @cvSpilsPrecSetupBWrapper, ptr %52, align 8
+  store ptr @cvSpilsPrecSetupBWrapper, ptr %52, align 8, !tbaa !24
   %53 = getelementptr inbounds nuw i8, ptr %48, i64 160
-  store ptr @cvSpilsPrecSolveBWrapper, ptr %53, align 8
+  store ptr @cvSpilsPrecSolveBWrapper, ptr %53, align 8, !tbaa !25
   br label %CVSpilsSetPreconditioner.exit
 
 CVSpilsSetPreconditioner.exit:                    ; preds = %51, %50, %45, %41, %40, %35, %28, %17, %11, %6
@@ -1197,15 +1197,15 @@ CVSpilsSetPreconditioner.exit:                    ; preds = %51, %50, %45, %41, 
 ; Function Attrs: nounwind uwtable
 define internal i32 @cvSpilsPrecSolveBWrapper(double noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, double noundef %5, double noundef %6, i32 noundef %7, ptr noundef %8, ptr noundef %9) #0 {
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 2192
-  %12 = load ptr, ptr %11, align 8
+  %12 = load ptr, ptr %11, align 8, !tbaa !52
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 48
-  %14 = load ptr, ptr %13, align 8
+  %14 = load ptr, ptr %13, align 8, !tbaa !68
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 72
-  %16 = load ptr, ptr %15, align 8
+  %16 = load ptr, ptr %15, align 8, !tbaa !64
   %17 = getelementptr inbounds nuw i8, ptr %12, i64 144
-  %18 = load ptr, ptr %17, align 8
+  %18 = load ptr, ptr %17, align 8, !tbaa !69
   %19 = getelementptr inbounds nuw i8, ptr %12, i64 480
-  %20 = load ptr, ptr %19, align 8
+  %20 = load ptr, ptr %19, align 8, !tbaa !70
   %21 = tail call i32 %18(ptr noundef %8, double noundef %0, ptr noundef %20, ptr noundef null) #5
   %.not = icmp eq i32 %21, 0
   br i1 %.not, label %23, label %22
@@ -1216,10 +1216,10 @@ define internal i32 @cvSpilsPrecSolveBWrapper(double noundef %0, ptr noundef %1,
 
 23:                                               ; preds = %10
   %24 = getelementptr inbounds nuw i8, ptr %16, i64 32
-  %25 = load ptr, ptr %24, align 8
-  %26 = load ptr, ptr %19, align 8
+  %25 = load ptr, ptr %24, align 8, !tbaa !67
+  %26 = load ptr, ptr %19, align 8, !tbaa !70
   %27 = getelementptr inbounds nuw i8, ptr %14, i64 64
-  %28 = load ptr, ptr %27, align 8
+  %28 = load ptr, ptr %27, align 8, !tbaa !71
   %29 = tail call i32 %25(double noundef %0, ptr noundef %26, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, double noundef %5, double noundef %6, i32 noundef %7, ptr noundef %28, ptr noundef %9) #5
   br label %30
 
@@ -1231,15 +1231,15 @@ define internal i32 @cvSpilsPrecSolveBWrapper(double noundef %0, ptr noundef %1,
 ; Function Attrs: nounwind uwtable
 define internal i32 @cvSpilsPrecSetupBWrapper(double noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, double noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef %8, ptr noundef %9) #0 {
   %11 = getelementptr inbounds nuw i8, ptr %6, i64 2192
-  %12 = load ptr, ptr %11, align 8
+  %12 = load ptr, ptr %11, align 8, !tbaa !52
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 48
-  %14 = load ptr, ptr %13, align 8
+  %14 = load ptr, ptr %13, align 8, !tbaa !68
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 72
-  %16 = load ptr, ptr %15, align 8
+  %16 = load ptr, ptr %15, align 8, !tbaa !64
   %17 = getelementptr inbounds nuw i8, ptr %12, i64 144
-  %18 = load ptr, ptr %17, align 8
+  %18 = load ptr, ptr %17, align 8, !tbaa !69
   %19 = getelementptr inbounds nuw i8, ptr %12, i64 480
-  %20 = load ptr, ptr %19, align 8
+  %20 = load ptr, ptr %19, align 8, !tbaa !70
   %21 = tail call i32 %18(ptr noundef %6, double noundef %0, ptr noundef %20, ptr noundef null) #5
   %.not = icmp eq i32 %21, 0
   br i1 %.not, label %23, label %22
@@ -1250,10 +1250,10 @@ define internal i32 @cvSpilsPrecSetupBWrapper(double noundef %0, ptr noundef %1,
 
 23:                                               ; preds = %10
   %24 = getelementptr inbounds nuw i8, ptr %16, i64 16
-  %25 = load ptr, ptr %24, align 8
-  %26 = load ptr, ptr %19, align 8
+  %25 = load ptr, ptr %24, align 8, !tbaa !65
+  %26 = load ptr, ptr %19, align 8, !tbaa !70
   %27 = getelementptr inbounds nuw i8, ptr %14, i64 64
-  %28 = load ptr, ptr %27, align 8
+  %28 = load ptr, ptr %27, align 8, !tbaa !71
   %29 = tail call i32 %25(double noundef %0, ptr noundef %26, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, double noundef %5, ptr noundef %28, ptr noundef %7, ptr noundef %8, ptr noundef %9) #5
   br label %30
 
@@ -1273,7 +1273,7 @@ define range(i32 -102, 1) i32 @CVSpilsSetPreconditionerBS(ptr noundef %0, i32 no
 
 7:                                                ; preds = %4
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 2200
-  %9 = load i32, ptr %8, align 8
+  %9 = load i32, ptr %8, align 8, !tbaa !51
   %10 = icmp eq i32 %9, 0
   br i1 %10, label %11, label %12
 
@@ -1283,9 +1283,9 @@ define range(i32 -102, 1) i32 @CVSpilsSetPreconditionerBS(ptr noundef %0, i32 no
 
 12:                                               ; preds = %7
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 2192
-  %14 = load ptr, ptr %13, align 8
+  %14 = load ptr, ptr %13, align 8, !tbaa !52
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 40
-  %16 = load i32, ptr %15, align 8
+  %16 = load i32, ptr %15, align 8, !tbaa !53
   %.not = icmp slt i32 %1, %16
   br i1 %.not, label %18, label %17
 
@@ -1299,17 +1299,17 @@ define range(i32 -102, 1) i32 @CVSpilsSetPreconditionerBS(ptr noundef %0, i32 no
 
 .lr.ph:                                           ; preds = %.lr.ph, %18
   %.026.sink.in = phi ptr [ %22, %.lr.ph ], [ %19, %18 ]
-  %.026.sink = load ptr, ptr %.026.sink.in, align 8, !nonnull !6, !noundef !6
-  %20 = load i32, ptr %.026.sink, align 8
+  %.026.sink = load ptr, ptr %.026.sink.in, align 8, !tbaa !58, !nonnull !59, !noundef !59
+  %20 = load i32, ptr %.026.sink, align 8, !tbaa !60
   %21 = icmp eq i32 %1, %20
   %22 = getelementptr inbounds nuw i8, ptr %.026.sink, i64 120
   br i1 %21, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph
   %23 = getelementptr inbounds nuw i8, ptr %.026.sink, i64 16
-  %24 = load ptr, ptr %23, align 8
+  %24 = load ptr, ptr %23, align 8, !tbaa !63
   %25 = getelementptr inbounds nuw i8, ptr %.026.sink, i64 72
-  %26 = load ptr, ptr %25, align 8
+  %26 = load ptr, ptr %25, align 8, !tbaa !64
   %27 = icmp eq ptr %26, null
   br i1 %27, label %28, label %29
 
@@ -1319,9 +1319,9 @@ define range(i32 -102, 1) i32 @CVSpilsSetPreconditionerBS(ptr noundef %0, i32 no
 
 29:                                               ; preds = %._crit_edge
   %30 = getelementptr inbounds nuw i8, ptr %26, i64 24
-  store ptr %2, ptr %30, align 8
+  store ptr %2, ptr %30, align 8, !tbaa !72
   %31 = getelementptr inbounds nuw i8, ptr %26, i64 40
-  store ptr %3, ptr %31, align 8
+  store ptr %3, ptr %31, align 8, !tbaa !73
   %32 = icmp eq ptr %2, null
   %33 = icmp eq ptr %24, null
   br i1 %32, label %34, label %44
@@ -1335,7 +1335,7 @@ define range(i32 -102, 1) i32 @CVSpilsSetPreconditionerBS(ptr noundef %0, i32 no
 
 36:                                               ; preds = %34
   %37 = getelementptr inbounds nuw i8, ptr %24, i64 1696
-  %38 = load ptr, ptr %37, align 8
+  %38 = load ptr, ptr %37, align 8, !tbaa !3
   %39 = icmp eq ptr %38, null
   br i1 %39, label %40, label %41
 
@@ -1345,9 +1345,9 @@ define range(i32 -102, 1) i32 @CVSpilsSetPreconditionerBS(ptr noundef %0, i32 no
 
 41:                                               ; preds = %36
   %42 = getelementptr inbounds nuw i8, ptr %38, i64 152
-  store ptr null, ptr %42, align 8
+  store ptr null, ptr %42, align 8, !tbaa !24
   %43 = getelementptr inbounds nuw i8, ptr %38, i64 160
-  store ptr @cvSpilsPrecSolveBSWrapper, ptr %43, align 8
+  store ptr @cvSpilsPrecSolveBSWrapper, ptr %43, align 8, !tbaa !25
   br label %CVSpilsSetPreconditioner.exit
 
 44:                                               ; preds = %29
@@ -1359,7 +1359,7 @@ define range(i32 -102, 1) i32 @CVSpilsSetPreconditionerBS(ptr noundef %0, i32 no
 
 46:                                               ; preds = %44
   %47 = getelementptr inbounds nuw i8, ptr %24, i64 1696
-  %48 = load ptr, ptr %47, align 8
+  %48 = load ptr, ptr %47, align 8, !tbaa !3
   %49 = icmp eq ptr %48, null
   br i1 %49, label %50, label %51
 
@@ -1369,9 +1369,9 @@ define range(i32 -102, 1) i32 @CVSpilsSetPreconditionerBS(ptr noundef %0, i32 no
 
 51:                                               ; preds = %46
   %52 = getelementptr inbounds nuw i8, ptr %48, i64 152
-  store ptr @cvSpilsPrecSetupBSWrapper, ptr %52, align 8
+  store ptr @cvSpilsPrecSetupBSWrapper, ptr %52, align 8, !tbaa !24
   %53 = getelementptr inbounds nuw i8, ptr %48, i64 160
-  store ptr @cvSpilsPrecSolveBSWrapper, ptr %53, align 8
+  store ptr @cvSpilsPrecSolveBSWrapper, ptr %53, align 8, !tbaa !25
   br label %CVSpilsSetPreconditioner.exit
 
 CVSpilsSetPreconditioner.exit:                    ; preds = %51, %50, %45, %41, %40, %35, %28, %17, %11, %6
@@ -1382,23 +1382,23 @@ CVSpilsSetPreconditioner.exit:                    ; preds = %51, %50, %45, %41, 
 ; Function Attrs: nounwind uwtable
 define internal i32 @cvSpilsPrecSolveBSWrapper(double noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, double noundef %5, double noundef %6, i32 noundef %7, ptr noundef %8, ptr noundef %9) #0 {
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 2192
-  %12 = load ptr, ptr %11, align 8
+  %12 = load ptr, ptr %11, align 8, !tbaa !52
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 48
-  %14 = load ptr, ptr %13, align 8
+  %14 = load ptr, ptr %13, align 8, !tbaa !68
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 72
-  %16 = load ptr, ptr %15, align 8
+  %16 = load ptr, ptr %15, align 8, !tbaa !64
   %17 = getelementptr inbounds nuw i8, ptr %12, i64 164
-  %18 = load i32, ptr %17, align 4
+  %18 = load i32, ptr %17, align 4, !tbaa !74
   %.not = icmp eq i32 %18, 0
   %19 = getelementptr inbounds nuw i8, ptr %12, i64 144
-  %20 = load ptr, ptr %19, align 8
+  %20 = load ptr, ptr %19, align 8, !tbaa !69
   %21 = getelementptr inbounds nuw i8, ptr %12, i64 480
-  %22 = load ptr, ptr %21, align 8
+  %22 = load ptr, ptr %21, align 8, !tbaa !70
   br i1 %.not, label %26, label %23
 
 23:                                               ; preds = %10
   %24 = getelementptr inbounds nuw i8, ptr %12, i64 488
-  %25 = load ptr, ptr %24, align 8
+  %25 = load ptr, ptr %24, align 8, !tbaa !75
   br label %26
 
 26:                                               ; preds = %10, %23
@@ -1413,13 +1413,13 @@ define internal i32 @cvSpilsPrecSolveBSWrapper(double noundef %0, ptr noundef %1
 
 29:                                               ; preds = %26
   %30 = getelementptr inbounds nuw i8, ptr %16, i64 40
-  %31 = load ptr, ptr %30, align 8
+  %31 = load ptr, ptr %30, align 8, !tbaa !73
   %32 = getelementptr inbounds nuw i8, ptr %12, i64 480
-  %33 = load ptr, ptr %32, align 8
+  %33 = load ptr, ptr %32, align 8, !tbaa !70
   %34 = getelementptr inbounds nuw i8, ptr %12, i64 488
-  %35 = load ptr, ptr %34, align 8
+  %35 = load ptr, ptr %34, align 8, !tbaa !75
   %36 = getelementptr inbounds nuw i8, ptr %14, i64 64
-  %37 = load ptr, ptr %36, align 8
+  %37 = load ptr, ptr %36, align 8, !tbaa !71
   %38 = tail call i32 %31(double noundef %0, ptr noundef %33, ptr noundef %35, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, double noundef %5, double noundef %6, i32 noundef %7, ptr noundef %37, ptr noundef %9) #5
   br label %39
 
@@ -1431,23 +1431,23 @@ define internal i32 @cvSpilsPrecSolveBSWrapper(double noundef %0, ptr noundef %1
 ; Function Attrs: nounwind uwtable
 define internal i32 @cvSpilsPrecSetupBSWrapper(double noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, double noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef %8, ptr noundef %9) #0 {
   %11 = getelementptr inbounds nuw i8, ptr %6, i64 2192
-  %12 = load ptr, ptr %11, align 8
+  %12 = load ptr, ptr %11, align 8, !tbaa !52
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 48
-  %14 = load ptr, ptr %13, align 8
+  %14 = load ptr, ptr %13, align 8, !tbaa !68
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 72
-  %16 = load ptr, ptr %15, align 8
+  %16 = load ptr, ptr %15, align 8, !tbaa !64
   %17 = getelementptr inbounds nuw i8, ptr %12, i64 164
-  %18 = load i32, ptr %17, align 4
+  %18 = load i32, ptr %17, align 4, !tbaa !74
   %.not = icmp eq i32 %18, 0
   %19 = getelementptr inbounds nuw i8, ptr %12, i64 144
-  %20 = load ptr, ptr %19, align 8
+  %20 = load ptr, ptr %19, align 8, !tbaa !69
   %21 = getelementptr inbounds nuw i8, ptr %12, i64 480
-  %22 = load ptr, ptr %21, align 8
+  %22 = load ptr, ptr %21, align 8, !tbaa !70
   br i1 %.not, label %26, label %23
 
 23:                                               ; preds = %10
   %24 = getelementptr inbounds nuw i8, ptr %12, i64 488
-  %25 = load ptr, ptr %24, align 8
+  %25 = load ptr, ptr %24, align 8, !tbaa !75
   br label %26
 
 26:                                               ; preds = %10, %23
@@ -1462,13 +1462,13 @@ define internal i32 @cvSpilsPrecSetupBSWrapper(double noundef %0, ptr noundef %1
 
 29:                                               ; preds = %26
   %30 = getelementptr inbounds nuw i8, ptr %16, i64 24
-  %31 = load ptr, ptr %30, align 8
+  %31 = load ptr, ptr %30, align 8, !tbaa !72
   %32 = getelementptr inbounds nuw i8, ptr %12, i64 480
-  %33 = load ptr, ptr %32, align 8
+  %33 = load ptr, ptr %32, align 8, !tbaa !70
   %34 = getelementptr inbounds nuw i8, ptr %12, i64 488
-  %35 = load ptr, ptr %34, align 8
+  %35 = load ptr, ptr %34, align 8, !tbaa !75
   %36 = getelementptr inbounds nuw i8, ptr %14, i64 64
-  %37 = load ptr, ptr %36, align 8
+  %37 = load ptr, ptr %36, align 8, !tbaa !71
   %38 = tail call i32 %31(double noundef %0, ptr noundef %33, ptr noundef %35, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, double noundef %5, ptr noundef %37, ptr noundef %7, ptr noundef %8, ptr noundef %9) #5
   br label %39
 
@@ -1488,7 +1488,7 @@ define range(i32 -102, 1) i32 @CVSpilsSetJacTimesVecFnB(ptr noundef %0, i32 noun
 
 6:                                                ; preds = %3
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 2200
-  %8 = load i32, ptr %7, align 8
+  %8 = load i32, ptr %7, align 8, !tbaa !51
   %9 = icmp eq i32 %8, 0
   br i1 %9, label %10, label %11
 
@@ -1498,9 +1498,9 @@ define range(i32 -102, 1) i32 @CVSpilsSetJacTimesVecFnB(ptr noundef %0, i32 noun
 
 11:                                               ; preds = %6
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 2192
-  %13 = load ptr, ptr %12, align 8
+  %13 = load ptr, ptr %12, align 8, !tbaa !52
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 40
-  %15 = load i32, ptr %14, align 8
+  %15 = load i32, ptr %14, align 8, !tbaa !53
   %.not = icmp slt i32 %1, %15
   br i1 %.not, label %17, label %16
 
@@ -1514,17 +1514,17 @@ define range(i32 -102, 1) i32 @CVSpilsSetJacTimesVecFnB(ptr noundef %0, i32 noun
 
 .lr.ph:                                           ; preds = %.lr.ph, %17
   %.024.sink.in = phi ptr [ %21, %.lr.ph ], [ %18, %17 ]
-  %.024.sink = load ptr, ptr %.024.sink.in, align 8, !nonnull !6, !noundef !6
-  %19 = load i32, ptr %.024.sink, align 8
+  %.024.sink = load ptr, ptr %.024.sink.in, align 8, !tbaa !58, !nonnull !59, !noundef !59
+  %19 = load i32, ptr %.024.sink, align 8, !tbaa !60
   %20 = icmp eq i32 %1, %19
   %21 = getelementptr inbounds nuw i8, ptr %.024.sink, i64 120
   br i1 %20, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph
   %22 = getelementptr inbounds nuw i8, ptr %.024.sink, i64 16
-  %23 = load ptr, ptr %22, align 8
+  %23 = load ptr, ptr %22, align 8, !tbaa !63
   %24 = getelementptr inbounds nuw i8, ptr %.024.sink, i64 72
-  %25 = load ptr, ptr %24, align 8
+  %25 = load ptr, ptr %24, align 8, !tbaa !64
   %26 = icmp eq ptr %25, null
   br i1 %26, label %27, label %28
 
@@ -1533,7 +1533,7 @@ define range(i32 -102, 1) i32 @CVSpilsSetJacTimesVecFnB(ptr noundef %0, i32 noun
   br label %CVSpilsSetJacTimesVecFn.exit
 
 28:                                               ; preds = %._crit_edge
-  store ptr %2, ptr %25, align 8
+  store ptr %2, ptr %25, align 8, !tbaa !76
   %.not29 = icmp eq ptr %2, null
   %29 = icmp eq ptr %23, null
   br i1 %.not29, label %40, label %30
@@ -1547,7 +1547,7 @@ define range(i32 -102, 1) i32 @CVSpilsSetJacTimesVecFnB(ptr noundef %0, i32 noun
 
 32:                                               ; preds = %30
   %33 = getelementptr inbounds nuw i8, ptr %23, i64 1696
-  %34 = load ptr, ptr %33, align 8
+  %34 = load ptr, ptr %33, align 8, !tbaa !3
   %35 = icmp eq ptr %34, null
   br i1 %35, label %36, label %37
 
@@ -1557,9 +1557,9 @@ define range(i32 -102, 1) i32 @CVSpilsSetJacTimesVecFnB(ptr noundef %0, i32 noun
 
 37:                                               ; preds = %32
   %38 = getelementptr inbounds nuw i8, ptr %34, i64 184
-  store i32 0, ptr %38, align 8
+  store i32 0, ptr %38, align 8, !tbaa !26
   %39 = getelementptr inbounds nuw i8, ptr %34, i64 192
-  store ptr @cvSpilsJacTimesVecBWrapper, ptr %39, align 8
+  store ptr @cvSpilsJacTimesVecBWrapper, ptr %39, align 8, !tbaa !27
   br label %CVSpilsSetJacTimesVecFn.exit
 
 40:                                               ; preds = %28
@@ -1571,7 +1571,7 @@ define range(i32 -102, 1) i32 @CVSpilsSetJacTimesVecFnB(ptr noundef %0, i32 noun
 
 42:                                               ; preds = %40
   %43 = getelementptr inbounds nuw i8, ptr %23, i64 1696
-  %44 = load ptr, ptr %43, align 8
+  %44 = load ptr, ptr %43, align 8, !tbaa !3
   %45 = icmp eq ptr %44, null
   br i1 %45, label %46, label %47
 
@@ -1581,7 +1581,7 @@ define range(i32 -102, 1) i32 @CVSpilsSetJacTimesVecFnB(ptr noundef %0, i32 noun
 
 47:                                               ; preds = %42
   %48 = getelementptr inbounds nuw i8, ptr %44, i64 184
-  store i32 1, ptr %48, align 8
+  store i32 1, ptr %48, align 8, !tbaa !26
   br label %CVSpilsSetJacTimesVecFn.exit
 
 CVSpilsSetJacTimesVecFn.exit:                     ; preds = %47, %46, %41, %37, %36, %31, %27, %16, %10, %5
@@ -1592,15 +1592,15 @@ CVSpilsSetJacTimesVecFn.exit:                     ; preds = %47, %46, %41, %37, 
 ; Function Attrs: nounwind uwtable
 define internal i32 @cvSpilsJacTimesVecBWrapper(ptr noundef %0, ptr noundef %1, double noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6) #0 {
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 2192
-  %9 = load ptr, ptr %8, align 8
+  %9 = load ptr, ptr %8, align 8, !tbaa !52
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 48
-  %11 = load ptr, ptr %10, align 8
+  %11 = load ptr, ptr %10, align 8, !tbaa !68
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 72
-  %13 = load ptr, ptr %12, align 8
+  %13 = load ptr, ptr %12, align 8, !tbaa !64
   %14 = getelementptr inbounds nuw i8, ptr %9, i64 144
-  %15 = load ptr, ptr %14, align 8
+  %15 = load ptr, ptr %14, align 8, !tbaa !69
   %16 = getelementptr inbounds nuw i8, ptr %9, i64 480
-  %17 = load ptr, ptr %16, align 8
+  %17 = load ptr, ptr %16, align 8, !tbaa !70
   %18 = tail call i32 %15(ptr noundef %5, double noundef %2, ptr noundef %17, ptr noundef null) #5
   %.not = icmp eq i32 %18, 0
   br i1 %.not, label %20, label %19
@@ -1610,10 +1610,10 @@ define internal i32 @cvSpilsJacTimesVecBWrapper(ptr noundef %0, ptr noundef %1, 
   br label %26
 
 20:                                               ; preds = %7
-  %21 = load ptr, ptr %13, align 8
-  %22 = load ptr, ptr %16, align 8
+  %21 = load ptr, ptr %13, align 8, !tbaa !76
+  %22 = load ptr, ptr %16, align 8, !tbaa !70
   %23 = getelementptr inbounds nuw i8, ptr %11, i64 64
-  %24 = load ptr, ptr %23, align 8
+  %24 = load ptr, ptr %23, align 8, !tbaa !71
   %25 = tail call i32 %21(ptr noundef %0, ptr noundef %1, double noundef %2, ptr noundef %22, ptr noundef %3, ptr noundef %4, ptr noundef %24, ptr noundef %6) #5
   br label %26
 
@@ -1633,7 +1633,7 @@ define range(i32 -102, 1) i32 @CVSpilsSetJacTimesVecFnBS(ptr noundef %0, i32 nou
 
 6:                                                ; preds = %3
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 2200
-  %8 = load i32, ptr %7, align 8
+  %8 = load i32, ptr %7, align 8, !tbaa !51
   %9 = icmp eq i32 %8, 0
   br i1 %9, label %10, label %11
 
@@ -1643,9 +1643,9 @@ define range(i32 -102, 1) i32 @CVSpilsSetJacTimesVecFnBS(ptr noundef %0, i32 nou
 
 11:                                               ; preds = %6
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 2192
-  %13 = load ptr, ptr %12, align 8
+  %13 = load ptr, ptr %12, align 8, !tbaa !52
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 40
-  %15 = load i32, ptr %14, align 8
+  %15 = load i32, ptr %14, align 8, !tbaa !53
   %.not = icmp slt i32 %1, %15
   br i1 %.not, label %17, label %16
 
@@ -1659,17 +1659,17 @@ define range(i32 -102, 1) i32 @CVSpilsSetJacTimesVecFnBS(ptr noundef %0, i32 nou
 
 .lr.ph:                                           ; preds = %.lr.ph, %17
   %.024.sink.in = phi ptr [ %21, %.lr.ph ], [ %18, %17 ]
-  %.024.sink = load ptr, ptr %.024.sink.in, align 8, !nonnull !6, !noundef !6
-  %19 = load i32, ptr %.024.sink, align 8
+  %.024.sink = load ptr, ptr %.024.sink.in, align 8, !tbaa !58, !nonnull !59, !noundef !59
+  %19 = load i32, ptr %.024.sink, align 8, !tbaa !60
   %20 = icmp eq i32 %1, %19
   %21 = getelementptr inbounds nuw i8, ptr %.024.sink, i64 120
   br i1 %20, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph
   %22 = getelementptr inbounds nuw i8, ptr %.024.sink, i64 16
-  %23 = load ptr, ptr %22, align 8
+  %23 = load ptr, ptr %22, align 8, !tbaa !63
   %24 = getelementptr inbounds nuw i8, ptr %.024.sink, i64 72
-  %25 = load ptr, ptr %24, align 8
+  %25 = load ptr, ptr %24, align 8, !tbaa !64
   %26 = icmp eq ptr %25, null
   br i1 %26, label %27, label %28
 
@@ -1679,7 +1679,7 @@ define range(i32 -102, 1) i32 @CVSpilsSetJacTimesVecFnBS(ptr noundef %0, i32 nou
 
 28:                                               ; preds = %._crit_edge
   %29 = getelementptr inbounds nuw i8, ptr %25, i64 8
-  store ptr %2, ptr %29, align 8
+  store ptr %2, ptr %29, align 8, !tbaa !77
   %.not29 = icmp eq ptr %2, null
   %30 = icmp eq ptr %23, null
   br i1 %.not29, label %41, label %31
@@ -1693,7 +1693,7 @@ define range(i32 -102, 1) i32 @CVSpilsSetJacTimesVecFnBS(ptr noundef %0, i32 nou
 
 33:                                               ; preds = %31
   %34 = getelementptr inbounds nuw i8, ptr %23, i64 1696
-  %35 = load ptr, ptr %34, align 8
+  %35 = load ptr, ptr %34, align 8, !tbaa !3
   %36 = icmp eq ptr %35, null
   br i1 %36, label %37, label %38
 
@@ -1703,9 +1703,9 @@ define range(i32 -102, 1) i32 @CVSpilsSetJacTimesVecFnBS(ptr noundef %0, i32 nou
 
 38:                                               ; preds = %33
   %39 = getelementptr inbounds nuw i8, ptr %35, i64 184
-  store i32 0, ptr %39, align 8
+  store i32 0, ptr %39, align 8, !tbaa !26
   %40 = getelementptr inbounds nuw i8, ptr %35, i64 192
-  store ptr @cvSpilsJacTimesVecBSWrapper, ptr %40, align 8
+  store ptr @cvSpilsJacTimesVecBSWrapper, ptr %40, align 8, !tbaa !27
   br label %CVSpilsSetJacTimesVecFn.exit
 
 41:                                               ; preds = %28
@@ -1717,7 +1717,7 @@ define range(i32 -102, 1) i32 @CVSpilsSetJacTimesVecFnBS(ptr noundef %0, i32 nou
 
 43:                                               ; preds = %41
   %44 = getelementptr inbounds nuw i8, ptr %23, i64 1696
-  %45 = load ptr, ptr %44, align 8
+  %45 = load ptr, ptr %44, align 8, !tbaa !3
   %46 = icmp eq ptr %45, null
   br i1 %46, label %47, label %48
 
@@ -1727,7 +1727,7 @@ define range(i32 -102, 1) i32 @CVSpilsSetJacTimesVecFnBS(ptr noundef %0, i32 nou
 
 48:                                               ; preds = %43
   %49 = getelementptr inbounds nuw i8, ptr %45, i64 184
-  store i32 1, ptr %49, align 8
+  store i32 1, ptr %49, align 8, !tbaa !26
   br label %CVSpilsSetJacTimesVecFn.exit
 
 CVSpilsSetJacTimesVecFn.exit:                     ; preds = %48, %47, %42, %38, %37, %32, %27, %16, %10, %5
@@ -1738,23 +1738,23 @@ CVSpilsSetJacTimesVecFn.exit:                     ; preds = %48, %47, %42, %38, 
 ; Function Attrs: nounwind uwtable
 define internal i32 @cvSpilsJacTimesVecBSWrapper(ptr noundef %0, ptr noundef %1, double noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6) #0 {
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 2192
-  %9 = load ptr, ptr %8, align 8
+  %9 = load ptr, ptr %8, align 8, !tbaa !52
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 48
-  %11 = load ptr, ptr %10, align 8
+  %11 = load ptr, ptr %10, align 8, !tbaa !68
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 72
-  %13 = load ptr, ptr %12, align 8
+  %13 = load ptr, ptr %12, align 8, !tbaa !64
   %14 = getelementptr inbounds nuw i8, ptr %9, i64 164
-  %15 = load i32, ptr %14, align 4
+  %15 = load i32, ptr %14, align 4, !tbaa !74
   %.not = icmp eq i32 %15, 0
   %16 = getelementptr inbounds nuw i8, ptr %9, i64 144
-  %17 = load ptr, ptr %16, align 8
+  %17 = load ptr, ptr %16, align 8, !tbaa !69
   %18 = getelementptr inbounds nuw i8, ptr %9, i64 480
-  %19 = load ptr, ptr %18, align 8
+  %19 = load ptr, ptr %18, align 8, !tbaa !70
   br i1 %.not, label %23, label %20
 
 20:                                               ; preds = %7
   %21 = getelementptr inbounds nuw i8, ptr %9, i64 488
-  %22 = load ptr, ptr %21, align 8
+  %22 = load ptr, ptr %21, align 8, !tbaa !75
   br label %23
 
 23:                                               ; preds = %7, %20
@@ -1769,13 +1769,13 @@ define internal i32 @cvSpilsJacTimesVecBSWrapper(ptr noundef %0, ptr noundef %1,
 
 26:                                               ; preds = %23
   %27 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  %28 = load ptr, ptr %27, align 8
+  %28 = load ptr, ptr %27, align 8, !tbaa !77
   %29 = getelementptr inbounds nuw i8, ptr %9, i64 480
-  %30 = load ptr, ptr %29, align 8
+  %30 = load ptr, ptr %29, align 8, !tbaa !70
   %31 = getelementptr inbounds nuw i8, ptr %9, i64 488
-  %32 = load ptr, ptr %31, align 8
+  %32 = load ptr, ptr %31, align 8, !tbaa !75
   %33 = getelementptr inbounds nuw i8, ptr %11, i64 64
-  %34 = load ptr, ptr %33, align 8
+  %34 = load ptr, ptr %33, align 8, !tbaa !71
   %35 = tail call i32 %28(ptr noundef %0, ptr noundef %1, double noundef %2, ptr noundef %30, ptr noundef %32, ptr noundef %3, ptr noundef %4, ptr noundef %34, ptr noundef %6) #5
   br label %36
 
@@ -1787,20 +1787,91 @@ define internal i32 @cvSpilsJacTimesVecBSWrapper(ptr noundef %0, ptr noundef %1,
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nofree nounwind willreturn memory(readwrite, argmem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nofree nounwind willreturn memory(readwrite, argmem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #5 = { nounwind }
 attributes #6 = { nounwind allocsize(0) }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.mustprogress"}
-!6 = !{}
+!3 = !{!4, !8, i64 1696}
+!4 = !{!"CVodeMemRec", !5, i64 0, !8, i64 8, !8, i64 16, !9, i64 24, !9, i64 28, !9, i64 32, !5, i64 40, !5, i64 48, !10, i64 56, !9, i64 64, !8, i64 72, !8, i64 80, !9, i64 88, !8, i64 96, !9, i64 104, !9, i64 108, !5, i64 112, !5, i64 120, !10, i64 128, !9, i64 136, !9, i64 140, !9, i64 144, !8, i64 152, !8, i64 160, !8, i64 168, !9, i64 176, !9, i64 180, !11, i64 184, !11, i64 192, !12, i64 200, !9, i64 208, !5, i64 216, !9, i64 224, !9, i64 228, !5, i64 232, !11, i64 240, !13, i64 248, !9, i64 256, !8, i64 264, !8, i64 272, !9, i64 280, !9, i64 284, !9, i64 288, !5, i64 296, !11, i64 304, !13, i64 312, !6, i64 320, !10, i64 424, !10, i64 432, !10, i64 440, !10, i64 448, !10, i64 456, !6, i64 464, !10, i64 568, !10, i64 576, !10, i64 584, !10, i64 592, !6, i64 600, !13, i64 704, !13, i64 712, !13, i64 720, !13, i64 728, !13, i64 736, !9, i64 744, !6, i64 752, !13, i64 856, !13, i64 864, !13, i64 872, !13, i64 880, !10, i64 888, !9, i64 896, !5, i64 904, !9, i64 912, !9, i64 916, !9, i64 920, !9, i64 924, !9, i64 928, !5, i64 936, !5, i64 944, !5, i64 952, !5, i64 960, !5, i64 968, !5, i64 976, !5, i64 984, !5, i64 992, !6, i64 1000, !6, i64 1112, !6, i64 1160, !5, i64 1264, !5, i64 1272, !5, i64 1280, !5, i64 1288, !5, i64 1296, !5, i64 1304, !5, i64 1312, !5, i64 1320, !5, i64 1328, !5, i64 1336, !5, i64 1344, !9, i64 1352, !12, i64 1360, !9, i64 1368, !14, i64 1376, !9, i64 1384, !9, i64 1388, !9, i64 1392, !9, i64 1396, !9, i64 1400, !5, i64 1408, !5, i64 1416, !5, i64 1424, !14, i64 1432, !14, i64 1440, !14, i64 1448, !14, i64 1456, !14, i64 1464, !14, i64 1472, !14, i64 1480, !14, i64 1488, !14, i64 1496, !15, i64 1504, !14, i64 1512, !14, i64 1520, !15, i64 1528, !14, i64 1536, !14, i64 1544, !14, i64 1552, !14, i64 1560, !14, i64 1568, !14, i64 1576, !9, i64 1584, !14, i64 1592, !14, i64 1600, !14, i64 1608, !14, i64 1616, !14, i64 1624, !14, i64 1632, !5, i64 1640, !5, i64 1648, !5, i64 1656, !8, i64 1664, !8, i64 1672, !8, i64 1680, !8, i64 1688, !8, i64 1696, !9, i64 1704, !9, i64 1708, !14, i64 1712, !5, i64 1720, !5, i64 1728, !5, i64 1736, !9, i64 1744, !5, i64 1752, !9, i64 1760, !9, i64 1764, !9, i64 1768, !9, i64 1772, !9, i64 1776, !9, i64 1780, !9, i64 1784, !9, i64 1788, !9, i64 1792, !9, i64 1796, !9, i64 1800, !9, i64 1804, !9, i64 1808, !9, i64 1812, !9, i64 1816, !9, i64 1820, !8, i64 1824, !8, i64 1832, !16, i64 1840, !9, i64 1848, !6, i64 1856, !9, i64 2048, !14, i64 2056, !8, i64 2064, !9, i64 2072, !12, i64 2080, !12, i64 2088, !5, i64 2096, !5, i64 2104, !5, i64 2112, !11, i64 2120, !11, i64 2128, !11, i64 2136, !5, i64 2144, !5, i64 2152, !9, i64 2160, !9, i64 2164, !14, i64 2168, !12, i64 2176, !9, i64 2184, !9, i64 2188, !17, i64 2192, !9, i64 2200}
+!5 = !{!"double", !6, i64 0}
+!6 = !{!"omnipotent char", !7, i64 0}
+!7 = !{!"Simple C/C++ TBAA"}
+!8 = !{!"any pointer", !6, i64 0}
+!9 = !{!"int", !6, i64 0}
+!10 = !{!"p1 _ZTS17_generic_N_Vector", !8, i64 0}
+!11 = !{!"p1 double", !8, i64 0}
+!12 = !{!"p1 int", !8, i64 0}
+!13 = !{!"p2 _ZTS17_generic_N_Vector", !8, i64 0}
+!14 = !{!"long", !6, i64 0}
+!15 = !{!"p1 long", !8, i64 0}
+!16 = !{!"p1 _ZTS8_IO_FILE", !8, i64 0}
+!17 = !{!"p1 _ZTS11CVadjMemRec", !8, i64 0}
+!18 = !{!19, !9, i64 4}
+!19 = !{!"CVSpilsMemRec", !9, i64 0, !9, i64 4, !9, i64 8, !5, i64 16, !5, i64 24, !5, i64 32, !5, i64 40, !9, i64 48, !14, i64 56, !14, i64 64, !14, i64 72, !14, i64 80, !14, i64 88, !14, i64 96, !14, i64 104, !10, i64 112, !10, i64 120, !10, i64 128, !10, i64 136, !8, i64 144, !8, i64 152, !8, i64 160, !8, i64 168, !8, i64 176, !9, i64 184, !8, i64 192, !8, i64 200, !14, i64 208}
+!20 = !{!19, !9, i64 0}
+!21 = !{!19, !9, i64 8}
+!22 = !{!19, !9, i64 48}
+!23 = !{!19, !5, i64 24}
+!24 = !{!19, !8, i64 152}
+!25 = !{!19, !8, i64 160}
+!26 = !{!19, !9, i64 184}
+!27 = !{!19, !8, i64 192}
+!28 = !{!4, !14, i64 1592}
+!29 = !{!14, !14, i64 0}
+!30 = !{!4, !14, i64 1600}
+!31 = !{!19, !14, i64 64}
+!32 = !{!19, !14, i64 80}
+!33 = !{!19, !14, i64 72}
+!34 = !{!19, !14, i64 88}
+!35 = !{!19, !14, i64 96}
+!36 = !{!19, !14, i64 104}
+!37 = !{!19, !14, i64 208}
+!38 = !{!4, !5, i64 984}
+!39 = !{!19, !10, i64 128}
+!40 = !{!19, !10, i64 136}
+!41 = !{!19, !8, i64 200}
+!42 = !{!19, !10, i64 112}
+!43 = !{!4, !5, i64 1272}
+!44 = !{!19, !5, i64 40}
+!45 = !{!19, !8, i64 176}
+!46 = !{!4, !10, i64 424}
+!47 = !{!4, !8, i64 8}
+!48 = !{!4, !8, i64 16}
+!49 = distinct !{!49, !50}
+!50 = !{!"llvm.loop.mustprogress"}
+!51 = !{!4, !9, i64 2200}
+!52 = !{!4, !17, i64 2192}
+!53 = !{!54, !9, i64 40}
+!54 = !{!"CVadjMemRec", !5, i64 0, !5, i64 8, !9, i64 16, !9, i64 20, !5, i64 24, !55, i64 32, !9, i64 40, !55, i64 48, !9, i64 56, !56, i64 64, !9, i64 72, !56, i64 80, !14, i64 88, !57, i64 96, !14, i64 104, !9, i64 112, !8, i64 120, !8, i64 128, !8, i64 136, !8, i64 144, !9, i64 152, !9, i64 156, !9, i64 160, !9, i64 164, !6, i64 168, !6, i64 272, !6, i64 376, !10, i64 480, !13, i64 488, !14, i64 496}
+!55 = !{!"p1 _ZTS12CVodeBMemRec", !8, i64 0}
+!56 = !{!"p1 _ZTS11CkpntMemRec", !8, i64 0}
+!57 = !{!"p2 _ZTS11DtpntMemRec", !8, i64 0}
+!58 = !{!55, !55, i64 0}
+!59 = !{}
+!60 = !{!61, !9, i64 0}
+!61 = !{!"CVodeBMemRec", !9, i64 0, !5, i64 8, !62, i64 16, !9, i64 24, !9, i64 28, !8, i64 32, !8, i64 40, !8, i64 48, !8, i64 56, !8, i64 64, !8, i64 72, !8, i64 80, !8, i64 88, !8, i64 96, !5, i64 104, !10, i64 112, !55, i64 120}
+!62 = !{!"p1 _ZTS11CVodeMemRec", !8, i64 0}
+!63 = !{!61, !62, i64 16}
+!64 = !{!61, !8, i64 72}
+!65 = !{!66, !8, i64 16}
+!66 = !{!"CVSpilsMemRecB", !8, i64 0, !8, i64 8, !8, i64 16, !8, i64 24, !8, i64 32, !8, i64 40, !8, i64 48}
+!67 = !{!66, !8, i64 32}
+!68 = !{!54, !55, i64 48}
+!69 = !{!54, !8, i64 144}
+!70 = !{!54, !10, i64 480}
+!71 = !{!61, !8, i64 64}
+!72 = !{!66, !8, i64 24}
+!73 = !{!66, !8, i64 40}
+!74 = !{!54, !9, i64 164}
+!75 = !{!54, !13, i64 488}
+!76 = !{!66, !8, i64 0}
+!77 = !{!66, !8, i64 8}

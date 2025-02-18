@@ -98,21 +98,21 @@ define noalias noundef ptr @SpbcgMalloc(i32 noundef %0, ptr noundef %1) local_un
   br label %43
 
 35:                                               ; preds = %31
-  store i32 %0, ptr %32, align 8
+  store i32 %0, ptr %32, align 8, !tbaa !3
   %36 = getelementptr inbounds nuw i8, ptr %32, i64 8
-  store ptr %5, ptr %36, align 8
+  store ptr %5, ptr %36, align 8, !tbaa !10
   %37 = getelementptr inbounds nuw i8, ptr %32, i64 16
-  store ptr %8, ptr %37, align 8
+  store ptr %8, ptr %37, align 8, !tbaa !11
   %38 = getelementptr inbounds nuw i8, ptr %32, i64 24
-  store ptr %12, ptr %38, align 8
+  store ptr %12, ptr %38, align 8, !tbaa !12
   %39 = getelementptr inbounds nuw i8, ptr %32, i64 32
-  store ptr %16, ptr %39, align 8
+  store ptr %16, ptr %39, align 8, !tbaa !13
   %40 = getelementptr inbounds nuw i8, ptr %32, i64 40
-  store ptr %20, ptr %40, align 8
+  store ptr %20, ptr %40, align 8, !tbaa !14
   %41 = getelementptr inbounds nuw i8, ptr %32, i64 48
-  store ptr %24, ptr %41, align 8
+  store ptr %24, ptr %41, align 8, !tbaa !15
   %42 = getelementptr inbounds nuw i8, ptr %32, i64 56
-  store ptr %28, ptr %42, align 8
+  store ptr %28, ptr %42, align 8, !tbaa !16
   br label %43
 
 43:                                               ; preds = %4, %2, %35, %34, %30, %26, %22, %18, %14, %10
@@ -133,23 +133,23 @@ define range(i32 -3, 5) i32 @SpbcgSolve(ptr noundef readonly captures(address_is
   br i1 %15, label %._crit_edge.thread, label %16
 
 16:                                               ; preds = %14
-  %17 = load i32, ptr %0, align 8
+  %17 = load i32, ptr %0, align 8, !tbaa !3
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %19 = load ptr, ptr %18, align 8
+  %19 = load ptr, ptr %18, align 8, !tbaa !10
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %21 = load ptr, ptr %20, align 8
+  %21 = load ptr, ptr %20, align 8, !tbaa !11
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %23 = load ptr, ptr %22, align 8
+  %23 = load ptr, ptr %22, align 8, !tbaa !12
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %25 = load ptr, ptr %24, align 8
+  %25 = load ptr, ptr %24, align 8, !tbaa !13
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %27 = load ptr, ptr %26, align 8
+  %27 = load ptr, ptr %26, align 8, !tbaa !14
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %29 = load ptr, ptr %28, align 8
+  %29 = load ptr, ptr %28, align 8, !tbaa !15
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %31 = load ptr, ptr %30, align 8
-  store i32 0, ptr %13, align 4
-  store i32 0, ptr %12, align 4
+  %31 = load ptr, ptr %30, align 8, !tbaa !16
+  store i32 0, ptr %13, align 4, !tbaa !17
+  store i32 0, ptr %12, align 4, !tbaa !17
   %32 = add i32 %4, -4
   %or.cond3 = icmp ult i32 %32, -3
   %spec.store.select = select i1 %or.cond3, i32 0, i32 %4
@@ -185,9 +185,9 @@ define range(i32 -3, 5) i32 @SpbcgSolve(ptr noundef readonly captures(address_is
 
 44:                                               ; preds = %43
   %45 = tail call i32 %10(ptr noundef %6, ptr noundef %19, ptr noundef %21, i32 noundef 1) #4
-  %46 = load i32, ptr %13, align 4
+  %46 = load i32, ptr %13, align 4, !tbaa !17
   %47 = add nsw i32 %46, 1
-  store i32 %47, ptr %13, align 4
+  store i32 %47, ptr %13, align 4, !tbaa !17
   %.not235 = icmp eq i32 %45, 0
   br i1 %.not235, label %52, label %48
 
@@ -214,7 +214,7 @@ define range(i32 -3, 5) i32 @SpbcgSolve(ptr noundef readonly captures(address_is
 55:                                               ; preds = %54, %53
   %56 = tail call double @N_VDotProd(ptr noundef %19, ptr noundef %19) #4
   %57 = tail call double @SUNRsqrt(double noundef %56) #4
-  store double %57, ptr %11, align 8
+  store double %57, ptr %11, align 8, !tbaa !18
   %58 = fcmp ugt double %57, %5
   br i1 %58, label %59, label %._crit_edge.thread
 
@@ -227,9 +227,9 @@ define range(i32 -3, 5) i32 @SpbcgSolve(ptr noundef readonly captures(address_is
 .lr.ph:                                           ; preds = %59, %131
   %.0206273 = phi i32 [ %136, %131 ], [ 0, %59 ]
   %.0209272 = phi double [ %132, %131 ], [ %56, %59 ]
-  %61 = load i32, ptr %12, align 4
+  %61 = load i32, ptr %12, align 4, !tbaa !17
   %62 = add nsw i32 %61, 1
-  store i32 %62, ptr %12, align 4
+  store i32 %62, ptr %12, align 4, !tbaa !17
   br i1 %.not232, label %64, label %63
 
 63:                                               ; preds = %.lr.ph
@@ -246,9 +246,9 @@ define range(i32 -3, 5) i32 @SpbcgSolve(ptr noundef readonly captures(address_is
 66:                                               ; preds = %65
   tail call void @N_VScale(double noundef 1.000000e+00, ptr noundef %31, ptr noundef %29) #4
   %67 = tail call i32 %10(ptr noundef %6, ptr noundef %29, ptr noundef %31, i32 noundef 2) #4
-  %68 = load i32, ptr %13, align 4
+  %68 = load i32, ptr %13, align 4, !tbaa !17
   %69 = add nsw i32 %68, 1
-  store i32 %69, ptr %13, align 4
+  store i32 %69, ptr %13, align 4, !tbaa !17
   %.not236 = icmp eq i32 %67, 0
   br i1 %.not236, label %73, label %70
 
@@ -272,9 +272,9 @@ define range(i32 -3, 5) i32 @SpbcgSolve(ptr noundef readonly captures(address_is
 
 79:                                               ; preds = %78
   %80 = tail call i32 %10(ptr noundef %6, ptr noundef %29, ptr noundef %31, i32 noundef 1) #4
-  %81 = load i32, ptr %13, align 4
+  %81 = load i32, ptr %13, align 4, !tbaa !17
   %82 = add nsw i32 %81, 1
-  store i32 %82, ptr %13, align 4
+  store i32 %82, ptr %13, align 4, !tbaa !17
   %.not238 = icmp eq i32 %80, 0
   br i1 %.not238, label %87, label %83
 
@@ -320,9 +320,9 @@ define range(i32 -3, 5) i32 @SpbcgSolve(ptr noundef readonly captures(address_is
 98:                                               ; preds = %97
   tail call void @N_VScale(double noundef 1.000000e+00, ptr noundef %31, ptr noundef %27) #4
   %99 = tail call i32 %10(ptr noundef %6, ptr noundef %27, ptr noundef %31, i32 noundef 2) #4
-  %100 = load i32, ptr %13, align 4
+  %100 = load i32, ptr %13, align 4, !tbaa !17
   %101 = add nsw i32 %100, 1
-  store i32 %101, ptr %13, align 4
+  store i32 %101, ptr %13, align 4, !tbaa !17
   %.not239 = icmp eq i32 %99, 0
   br i1 %.not239, label %105, label %102
 
@@ -346,9 +346,9 @@ define range(i32 -3, 5) i32 @SpbcgSolve(ptr noundef readonly captures(address_is
 
 111:                                              ; preds = %110
   %112 = tail call i32 %10(ptr noundef %6, ptr noundef %27, ptr noundef %31, i32 noundef 1) #4
-  %113 = load i32, ptr %13, align 4
+  %113 = load i32, ptr %13, align 4, !tbaa !17
   %114 = add nsw i32 %113, 1
-  store i32 %114, ptr %13, align 4
+  store i32 %114, ptr %13, align 4, !tbaa !17
   %.not241 = icmp eq i32 %112, 0
   br i1 %.not241, label %119, label %115
 
@@ -384,7 +384,7 @@ define range(i32 -3, 5) i32 @SpbcgSolve(ptr noundef readonly captures(address_is
   tail call void @N_VLinearSum(double noundef 1.000000e+00, ptr noundef %25, double noundef %127, ptr noundef %27, ptr noundef %21) #4
   %128 = tail call double @N_VDotProd(ptr noundef %21, ptr noundef %21) #4
   %129 = tail call double @SUNRsqrt(double noundef %128) #4
-  store double %129, ptr %11, align 8
+  store double %129, ptr %11, align 8, !tbaa !18
   %130 = fcmp ugt double %129, %5
   br i1 %130, label %131, label %.thread
 
@@ -397,7 +397,7 @@ define range(i32 -3, 5) i32 @SpbcgSolve(ptr noundef readonly captures(address_is
   tail call void @N_VLinearSum(double noundef 1.000000e+00, ptr noundef %21, double noundef %135, ptr noundef %31, ptr noundef %23) #4
   %136 = add nuw nsw i32 %.0206273, 1
   %exitcond.not = icmp eq i32 %136, %17
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !4
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !20
 
 ._crit_edge:                                      ; preds = %131
   %137 = fcmp olt double %129, %57
@@ -416,9 +416,9 @@ define range(i32 -3, 5) i32 @SpbcgSolve(ptr noundef readonly captures(address_is
 
 140:                                              ; preds = %139
   %141 = tail call i32 %10(ptr noundef %6, ptr noundef %2, ptr noundef %31, i32 noundef 2) #4
-  %142 = load i32, ptr %13, align 4
+  %142 = load i32, ptr %13, align 4, !tbaa !17
   %143 = add nsw i32 %142, 1
-  store i32 %143, ptr %13, align 4
+  store i32 %143, ptr %13, align 4, !tbaa !17
   %.not242 = icmp eq i32 %141, 0
   br i1 %.not242, label %147, label %144
 
@@ -455,25 +455,25 @@ define void @SpbcgFree(ptr noundef captures(address_is_null) %0) local_unnamed_a
 
 3:                                                ; preds = %1
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %5 = load ptr, ptr %4, align 8
+  %5 = load ptr, ptr %4, align 8, !tbaa !10
   tail call void @N_VDestroy(ptr noundef %5) #4
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %7 = load ptr, ptr %6, align 8
+  %7 = load ptr, ptr %6, align 8, !tbaa !11
   tail call void @N_VDestroy(ptr noundef %7) #4
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %9 = load ptr, ptr %8, align 8
+  %9 = load ptr, ptr %8, align 8, !tbaa !12
   tail call void @N_VDestroy(ptr noundef %9) #4
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %11 = load ptr, ptr %10, align 8
+  %11 = load ptr, ptr %10, align 8, !tbaa !13
   tail call void @N_VDestroy(ptr noundef %11) #4
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %13 = load ptr, ptr %12, align 8
+  %13 = load ptr, ptr %12, align 8, !tbaa !14
   tail call void @N_VDestroy(ptr noundef %13) #4
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %15 = load ptr, ptr %14, align 8
+  %15 = load ptr, ptr %14, align 8, !tbaa !15
   tail call void @N_VDestroy(ptr noundef %15) #4
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %17 = load ptr, ptr %16, align 8
+  %17 = load ptr, ptr %16, align 8, !tbaa !16
   tail call void @N_VDestroy(ptr noundef %17) #4
   tail call void @free(ptr noundef nonnull %0) #4
   br label %18
@@ -485,18 +485,34 @@ define void @SpbcgFree(ptr noundef captures(address_is_null) %0) local_unnamed_a
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
 declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #3
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { nounwind }
 attributes #5 = { nounwind allocsize(0) }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.mustprogress"}
+!3 = !{!4, !5, i64 0}
+!4 = !{!"", !5, i64 0, !8, i64 8, !8, i64 16, !8, i64 24, !8, i64 32, !8, i64 40, !8, i64 48, !8, i64 56}
+!5 = !{!"int", !6, i64 0}
+!6 = !{!"omnipotent char", !7, i64 0}
+!7 = !{!"Simple C/C++ TBAA"}
+!8 = !{!"p1 _ZTS17_generic_N_Vector", !9, i64 0}
+!9 = !{!"any pointer", !6, i64 0}
+!10 = !{!4, !8, i64 8}
+!11 = !{!4, !8, i64 16}
+!12 = !{!4, !8, i64 24}
+!13 = !{!4, !8, i64 32}
+!14 = !{!4, !8, i64 40}
+!15 = !{!4, !8, i64 48}
+!16 = !{!4, !8, i64 56}
+!17 = !{!5, !5, i64 0}
+!18 = !{!19, !19, i64 0}
+!19 = !{!"double", !6, i64 0}
+!20 = distinct !{!20, !21}
+!21 = !{!"llvm.loop.mustprogress"}

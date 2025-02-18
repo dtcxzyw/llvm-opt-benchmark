@@ -17,37 +17,37 @@ define i32 @cs_leaf(i32 noundef %0, i32 noundef %1, ptr noundef readonly capture
   br i1 %or.cond7, label %13, label %.loopexit
 
 13:                                               ; preds = %7
-  store i32 0, ptr %6, align 4
+  store i32 0, ptr %6, align 4, !tbaa !3
   %.not = icmp sgt i32 %0, %1
   br i1 %.not, label %14, label %.loopexit
 
 14:                                               ; preds = %13
   %15 = sext i32 %1 to i64
   %16 = getelementptr inbounds i32, ptr %2, i64 %15
-  %17 = load i32, ptr %16, align 4
+  %17 = load i32, ptr %16, align 4, !tbaa !3
   %18 = sext i32 %0 to i64
   %19 = getelementptr inbounds i32, ptr %3, i64 %18
-  %20 = load i32, ptr %19, align 4
+  %20 = load i32, ptr %19, align 4, !tbaa !3
   %.not59 = icmp sgt i32 %17, %20
   br i1 %.not59, label %21, label %.loopexit
 
 21:                                               ; preds = %14
-  store i32 %17, ptr %19, align 4
+  store i32 %17, ptr %19, align 4, !tbaa !3
   %22 = getelementptr inbounds i32, ptr %4, i64 %18
-  %23 = load i32, ptr %22, align 4
-  store i32 %1, ptr %22, align 4
+  %23 = load i32, ptr %22, align 4, !tbaa !3
+  store i32 %1, ptr %22, align 4, !tbaa !3
   %24 = icmp eq i32 %23, -1
   %25 = select i1 %24, i32 1, i32 2
-  store i32 %25, ptr %6, align 4
+  store i32 %25, ptr %6, align 4, !tbaa !3
   br i1 %24, label %.loopexit, label %.preheader62
 
 .preheader62:                                     ; preds = %21, %.preheader62
   %.048 = phi i32 [ %28, %.preheader62 ], [ %23, %21 ]
   %26 = sext i32 %.048 to i64
   %27 = getelementptr inbounds i32, ptr %5, i64 %26
-  %28 = load i32, ptr %27, align 4
+  %28 = load i32, ptr %27, align 4, !tbaa !3
   %.not60 = icmp eq i32 %.048, %28
-  br i1 %.not60, label %.preheader, label %.preheader62, !llvm.loop !4
+  br i1 %.not60, label %.preheader, label %.preheader62, !llvm.loop !7
 
 .preheader:                                       ; preds = %.preheader62
   %.not6163 = icmp eq i32 %23, %.048
@@ -57,24 +57,27 @@ define i32 @cs_leaf(i32 noundef %0, i32 noundef %1, ptr noundef readonly capture
   %.04964 = phi i32 [ %31, %.lr.ph ], [ %23, %.preheader ]
   %29 = sext i32 %.04964 to i64
   %30 = getelementptr inbounds i32, ptr %5, i64 %29
-  %31 = load i32, ptr %30, align 4
-  store i32 %.048, ptr %30, align 4
+  %31 = load i32, ptr %30, align 4, !tbaa !3
+  store i32 %.048, ptr %30, align 4, !tbaa !3
   %.not61 = icmp eq i32 %31, %.048
-  br i1 %.not61, label %.loopexit, label %.lr.ph, !llvm.loop !6
+  br i1 %.not61, label %.loopexit, label %.lr.ph, !llvm.loop !9
 
 .loopexit:                                        ; preds = %.lr.ph, %.preheader, %21, %13, %14, %7
   %.0 = phi i32 [ -1, %7 ], [ -1, %14 ], [ -1, %13 ], [ %0, %21 ], [ %23, %.preheader ], [ %.048, %.lr.ph ]
   ret i32 %.0
 }
 
-attributes #0 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
+!3 = !{!4, !4, i64 0}
+!4 = !{!"int", !5, i64 0}
+!5 = !{!"omnipotent char", !6, i64 0}
+!6 = !{!"Simple C/C++ TBAA"}
+!7 = distinct !{!7, !8}
+!8 = !{!"llvm.loop.mustprogress"}
+!9 = distinct !{!9, !8}

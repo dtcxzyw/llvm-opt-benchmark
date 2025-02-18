@@ -83,9 +83,9 @@ define range(i32 -1, 1) i32 @KINSetErrHandlerFn(ptr noundef writeonly captures(a
 
 6:                                                ; preds = %3
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 584
-  store ptr %1, ptr %7, align 8
+  store ptr %1, ptr %7, align 8, !tbaa !3
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 592
-  store ptr %2, ptr %8, align 8
+  store ptr %2, ptr %8, align 8, !tbaa !15
   br label %9
 
 9:                                                ; preds = %6, %5
@@ -106,7 +106,7 @@ define range(i32 -1, 1) i32 @KINSetErrFile(ptr noundef writeonly captures(addres
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 600
-  store ptr %1, ptr %6, align 8
+  store ptr %1, ptr %6, align 8, !tbaa !16
   br label %7
 
 7:                                                ; preds = %5, %4
@@ -133,7 +133,7 @@ define range(i32 -2, 1) i32 @KINSetPrintLevel(ptr noundef writeonly captures(add
 
 7:                                                ; preds = %5
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 44
-  store i32 %1, ptr %8, align 4
+  store i32 %1, ptr %8, align 4, !tbaa !17
   br label %9
 
 9:                                                ; preds = %7, %6, %4
@@ -152,9 +152,9 @@ define range(i32 -1, 1) i32 @KINSetInfoHandlerFn(ptr noundef writeonly captures(
 
 6:                                                ; preds = %3
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 608
-  store ptr %1, ptr %7, align 8
+  store ptr %1, ptr %7, align 8, !tbaa !18
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 616
-  store ptr %2, ptr %8, align 8
+  store ptr %2, ptr %8, align 8, !tbaa !19
   br label %9
 
 9:                                                ; preds = %6, %5
@@ -173,7 +173,7 @@ define range(i32 -1, 1) i32 @KINSetInfoFile(ptr noundef writeonly captures(addre
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 624
-  store ptr %1, ptr %6, align 8
+  store ptr %1, ptr %6, align 8, !tbaa !20
   br label %7
 
 7:                                                ; preds = %5, %4
@@ -192,7 +192,7 @@ define range(i32 -1, 1) i32 @KINSetUserData(ptr noundef writeonly captures(addre
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %1, ptr %6, align 8
+  store ptr %1, ptr %6, align 8, !tbaa !21
   br label %7
 
 7:                                                ; preds = %5, %4
@@ -219,14 +219,14 @@ define range(i32 -2, 1) i32 @KINSetMAA(ptr noundef captures(address_is_null) %0,
 
 8:                                                ; preds = %5
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %10 = load i64, ptr %9, align 8
+  %10 = load i64, ptr %9, align 8, !tbaa !22
   %spec.select = tail call i64 @llvm.smin.i64(i64 %1, i64 %10)
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 408
-  store i64 %spec.select, ptr %11, align 8
+  store i64 %spec.select, ptr %11, align 8, !tbaa !23
   %12 = icmp ne i64 %spec.select, 0
   %13 = zext i1 %12 to i32
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 416
-  store i32 %13, ptr %14, align 8
+  store i32 %13, ptr %14, align 8, !tbaa !24
   br label %15
 
 15:                                               ; preds = %8, %7, %4
@@ -257,11 +257,11 @@ define range(i32 -2, 1) i32 @KINSetNumMaxIters(ptr noundef writeonly captures(ad
   br i1 %9, label %11, label %12
 
 11:                                               ; preds = %8
-  store i64 200, ptr %10, align 8
+  store i64 200, ptr %10, align 8, !tbaa !22
   br label %13
 
 12:                                               ; preds = %8
-  store i64 %1, ptr %10, align 8
+  store i64 %1, ptr %10, align 8, !tbaa !22
   br label %13
 
 13:                                               ; preds = %11, %12, %7, %4
@@ -280,7 +280,7 @@ define range(i32 -1, 1) i32 @KINSetNoInitSetup(ptr noundef writeonly captures(ad
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 192
-  store i32 %1, ptr %6, align 8
+  store i32 %1, ptr %6, align 8, !tbaa !25
   br label %7
 
 7:                                                ; preds = %5, %4
@@ -299,7 +299,7 @@ define range(i32 -1, 1) i32 @KINSetNoResMon(ptr noundef writeonly captures(addre
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  store i32 %1, ptr %6, align 8
+  store i32 %1, ptr %6, align 8, !tbaa !26
   br label %7
 
 7:                                                ; preds = %5, %4
@@ -330,11 +330,11 @@ define range(i32 -2, 1) i32 @KINSetMaxSetupCalls(ptr noundef writeonly captures(
   br i1 %9, label %11, label %12
 
 11:                                               ; preds = %8
-  store i64 10, ptr %10, align 8
+  store i64 10, ptr %10, align 8, !tbaa !27
   br label %13
 
 12:                                               ; preds = %8
-  store i64 %1, ptr %10, align 8
+  store i64 %1, ptr %10, align 8, !tbaa !27
   br label %13
 
 13:                                               ; preds = %11, %12, %7, %4
@@ -365,11 +365,11 @@ define range(i32 -2, 1) i32 @KINSetMaxSubSetupCalls(ptr noundef writeonly captur
   br i1 %9, label %11, label %12
 
 11:                                               ; preds = %8
-  store i64 5, ptr %10, align 8
+  store i64 5, ptr %10, align 8, !tbaa !28
   br label %13
 
 12:                                               ; preds = %8
-  store i64 %1, ptr %10, align 8
+  store i64 %1, ptr %10, align 8, !tbaa !28
   br label %13
 
 13:                                               ; preds = %11, %12, %7, %4
@@ -397,7 +397,7 @@ define range(i32 -2, 1) i32 @KINSetEtaForm(ptr noundef writeonly captures(addres
 
 7:                                                ; preds = %5
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  store i32 %1, ptr %8, align 8
+  store i32 %1, ptr %8, align 8, !tbaa !29
   br label %9
 
 9:                                                ; preds = %7, %6, %4
@@ -430,11 +430,11 @@ define range(i32 -2, 1) i32 @KINSetEtaConstValue(ptr noundef writeonly captures(
   br i1 %10, label %12, label %13
 
 12:                                               ; preds = %9
-  store double 1.000000e-01, ptr %11, align 8
+  store double 1.000000e-01, ptr %11, align 8, !tbaa !30
   br label %14
 
 13:                                               ; preds = %9
-  store double %1, ptr %11, align 8
+  store double %1, ptr %11, align 8, !tbaa !30
   br label %14
 
 14:                                               ; preds = %12, %13, %8, %4
@@ -467,7 +467,7 @@ define range(i32 -2, 1) i32 @KINSetEtaParams(ptr noundef writeonly captures(addr
   %12 = fcmp oeq double %2, 0.000000e+00
   %.sink = select i1 %12, double 2.000000e+00, double %2
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 184
-  store double %.sink, ptr %13, align 8
+  store double %.sink, ptr %13, align 8, !tbaa !31
   %14 = fcmp ole double %1, 0.000000e+00
   %15 = fcmp ogt double %1, 1.000000e+00
   %or.cond3 = or i1 %14, %15
@@ -485,11 +485,11 @@ define range(i32 -2, 1) i32 @KINSetEtaParams(ptr noundef writeonly captures(addr
   br i1 %19, label %21, label %22
 
 21:                                               ; preds = %18
-  store double 9.000000e-01, ptr %20, align 8
+  store double 9.000000e-01, ptr %20, align 8, !tbaa !32
   br label %23
 
 22:                                               ; preds = %18
-  store double %1, ptr %20, align 8
+  store double %1, ptr %20, align 8, !tbaa !32
   br label %23
 
 23:                                               ; preds = %21, %22, %17, %10, %5
@@ -518,7 +518,7 @@ define range(i32 -2, 1) i32 @KINSetResMonParams(ptr noundef writeonly captures(a
   %10 = fcmp oeq double %1, 0.000000e+00
   %11 = select i1 %10, double 1.000000e-05, double %1
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 560
-  store double %11, ptr %12, align 8
+  store double %11, ptr %12, align 8, !tbaa !33
   %13 = fcmp olt double %2, 0.000000e+00
   br i1 %13, label %14, label %15
 
@@ -540,7 +540,7 @@ define range(i32 -2, 1) i32 @KINSetResMonParams(ptr noundef writeonly captures(a
 
 20:                                               ; preds = %17
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 568
-  store double 9.000000e-01, ptr %21, align 8
+  store double 9.000000e-01, ptr %21, align 8, !tbaa !34
   br label %27
 
 22:                                               ; preds = %15
@@ -553,7 +553,7 @@ define range(i32 -2, 1) i32 @KINSetResMonParams(ptr noundef writeonly captures(a
 
 25:                                               ; preds = %22
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 568
-  store double %2, ptr %26, align 8
+  store double %2, ptr %26, align 8, !tbaa !34
   br label %27
 
 27:                                               ; preds = %20, %25, %24, %19, %14, %8, %5
@@ -580,7 +580,7 @@ define range(i32 -2, 1) i32 @KINSetResMonConstValue(ptr noundef writeonly captur
 
 8:                                                ; preds = %5
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 552
-  store double %1, ptr %9, align 8
+  store double %1, ptr %9, align 8, !tbaa !35
   br label %10
 
 10:                                               ; preds = %8, %7, %4
@@ -599,7 +599,7 @@ define range(i32 -1, 1) i32 @KINSetNoMinEps(ptr noundef writeonly captures(addre
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 84
-  store i32 %1, ptr %6, align 4
+  store i32 %1, ptr %6, align 4, !tbaa !36
   br label %7
 
 7:                                                ; preds = %5, %4
@@ -626,7 +626,7 @@ define range(i32 -2, 1) i32 @KINSetMaxNewtonStep(ptr noundef writeonly captures(
 
 8:                                                ; preds = %5
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  store double %1, ptr %9, align 8
+  store double %1, ptr %9, align 8, !tbaa !37
   br label %10
 
 10:                                               ; preds = %8, %7, %4
@@ -657,11 +657,11 @@ define range(i32 -2, 1) i32 @KINSetMaxBetaFails(ptr noundef writeonly captures(a
   br i1 %9, label %11, label %12
 
 11:                                               ; preds = %8
-  store i64 10, ptr %10, align 8
+  store i64 10, ptr %10, align 8, !tbaa !38
   br label %13
 
 12:                                               ; preds = %8
-  store i64 %1, ptr %10, align 8
+  store i64 %1, ptr %10, align 8, !tbaa !38
   br label %13
 
 13:                                               ; preds = %11, %12, %7, %4
@@ -691,16 +691,16 @@ define range(i32 -2, 1) i32 @KINSetRelErrFunc(ptr noundef captures(address_is_nu
   br i1 %9, label %10, label %14
 
 10:                                               ; preds = %8
-  %11 = load double, ptr %0, align 8
+  %11 = load double, ptr %0, align 8, !tbaa !39
   %12 = tail call double @SUNRsqrt(double noundef %11) #6
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  store double %12, ptr %13, align 8
+  store double %12, ptr %13, align 8, !tbaa !40
   br label %17
 
 14:                                               ; preds = %8
   %15 = tail call double @SUNRsqrt(double noundef %1) #6
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  store double %15, ptr %16, align 8
+  store double %15, ptr %16, align 8, !tbaa !40
   br label %17
 
 17:                                               ; preds = %10, %14, %7, %4
@@ -732,15 +732,15 @@ define range(i32 -2, 1) i32 @KINSetFuncNormTol(ptr noundef captures(address_is_n
   br i1 %9, label %10, label %14
 
 10:                                               ; preds = %8
-  %11 = load double, ptr %0, align 8
+  %11 = load double, ptr %0, align 8, !tbaa !39
   %12 = tail call double @SUNRpowerR(double noundef %11, double noundef 0x3FD5555555555555) #6
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store double %12, ptr %13, align 8
+  store double %12, ptr %13, align 8, !tbaa !41
   br label %16
 
 14:                                               ; preds = %8
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store double %1, ptr %15, align 8
+  store double %1, ptr %15, align 8, !tbaa !41
   br label %16
 
 16:                                               ; preds = %10, %14, %7, %4
@@ -772,15 +772,15 @@ define range(i32 -2, 1) i32 @KINSetScaledStepTol(ptr noundef captures(address_is
   br i1 %9, label %10, label %14
 
 10:                                               ; preds = %8
-  %11 = load double, ptr %0, align 8
+  %11 = load double, ptr %0, align 8, !tbaa !39
   %12 = tail call double @SUNRpowerR(double noundef %11, double noundef 0x3FE5555555555556) #6
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store double %12, ptr %13, align 8
+  store double %12, ptr %13, align 8, !tbaa !42
   br label %16
 
 14:                                               ; preds = %8
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store double %1, ptr %15, align 8
+  store double %1, ptr %15, align 8, !tbaa !42
   br label %16
 
 16:                                               ; preds = %10, %14, %7, %4
@@ -803,30 +803,30 @@ define range(i32 -2, 1) i32 @KINSetConstraints(ptr noundef captures(address_is_n
 
 7:                                                ; preds = %5
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 92
-  %9 = load i32, ptr %8, align 4
+  %9 = load i32, ptr %8, align 4, !tbaa !43
   %.not24 = icmp eq i32 %9, 0
   br i1 %.not24, label %23, label %10
 
 10:                                               ; preds = %7
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 320
-  %12 = load ptr, ptr %11, align 8
+  %12 = load ptr, ptr %11, align 8, !tbaa !44
   tail call void @N_VDestroy(ptr noundef %12) #6
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 424
-  %14 = load i64, ptr %13, align 8
+  %14 = load i64, ptr %13, align 8, !tbaa !45
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 440
-  %16 = load i64, ptr %15, align 8
+  %16 = load i64, ptr %15, align 8, !tbaa !46
   %17 = sub nsw i64 %16, %14
-  store i64 %17, ptr %15, align 8
+  store i64 %17, ptr %15, align 8, !tbaa !46
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 432
-  %19 = load i64, ptr %18, align 8
+  %19 = load i64, ptr %18, align 8, !tbaa !47
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 448
-  %21 = load i64, ptr %20, align 8
+  %21 = load i64, ptr %20, align 8, !tbaa !48
   %22 = sub nsw i64 %21, %19
-  store i64 %22, ptr %20, align 8
+  store i64 %22, ptr %20, align 8, !tbaa !48
   br label %23
 
 23:                                               ; preds = %10, %7
-  store i32 0, ptr %8, align 4
+  store i32 0, ptr %8, align 4, !tbaa !43
   br label %46
 
 24:                                               ; preds = %5
@@ -840,32 +840,32 @@ define range(i32 -2, 1) i32 @KINSetConstraints(ptr noundef captures(address_is_n
 
 28:                                               ; preds = %24
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 92
-  %30 = load i32, ptr %29, align 4
+  %30 = load i32, ptr %29, align 4, !tbaa !43
   %.not = icmp eq i32 %30, 0
   br i1 %.not, label %31, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %28
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 320
-  %.pre = load ptr, ptr %.phi.trans.insert, align 8
+  %.pre = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !44
   br label %44
 
 31:                                               ; preds = %28
   %32 = tail call ptr @N_VClone(ptr noundef nonnull %1) #6
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 320
-  store ptr %32, ptr %33, align 8
+  store ptr %32, ptr %33, align 8, !tbaa !44
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 424
-  %35 = load i64, ptr %34, align 8
+  %35 = load i64, ptr %34, align 8, !tbaa !45
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 440
-  %37 = load i64, ptr %36, align 8
+  %37 = load i64, ptr %36, align 8, !tbaa !46
   %38 = add nsw i64 %37, %35
-  store i64 %38, ptr %36, align 8
+  store i64 %38, ptr %36, align 8, !tbaa !46
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 432
-  %40 = load i64, ptr %39, align 8
+  %40 = load i64, ptr %39, align 8, !tbaa !47
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 448
-  %42 = load i64, ptr %41, align 8
+  %42 = load i64, ptr %41, align 8, !tbaa !48
   %43 = add nsw i64 %42, %40
-  store i64 %43, ptr %41, align 8
-  store i32 1, ptr %29, align 4
+  store i64 %43, ptr %41, align 8, !tbaa !48
+  store i32 1, ptr %29, align 4, !tbaa !43
   br label %44
 
 44:                                               ; preds = %._crit_edge, %31
@@ -905,7 +905,7 @@ define range(i32 -2, 1) i32 @KINSetSysFunc(ptr noundef writeonly captures(addres
 
 8:                                                ; preds = %5
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %1, ptr %9, align 8
+  store ptr %1, ptr %9, align 8, !tbaa !49
   br label %10
 
 10:                                               ; preds = %8, %7, %4
@@ -924,11 +924,11 @@ define range(i32 -1, 1) i32 @KINGetWorkSpace(ptr noundef readonly captures(addre
 
 6:                                                ; preds = %3
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 440
-  %8 = load i64, ptr %7, align 8
-  store i64 %8, ptr %1, align 8
+  %8 = load i64, ptr %7, align 8, !tbaa !46
+  store i64 %8, ptr %1, align 8, !tbaa !50
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 448
-  %10 = load i64, ptr %9, align 8
-  store i64 %10, ptr %2, align 8
+  %10 = load i64, ptr %9, align 8, !tbaa !48
+  store i64 %10, ptr %2, align 8, !tbaa !50
   br label %11
 
 11:                                               ; preds = %6, %5
@@ -947,8 +947,8 @@ define range(i32 -1, 1) i32 @KINGetNumNonlinSolvIters(ptr noundef readonly captu
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 208
-  %7 = load i64, ptr %6, align 8
-  store i64 %7, ptr %1, align 8
+  %7 = load i64, ptr %6, align 8, !tbaa !51
+  store i64 %7, ptr %1, align 8, !tbaa !50
   br label %8
 
 8:                                                ; preds = %5, %4
@@ -967,8 +967,8 @@ define range(i32 -1, 1) i32 @KINGetNumFuncEvals(ptr noundef readonly captures(ad
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 216
-  %7 = load i64, ptr %6, align 8
-  store i64 %7, ptr %1, align 8
+  %7 = load i64, ptr %6, align 8, !tbaa !52
+  store i64 %7, ptr %1, align 8, !tbaa !50
   br label %8
 
 8:                                                ; preds = %5, %4
@@ -987,8 +987,8 @@ define range(i32 -1, 1) i32 @KINGetNumBetaCondFails(ptr noundef readonly capture
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 240
-  %7 = load i64, ptr %6, align 8
-  store i64 %7, ptr %1, align 8
+  %7 = load i64, ptr %6, align 8, !tbaa !53
+  store i64 %7, ptr %1, align 8, !tbaa !50
   br label %8
 
 8:                                                ; preds = %5, %4
@@ -1007,8 +1007,8 @@ define range(i32 -1, 1) i32 @KINGetNumBacktrackOps(ptr noundef readonly captures
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 248
-  %7 = load i64, ptr %6, align 8
-  store i64 %7, ptr %1, align 8
+  %7 = load i64, ptr %6, align 8, !tbaa !54
+  store i64 %7, ptr %1, align 8, !tbaa !50
   br label %8
 
 8:                                                ; preds = %5, %4
@@ -1027,8 +1027,8 @@ define range(i32 -1, 1) i32 @KINGetFuncNorm(ptr noundef readonly captures(addres
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 504
-  %7 = load double, ptr %6, align 8
-  store double %7, ptr %1, align 8
+  %7 = load double, ptr %6, align 8, !tbaa !55
+  store double %7, ptr %1, align 8, !tbaa !56
   br label %8
 
 8:                                                ; preds = %5, %4
@@ -1047,8 +1047,8 @@ define range(i32 -1, 1) i32 @KINGetStepLength(ptr noundef readonly captures(addr
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  %7 = load double, ptr %6, align 8
-  store double %7, ptr %1, align 8
+  %7 = load double, ptr %6, align 8, !tbaa !57
+  store double %7, ptr %1, align 8, !tbaa !56
   br label %8
 
 8:                                                ; preds = %5, %4
@@ -1159,18 +1159,72 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr no
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.smin.i64(i64, i64) #5
 
-attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nofree nounwind willreturn memory(readwrite, argmem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nofree nounwind willreturn memory(readwrite, argmem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #5 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #6 = { nounwind }
 attributes #7 = { nounwind allocsize(0) }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
+!3 = !{!4, !8, i64 584}
+!4 = !{!"KINMemRec", !5, i64 0, !8, i64 8, !8, i64 16, !5, i64 24, !5, i64 32, !9, i64 40, !9, i64 44, !10, i64 48, !10, i64 56, !10, i64 64, !10, i64 72, !9, i64 80, !9, i64 84, !9, i64 88, !9, i64 92, !9, i64 96, !9, i64 100, !9, i64 104, !9, i64 108, !9, i64 112, !5, i64 120, !5, i64 128, !5, i64 136, !5, i64 144, !5, i64 152, !5, i64 160, !5, i64 168, !5, i64 176, !5, i64 184, !9, i64 192, !5, i64 200, !10, i64 208, !10, i64 216, !10, i64 224, !10, i64 232, !10, i64 240, !10, i64 248, !10, i64 256, !11, i64 264, !11, i64 272, !11, i64 280, !11, i64 288, !11, i64 296, !11, i64 304, !11, i64 312, !11, i64 320, !11, i64 328, !11, i64 336, !11, i64 344, !11, i64 352, !12, i64 360, !12, i64 368, !12, i64 376, !12, i64 384, !13, i64 392, !13, i64 400, !10, i64 408, !9, i64 416, !9, i64 420, !10, i64 424, !10, i64 432, !10, i64 440, !10, i64 448, !8, i64 456, !8, i64 464, !8, i64 472, !8, i64 480, !9, i64 488, !8, i64 496, !5, i64 504, !5, i64 512, !5, i64 520, !5, i64 528, !5, i64 536, !9, i64 544, !5, i64 552, !5, i64 560, !5, i64 568, !9, i64 576, !8, i64 584, !8, i64 592, !14, i64 600, !8, i64 608, !8, i64 616, !14, i64 624}
+!5 = !{!"double", !6, i64 0}
+!6 = !{!"omnipotent char", !7, i64 0}
+!7 = !{!"Simple C/C++ TBAA"}
+!8 = !{!"any pointer", !6, i64 0}
+!9 = !{!"int", !6, i64 0}
+!10 = !{!"long", !6, i64 0}
+!11 = !{!"p1 _ZTS17_generic_N_Vector", !8, i64 0}
+!12 = !{!"p2 _ZTS17_generic_N_Vector", !8, i64 0}
+!13 = !{!"p1 double", !8, i64 0}
+!14 = !{!"p1 _ZTS8_IO_FILE", !8, i64 0}
+!15 = !{!4, !8, i64 592}
+!16 = !{!4, !14, i64 600}
+!17 = !{!4, !9, i64 44}
+!18 = !{!4, !8, i64 608}
+!19 = !{!4, !8, i64 616}
+!20 = !{!4, !14, i64 624}
+!21 = !{!4, !8, i64 16}
+!22 = !{!4, !10, i64 48}
+!23 = !{!4, !10, i64 408}
+!24 = !{!4, !9, i64 416}
+!25 = !{!4, !9, i64 192}
+!26 = !{!4, !9, i64 104}
+!27 = !{!4, !10, i64 56}
+!28 = !{!4, !10, i64 64}
+!29 = !{!4, !9, i64 80}
+!30 = !{!4, !5, i64 168}
+!31 = !{!4, !5, i64 184}
+!32 = !{!4, !5, i64 176}
+!33 = !{!4, !5, i64 560}
+!34 = !{!4, !5, i64 568}
+!35 = !{!4, !5, i64 552}
+!36 = !{!4, !9, i64 84}
+!37 = !{!4, !5, i64 128}
+!38 = !{!4, !10, i64 72}
+!39 = !{!4, !5, i64 0}
+!40 = !{!4, !5, i64 136}
+!41 = !{!4, !5, i64 24}
+!42 = !{!4, !5, i64 32}
+!43 = !{!4, !9, i64 92}
+!44 = !{!4, !11, i64 320}
+!45 = !{!4, !10, i64 424}
+!46 = !{!4, !10, i64 440}
+!47 = !{!4, !10, i64 432}
+!48 = !{!4, !10, i64 448}
+!49 = !{!4, !8, i64 8}
+!50 = !{!10, !10, i64 0}
+!51 = !{!4, !10, i64 208}
+!52 = !{!4, !10, i64 216}
+!53 = !{!4, !10, i64 240}
+!54 = !{!4, !10, i64 248}
+!55 = !{!4, !5, i64 504}
+!56 = !{!5, !5, i64 0}
+!57 = !{!4, !5, i64 144}
