@@ -1,7 +1,7 @@
 ; ModuleID = 'bench/double_conversion/original/double-to-string.ll'
 source_filename = "bench/double_conversion/original/double-to-string.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
-target triple = "x86_64-unknown-linux-gnu"
+target triple = "x86_64-pc-linux-gnu"
 
 %"class.double_conversion::DoubleToStringConverter" = type { i32, ptr, ptr, i8, i32, i32, i32, i32, i32 }
 
@@ -12,1278 +12,1334 @@ target triple = "x86_64-unknown-linux-gnu"
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
 define noundef nonnull align 8 dereferenceable(48) ptr @_ZN17double_conversion23DoubleToStringConverter19EcmaScriptConverterEv() local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %0 = load atomic i8, ptr @_ZGVZN17double_conversion23DoubleToStringConverter19EcmaScriptConverterEvE9converter acquire, align 8
-  %guard.uninitialized = icmp eq i8 %0, 0
-  br i1 %guard.uninitialized, label %init.check, label %init.end, !prof !4
+  %1 = load atomic i8, ptr @_ZGVZN17double_conversion23DoubleToStringConverter19EcmaScriptConverterEvE9converter acquire, align 8
+  %2 = icmp eq i8 %1, 0
+  br i1 %2, label %3, label %6, !prof !3
 
-init.check:                                       ; preds = %entry
-  %1 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN17double_conversion23DoubleToStringConverter19EcmaScriptConverterEvE9converter) #12
-  %tobool.not = icmp eq i32 %1, 0
-  br i1 %tobool.not, label %init.end, label %init
+3:                                                ; preds = %0
+  %4 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN17double_conversion23DoubleToStringConverter19EcmaScriptConverterEvE9converter) #13
+  %.not = icmp eq i32 %4, 0
+  br i1 %.not, label %6, label %5
 
-init:                                             ; preds = %init.check
-  store i32 9, ptr @_ZZN17double_conversion23DoubleToStringConverter19EcmaScriptConverterEvE9converter, align 8
-  store ptr @.str, ptr getelementptr inbounds nuw (i8, ptr @_ZZN17double_conversion23DoubleToStringConverter19EcmaScriptConverterEvE9converter, i64 8), align 8
-  store ptr @.str.1, ptr getelementptr inbounds nuw (i8, ptr @_ZZN17double_conversion23DoubleToStringConverter19EcmaScriptConverterEvE9converter, i64 16), align 8
-  store i8 101, ptr getelementptr inbounds nuw (i8, ptr @_ZZN17double_conversion23DoubleToStringConverter19EcmaScriptConverterEvE9converter, i64 24), align 8
-  store i32 -6, ptr getelementptr inbounds nuw (i8, ptr @_ZZN17double_conversion23DoubleToStringConverter19EcmaScriptConverterEvE9converter, i64 28), align 4
-  store i32 21, ptr getelementptr inbounds nuw (i8, ptr @_ZZN17double_conversion23DoubleToStringConverter19EcmaScriptConverterEvE9converter, i64 32), align 8
-  store i32 6, ptr getelementptr inbounds nuw (i8, ptr @_ZZN17double_conversion23DoubleToStringConverter19EcmaScriptConverterEvE9converter, i64 36), align 4
-  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZZN17double_conversion23DoubleToStringConverter19EcmaScriptConverterEvE9converter, i64 40), align 8
-  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZZN17double_conversion23DoubleToStringConverter19EcmaScriptConverterEvE9converter, i64 44), align 4
-  tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN17double_conversion23DoubleToStringConverter19EcmaScriptConverterEvE9converter) #12
-  br label %init.end
+5:                                                ; preds = %3
+  store i32 9, ptr @_ZZN17double_conversion23DoubleToStringConverter19EcmaScriptConverterEvE9converter, align 8, !tbaa !4
+  store ptr @.str, ptr getelementptr inbounds nuw (i8, ptr @_ZZN17double_conversion23DoubleToStringConverter19EcmaScriptConverterEvE9converter, i64 8), align 8, !tbaa !11
+  store ptr @.str.1, ptr getelementptr inbounds nuw (i8, ptr @_ZZN17double_conversion23DoubleToStringConverter19EcmaScriptConverterEvE9converter, i64 16), align 8, !tbaa !12
+  store i8 101, ptr getelementptr inbounds nuw (i8, ptr @_ZZN17double_conversion23DoubleToStringConverter19EcmaScriptConverterEvE9converter, i64 24), align 8, !tbaa !13
+  store i32 -6, ptr getelementptr inbounds nuw (i8, ptr @_ZZN17double_conversion23DoubleToStringConverter19EcmaScriptConverterEvE9converter, i64 28), align 4, !tbaa !14
+  store i32 21, ptr getelementptr inbounds nuw (i8, ptr @_ZZN17double_conversion23DoubleToStringConverter19EcmaScriptConverterEvE9converter, i64 32), align 8, !tbaa !15
+  store i32 6, ptr getelementptr inbounds nuw (i8, ptr @_ZZN17double_conversion23DoubleToStringConverter19EcmaScriptConverterEvE9converter, i64 36), align 4, !tbaa !16
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZZN17double_conversion23DoubleToStringConverter19EcmaScriptConverterEvE9converter, i64 40), align 8, !tbaa !17
+  store i32 0, ptr getelementptr inbounds nuw (i8, ptr @_ZZN17double_conversion23DoubleToStringConverter19EcmaScriptConverterEvE9converter, i64 44), align 4, !tbaa !18
+  tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN17double_conversion23DoubleToStringConverter19EcmaScriptConverterEvE9converter) #13
+  br label %6
 
-init.end:                                         ; preds = %init, %init.check, %entry
+6:                                                ; preds = %5, %3, %0
   ret ptr @_ZZN17double_conversion23DoubleToStringConverter19EcmaScriptConverterEvE9converter
 }
 
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+
 ; Function Attrs: nofree nounwind
-declare i32 @__cxa_guard_acquire(ptr) local_unnamed_addr #1
+declare i32 @__cxa_guard_acquire(ptr) local_unnamed_addr #2
 
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: nofree nounwind
-declare void @__cxa_guard_release(ptr) local_unnamed_addr #1
+declare void @__cxa_guard_release(ptr) local_unnamed_addr #2
+
+; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define noundef zeroext i1 @_ZNK17double_conversion23DoubleToStringConverter19HandleSpecialValuesEdPNS_13StringBuilderE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %this, double noundef %value, ptr noundef captures(none) %result_builder) local_unnamed_addr #2 align 2 {
-entry:
-  %0 = tail call double @llvm.fabs.f64(double %value)
-  %1 = fcmp oeq double %0, 0x7FF0000000000000
-  br i1 %1, label %if.then, label %if.end7
+define noundef zeroext i1 @_ZNK17double_conversion23DoubleToStringConverter19HandleSpecialValuesEdPNS_13StringBuilderE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %0, double noundef %1, ptr noundef captures(none) %2) local_unnamed_addr #3 align 2 {
+  %4 = tail call double @llvm.fabs.f64(double %1)
+  %5 = fcmp oeq double %4, 0x7FF0000000000000
+  br i1 %5, label %6, label %19
 
-if.then:                                          ; preds = %entry
-  %infinity_symbol_ = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %2 = load ptr, ptr %infinity_symbol_, align 8
-  %cmp = icmp eq ptr %2, null
-  br i1 %cmp, label %return, label %if.end
+6:                                                ; preds = %3
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %8 = load ptr, ptr %7, align 8, !tbaa !11
+  %9 = icmp eq ptr %8, null
+  br i1 %9, label %34, label %10
 
-if.end:                                           ; preds = %if.then
-  %cmp3 = fcmp olt double %value, 0.000000e+00
-  br i1 %cmp3, label %if.then4, label %return.sink.split
+10:                                               ; preds = %6
+  %11 = fcmp olt double %1, 0.000000e+00
+  br i1 %11, label %12, label %.sink.split
 
-if.then4:                                         ; preds = %if.end
-  %position_.i = getelementptr inbounds nuw i8, ptr %result_builder, i64 16
-  %3 = load i32, ptr %position_.i, align 8
-  %inc.i = add nsw i32 %3, 1
-  store i32 %inc.i, ptr %position_.i, align 8
-  %4 = load ptr, ptr %result_builder, align 8
-  %idxprom.i.i = sext i32 %3 to i64
-  %arrayidx.i.i = getelementptr inbounds i8, ptr %4, i64 %idxprom.i.i
-  store i8 45, ptr %arrayidx.i.i, align 1
-  %.pre = load ptr, ptr %infinity_symbol_, align 8
-  br label %return.sink.split
+12:                                               ; preds = %10
+  %13 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %14 = load i32, ptr %13, align 8, !tbaa !19
+  %15 = add nsw i32 %14, 1
+  store i32 %15, ptr %13, align 8, !tbaa !19
+  %16 = load ptr, ptr %2, align 8, !tbaa !22
+  %17 = sext i32 %14 to i64
+  %18 = getelementptr inbounds i8, ptr %16, i64 %17
+  store i8 45, ptr %18, align 1, !tbaa !23
+  %.pre = load ptr, ptr %7, align 8, !tbaa !11
+  br label %.sink.split
 
-if.end7:                                          ; preds = %entry
-  %5 = fcmp ord double %value, 0.000000e+00
-  %nan_symbol_ = getelementptr inbounds nuw i8, ptr %this, i64 16
-  %6 = load ptr, ptr %nan_symbol_, align 8
-  %cmp10 = icmp eq ptr %6, null
-  %or.cond = select i1 %5, i1 true, i1 %cmp10
-  br i1 %or.cond, label %return, label %return.sink.split
+19:                                               ; preds = %3
+  %20 = fcmp ord double %1, 0.000000e+00
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %22 = load ptr, ptr %21, align 8
+  %23 = icmp eq ptr %22, null
+  %or.cond = select i1 %20, i1 true, i1 %23
+  br i1 %or.cond, label %34, label %.sink.split
 
-return.sink.split:                                ; preds = %if.end7, %if.end, %if.then4
-  %.sink18 = phi ptr [ %.pre, %if.then4 ], [ %2, %if.end ], [ %6, %if.end7 ]
-  %call.i.i4 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.sink18) #13
-  %conv.i.i5 = trunc i64 %call.i.i4 to i32
-  %position_.i.i6 = getelementptr inbounds nuw i8, ptr %result_builder, i64 16
-  %7 = load i32, ptr %position_.i.i6, align 8
-  %8 = load ptr, ptr %result_builder, align 8
-  %idxprom.i.i.i7 = sext i32 %7 to i64
-  %arrayidx.i.i.i8 = getelementptr inbounds i8, ptr %8, i64 %idxprom.i.i.i7
-  %sext.i9 = shl i64 %call.i.i4, 32
-  %conv.i2.i10 = ashr exact i64 %sext.i9, 32
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %arrayidx.i.i.i8, ptr nonnull align 1 %.sink18, i64 %conv.i2.i10, i1 false)
-  %9 = load i32, ptr %position_.i.i6, align 8
-  %add.i.i11 = add nsw i32 %9, %conv.i.i5
-  store i32 %add.i.i11, ptr %position_.i.i6, align 8
-  br label %return
+.sink.split:                                      ; preds = %19, %10, %12
+  %.sink21 = phi ptr [ %.pre, %12 ], [ %8, %10 ], [ %22, %19 ]
+  %24 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.sink21) #14
+  %25 = trunc i64 %24 to i32
+  %26 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %27 = load i32, ptr %26, align 8, !tbaa !19
+  %28 = load ptr, ptr %2, align 8, !tbaa !22
+  %29 = sext i32 %27 to i64
+  %30 = getelementptr inbounds i8, ptr %28, i64 %29
+  %sext.i8 = shl i64 %24, 32
+  %31 = ashr exact i64 %sext.i8, 32
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %30, ptr nonnull align 1 %.sink21, i64 %31, i1 false)
+  %32 = load i32, ptr %26, align 8, !tbaa !19
+  %33 = add nsw i32 %32, %25
+  store i32 %33, ptr %26, align 8, !tbaa !19
+  br label %34
 
-return:                                           ; preds = %return.sink.split, %if.end7, %if.then
-  %retval.0 = phi i1 [ false, %if.then ], [ false, %if.end7 ], [ true, %return.sink.split ]
-  ret i1 %retval.0
+34:                                               ; preds = %.sink.split, %19, %6
+  %.0 = phi i1 [ false, %6 ], [ false, %19 ], [ true, %.sink.split ]
+  ret i1 %.0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @_ZNK17double_conversion23DoubleToStringConverter31CreateExponentialRepresentationEPKciiPNS_13StringBuilderE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %this, ptr noundef readonly captures(none) %decimal_digits, i32 noundef %length, i32 noundef %exponent, ptr noundef captures(none) %result_builder) local_unnamed_addr #3 align 2 {
-entry:
-  %buffer = alloca [6 x i8], align 1
-  %0 = load i8, ptr %decimal_digits, align 1
-  %position_.i = getelementptr inbounds nuw i8, ptr %result_builder, i64 16
-  %1 = load i32, ptr %position_.i, align 8
-  %inc.i = add nsw i32 %1, 1
-  store i32 %inc.i, ptr %position_.i, align 8
-  %2 = load ptr, ptr %result_builder, align 8
-  %idxprom.i.i = sext i32 %1 to i64
-  %arrayidx.i.i = getelementptr inbounds i8, ptr %2, i64 %idxprom.i.i
-  store i8 %0, ptr %arrayidx.i.i, align 1
-  %cmp = icmp eq i32 %length, 1
-  br i1 %cmp, label %if.then, label %if.else
+define void @_ZNK17double_conversion23DoubleToStringConverter31CreateExponentialRepresentationEPKciiPNS_13StringBuilderE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i32 noundef %3, ptr noundef captures(none) %4) local_unnamed_addr #4 align 2 {
+  %6 = alloca [6 x i8], align 1
+  %7 = load i8, ptr %1, align 1, !tbaa !23
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %9 = load i32, ptr %8, align 8, !tbaa !19
+  %10 = add nsw i32 %9, 1
+  store i32 %10, ptr %8, align 8, !tbaa !19
+  %11 = load ptr, ptr %4, align 8, !tbaa !22
+  %12 = sext i32 %9 to i64
+  %13 = getelementptr inbounds i8, ptr %11, i64 %12
+  store i8 %7, ptr %13, align 1, !tbaa !23
+  %14 = icmp eq i32 %2, 1
+  br i1 %14, label %15, label %30
 
-if.then:                                          ; preds = %entry
-  %3 = load i32, ptr %this, align 8
-  %and = and i32 %3, 32
-  %cmp2.not = icmp eq i32 %and, 0
-  %.pre68 = load i32, ptr %position_.i, align 8
-  br i1 %cmp2.not, label %if.end10, label %if.then3
+15:                                               ; preds = %5
+  %16 = load i32, ptr %0, align 8, !tbaa !4
+  %17 = and i32 %16, 32
+  %.not = icmp eq i32 %17, 0
+  %.pre48 = load i32, ptr %8, align 8, !tbaa !19
+  br i1 %.not, label %45, label %18
 
-if.then3:                                         ; preds = %if.then
-  %inc.i22 = add nsw i32 %.pre68, 1
-  store i32 %inc.i22, ptr %position_.i, align 8
-  %4 = load ptr, ptr %result_builder, align 8
-  %idxprom.i.i23 = sext i32 %.pre68 to i64
-  %arrayidx.i.i24 = getelementptr inbounds i8, ptr %4, i64 %idxprom.i.i23
-  store i8 46, ptr %arrayidx.i.i24, align 1
-  %5 = load i32, ptr %this, align 8
-  %and5 = and i32 %5, 64
-  %cmp6.not = icmp eq i32 %and5, 0
-  %.pre69 = load i32, ptr %position_.i, align 8
-  br i1 %cmp6.not, label %if.end10, label %if.then7
+18:                                               ; preds = %15
+  %19 = add nsw i32 %.pre48, 1
+  store i32 %19, ptr %8, align 8, !tbaa !19
+  %20 = load ptr, ptr %4, align 8, !tbaa !22
+  %21 = sext i32 %.pre48 to i64
+  %22 = getelementptr inbounds i8, ptr %20, i64 %21
+  store i8 46, ptr %22, align 1, !tbaa !23
+  %23 = load i32, ptr %0, align 8, !tbaa !4
+  %24 = and i32 %23, 64
+  %.not31 = icmp eq i32 %24, 0
+  %.pre49 = load i32, ptr %8, align 8, !tbaa !19
+  br i1 %.not31, label %45, label %25
 
-if.then7:                                         ; preds = %if.then3
-  %inc.i26 = add nsw i32 %.pre69, 1
-  store i32 %inc.i26, ptr %position_.i, align 8
-  %6 = load ptr, ptr %result_builder, align 8
-  %idxprom.i.i27 = sext i32 %.pre69 to i64
-  %arrayidx.i.i28 = getelementptr inbounds i8, ptr %6, i64 %idxprom.i.i27
-  store i8 48, ptr %arrayidx.i.i28, align 1
-  %.pre = load i32, ptr %position_.i, align 8
-  br label %if.end10
+25:                                               ; preds = %18
+  %26 = add nsw i32 %.pre49, 1
+  store i32 %26, ptr %8, align 8, !tbaa !19
+  %27 = load ptr, ptr %4, align 8, !tbaa !22
+  %28 = sext i32 %.pre49 to i64
+  %29 = getelementptr inbounds i8, ptr %27, i64 %28
+  store i8 48, ptr %29, align 1, !tbaa !23
+  %.pre = load i32, ptr %8, align 8, !tbaa !19
+  br label %45
 
-if.else:                                          ; preds = %entry
-  %7 = load i32, ptr %position_.i, align 8
-  %inc.i30 = add nsw i32 %7, 1
-  store i32 %inc.i30, ptr %position_.i, align 8
-  %8 = load ptr, ptr %result_builder, align 8
-  %idxprom.i.i31 = sext i32 %7 to i64
-  %arrayidx.i.i32 = getelementptr inbounds i8, ptr %8, i64 %idxprom.i.i31
-  store i8 46, ptr %arrayidx.i.i32, align 1
-  %arrayidx9 = getelementptr inbounds nuw i8, ptr %decimal_digits, i64 1
-  %sub = add nsw i32 %length, -1
-  %9 = load i32, ptr %position_.i, align 8
-  %10 = load ptr, ptr %result_builder, align 8
-  %idxprom.i.i34 = sext i32 %9 to i64
-  %arrayidx.i.i35 = getelementptr inbounds i8, ptr %10, i64 %idxprom.i.i34
-  %conv.i = sext i32 %sub to i64
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %arrayidx.i.i35, ptr nonnull align 1 %arrayidx9, i64 %conv.i, i1 false)
-  %11 = load i32, ptr %position_.i, align 8
-  %add.i = add nsw i32 %11, %sub
-  store i32 %add.i, ptr %position_.i, align 8
-  br label %if.end10
+30:                                               ; preds = %5
+  %31 = load i32, ptr %8, align 8, !tbaa !19
+  %32 = add nsw i32 %31, 1
+  store i32 %32, ptr %8, align 8, !tbaa !19
+  %33 = load ptr, ptr %4, align 8, !tbaa !22
+  %34 = sext i32 %31 to i64
+  %35 = getelementptr inbounds i8, ptr %33, i64 %34
+  store i8 46, ptr %35, align 1, !tbaa !23
+  %36 = getelementptr inbounds nuw i8, ptr %1, i64 1
+  %37 = add nsw i32 %2, -1
+  %38 = load i32, ptr %8, align 8, !tbaa !19
+  %39 = load ptr, ptr %4, align 8, !tbaa !22
+  %40 = sext i32 %38 to i64
+  %41 = getelementptr inbounds i8, ptr %39, i64 %40
+  %42 = sext i32 %37 to i64
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %41, ptr nonnull align 1 %36, i64 %42, i1 false)
+  %43 = load i32, ptr %8, align 8, !tbaa !19
+  %44 = add nsw i32 %43, %37
+  br label %45
 
-if.end10:                                         ; preds = %if.then, %if.then7, %if.then3, %if.else
-  %12 = phi i32 [ %.pre68, %if.then ], [ %.pre, %if.then7 ], [ %.pre69, %if.then3 ], [ %add.i, %if.else ]
-  %exponent_character_ = getelementptr inbounds nuw i8, ptr %this, i64 24
-  %13 = load i8, ptr %exponent_character_, align 8
-  %inc.i37 = add nsw i32 %12, 1
-  store i32 %inc.i37, ptr %position_.i, align 8
-  %14 = load ptr, ptr %result_builder, align 8
-  %idxprom.i.i38 = sext i32 %12 to i64
-  %arrayidx.i.i39 = getelementptr inbounds i8, ptr %14, i64 %idxprom.i.i38
-  store i8 %13, ptr %arrayidx.i.i39, align 1
-  %cmp11 = icmp slt i32 %exponent, 0
-  br i1 %cmp11, label %if.end20.thread, label %if.else14
+45:                                               ; preds = %15, %25, %18, %30
+  %46 = phi i32 [ %.pre48, %15 ], [ %.pre, %25 ], [ %.pre49, %18 ], [ %44, %30 ]
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %48 = load i8, ptr %47, align 8, !tbaa !13
+  %49 = add nsw i32 %46, 1
+  store i32 %49, ptr %8, align 8, !tbaa !19
+  %50 = load ptr, ptr %4, align 8, !tbaa !22
+  %51 = sext i32 %46 to i64
+  %52 = getelementptr inbounds i8, ptr %50, i64 %51
+  store i8 %48, ptr %52, align 1, !tbaa !23
+  %53 = icmp slt i32 %3, 0
+  br i1 %53, label %.thread, label %61
 
-if.end20.thread:                                  ; preds = %if.end10
-  %15 = load i32, ptr %position_.i, align 8
-  %inc.i41 = add nsw i32 %15, 1
-  store i32 %inc.i41, ptr %position_.i, align 8
-  %16 = load ptr, ptr %result_builder, align 8
-  %idxprom.i.i42 = sext i32 %15 to i64
-  %arrayidx.i.i43 = getelementptr inbounds i8, ptr %16, i64 %idxprom.i.i42
-  store i8 45, ptr %arrayidx.i.i43, align 1
-  %sub13 = sub nsw i32 0, %exponent
-  %arrayidx2171 = getelementptr inbounds nuw i8, ptr %buffer, i64 5
-  store i8 0, ptr %arrayidx2171, align 1
-  br label %while.body.preheader
+.thread:                                          ; preds = %45
+  %54 = load i32, ptr %8, align 8, !tbaa !19
+  %55 = add nsw i32 %54, 1
+  store i32 %55, ptr %8, align 8, !tbaa !19
+  %56 = load ptr, ptr %4, align 8, !tbaa !22
+  %57 = sext i32 %54 to i64
+  %58 = getelementptr inbounds i8, ptr %56, i64 %57
+  store i8 45, ptr %58, align 1, !tbaa !23
+  %59 = sub nsw i32 0, %3
+  call void @llvm.lifetime.start.p0(i64 6, ptr nonnull %6) #13
+  %60 = getelementptr inbounds nuw i8, ptr %6, i64 5
+  store i8 0, ptr %60, align 1, !tbaa !23
+  br label %.lr.ph.preheader
 
-while.body.preheader:                             ; preds = %if.end20, %if.end20.thread
-  %exponent.addr.155.ph = phi i32 [ %sub13, %if.end20.thread ], [ %exponent, %if.end20 ]
-  br label %while.body
+.lr.ph.preheader:                                 ; preds = %70, %.thread
+  %.12634.ph = phi i32 [ %59, %.thread ], [ %3, %70 ]
+  br label %.lr.ph
 
-if.else14:                                        ; preds = %if.end10
-  %17 = load i32, ptr %this, align 8
-  %and16 = and i32 %17, 1
-  %cmp17.not = icmp eq i32 %and16, 0
-  br i1 %cmp17.not, label %if.end20, label %if.then18
+61:                                               ; preds = %45
+  %62 = load i32, ptr %0, align 8, !tbaa !4
+  %63 = and i32 %62, 1
+  %.not32 = icmp eq i32 %63, 0
+  br i1 %.not32, label %70, label %64
 
-if.then18:                                        ; preds = %if.else14
-  %18 = load i32, ptr %position_.i, align 8
-  %inc.i45 = add nsw i32 %18, 1
-  store i32 %inc.i45, ptr %position_.i, align 8
-  %19 = load ptr, ptr %result_builder, align 8
-  %idxprom.i.i46 = sext i32 %18 to i64
-  %arrayidx.i.i47 = getelementptr inbounds i8, ptr %19, i64 %idxprom.i.i46
-  store i8 43, ptr %arrayidx.i.i47, align 1
-  br label %if.end20
+64:                                               ; preds = %61
+  %65 = load i32, ptr %8, align 8, !tbaa !19
+  %66 = add nsw i32 %65, 1
+  store i32 %66, ptr %8, align 8, !tbaa !19
+  %67 = load ptr, ptr %4, align 8, !tbaa !22
+  %68 = sext i32 %65 to i64
+  %69 = getelementptr inbounds i8, ptr %67, i64 %68
+  store i8 43, ptr %69, align 1, !tbaa !23
+  br label %70
 
-if.end20:                                         ; preds = %if.else14, %if.then18
-  %arrayidx21 = getelementptr inbounds nuw i8, ptr %buffer, i64 5
-  store i8 0, ptr %arrayidx21, align 1
-  %cmp22 = icmp eq i32 %exponent, 0
-  br i1 %cmp22, label %if.then23, label %while.body.preheader
+70:                                               ; preds = %61, %64
+  call void @llvm.lifetime.start.p0(i64 6, ptr nonnull %6) #13
+  %71 = getelementptr inbounds nuw i8, ptr %6, i64 5
+  store i8 0, ptr %71, align 1, !tbaa !23
+  %72 = icmp eq i32 %3, 0
+  br i1 %72, label %73, label %.lr.ph.preheader
 
-if.then23:                                        ; preds = %if.end20
-  %arrayidx24 = getelementptr inbounds nuw i8, ptr %buffer, i64 4
-  store i8 48, ptr %arrayidx24, align 1
-  br label %if.end30
+73:                                               ; preds = %70
+  %74 = getelementptr inbounds nuw i8, ptr %6, i64 4
+  store i8 48, ptr %74, align 1, !tbaa !23
+  br label %.loopexit
 
-while.body:                                       ; preds = %while.body.preheader, %while.body
-  %indvars.iv = phi i64 [ %indvars.iv.next, %while.body ], [ 5, %while.body.preheader ]
-  %exponent.addr.155 = phi i32 [ %div, %while.body ], [ %exponent.addr.155.ph, %while.body.preheader ]
-  %rem = urem i32 %exponent.addr.155, 10
-  %20 = trunc nuw nsw i32 %rem to i8
-  %conv = or disjoint i8 %20, 48
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
+  %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 5, %.lr.ph.preheader ]
+  %.12634 = phi i32 [ %79, %.lr.ph ], [ %.12634.ph, %.lr.ph.preheader ]
+  %75 = urem i32 %.12634, 10
+  %76 = trunc nuw nsw i32 %75 to i8
+  %77 = or disjoint i8 %76, 48
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
-  %arrayidx29 = getelementptr inbounds [6 x i8], ptr %buffer, i64 0, i64 %indvars.iv.next
-  store i8 %conv, ptr %arrayidx29, align 1
-  %div = udiv i32 %exponent.addr.155, 10
-  %cmp26.not = icmp samesign ult i32 %exponent.addr.155, 10
-  br i1 %cmp26.not, label %if.end30.loopexit, label %while.body, !llvm.loop !5
+  %78 = getelementptr inbounds [6 x i8], ptr %6, i64 0, i64 %indvars.iv.next
+  store i8 %77, ptr %78, align 1, !tbaa !23
+  %79 = udiv i32 %.12634, 10
+  %.not40 = icmp samesign ult i32 %.12634, 10
+  br i1 %.not40, label %.loopexit.loopexit, label %.lr.ph, !llvm.loop !24
 
-if.end30.loopexit:                                ; preds = %while.body
-  %21 = trunc nsw i64 %indvars.iv.next to i32
-  br label %if.end30
+.loopexit.loopexit:                               ; preds = %.lr.ph
+  %80 = trunc nsw i64 %indvars.iv.next to i32
+  br label %.loopexit
 
-if.end30:                                         ; preds = %if.end30.loopexit, %if.then23
-  %first_char_pos.0 = phi i32 [ 4, %if.then23 ], [ %21, %if.end30.loopexit ]
-  %min_exponent_width_ = getelementptr inbounds nuw i8, ptr %this, i64 44
-  %22 = load i32, ptr %min_exponent_width_, align 4
-  %.sroa.speculated = tail call i32 @llvm.smin.i32(i32 %22, i32 5)
-  %sub3257 = sub nsw i32 5, %first_char_pos.0
-  %cmp3358 = icmp slt i32 %sub3257, %.sroa.speculated
-  br i1 %cmp3358, label %while.body34.preheader, label %while.end38
+.loopexit:                                        ; preds = %.loopexit.loopexit, %73
+  %.0 = phi i32 [ 4, %73 ], [ %80, %.loopexit.loopexit ]
+  %81 = getelementptr inbounds nuw i8, ptr %0, i64 44
+  %82 = load i32, ptr %81, align 4, !tbaa !26
+  %.sroa.speculated = tail call i32 @llvm.smin.i32(i32 %82, i32 5)
+  %83 = sub nsw i32 5, %.0
+  %84 = icmp slt i32 %83, %.sroa.speculated
+  br i1 %84, label %.lr.ph37.preheader, label %._crit_edge
 
-while.body34.preheader:                           ; preds = %if.end30
-  %23 = add i32 %first_char_pos.0, -1
-  %24 = sext i32 %23 to i64
-  %25 = add i32 %first_char_pos.0, %.sroa.speculated
-  %26 = add i32 %25, -6
-  %27 = zext i32 %26 to i64
-  %28 = sub nsw i64 %24, %27
-  %scevgep = getelementptr i8, ptr %buffer, i64 %28
-  %29 = add nuw nsw i64 %27, 1
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %scevgep, i8 48, i64 %29, i1 false)
-  %30 = sext i32 %first_char_pos.0 to i64
-  %31 = sext i32 %.sroa.speculated to i64
-  br label %while.body34
+.lr.ph37.preheader:                               ; preds = %.loopexit
+  %85 = add i32 %.0, -1
+  %86 = sext i32 %85 to i64
+  %87 = add i32 %.0, %.sroa.speculated
+  %88 = add i32 %87, -6
+  %89 = zext i32 %88 to i64
+  %90 = sub nsw i64 %86, %89
+  %scevgep = getelementptr i8, ptr %6, i64 %90
+  %91 = add nuw nsw i64 %89, 1
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %scevgep, i8 48, i64 %91, i1 false), !tbaa !23
+  %92 = sext i32 %.0 to i64
+  %93 = sext i32 %.sroa.speculated to i64
+  br label %.lr.ph37
 
-while.body34:                                     ; preds = %while.body34.preheader, %while.body34
-  %indvars.iv64 = phi i64 [ %30, %while.body34.preheader ], [ %indvars.iv.next65, %while.body34 ]
-  %indvars.iv.next65 = add nsw i64 %indvars.iv64, -1
-  %32 = sub nsw i64 6, %indvars.iv64
-  %cmp33 = icmp slt i64 %32, %31
-  br i1 %cmp33, label %while.body34, label %while.end38.loopexit, !llvm.loop !7
+.lr.ph37:                                         ; preds = %.lr.ph37.preheader, %.lr.ph37
+  %indvars.iv45 = phi i64 [ %92, %.lr.ph37.preheader ], [ %indvars.iv.next46, %.lr.ph37 ]
+  %indvars.iv.next46 = add nsw i64 %indvars.iv45, -1
+  %94 = sub nsw i64 6, %indvars.iv45
+  %95 = icmp slt i64 %94, %93
+  br i1 %95, label %.lr.ph37, label %._crit_edge.loopexit, !llvm.loop !27
 
-while.end38.loopexit:                             ; preds = %while.body34
-  %33 = trunc nsw i64 %32 to i32
-  %34 = trunc nsw i64 %indvars.iv.next65 to i32
-  br label %while.end38
+._crit_edge.loopexit:                             ; preds = %.lr.ph37
+  %96 = trunc nsw i64 %94 to i32
+  %97 = trunc nsw i64 %indvars.iv.next46 to i32
+  br label %._crit_edge
 
-while.end38:                                      ; preds = %while.end38.loopexit, %if.end30
-  %first_char_pos.2.lcssa = phi i32 [ %first_char_pos.0, %if.end30 ], [ %34, %while.end38.loopexit ]
-  %sub32.lcssa = phi i32 [ %sub3257, %if.end30 ], [ %33, %while.end38.loopexit ]
-  %idxprom39 = sext i32 %first_char_pos.2.lcssa to i64
-  %arrayidx40 = getelementptr inbounds [6 x i8], ptr %buffer, i64 0, i64 %idxprom39
-  %35 = load i32, ptr %position_.i, align 8
-  %36 = load ptr, ptr %result_builder, align 8
-  %idxprom.i.i49 = sext i32 %35 to i64
-  %arrayidx.i.i50 = getelementptr inbounds i8, ptr %36, i64 %idxprom.i.i49
-  %conv.i51 = sext i32 %sub32.lcssa to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %arrayidx.i.i50, ptr nonnull align 1 %arrayidx40, i64 %conv.i51, i1 false)
-  %37 = load i32, ptr %position_.i, align 8
-  %add.i52 = add nsw i32 %37, %sub32.lcssa
-  store i32 %add.i52, ptr %position_.i, align 8
+._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.loopexit
+  %.2.lcssa = phi i32 [ %.0, %.loopexit ], [ %97, %._crit_edge.loopexit ]
+  %.lcssa = phi i32 [ %83, %.loopexit ], [ %96, %._crit_edge.loopexit ]
+  %98 = sext i32 %.2.lcssa to i64
+  %99 = getelementptr inbounds [6 x i8], ptr %6, i64 0, i64 %98
+  %100 = load i32, ptr %8, align 8, !tbaa !19
+  %101 = load ptr, ptr %4, align 8, !tbaa !22
+  %102 = sext i32 %100 to i64
+  %103 = getelementptr inbounds i8, ptr %101, i64 %102
+  %104 = sext i32 %.lcssa to i64
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %103, ptr nonnull align 1 %99, i64 %104, i1 false)
+  %105 = load i32, ptr %8, align 8, !tbaa !19
+  %106 = add nsw i32 %105, %.lcssa
+  store i32 %106, ptr %8, align 8, !tbaa !19
+  call void @llvm.lifetime.end.p0(i64 6, ptr nonnull %6) #13
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @_ZNK17double_conversion23DoubleToStringConverter27CreateDecimalRepresentationEPKciiiPNS_13StringBuilderE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %this, ptr noundef readonly captures(none) %decimal_digits, i32 noundef %length, i32 noundef %decimal_point, i32 noundef %digits_after_point, ptr noundef captures(none) %result_builder) local_unnamed_addr #3 align 2 {
-entry:
-  %cmp = icmp slt i32 %decimal_point, 1
-  br i1 %cmp, label %if.then, label %if.else
+define void @_ZNK17double_conversion23DoubleToStringConverter27CreateDecimalRepresentationEPKciiiPNS_13StringBuilderE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef captures(none) %5) local_unnamed_addr #4 align 2 {
+  %7 = icmp slt i32 %3, 1
+  br i1 %7, label %8, label %45
 
-if.then:                                          ; preds = %entry
-  %position_.i = getelementptr inbounds nuw i8, ptr %result_builder, i64 16
-  %0 = load i32, ptr %position_.i, align 8
-  %inc.i = add nsw i32 %0, 1
-  store i32 %inc.i, ptr %position_.i, align 8
-  %1 = load ptr, ptr %result_builder, align 8
-  %idxprom.i.i = sext i32 %0 to i64
-  %arrayidx.i.i = getelementptr inbounds i8, ptr %1, i64 %idxprom.i.i
-  store i8 48, ptr %arrayidx.i.i, align 1
-  %cmp2 = icmp sgt i32 %digits_after_point, 0
-  br i1 %cmp2, label %if.then3, label %if.end19
+8:                                                ; preds = %6
+  %9 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  %10 = load i32, ptr %9, align 8, !tbaa !19
+  %11 = add nsw i32 %10, 1
+  store i32 %11, ptr %9, align 8, !tbaa !19
+  %12 = load ptr, ptr %5, align 8, !tbaa !22
+  %13 = sext i32 %10 to i64
+  %14 = getelementptr inbounds i8, ptr %12, i64 %13
+  store i8 48, ptr %14, align 1, !tbaa !23
+  %15 = icmp sgt i32 %4, 0
+  br i1 %15, label %16, label %_ZN17double_conversion13StringBuilder10AddPaddingEci.exit52
 
-if.then3:                                         ; preds = %if.then
-  %2 = load i32, ptr %position_.i, align 8
-  %inc.i38 = add nsw i32 %2, 1
-  store i32 %inc.i38, ptr %position_.i, align 8
-  %3 = load ptr, ptr %result_builder, align 8
-  %idxprom.i.i39 = sext i32 %2 to i64
-  %arrayidx.i.i40 = getelementptr inbounds i8, ptr %3, i64 %idxprom.i.i39
-  store i8 46, ptr %arrayidx.i.i40, align 1
-  %sub = sub nsw i32 0, %decimal_point
-  %cmp2.i.not = icmp eq i32 %decimal_point, 0
-  br i1 %cmp2.i.not, label %_ZN17double_conversion13StringBuilder10AddPaddingEci.exit, label %for.body.i
+16:                                               ; preds = %8
+  %17 = load i32, ptr %9, align 8, !tbaa !19
+  %18 = add nsw i32 %17, 1
+  store i32 %18, ptr %9, align 8, !tbaa !19
+  %19 = load ptr, ptr %5, align 8, !tbaa !22
+  %20 = sext i32 %17 to i64
+  %21 = getelementptr inbounds i8, ptr %19, i64 %20
+  store i8 46, ptr %21, align 1, !tbaa !23
+  %22 = sub nsw i32 0, %3
+  %.not65 = icmp eq i32 %3, 0
+  br i1 %.not65, label %_ZN17double_conversion13StringBuilder10AddPaddingEci.exit, label %.lr.ph.i
 
-for.body.i:                                       ; preds = %if.then3, %for.body.i
-  %i.03.i = phi i32 [ %inc.i41, %for.body.i ], [ 0, %if.then3 ]
-  %4 = load i32, ptr %position_.i, align 8
-  %inc.i.i = add nsw i32 %4, 1
-  store i32 %inc.i.i, ptr %position_.i, align 8
-  %5 = load ptr, ptr %result_builder, align 8
-  %idxprom.i.i.i = sext i32 %4 to i64
-  %arrayidx.i.i.i = getelementptr inbounds i8, ptr %5, i64 %idxprom.i.i.i
-  store i8 48, ptr %arrayidx.i.i.i, align 1
-  %inc.i41 = add nuw nsw i32 %i.03.i, 1
-  %exitcond.not.i = icmp eq i32 %inc.i41, %sub
-  br i1 %exitcond.not.i, label %_ZN17double_conversion13StringBuilder10AddPaddingEci.exit, label %for.body.i, !llvm.loop !8
+.lr.ph.i:                                         ; preds = %16, %.lr.ph.i
+  %.04.i = phi i32 [ %28, %.lr.ph.i ], [ 0, %16 ]
+  %23 = load i32, ptr %9, align 8, !tbaa !19
+  %24 = add nsw i32 %23, 1
+  store i32 %24, ptr %9, align 8, !tbaa !19
+  %25 = load ptr, ptr %5, align 8, !tbaa !22
+  %26 = sext i32 %23 to i64
+  %27 = getelementptr inbounds i8, ptr %25, i64 %26
+  store i8 48, ptr %27, align 1, !tbaa !23
+  %28 = add nuw nsw i32 %.04.i, 1
+  %exitcond.not.i = icmp eq i32 %28, %22
+  br i1 %exitcond.not.i, label %_ZN17double_conversion13StringBuilder10AddPaddingEci.exit, label %.lr.ph.i, !llvm.loop !28
 
-_ZN17double_conversion13StringBuilder10AddPaddingEci.exit: ; preds = %for.body.i, %if.then3
-  %6 = load i32, ptr %position_.i, align 8
-  %7 = load ptr, ptr %result_builder, align 8
-  %idxprom.i.i43 = sext i32 %6 to i64
-  %arrayidx.i.i44 = getelementptr inbounds i8, ptr %7, i64 %idxprom.i.i43
-  %conv.i = sext i32 %length to i64
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %arrayidx.i.i44, ptr align 1 %decimal_digits, i64 %conv.i, i1 false)
-  %8 = load i32, ptr %position_.i, align 8
-  %add.i = add nsw i32 %8, %length
-  store i32 %add.i, ptr %position_.i, align 8
-  %sub5 = sub i32 %decimal_point, %length
-  %sub6 = add i32 %sub5, %digits_after_point
-  %cmp2.i45 = icmp sgt i32 %sub6, 0
-  br i1 %cmp2.i45, label %for.body.i48, label %if.end19
+_ZN17double_conversion13StringBuilder10AddPaddingEci.exit: ; preds = %.lr.ph.i, %16
+  %29 = load i32, ptr %9, align 8, !tbaa !19
+  %30 = load ptr, ptr %5, align 8, !tbaa !22
+  %31 = sext i32 %29 to i64
+  %32 = getelementptr inbounds i8, ptr %30, i64 %31
+  %33 = sext i32 %2 to i64
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %32, ptr align 1 %1, i64 %33, i1 false)
+  %34 = load i32, ptr %9, align 8, !tbaa !19
+  %35 = add nsw i32 %34, %2
+  store i32 %35, ptr %9, align 8, !tbaa !19
+  %36 = sub i32 %3, %2
+  %37 = add i32 %36, %4
+  %38 = icmp sgt i32 %37, 0
+  br i1 %38, label %.lr.ph.i49, label %_ZN17double_conversion13StringBuilder10AddPaddingEci.exit52
 
-for.body.i48:                                     ; preds = %_ZN17double_conversion13StringBuilder10AddPaddingEci.exit, %for.body.i48
-  %i.03.i49 = phi i32 [ %inc.i53, %for.body.i48 ], [ 0, %_ZN17double_conversion13StringBuilder10AddPaddingEci.exit ]
-  %9 = load i32, ptr %position_.i, align 8
-  %inc.i.i50 = add nsw i32 %9, 1
-  store i32 %inc.i.i50, ptr %position_.i, align 8
-  %10 = load ptr, ptr %result_builder, align 8
-  %idxprom.i.i.i51 = sext i32 %9 to i64
-  %arrayidx.i.i.i52 = getelementptr inbounds i8, ptr %10, i64 %idxprom.i.i.i51
-  store i8 48, ptr %arrayidx.i.i.i52, align 1
-  %inc.i53 = add nuw nsw i32 %i.03.i49, 1
-  %exitcond.not.i54 = icmp eq i32 %inc.i53, %sub6
-  br i1 %exitcond.not.i54, label %if.end19, label %for.body.i48, !llvm.loop !8
+.lr.ph.i49:                                       ; preds = %_ZN17double_conversion13StringBuilder10AddPaddingEci.exit, %.lr.ph.i49
+  %.04.i50 = phi i32 [ %44, %.lr.ph.i49 ], [ 0, %_ZN17double_conversion13StringBuilder10AddPaddingEci.exit ]
+  %39 = load i32, ptr %9, align 8, !tbaa !19
+  %40 = add nsw i32 %39, 1
+  store i32 %40, ptr %9, align 8, !tbaa !19
+  %41 = load ptr, ptr %5, align 8, !tbaa !22
+  %42 = sext i32 %39 to i64
+  %43 = getelementptr inbounds i8, ptr %41, i64 %42
+  store i8 48, ptr %43, align 1, !tbaa !23
+  %44 = add nuw nsw i32 %.04.i50, 1
+  %exitcond.not.i51 = icmp eq i32 %44, %37
+  br i1 %exitcond.not.i51, label %_ZN17double_conversion13StringBuilder10AddPaddingEci.exit52, label %.lr.ph.i49, !llvm.loop !28
 
-if.else:                                          ; preds = %entry
-  %cmp7.not = icmp slt i32 %decimal_point, %length
-  %position_.i87 = getelementptr inbounds nuw i8, ptr %result_builder, i64 16
-  %11 = load i32, ptr %position_.i87, align 8
-  %12 = load ptr, ptr %result_builder, align 8
-  %idxprom.i.i88 = sext i32 %11 to i64
-  %arrayidx.i.i89 = getelementptr inbounds i8, ptr %12, i64 %idxprom.i.i88
-  br i1 %cmp7.not, label %if.else13, label %if.then8
+45:                                               ; preds = %6
+  %.not = icmp slt i32 %3, %2
+  %46 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  %47 = load i32, ptr %46, align 8, !tbaa !19
+  %48 = load ptr, ptr %5, align 8, !tbaa !22
+  %49 = sext i32 %47 to i64
+  %50 = getelementptr inbounds i8, ptr %48, i64 %49
+  br i1 %.not, label %76, label %51
 
-if.then8:                                         ; preds = %if.else
-  %conv.i59 = sext i32 %length to i64
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %arrayidx.i.i89, ptr align 1 %decimal_digits, i64 %conv.i59, i1 false)
-  %13 = load i32, ptr %position_.i87, align 8
-  %add.i60 = add nsw i32 %13, %length
-  store i32 %add.i60, ptr %position_.i87, align 8
-  %sub9 = sub nsw i32 %decimal_point, %length
-  %cmp2.i61 = icmp sgt i32 %sub9, 0
-  br i1 %cmp2.i61, label %for.body.i64, label %_ZN17double_conversion13StringBuilder10AddPaddingEci.exit71
+51:                                               ; preds = %45
+  %52 = sext i32 %2 to i64
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %50, ptr align 1 %1, i64 %52, i1 false)
+  %53 = load i32, ptr %46, align 8, !tbaa !19
+  %54 = add nsw i32 %53, %2
+  store i32 %54, ptr %46, align 8, !tbaa !19
+  %55 = sub nsw i32 %3, %2
+  %56 = icmp sgt i32 %55, 0
+  br i1 %56, label %.lr.ph.i53, label %_ZN17double_conversion13StringBuilder10AddPaddingEci.exit56
 
-for.body.i64:                                     ; preds = %if.then8, %for.body.i64
-  %i.03.i65 = phi i32 [ %inc.i69, %for.body.i64 ], [ 0, %if.then8 ]
-  %14 = load i32, ptr %position_.i87, align 8
-  %inc.i.i66 = add nsw i32 %14, 1
-  store i32 %inc.i.i66, ptr %position_.i87, align 8
-  %15 = load ptr, ptr %result_builder, align 8
-  %idxprom.i.i.i67 = sext i32 %14 to i64
-  %arrayidx.i.i.i68 = getelementptr inbounds i8, ptr %15, i64 %idxprom.i.i.i67
-  store i8 48, ptr %arrayidx.i.i.i68, align 1
-  %inc.i69 = add nuw nsw i32 %i.03.i65, 1
-  %exitcond.not.i70 = icmp eq i32 %inc.i69, %sub9
-  br i1 %exitcond.not.i70, label %_ZN17double_conversion13StringBuilder10AddPaddingEci.exit71, label %for.body.i64, !llvm.loop !8
+.lr.ph.i53:                                       ; preds = %51, %.lr.ph.i53
+  %.04.i54 = phi i32 [ %62, %.lr.ph.i53 ], [ 0, %51 ]
+  %57 = load i32, ptr %46, align 8, !tbaa !19
+  %58 = add nsw i32 %57, 1
+  store i32 %58, ptr %46, align 8, !tbaa !19
+  %59 = load ptr, ptr %5, align 8, !tbaa !22
+  %60 = sext i32 %57 to i64
+  %61 = getelementptr inbounds i8, ptr %59, i64 %60
+  store i8 48, ptr %61, align 1, !tbaa !23
+  %62 = add nuw nsw i32 %.04.i54, 1
+  %exitcond.not.i55 = icmp eq i32 %62, %55
+  br i1 %exitcond.not.i55, label %_ZN17double_conversion13StringBuilder10AddPaddingEci.exit56, label %.lr.ph.i53, !llvm.loop !28
 
-_ZN17double_conversion13StringBuilder10AddPaddingEci.exit71: ; preds = %for.body.i64, %if.then8
-  %cmp10 = icmp sgt i32 %digits_after_point, 0
-  br i1 %cmp10, label %for.body.lr.ph.i77, label %if.end19
+_ZN17double_conversion13StringBuilder10AddPaddingEci.exit56: ; preds = %.lr.ph.i53, %51
+  %63 = icmp sgt i32 %4, 0
+  br i1 %63, label %.lr.ph.i57, label %_ZN17double_conversion13StringBuilder10AddPaddingEci.exit52
 
-for.body.lr.ph.i77:                               ; preds = %_ZN17double_conversion13StringBuilder10AddPaddingEci.exit71
-  %16 = load i32, ptr %position_.i87, align 8
-  %inc.i73 = add nsw i32 %16, 1
-  store i32 %inc.i73, ptr %position_.i87, align 8
-  %17 = load ptr, ptr %result_builder, align 8
-  %idxprom.i.i74 = sext i32 %16 to i64
-  %arrayidx.i.i75 = getelementptr inbounds i8, ptr %17, i64 %idxprom.i.i74
-  store i8 46, ptr %arrayidx.i.i75, align 1
-  br label %for.body.i79
+.lr.ph.i57:                                       ; preds = %_ZN17double_conversion13StringBuilder10AddPaddingEci.exit56
+  %64 = load i32, ptr %46, align 8, !tbaa !19
+  %65 = add nsw i32 %64, 1
+  store i32 %65, ptr %46, align 8, !tbaa !19
+  %66 = load ptr, ptr %5, align 8, !tbaa !22
+  %67 = sext i32 %64 to i64
+  %68 = getelementptr inbounds i8, ptr %66, i64 %67
+  store i8 46, ptr %68, align 1, !tbaa !23
+  br label %69
 
-for.body.i79:                                     ; preds = %for.body.i79, %for.body.lr.ph.i77
-  %i.03.i80 = phi i32 [ 0, %for.body.lr.ph.i77 ], [ %inc.i84, %for.body.i79 ]
-  %18 = load i32, ptr %position_.i87, align 8
-  %inc.i.i81 = add nsw i32 %18, 1
-  store i32 %inc.i.i81, ptr %position_.i87, align 8
-  %19 = load ptr, ptr %result_builder, align 8
-  %idxprom.i.i.i82 = sext i32 %18 to i64
-  %arrayidx.i.i.i83 = getelementptr inbounds i8, ptr %19, i64 %idxprom.i.i.i82
-  store i8 48, ptr %arrayidx.i.i.i83, align 1
-  %inc.i84 = add nuw nsw i32 %i.03.i80, 1
-  %exitcond.not.i85 = icmp eq i32 %inc.i84, %digits_after_point
-  br i1 %exitcond.not.i85, label %if.end30, label %for.body.i79, !llvm.loop !8
+69:                                               ; preds = %69, %.lr.ph.i57
+  %.04.i58 = phi i32 [ 0, %.lr.ph.i57 ], [ %75, %69 ]
+  %70 = load i32, ptr %46, align 8, !tbaa !19
+  %71 = add nsw i32 %70, 1
+  store i32 %71, ptr %46, align 8, !tbaa !19
+  %72 = load ptr, ptr %5, align 8, !tbaa !22
+  %73 = sext i32 %70 to i64
+  %74 = getelementptr inbounds i8, ptr %72, i64 %73
+  store i8 48, ptr %74, align 1, !tbaa !23
+  %75 = add nuw nsw i32 %.04.i58, 1
+  %exitcond.not.i59 = icmp eq i32 %75, %4
+  br i1 %exitcond.not.i59, label %_ZN17double_conversion13StringBuilder10AddPaddingEci.exit52.thread, label %69, !llvm.loop !28
 
-if.else13:                                        ; preds = %if.else
-  %conv.i90 = zext nneg i32 %decimal_point to i64
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %arrayidx.i.i89, ptr align 1 %decimal_digits, i64 %conv.i90, i1 false)
-  %20 = load i32, ptr %position_.i87, align 8
-  %add.i91 = add nsw i32 %20, %decimal_point
-  %inc.i93 = add nsw i32 %add.i91, 1
-  store i32 %inc.i93, ptr %position_.i87, align 8
-  %21 = load ptr, ptr %result_builder, align 8
-  %idxprom.i.i94 = sext i32 %add.i91 to i64
-  %arrayidx.i.i95 = getelementptr inbounds i8, ptr %21, i64 %idxprom.i.i94
-  store i8 46, ptr %arrayidx.i.i95, align 1
-  %arrayidx = getelementptr inbounds nuw i8, ptr %decimal_digits, i64 %conv.i90
-  %sub14 = sub nsw i32 %length, %decimal_point
-  %22 = load i32, ptr %position_.i87, align 8
-  %23 = load ptr, ptr %result_builder, align 8
-  %idxprom.i.i97 = sext i32 %22 to i64
-  %arrayidx.i.i98 = getelementptr inbounds i8, ptr %23, i64 %idxprom.i.i97
-  %conv.i99 = sext i32 %sub14 to i64
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %arrayidx.i.i98, ptr nonnull align 1 %arrayidx, i64 %conv.i99, i1 false)
-  %24 = load i32, ptr %position_.i87, align 8
-  %add.i100 = add nsw i32 %24, %sub14
-  store i32 %add.i100, ptr %position_.i87, align 8
-  %sub17 = sub nsw i32 %digits_after_point, %sub14
-  %cmp2.i101 = icmp sgt i32 %sub17, 0
-  br i1 %cmp2.i101, label %for.body.i104, label %if.end19
+76:                                               ; preds = %45
+  %77 = zext nneg i32 %3 to i64
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %50, ptr align 1 %1, i64 %77, i1 false)
+  %78 = load i32, ptr %46, align 8, !tbaa !19
+  %79 = add nsw i32 %78, %3
+  %80 = add nsw i32 %79, 1
+  store i32 %80, ptr %46, align 8, !tbaa !19
+  %81 = load ptr, ptr %5, align 8, !tbaa !22
+  %82 = sext i32 %79 to i64
+  %83 = getelementptr inbounds i8, ptr %81, i64 %82
+  store i8 46, ptr %83, align 1, !tbaa !23
+  %84 = getelementptr inbounds nuw i8, ptr %1, i64 %77
+  %85 = sub nsw i32 %2, %3
+  %86 = load i32, ptr %46, align 8, !tbaa !19
+  %87 = load ptr, ptr %5, align 8, !tbaa !22
+  %88 = sext i32 %86 to i64
+  %89 = getelementptr inbounds i8, ptr %87, i64 %88
+  %90 = sext i32 %85 to i64
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %89, ptr nonnull align 1 %84, i64 %90, i1 false)
+  %91 = load i32, ptr %46, align 8, !tbaa !19
+  %92 = add nsw i32 %91, %85
+  store i32 %92, ptr %46, align 8, !tbaa !19
+  %93 = sub nsw i32 %4, %85
+  %94 = icmp sgt i32 %93, 0
+  br i1 %94, label %.lr.ph.i61, label %_ZN17double_conversion13StringBuilder10AddPaddingEci.exit52
 
-for.body.i104:                                    ; preds = %if.else13, %for.body.i104
-  %i.03.i105 = phi i32 [ %inc.i109, %for.body.i104 ], [ 0, %if.else13 ]
-  %25 = load i32, ptr %position_.i87, align 8
-  %inc.i.i106 = add nsw i32 %25, 1
-  store i32 %inc.i.i106, ptr %position_.i87, align 8
-  %26 = load ptr, ptr %result_builder, align 8
-  %idxprom.i.i.i107 = sext i32 %25 to i64
-  %arrayidx.i.i.i108 = getelementptr inbounds i8, ptr %26, i64 %idxprom.i.i.i107
-  store i8 48, ptr %arrayidx.i.i.i108, align 1
-  %inc.i109 = add nuw nsw i32 %i.03.i105, 1
-  %exitcond.not.i110 = icmp eq i32 %inc.i109, %sub17
-  br i1 %exitcond.not.i110, label %if.end19, label %for.body.i104, !llvm.loop !8
+.lr.ph.i61:                                       ; preds = %76, %.lr.ph.i61
+  %.04.i62 = phi i32 [ %100, %.lr.ph.i61 ], [ 0, %76 ]
+  %95 = load i32, ptr %46, align 8, !tbaa !19
+  %96 = add nsw i32 %95, 1
+  store i32 %96, ptr %46, align 8, !tbaa !19
+  %97 = load ptr, ptr %5, align 8, !tbaa !22
+  %98 = sext i32 %95 to i64
+  %99 = getelementptr inbounds i8, ptr %97, i64 %98
+  store i8 48, ptr %99, align 1, !tbaa !23
+  %100 = add nuw nsw i32 %.04.i62, 1
+  %exitcond.not.i63 = icmp eq i32 %100, %93
+  br i1 %exitcond.not.i63, label %_ZN17double_conversion13StringBuilder10AddPaddingEci.exit52, label %.lr.ph.i61, !llvm.loop !28
 
-if.end19:                                         ; preds = %for.body.i104, %for.body.i48, %if.else13, %_ZN17double_conversion13StringBuilder10AddPaddingEci.exit, %_ZN17double_conversion13StringBuilder10AddPaddingEci.exit71, %if.then
-  %cmp20 = icmp eq i32 %digits_after_point, 0
-  br i1 %cmp20, label %if.then21, label %if.end30
+_ZN17double_conversion13StringBuilder10AddPaddingEci.exit52: ; preds = %.lr.ph.i61, %.lr.ph.i49, %76, %_ZN17double_conversion13StringBuilder10AddPaddingEci.exit, %_ZN17double_conversion13StringBuilder10AddPaddingEci.exit56, %8
+  %101 = icmp eq i32 %4, 0
+  br i1 %101, label %102, label %_ZN17double_conversion13StringBuilder10AddPaddingEci.exit52.thread
 
-if.then21:                                        ; preds = %if.end19
-  %27 = load i32, ptr %this, align 8
-  %and = and i32 %27, 2
-  %cmp22.not = icmp eq i32 %and, 0
-  br i1 %cmp22.not, label %if.end24, label %if.then23
+102:                                              ; preds = %_ZN17double_conversion13StringBuilder10AddPaddingEci.exit52
+  %103 = load i32, ptr %0, align 8, !tbaa !4
+  %104 = and i32 %103, 2
+  %.not47 = icmp eq i32 %104, 0
+  br i1 %.not47, label %112, label %105
 
-if.then23:                                        ; preds = %if.then21
-  %position_.i112 = getelementptr inbounds nuw i8, ptr %result_builder, i64 16
-  %28 = load i32, ptr %position_.i112, align 8
-  %inc.i113 = add nsw i32 %28, 1
-  store i32 %inc.i113, ptr %position_.i112, align 8
-  %29 = load ptr, ptr %result_builder, align 8
-  %idxprom.i.i114 = sext i32 %28 to i64
-  %arrayidx.i.i115 = getelementptr inbounds i8, ptr %29, i64 %idxprom.i.i114
-  store i8 46, ptr %arrayidx.i.i115, align 1
-  %.pre = load i32, ptr %this, align 8
-  br label %if.end24
+105:                                              ; preds = %102
+  %106 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  %107 = load i32, ptr %106, align 8, !tbaa !19
+  %108 = add nsw i32 %107, 1
+  store i32 %108, ptr %106, align 8, !tbaa !19
+  %109 = load ptr, ptr %5, align 8, !tbaa !22
+  %110 = sext i32 %107 to i64
+  %111 = getelementptr inbounds i8, ptr %109, i64 %110
+  store i8 46, ptr %111, align 1, !tbaa !23
+  %.pre = load i32, ptr %0, align 8, !tbaa !4
+  br label %112
 
-if.end24:                                         ; preds = %if.then23, %if.then21
-  %30 = phi i32 [ %.pre, %if.then23 ], [ %27, %if.then21 ]
-  %and26 = and i32 %30, 4
-  %cmp27.not = icmp eq i32 %and26, 0
-  br i1 %cmp27.not, label %if.end30, label %if.then28
+112:                                              ; preds = %105, %102
+  %113 = phi i32 [ %.pre, %105 ], [ %103, %102 ]
+  %114 = and i32 %113, 4
+  %.not48 = icmp eq i32 %114, 0
+  br i1 %.not48, label %_ZN17double_conversion13StringBuilder10AddPaddingEci.exit52.thread, label %115
 
-if.then28:                                        ; preds = %if.end24
-  %position_.i116 = getelementptr inbounds nuw i8, ptr %result_builder, i64 16
-  %31 = load i32, ptr %position_.i116, align 8
-  %inc.i117 = add nsw i32 %31, 1
-  store i32 %inc.i117, ptr %position_.i116, align 8
-  %32 = load ptr, ptr %result_builder, align 8
-  %idxprom.i.i118 = sext i32 %31 to i64
-  %arrayidx.i.i119 = getelementptr inbounds i8, ptr %32, i64 %idxprom.i.i118
-  store i8 48, ptr %arrayidx.i.i119, align 1
-  br label %if.end30
+115:                                              ; preds = %112
+  %116 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  %117 = load i32, ptr %116, align 8, !tbaa !19
+  %118 = add nsw i32 %117, 1
+  store i32 %118, ptr %116, align 8, !tbaa !19
+  %119 = load ptr, ptr %5, align 8, !tbaa !22
+  %120 = sext i32 %117 to i64
+  %121 = getelementptr inbounds i8, ptr %119, i64 %120
+  store i8 48, ptr %121, align 1, !tbaa !23
+  br label %_ZN17double_conversion13StringBuilder10AddPaddingEci.exit52.thread
 
-if.end30:                                         ; preds = %for.body.i79, %if.end24, %if.then28, %if.end19
+_ZN17double_conversion13StringBuilder10AddPaddingEci.exit52.thread: ; preds = %69, %112, %115, %_ZN17double_conversion13StringBuilder10AddPaddingEci.exit52
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZNK17double_conversion23DoubleToStringConverter20ToShortestIeeeNumberEdPNS_13StringBuilderENS0_8DtoaModeE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %this, double noundef %value, ptr noundef captures(none) %result_builder, i32 noundef %mode) local_unnamed_addr #4 align 2 {
-entry:
-  %decimal_point = alloca i32, align 4
-  %sign = alloca i8, align 1
-  %decimal_rep = alloca [18 x i8], align 16
-  %decimal_rep_length = alloca i32, align 4
-  %0 = tail call double @llvm.fabs.f64(double %value)
-  %cmp.i = fcmp ueq double %0, 0x7FF0000000000000
-  br i1 %cmp.i, label %if.then, label %if.end
+define noundef zeroext i1 @_ZNK17double_conversion23DoubleToStringConverter20ToShortestIeeeNumberEdPNS_13StringBuilderENS0_8DtoaModeE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %0, double noundef %1, ptr noundef captures(none) %2, i32 noundef %3) local_unnamed_addr #5 align 2 {
+  %5 = alloca i32, align 4
+  %6 = alloca i8, align 1
+  %7 = alloca [18 x i8], align 16
+  %8 = alloca i32, align 4
+  %9 = tail call double @llvm.fabs.f64(double %1)
+  %10 = fcmp ueq double %9, 0x7FF0000000000000
+  br i1 %10, label %11, label %40
 
-if.then:                                          ; preds = %entry
-  %1 = fcmp oeq double %0, 0x7FF0000000000000
-  br i1 %1, label %if.then.i, label %if.end7.i
+11:                                               ; preds = %4
+  %12 = fcmp oeq double %9, 0x7FF0000000000000
+  br i1 %12, label %13, label %26
 
-if.then.i:                                        ; preds = %if.then
-  %infinity_symbol_.i = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %2 = load ptr, ptr %infinity_symbol_.i, align 8
-  %cmp.i10 = icmp eq ptr %2, null
-  br i1 %cmp.i10, label %return, label %if.end.i
+13:                                               ; preds = %11
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %15 = load ptr, ptr %14, align 8, !tbaa !11
+  %16 = icmp eq ptr %15, null
+  br i1 %16, label %_ZNK17double_conversion23DoubleToStringConverter19HandleSpecialValuesEdPNS_13StringBuilderE.exit, label %17
 
-if.end.i:                                         ; preds = %if.then.i
-  %cmp3.i = fcmp olt double %value, 0.000000e+00
-  br i1 %cmp3.i, label %if.then4.i, label %return.sink.split.i
+17:                                               ; preds = %13
+  %18 = fcmp olt double %1, 0.000000e+00
+  br i1 %18, label %19, label %.sink.split.i
 
-if.then4.i:                                       ; preds = %if.end.i
-  %position_.i.i = getelementptr inbounds nuw i8, ptr %result_builder, i64 16
-  %3 = load i32, ptr %position_.i.i, align 8
-  %inc.i.i = add nsw i32 %3, 1
-  store i32 %inc.i.i, ptr %position_.i.i, align 8
-  %4 = load ptr, ptr %result_builder, align 8
-  %idxprom.i.i.i = sext i32 %3 to i64
-  %arrayidx.i.i.i = getelementptr inbounds i8, ptr %4, i64 %idxprom.i.i.i
-  store i8 45, ptr %arrayidx.i.i.i, align 1
-  %.pre.i = load ptr, ptr %infinity_symbol_.i, align 8
-  br label %return.sink.split.i
+19:                                               ; preds = %17
+  %20 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %21 = load i32, ptr %20, align 8, !tbaa !19
+  %22 = add nsw i32 %21, 1
+  store i32 %22, ptr %20, align 8, !tbaa !19
+  %23 = load ptr, ptr %2, align 8, !tbaa !22
+  %24 = sext i32 %21 to i64
+  %25 = getelementptr inbounds i8, ptr %23, i64 %24
+  store i8 45, ptr %25, align 1, !tbaa !23
+  %.pre.i = load ptr, ptr %14, align 8, !tbaa !11
+  br label %.sink.split.i
 
-if.end7.i:                                        ; preds = %if.then
-  %nan_symbol_.i = getelementptr inbounds nuw i8, ptr %this, i64 16
-  %5 = load ptr, ptr %nan_symbol_.i, align 8
-  %cmp10.i = icmp eq ptr %5, null
-  br i1 %cmp10.i, label %return, label %return.sink.split.i
+26:                                               ; preds = %11
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %28 = load ptr, ptr %27, align 8
+  %29 = icmp eq ptr %28, null
+  br i1 %29, label %_ZNK17double_conversion23DoubleToStringConverter19HandleSpecialValuesEdPNS_13StringBuilderE.exit, label %.sink.split.i
 
-return.sink.split.i:                              ; preds = %if.end7.i, %if.then4.i, %if.end.i
-  %.sink18.i = phi ptr [ %.pre.i, %if.then4.i ], [ %2, %if.end.i ], [ %5, %if.end7.i ]
-  %call.i.i4.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.sink18.i) #13
-  %conv.i.i5.i = trunc i64 %call.i.i4.i to i32
-  %position_.i.i6.i = getelementptr inbounds nuw i8, ptr %result_builder, i64 16
-  %6 = load i32, ptr %position_.i.i6.i, align 8
-  %7 = load ptr, ptr %result_builder, align 8
-  %idxprom.i.i.i7.i = sext i32 %6 to i64
-  %arrayidx.i.i.i8.i = getelementptr inbounds i8, ptr %7, i64 %idxprom.i.i.i7.i
-  %sext.i9.i = shl i64 %call.i.i4.i, 32
-  %conv.i2.i10.i = ashr exact i64 %sext.i9.i, 32
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %arrayidx.i.i.i8.i, ptr nonnull align 1 %.sink18.i, i64 %conv.i2.i10.i, i1 false)
-  %8 = load i32, ptr %position_.i.i6.i, align 8
-  %add.i.i11.i = add nsw i32 %8, %conv.i.i5.i
-  store i32 %add.i.i11.i, ptr %position_.i.i6.i, align 8
-  br label %return
+.sink.split.i:                                    ; preds = %26, %19, %17
+  %.sink21.i = phi ptr [ %.pre.i, %19 ], [ %15, %17 ], [ %28, %26 ]
+  %30 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.sink21.i) #14
+  %31 = trunc i64 %30 to i32
+  %32 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %33 = load i32, ptr %32, align 8, !tbaa !19
+  %34 = load ptr, ptr %2, align 8, !tbaa !22
+  %35 = sext i32 %33 to i64
+  %36 = getelementptr inbounds i8, ptr %34, i64 %35
+  %sext.i8.i = shl i64 %30, 32
+  %37 = ashr exact i64 %sext.i8.i, 32
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %36, ptr nonnull align 1 %.sink21.i, i64 %37, i1 false)
+  %38 = load i32, ptr %32, align 8, !tbaa !19
+  %39 = add nsw i32 %38, %31
+  store i32 %39, ptr %32, align 8, !tbaa !19
+  br label %_ZNK17double_conversion23DoubleToStringConverter19HandleSpecialValuesEdPNS_13StringBuilderE.exit
 
-if.end:                                           ; preds = %entry
-  call void @_ZN17double_conversion23DoubleToStringConverter13DoubleToAsciiEdNS0_8DtoaModeEiPciPbPiS4_(double noundef %value, i32 noundef %mode, i32 noundef 0, ptr noundef nonnull %decimal_rep, i32 noundef 18, ptr noundef nonnull %sign, ptr noundef nonnull %decimal_rep_length, ptr noundef nonnull %decimal_point)
-  %9 = load i32, ptr %this, align 8
-  %and = and i32 %9, 8
-  %cmp.not = icmp eq i32 %and, 0
-  %10 = load i8, ptr %sign, align 1
-  %tobool = trunc i8 %10 to i1
-  %cmp3 = fcmp une double %value, 0.000000e+00
-  %brmerge = select i1 %cmp3, i1 true, i1 %cmp.not
-  %or.cond9 = select i1 %tobool, i1 %brmerge, i1 false
-  br i1 %or.cond9, label %if.then5, label %if.end6
+40:                                               ; preds = %4
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #13
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6) #13
+  call void @llvm.lifetime.start.p0(i64 18, ptr nonnull %7) #13
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #13
+  call void @_ZN17double_conversion23DoubleToStringConverter13DoubleToAsciiEdNS0_8DtoaModeEiPciPbPiS4_(double noundef %1, i32 noundef %3, i32 noundef 0, ptr noundef nonnull %7, i32 noundef 18, ptr noundef nonnull %6, ptr noundef nonnull %8, ptr noundef nonnull %5)
+  %41 = load i32, ptr %0, align 8, !tbaa !4
+  %42 = and i32 %41, 8
+  %.not = icmp eq i32 %42, 0
+  %43 = load i8, ptr %6, align 1, !tbaa !29, !range !31, !noundef !32
+  %44 = trunc nuw i8 %43 to i1
+  %45 = fcmp une double %1, 0.000000e+00
+  %brmerge = select i1 %45, i1 true, i1 %.not
+  %or.cond18 = select i1 %44, i1 %brmerge, i1 false
+  br i1 %or.cond18, label %46, label %53
 
-if.then5:                                         ; preds = %if.end
-  %position_.i = getelementptr inbounds nuw i8, ptr %result_builder, i64 16
-  %11 = load i32, ptr %position_.i, align 8
-  %inc.i = add nsw i32 %11, 1
-  store i32 %inc.i, ptr %position_.i, align 8
-  %12 = load ptr, ptr %result_builder, align 8
-  %idxprom.i.i = sext i32 %11 to i64
-  %arrayidx.i.i = getelementptr inbounds i8, ptr %12, i64 %idxprom.i.i
-  store i8 45, ptr %arrayidx.i.i, align 1
-  br label %if.end6
+46:                                               ; preds = %40
+  %47 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %48 = load i32, ptr %47, align 8, !tbaa !19
+  %49 = add nsw i32 %48, 1
+  store i32 %49, ptr %47, align 8, !tbaa !19
+  %50 = load ptr, ptr %2, align 8, !tbaa !22
+  %51 = sext i32 %48 to i64
+  %52 = getelementptr inbounds i8, ptr %50, i64 %51
+  store i8 45, ptr %52, align 1, !tbaa !23
+  br label %53
 
-if.end6:                                          ; preds = %if.then5, %if.end
-  %13 = load i32, ptr %decimal_point, align 4
-  %decimal_in_shortest_low_ = getelementptr inbounds nuw i8, ptr %this, i64 28
-  %14 = load i32, ptr %decimal_in_shortest_low_, align 4
-  %cmp7.not.not = icmp sge i32 %14, %13
-  %decimal_in_shortest_high_ = getelementptr inbounds nuw i8, ptr %this, i64 32
-  %15 = load i32, ptr %decimal_in_shortest_high_, align 8
-  %cmp9.not = icmp sgt i32 %13, %15
-  %or.cond = select i1 %cmp7.not.not, i1 true, i1 %cmp9.not
-  br i1 %or.cond, label %if.else, label %if.then10
+53:                                               ; preds = %46, %40
+  %54 = load i32, ptr %5, align 4, !tbaa !26
+  %55 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  %56 = load i32, ptr %55, align 4, !tbaa !14
+  %.not15.not = icmp sge i32 %56, %54
+  %57 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %58 = load i32, ptr %57, align 8
+  %.not16 = icmp sgt i32 %54, %58
+  %or.cond = select i1 %.not15.not, i1 true, i1 %.not16
+  br i1 %or.cond, label %62, label %59
 
-if.then10:                                        ; preds = %if.end6
-  %16 = load i32, ptr %decimal_rep_length, align 4
-  %sub14 = sub nsw i32 %16, %13
-  %.sroa.speculated = call i32 @llvm.smax.i32(i32 %sub14, i32 0)
-  call void @_ZNK17double_conversion23DoubleToStringConverter27CreateDecimalRepresentationEPKciiiPNS_13StringBuilderE(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef nonnull %decimal_rep, i32 noundef %16, i32 noundef %13, i32 noundef %.sroa.speculated, ptr noundef %result_builder)
-  br label %return
+59:                                               ; preds = %53
+  %60 = load i32, ptr %8, align 4, !tbaa !26
+  %61 = sub nsw i32 %60, %54
+  %.sroa.speculated = call i32 @llvm.smax.i32(i32 %61, i32 0)
+  call void @_ZNK17double_conversion23DoubleToStringConverter27CreateDecimalRepresentationEPKciiiPNS_13StringBuilderE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull %7, i32 noundef %60, i32 noundef %54, i32 noundef %.sroa.speculated, ptr noundef %2)
+  br label %65
 
-if.else:                                          ; preds = %if.end6
-  %sub = add nsw i32 %13, -1
-  %17 = load i32, ptr %decimal_rep_length, align 4
-  call void @_ZNK17double_conversion23DoubleToStringConverter31CreateExponentialRepresentationEPKciiPNS_13StringBuilderE(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef nonnull %decimal_rep, i32 noundef %17, i32 noundef %sub, ptr noundef %result_builder)
-  br label %return
+62:                                               ; preds = %53
+  %63 = add nsw i32 %54, -1
+  %64 = load i32, ptr %8, align 4, !tbaa !26
+  call void @_ZNK17double_conversion23DoubleToStringConverter31CreateExponentialRepresentationEPKciiPNS_13StringBuilderE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull %7, i32 noundef %64, i32 noundef %63, ptr noundef %2)
+  br label %65
 
-return:                                           ; preds = %return.sink.split.i, %if.end7.i, %if.then.i, %if.then10, %if.else
-  %retval.0 = phi i1 [ true, %if.else ], [ true, %if.then10 ], [ false, %if.then.i ], [ false, %if.end7.i ], [ true, %return.sink.split.i ]
-  ret i1 %retval.0
+65:                                               ; preds = %62, %59
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #13
+  call void @llvm.lifetime.end.p0(i64 18, ptr nonnull %7) #13
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6) #13
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #13
+  br label %_ZNK17double_conversion23DoubleToStringConverter19HandleSpecialValuesEdPNS_13StringBuilderE.exit
+
+_ZNK17double_conversion23DoubleToStringConverter19HandleSpecialValuesEdPNS_13StringBuilderE.exit: ; preds = %.sink.split.i, %26, %13, %65
+  %.0 = phi i1 [ true, %65 ], [ false, %13 ], [ false, %26 ], [ true, %.sink.split.i ]
+  ret i1 %.0
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN17double_conversion23DoubleToStringConverter13DoubleToAsciiEdNS0_8DtoaModeEiPciPbPiS4_(double noundef %v, i32 noundef %mode, i32 noundef %requested_digits, ptr noundef %buffer, i32 noundef %buffer_length, ptr noundef writeonly captures(none) initializes((0, 1)) %sign, ptr noundef %length, ptr noundef %point) local_unnamed_addr #4 align 2 {
-entry:
-  %0 = bitcast double %v to i64
-  %.lobit = lshr i64 %0, 63
+define void @_ZN17double_conversion23DoubleToStringConverter13DoubleToAsciiEdNS0_8DtoaModeEiPciPbPiS4_(double noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef writeonly captures(none) initializes((0, 1)) %5, ptr noundef %6, ptr noundef %7) local_unnamed_addr #5 align 2 {
+  %9 = bitcast double %0 to i64
+  %.lobit = lshr i64 %9, 63
   %.sink = trunc nuw nsw i64 %.lobit to i8
-  %v.addr.0 = tail call double @llvm.fabs.f64(double %v)
-  store i8 %.sink, ptr %sign, align 1
-  %cmp1 = icmp eq i32 %mode, 3
-  %cmp2 = icmp eq i32 %requested_digits, 0
-  %or.cond = and i1 %cmp1, %cmp2
-  br i1 %or.cond, label %if.then3, label %if.end5
+  %.0 = tail call double @llvm.fabs.f64(double %0)
+  store i8 %.sink, ptr %5, align 1, !tbaa !29
+  %10 = icmp eq i32 %1, 3
+  %11 = icmp eq i32 %2, 0
+  %or.cond = and i1 %10, %11
+  br i1 %or.cond, label %12, label %13
 
-if.then3:                                         ; preds = %entry
-  store i8 0, ptr %buffer, align 1
-  store i32 0, ptr %length, align 4
-  br label %return
+12:                                               ; preds = %8
+  store i8 0, ptr %3, align 1, !tbaa !23
+  store i32 0, ptr %6, align 4, !tbaa !26
+  br label %30
 
-if.end5:                                          ; preds = %entry
-  %cmp6 = fcmp oeq double %v, 0.000000e+00
-  br i1 %cmp6, label %if.then7, label %if.end10
+13:                                               ; preds = %8
+  %14 = fcmp oeq double %0, 0.000000e+00
+  br i1 %14, label %15, label %17
 
-if.then7:                                         ; preds = %if.end5
-  store i8 48, ptr %buffer, align 1
-  %arrayidx.i = getelementptr inbounds nuw i8, ptr %buffer, i64 1
-  store i8 0, ptr %arrayidx.i, align 1
-  store i32 1, ptr %length, align 4
-  store i32 1, ptr %point, align 4
-  br label %return
+15:                                               ; preds = %13
+  store i8 48, ptr %3, align 1, !tbaa !23
+  %16 = getelementptr inbounds nuw i8, ptr %3, i64 1
+  store i8 0, ptr %16, align 1, !tbaa !23
+  store i32 1, ptr %6, align 4, !tbaa !26
+  store i32 1, ptr %7, align 4, !tbaa !26
+  br label %30
 
-if.end10:                                         ; preds = %if.end5
-  switch i32 %mode, label %sw.default [
-    i32 0, label %sw.epilog
-    i32 1, label %sw.bb12
-    i32 2, label %sw.bb16
-    i32 3, label %sw.bb20
+17:                                               ; preds = %13
+  switch i32 %1, label %24 [
+    i32 0, label %25
+    i32 1, label %18
+    i32 2, label %20
+    i32 3, label %22
   ]
 
-sw.bb12:                                          ; preds = %if.end10
-  %call14 = tail call noundef zeroext i1 @_ZN17double_conversion8FastDtoaEdNS_12FastDtoaModeEiNS_6VectorIcEEPiS3_(double noundef %v.addr.0, i32 noundef 1, i32 noundef 0, ptr %buffer, i32 %buffer_length, ptr noundef %length, ptr noundef %point)
-  br i1 %call14, label %return, label %_ZN17double_conversionL20DtoaToBignumDtoaModeENS_23DoubleToStringConverter8DtoaModeE.exit
+18:                                               ; preds = %17
+  %19 = tail call noundef zeroext i1 @_ZN17double_conversion8FastDtoaEdNS_12FastDtoaModeEiNS_6VectorIcEEPiS3_(double noundef %.0, i32 noundef 1, i32 noundef 0, ptr %3, i32 %4, ptr noundef %6, ptr noundef %7)
+  br i1 %19, label %30, label %_ZN17double_conversionL20DtoaToBignumDtoaModeENS_23DoubleToStringConverter8DtoaModeE.exit
 
-sw.bb16:                                          ; preds = %if.end10
-  %call18 = tail call noundef zeroext i1 @_ZN17double_conversion13FastFixedDtoaEdiNS_6VectorIcEEPiS2_(double noundef %v.addr.0, i32 noundef %requested_digits, ptr %buffer, i32 %buffer_length, ptr noundef %length, ptr noundef %point)
-  br i1 %call18, label %return, label %_ZN17double_conversionL20DtoaToBignumDtoaModeENS_23DoubleToStringConverter8DtoaModeE.exit
+20:                                               ; preds = %17
+  %21 = tail call noundef zeroext i1 @_ZN17double_conversion13FastFixedDtoaEdiNS_6VectorIcEEPiS2_(double noundef %.0, i32 noundef %2, ptr %3, i32 %4, ptr noundef %6, ptr noundef %7)
+  br i1 %21, label %30, label %_ZN17double_conversionL20DtoaToBignumDtoaModeENS_23DoubleToStringConverter8DtoaModeE.exit
 
-sw.bb20:                                          ; preds = %if.end10
-  %call22 = tail call noundef zeroext i1 @_ZN17double_conversion8FastDtoaEdNS_12FastDtoaModeEiNS_6VectorIcEEPiS3_(double noundef %v.addr.0, i32 noundef 2, i32 noundef %requested_digits, ptr %buffer, i32 %buffer_length, ptr noundef %length, ptr noundef %point)
-  br i1 %call22, label %return, label %_ZN17double_conversionL20DtoaToBignumDtoaModeENS_23DoubleToStringConverter8DtoaModeE.exit
+22:                                               ; preds = %17
+  %23 = tail call noundef zeroext i1 @_ZN17double_conversion8FastDtoaEdNS_12FastDtoaModeEiNS_6VectorIcEEPiS3_(double noundef %.0, i32 noundef 2, i32 noundef %2, ptr %3, i32 %4, ptr noundef %6, ptr noundef %7)
+  br i1 %23, label %30, label %_ZN17double_conversionL20DtoaToBignumDtoaModeENS_23DoubleToStringConverter8DtoaModeE.exit
 
-sw.default:                                       ; preds = %if.end10
-  tail call void @abort() #14
+24:                                               ; preds = %17
+  tail call void @abort() #15
   unreachable
 
-sw.epilog:                                        ; preds = %if.end10
-  %call11 = tail call noundef zeroext i1 @_ZN17double_conversion8FastDtoaEdNS_12FastDtoaModeEiNS_6VectorIcEEPiS3_(double noundef %v.addr.0, i32 noundef 0, i32 noundef 0, ptr %buffer, i32 %buffer_length, ptr noundef %length, ptr noundef %point)
-  br i1 %call11, label %return, label %_ZN17double_conversionL20DtoaToBignumDtoaModeENS_23DoubleToStringConverter8DtoaModeE.exit
+25:                                               ; preds = %17
+  %26 = tail call noundef zeroext i1 @_ZN17double_conversion8FastDtoaEdNS_12FastDtoaModeEiNS_6VectorIcEEPiS3_(double noundef %.0, i32 noundef 0, i32 noundef 0, ptr %3, i32 %4, ptr noundef %6, ptr noundef %7)
+  br i1 %26, label %30, label %_ZN17double_conversionL20DtoaToBignumDtoaModeENS_23DoubleToStringConverter8DtoaModeE.exit
 
-_ZN17double_conversionL20DtoaToBignumDtoaModeENS_23DoubleToStringConverter8DtoaModeE.exit: ; preds = %sw.epilog, %sw.bb20, %sw.bb16, %sw.bb12
-  tail call void @_ZN17double_conversion10BignumDtoaEdNS_14BignumDtoaModeEiNS_6VectorIcEEPiS3_(double noundef %v.addr.0, i32 noundef %mode, i32 noundef %requested_digits, ptr %buffer, i32 %buffer_length, ptr noundef %length, ptr noundef %point)
-  %1 = load i32, ptr %length, align 4
-  %idxprom.i = sext i32 %1 to i64
-  %arrayidx.i26 = getelementptr inbounds i8, ptr %buffer, i64 %idxprom.i
-  store i8 0, ptr %arrayidx.i26, align 1
-  br label %return
+_ZN17double_conversionL20DtoaToBignumDtoaModeENS_23DoubleToStringConverter8DtoaModeE.exit: ; preds = %25, %22, %20, %18
+  tail call void @_ZN17double_conversion10BignumDtoaEdNS_14BignumDtoaModeEiNS_6VectorIcEEPiS3_(double noundef %.0, i32 noundef %1, i32 noundef %2, ptr %3, i32 %4, ptr noundef %6, ptr noundef %7)
+  %27 = load i32, ptr %6, align 4, !tbaa !26
+  %28 = sext i32 %27 to i64
+  %29 = getelementptr inbounds i8, ptr %3, i64 %28
+  store i8 0, ptr %29, align 1, !tbaa !23
+  br label %30
 
-return:                                           ; preds = %sw.bb12, %sw.bb16, %sw.bb20, %sw.epilog, %_ZN17double_conversionL20DtoaToBignumDtoaModeENS_23DoubleToStringConverter8DtoaModeE.exit, %if.then7, %if.then3
+30:                                               ; preds = %18, %20, %22, %_ZN17double_conversionL20DtoaToBignumDtoaModeENS_23DoubleToStringConverter8DtoaModeE.exit, %25, %15, %12
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZNK17double_conversion23DoubleToStringConverter7ToFixedEdiPNS_13StringBuilderE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %this, double noundef %value, i32 noundef %requested_digits, ptr noundef captures(none) %result_builder) local_unnamed_addr #4 align 2 {
-entry:
-  %decimal_point = alloca i32, align 4
-  %decimal_rep = alloca [161 x i8], align 16
-  %decimal_rep_length = alloca i32, align 4
-  %0 = bitcast double %value to i64
-  %and.i = and i64 %0, 9218868437227405312
-  %cmp.i = icmp eq i64 %and.i, 9218868437227405312
-  br i1 %cmp.i, label %if.then, label %if.end
+define noundef zeroext i1 @_ZNK17double_conversion23DoubleToStringConverter7ToFixedEdiPNS_13StringBuilderE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %0, double noundef %1, i32 noundef %2, ptr noundef captures(none) %3) local_unnamed_addr #5 align 2 {
+  %5 = alloca i32, align 4
+  %6 = alloca [161 x i8], align 16
+  %7 = alloca i32, align 4
+  %8 = bitcast double %1 to i64
+  %9 = and i64 %8, 9218868437227405312
+  %10 = icmp eq i64 %9, 9218868437227405312
+  br i1 %10, label %11, label %42
 
-if.then:                                          ; preds = %entry
-  %1 = tail call double @llvm.fabs.f64(double %value)
-  %2 = fcmp oeq double %1, 0x7FF0000000000000
-  br i1 %2, label %if.then.i, label %if.end7.i
+11:                                               ; preds = %4
+  %12 = tail call double @llvm.fabs.f64(double %1)
+  %13 = fcmp oeq double %12, 0x7FF0000000000000
+  br i1 %13, label %14, label %27
 
-if.then.i:                                        ; preds = %if.then
-  %infinity_symbol_.i = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %3 = load ptr, ptr %infinity_symbol_.i, align 8
-  %cmp.i12 = icmp eq ptr %3, null
-  br i1 %cmp.i12, label %return, label %if.end.i
+14:                                               ; preds = %11
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %16 = load ptr, ptr %15, align 8, !tbaa !11
+  %17 = icmp eq ptr %16, null
+  br i1 %17, label %_ZNK17double_conversion23DoubleToStringConverter19HandleSpecialValuesEdPNS_13StringBuilderE.exit, label %18
 
-if.end.i:                                         ; preds = %if.then.i
-  %cmp3.i = fcmp olt double %value, 0.000000e+00
-  br i1 %cmp3.i, label %if.then4.i, label %return.sink.split.i
+18:                                               ; preds = %14
+  %19 = fcmp olt double %1, 0.000000e+00
+  br i1 %19, label %20, label %.sink.split.i
 
-if.then4.i:                                       ; preds = %if.end.i
-  %position_.i.i = getelementptr inbounds nuw i8, ptr %result_builder, i64 16
-  %4 = load i32, ptr %position_.i.i, align 8
-  %inc.i.i = add nsw i32 %4, 1
-  store i32 %inc.i.i, ptr %position_.i.i, align 8
-  %5 = load ptr, ptr %result_builder, align 8
-  %idxprom.i.i.i = sext i32 %4 to i64
-  %arrayidx.i.i.i = getelementptr inbounds i8, ptr %5, i64 %idxprom.i.i.i
-  store i8 45, ptr %arrayidx.i.i.i, align 1
-  %.pre.i = load ptr, ptr %infinity_symbol_.i, align 8
-  br label %return.sink.split.i
+20:                                               ; preds = %18
+  %21 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %22 = load i32, ptr %21, align 8, !tbaa !19
+  %23 = add nsw i32 %22, 1
+  store i32 %23, ptr %21, align 8, !tbaa !19
+  %24 = load ptr, ptr %3, align 8, !tbaa !22
+  %25 = sext i32 %22 to i64
+  %26 = getelementptr inbounds i8, ptr %24, i64 %25
+  store i8 45, ptr %26, align 1, !tbaa !23
+  %.pre.i = load ptr, ptr %15, align 8, !tbaa !11
+  br label %.sink.split.i
 
-if.end7.i:                                        ; preds = %if.then
-  %6 = fcmp ord double %value, 0.000000e+00
-  %nan_symbol_.i = getelementptr inbounds nuw i8, ptr %this, i64 16
-  %7 = load ptr, ptr %nan_symbol_.i, align 8
-  %cmp10.i = icmp eq ptr %7, null
-  %or.cond.i = select i1 %6, i1 true, i1 %cmp10.i
-  br i1 %or.cond.i, label %return, label %return.sink.split.i
+27:                                               ; preds = %11
+  %28 = fcmp ord double %1, 0.000000e+00
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %30 = load ptr, ptr %29, align 8
+  %31 = icmp eq ptr %30, null
+  %or.cond.i = select i1 %28, i1 true, i1 %31
+  br i1 %or.cond.i, label %_ZNK17double_conversion23DoubleToStringConverter19HandleSpecialValuesEdPNS_13StringBuilderE.exit, label %.sink.split.i
 
-return.sink.split.i:                              ; preds = %if.end7.i, %if.then4.i, %if.end.i
-  %.sink18.i = phi ptr [ %.pre.i, %if.then4.i ], [ %3, %if.end.i ], [ %7, %if.end7.i ]
-  %call.i.i4.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.sink18.i) #13
-  %conv.i.i5.i = trunc i64 %call.i.i4.i to i32
-  %position_.i.i6.i = getelementptr inbounds nuw i8, ptr %result_builder, i64 16
-  %8 = load i32, ptr %position_.i.i6.i, align 8
-  %9 = load ptr, ptr %result_builder, align 8
-  %idxprom.i.i.i7.i = sext i32 %8 to i64
-  %arrayidx.i.i.i8.i = getelementptr inbounds i8, ptr %9, i64 %idxprom.i.i.i7.i
-  %sext.i9.i = shl i64 %call.i.i4.i, 32
-  %conv.i2.i10.i = ashr exact i64 %sext.i9.i, 32
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %arrayidx.i.i.i8.i, ptr nonnull align 1 %.sink18.i, i64 %conv.i2.i10.i, i1 false)
-  %10 = load i32, ptr %position_.i.i6.i, align 8
-  %add.i.i11.i = add nsw i32 %10, %conv.i.i5.i
-  store i32 %add.i.i11.i, ptr %position_.i.i6.i, align 8
-  br label %return
+.sink.split.i:                                    ; preds = %27, %20, %18
+  %.sink21.i = phi ptr [ %.pre.i, %20 ], [ %16, %18 ], [ %30, %27 ]
+  %32 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.sink21.i) #14
+  %33 = trunc i64 %32 to i32
+  %34 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %35 = load i32, ptr %34, align 8, !tbaa !19
+  %36 = load ptr, ptr %3, align 8, !tbaa !22
+  %37 = sext i32 %35 to i64
+  %38 = getelementptr inbounds i8, ptr %36, i64 %37
+  %sext.i8.i = shl i64 %32, 32
+  %39 = ashr exact i64 %sext.i8.i, 32
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %38, ptr nonnull align 1 %.sink21.i, i64 %39, i1 false)
+  %40 = load i32, ptr %34, align 8, !tbaa !19
+  %41 = add nsw i32 %40, %33
+  store i32 %41, ptr %34, align 8, !tbaa !19
+  br label %_ZNK17double_conversion23DoubleToStringConverter19HandleSpecialValuesEdPNS_13StringBuilderE.exit
 
-if.end:                                           ; preds = %entry
-  %cmp = icmp slt i32 %requested_digits, 101
-  %11 = tail call double @llvm.fabs.f64(double %value)
-  %or.cond = fcmp ult double %11, 0x4C63E9E4E4C2F344
-  %or.cond10 = and i1 %cmp, %or.cond
-  br i1 %or.cond10, label %if.end8, label %return
+42:                                               ; preds = %4
+  %43 = icmp slt i32 %2, 101
+  %44 = tail call double @llvm.fabs.f64(double %1)
+  %or.cond = fcmp ult double %44, 0x4C63E9E4E4C2F344
+  %or.cond17 = and i1 %43, %or.cond
+  br i1 %or.cond17, label %45, label %_ZNK17double_conversion23DoubleToStringConverter19HandleSpecialValuesEdPNS_13StringBuilderE.exit
 
-if.end8:                                          ; preds = %if.end
-  %cmp6.i = fcmp oeq double %value, 0.000000e+00
-  br i1 %cmp6.i, label %if.then7.i, label %if.end10.i
+45:                                               ; preds = %42
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #13
+  call void @llvm.lifetime.start.p0(i64 161, ptr nonnull %6) #13
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #13
+  %46 = fcmp oeq double %1, 0.000000e+00
+  br i1 %46, label %47, label %49
 
-if.then7.i:                                       ; preds = %if.end8
-  store i8 48, ptr %decimal_rep, align 16
-  %arrayidx.i.i = getelementptr inbounds nuw i8, ptr %decimal_rep, i64 1
-  store i8 0, ptr %arrayidx.i.i, align 1
-  store i32 1, ptr %decimal_rep_length, align 4
-  store i32 1, ptr %decimal_point, align 4
+47:                                               ; preds = %45
+  store i8 48, ptr %6, align 16, !tbaa !23
+  %48 = getelementptr inbounds nuw i8, ptr %6, i64 1
+  store i8 0, ptr %48, align 1, !tbaa !23
+  store i32 1, ptr %7, align 4, !tbaa !26
+  store i32 1, ptr %5, align 4, !tbaa !26
   br label %_ZN17double_conversion23DoubleToStringConverter13DoubleToAsciiEdNS0_8DtoaModeEiPciPbPiS4_.exit
 
-if.end10.i:                                       ; preds = %if.end8
-  %call18.i = call noundef zeroext i1 @_ZN17double_conversion13FastFixedDtoaEdiNS_6VectorIcEEPiS2_(double noundef %11, i32 noundef %requested_digits, ptr nonnull %decimal_rep, i32 161, ptr noundef nonnull %decimal_rep_length, ptr noundef nonnull %decimal_point)
-  br i1 %call18.i, label %_ZN17double_conversion23DoubleToStringConverter13DoubleToAsciiEdNS0_8DtoaModeEiPciPbPiS4_.exit, label %_ZN17double_conversionL20DtoaToBignumDtoaModeENS_23DoubleToStringConverter8DtoaModeE.exit.i
+49:                                               ; preds = %45
+  %50 = call noundef zeroext i1 @_ZN17double_conversion13FastFixedDtoaEdiNS_6VectorIcEEPiS2_(double noundef %44, i32 noundef %2, ptr nonnull %6, i32 161, ptr noundef nonnull %7, ptr noundef nonnull %5)
+  br i1 %50, label %_ZN17double_conversion23DoubleToStringConverter13DoubleToAsciiEdNS0_8DtoaModeEiPciPbPiS4_.exit, label %_ZN17double_conversionL20DtoaToBignumDtoaModeENS_23DoubleToStringConverter8DtoaModeE.exit.i
 
-_ZN17double_conversionL20DtoaToBignumDtoaModeENS_23DoubleToStringConverter8DtoaModeE.exit.i: ; preds = %if.end10.i
-  call void @_ZN17double_conversion10BignumDtoaEdNS_14BignumDtoaModeEiNS_6VectorIcEEPiS3_(double noundef %11, i32 noundef 2, i32 noundef %requested_digits, ptr nonnull %decimal_rep, i32 161, ptr noundef nonnull %decimal_rep_length, ptr noundef nonnull %decimal_point)
-  %12 = load i32, ptr %decimal_rep_length, align 4
-  %idxprom.i.i = sext i32 %12 to i64
-  %arrayidx.i26.i = getelementptr inbounds i8, ptr %decimal_rep, i64 %idxprom.i.i
-  store i8 0, ptr %arrayidx.i26.i, align 1
+_ZN17double_conversionL20DtoaToBignumDtoaModeENS_23DoubleToStringConverter8DtoaModeE.exit.i: ; preds = %49
+  call void @_ZN17double_conversion10BignumDtoaEdNS_14BignumDtoaModeEiNS_6VectorIcEEPiS3_(double noundef %44, i32 noundef 2, i32 noundef %2, ptr nonnull %6, i32 161, ptr noundef nonnull %7, ptr noundef nonnull %5)
+  %51 = load i32, ptr %7, align 4, !tbaa !26
+  %52 = sext i32 %51 to i64
+  %53 = getelementptr inbounds i8, ptr %6, i64 %52
+  store i8 0, ptr %53, align 1, !tbaa !23
   br label %_ZN17double_conversion23DoubleToStringConverter13DoubleToAsciiEdNS0_8DtoaModeEiPciPbPiS4_.exit
 
-_ZN17double_conversion23DoubleToStringConverter13DoubleToAsciiEdNS0_8DtoaModeEiPciPbPiS4_.exit: ; preds = %if.then7.i, %if.end10.i, %_ZN17double_conversionL20DtoaToBignumDtoaModeENS_23DoubleToStringConverter8DtoaModeE.exit.i
-  %13 = load i32, ptr %this, align 8
-  %and = and i32 %13, 8
-  %cmp9.not = icmp eq i32 %and, 0
-  %tobool = icmp slt i64 %0, 0
-  %cmp10 = fcmp une double %value, 0.000000e+00
-  %brmerge = select i1 %cmp10, i1 true, i1 %cmp9.not
-  %or.cond11 = select i1 %tobool, i1 %brmerge, i1 false
-  br i1 %or.cond11, label %if.then13, label %if.end14
+_ZN17double_conversion23DoubleToStringConverter13DoubleToAsciiEdNS0_8DtoaModeEiPciPbPiS4_.exit: ; preds = %47, %49, %_ZN17double_conversionL20DtoaToBignumDtoaModeENS_23DoubleToStringConverter8DtoaModeE.exit.i
+  %54 = load i32, ptr %0, align 8, !tbaa !4
+  %55 = and i32 %54, 8
+  %.not = icmp eq i32 %55, 0
+  %56 = icmp slt i64 %8, 0
+  %57 = fcmp une double %1, 0.000000e+00
+  %brmerge = select i1 %57, i1 true, i1 %.not
+  %or.cond18 = select i1 %56, i1 %brmerge, i1 false
+  br i1 %or.cond18, label %58, label %65
 
-if.then13:                                        ; preds = %_ZN17double_conversion23DoubleToStringConverter13DoubleToAsciiEdNS0_8DtoaModeEiPciPbPiS4_.exit
-  %position_.i = getelementptr inbounds nuw i8, ptr %result_builder, i64 16
-  %14 = load i32, ptr %position_.i, align 8
-  %inc.i = add nsw i32 %14, 1
-  store i32 %inc.i, ptr %position_.i, align 8
-  %15 = load ptr, ptr %result_builder, align 8
-  %idxprom.i.i14 = sext i32 %14 to i64
-  %arrayidx.i.i15 = getelementptr inbounds i8, ptr %15, i64 %idxprom.i.i14
-  store i8 45, ptr %arrayidx.i.i15, align 1
-  br label %if.end14
+58:                                               ; preds = %_ZN17double_conversion23DoubleToStringConverter13DoubleToAsciiEdNS0_8DtoaModeEiPciPbPiS4_.exit
+  %59 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %60 = load i32, ptr %59, align 8, !tbaa !19
+  %61 = add nsw i32 %60, 1
+  store i32 %61, ptr %59, align 8, !tbaa !19
+  %62 = load ptr, ptr %3, align 8, !tbaa !22
+  %63 = sext i32 %60 to i64
+  %64 = getelementptr inbounds i8, ptr %62, i64 %63
+  store i8 45, ptr %64, align 1, !tbaa !23
+  br label %65
 
-if.end14:                                         ; preds = %if.then13, %_ZN17double_conversion23DoubleToStringConverter13DoubleToAsciiEdNS0_8DtoaModeEiPciPbPiS4_.exit
-  %16 = load i32, ptr %decimal_rep_length, align 4
-  %17 = load i32, ptr %decimal_point, align 4
-  call void @_ZNK17double_conversion23DoubleToStringConverter27CreateDecimalRepresentationEPKciiiPNS_13StringBuilderE(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef nonnull %decimal_rep, i32 noundef %16, i32 noundef %17, i32 noundef %requested_digits, ptr noundef %result_builder)
-  br label %return
+65:                                               ; preds = %58, %_ZN17double_conversion23DoubleToStringConverter13DoubleToAsciiEdNS0_8DtoaModeEiPciPbPiS4_.exit
+  %66 = load i32, ptr %7, align 4, !tbaa !26
+  %67 = load i32, ptr %5, align 4, !tbaa !26
+  call void @_ZNK17double_conversion23DoubleToStringConverter27CreateDecimalRepresentationEPKciiiPNS_13StringBuilderE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull %6, i32 noundef %66, i32 noundef %67, i32 noundef %2, ptr noundef %3)
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #13
+  call void @llvm.lifetime.end.p0(i64 161, ptr nonnull %6) #13
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #13
+  br label %_ZNK17double_conversion23DoubleToStringConverter19HandleSpecialValuesEdPNS_13StringBuilderE.exit
 
-return:                                           ; preds = %return.sink.split.i, %if.end7.i, %if.then.i, %if.end, %if.end14
-  %retval.0 = phi i1 [ true, %if.end14 ], [ false, %if.end ], [ false, %if.then.i ], [ false, %if.end7.i ], [ true, %return.sink.split.i ]
-  ret i1 %retval.0
+_ZNK17double_conversion23DoubleToStringConverter19HandleSpecialValuesEdPNS_13StringBuilderE.exit: ; preds = %.sink.split.i, %27, %14, %42, %65
+  %.0 = phi i1 [ true, %65 ], [ false, %42 ], [ false, %14 ], [ false, %27 ], [ true, %.sink.split.i ]
+  ret i1 %.0
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZNK17double_conversion23DoubleToStringConverter13ToExponentialEdiPNS_13StringBuilderE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %this, double noundef %value, i32 noundef %requested_digits, ptr noundef captures(none) %result_builder) local_unnamed_addr #4 align 2 {
-entry:
-  %decimal_point = alloca i32, align 4
-  %decimal_rep = alloca [122 x i8], align 16
-  %decimal_rep_length = alloca i32, align 4
-  %0 = bitcast double %value to i64
-  %and.i = and i64 %0, 9218868437227405312
-  %cmp.i = icmp eq i64 %and.i, 9218868437227405312
-  br i1 %cmp.i, label %if.then, label %if.end
+define noundef zeroext i1 @_ZNK17double_conversion23DoubleToStringConverter13ToExponentialEdiPNS_13StringBuilderE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %0, double noundef %1, i32 noundef %2, ptr noundef captures(none) %3) local_unnamed_addr #5 align 2 {
+  %5 = alloca i32, align 4
+  %6 = alloca [122 x i8], align 16
+  %7 = alloca i32, align 4
+  %8 = bitcast double %1 to i64
+  %9 = and i64 %8, 9218868437227405312
+  %10 = icmp eq i64 %9, 9218868437227405312
+  br i1 %10, label %11, label %42
 
-if.then:                                          ; preds = %entry
-  %1 = tail call double @llvm.fabs.f64(double %value)
-  %2 = fcmp oeq double %1, 0x7FF0000000000000
-  br i1 %2, label %if.then.i, label %if.end7.i
+11:                                               ; preds = %4
+  %12 = tail call double @llvm.fabs.f64(double %1)
+  %13 = fcmp oeq double %12, 0x7FF0000000000000
+  br i1 %13, label %14, label %27
 
-if.then.i:                                        ; preds = %if.then
-  %infinity_symbol_.i = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %3 = load ptr, ptr %infinity_symbol_.i, align 8
-  %cmp.i15 = icmp eq ptr %3, null
-  br i1 %cmp.i15, label %return, label %if.end.i
+14:                                               ; preds = %11
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %16 = load ptr, ptr %15, align 8, !tbaa !11
+  %17 = icmp eq ptr %16, null
+  br i1 %17, label %_ZNK17double_conversion23DoubleToStringConverter19HandleSpecialValuesEdPNS_13StringBuilderE.exit, label %18
 
-if.end.i:                                         ; preds = %if.then.i
-  %cmp3.i = fcmp olt double %value, 0.000000e+00
-  br i1 %cmp3.i, label %if.then4.i, label %return.sink.split.i
+18:                                               ; preds = %14
+  %19 = fcmp olt double %1, 0.000000e+00
+  br i1 %19, label %20, label %.sink.split.i
 
-if.then4.i:                                       ; preds = %if.end.i
-  %position_.i.i = getelementptr inbounds nuw i8, ptr %result_builder, i64 16
-  %4 = load i32, ptr %position_.i.i, align 8
-  %inc.i.i = add nsw i32 %4, 1
-  store i32 %inc.i.i, ptr %position_.i.i, align 8
-  %5 = load ptr, ptr %result_builder, align 8
-  %idxprom.i.i.i = sext i32 %4 to i64
-  %arrayidx.i.i.i = getelementptr inbounds i8, ptr %5, i64 %idxprom.i.i.i
-  store i8 45, ptr %arrayidx.i.i.i, align 1
-  %.pre.i = load ptr, ptr %infinity_symbol_.i, align 8
-  br label %return.sink.split.i
+20:                                               ; preds = %18
+  %21 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %22 = load i32, ptr %21, align 8, !tbaa !19
+  %23 = add nsw i32 %22, 1
+  store i32 %23, ptr %21, align 8, !tbaa !19
+  %24 = load ptr, ptr %3, align 8, !tbaa !22
+  %25 = sext i32 %22 to i64
+  %26 = getelementptr inbounds i8, ptr %24, i64 %25
+  store i8 45, ptr %26, align 1, !tbaa !23
+  %.pre.i = load ptr, ptr %15, align 8, !tbaa !11
+  br label %.sink.split.i
 
-if.end7.i:                                        ; preds = %if.then
-  %6 = fcmp ord double %value, 0.000000e+00
-  %nan_symbol_.i = getelementptr inbounds nuw i8, ptr %this, i64 16
-  %7 = load ptr, ptr %nan_symbol_.i, align 8
-  %cmp10.i = icmp eq ptr %7, null
-  %or.cond.i = select i1 %6, i1 true, i1 %cmp10.i
-  br i1 %or.cond.i, label %return, label %return.sink.split.i
+27:                                               ; preds = %11
+  %28 = fcmp ord double %1, 0.000000e+00
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %30 = load ptr, ptr %29, align 8
+  %31 = icmp eq ptr %30, null
+  %or.cond.i = select i1 %28, i1 true, i1 %31
+  br i1 %or.cond.i, label %_ZNK17double_conversion23DoubleToStringConverter19HandleSpecialValuesEdPNS_13StringBuilderE.exit, label %.sink.split.i
 
-return.sink.split.i:                              ; preds = %if.end7.i, %if.then4.i, %if.end.i
-  %.sink18.i = phi ptr [ %.pre.i, %if.then4.i ], [ %3, %if.end.i ], [ %7, %if.end7.i ]
-  %call.i.i4.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.sink18.i) #13
-  %conv.i.i5.i = trunc i64 %call.i.i4.i to i32
-  %position_.i.i6.i = getelementptr inbounds nuw i8, ptr %result_builder, i64 16
-  %8 = load i32, ptr %position_.i.i6.i, align 8
-  %9 = load ptr, ptr %result_builder, align 8
-  %idxprom.i.i.i7.i = sext i32 %8 to i64
-  %arrayidx.i.i.i8.i = getelementptr inbounds i8, ptr %9, i64 %idxprom.i.i.i7.i
-  %sext.i9.i = shl i64 %call.i.i4.i, 32
-  %conv.i2.i10.i = ashr exact i64 %sext.i9.i, 32
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %arrayidx.i.i.i8.i, ptr nonnull align 1 %.sink18.i, i64 %conv.i2.i10.i, i1 false)
-  %10 = load i32, ptr %position_.i.i6.i, align 8
-  %add.i.i11.i = add nsw i32 %10, %conv.i.i5.i
-  store i32 %add.i.i11.i, ptr %position_.i.i6.i, align 8
-  br label %return
+.sink.split.i:                                    ; preds = %27, %20, %18
+  %.sink21.i = phi ptr [ %.pre.i, %20 ], [ %16, %18 ], [ %30, %27 ]
+  %32 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.sink21.i) #14
+  %33 = trunc i64 %32 to i32
+  %34 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %35 = load i32, ptr %34, align 8, !tbaa !19
+  %36 = load ptr, ptr %3, align 8, !tbaa !22
+  %37 = sext i32 %35 to i64
+  %38 = getelementptr inbounds i8, ptr %36, i64 %37
+  %sext.i8.i = shl i64 %32, 32
+  %39 = ashr exact i64 %sext.i8.i, 32
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %38, ptr nonnull align 1 %.sink21.i, i64 %39, i1 false)
+  %40 = load i32, ptr %34, align 8, !tbaa !19
+  %41 = add nsw i32 %40, %33
+  store i32 %41, ptr %34, align 8, !tbaa !19
+  br label %_ZNK17double_conversion23DoubleToStringConverter19HandleSpecialValuesEdPNS_13StringBuilderE.exit
 
-if.end:                                           ; preds = %entry
-  %11 = add i32 %requested_digits, -121
-  %or.cond = icmp ult i32 %11, -122
-  br i1 %or.cond, label %return, label %if.end7
+42:                                               ; preds = %4
+  %43 = add i32 %2, -121
+  %or.cond = icmp ult i32 %43, -122
+  br i1 %or.cond, label %_ZNK17double_conversion23DoubleToStringConverter19HandleSpecialValuesEdPNS_13StringBuilderE.exit, label %44
 
-if.end7:                                          ; preds = %if.end
-  %cmp8 = icmp eq i32 %requested_digits, -1
-  br i1 %cmp8, label %if.then9, label %if.else
+44:                                               ; preds = %42
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #13
+  call void @llvm.lifetime.start.p0(i64 122, ptr nonnull %6) #13
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #13
+  %45 = icmp eq i32 %2, -1
+  br i1 %45, label %46, label %55
 
-if.then9:                                         ; preds = %if.end7
-  %v.addr.0.i = tail call double @llvm.fabs.f64(double %value)
-  %cmp6.i = fcmp oeq double %value, 0.000000e+00
-  br i1 %cmp6.i, label %if.then7.i, label %if.end10.i
+46:                                               ; preds = %44
+  %.0.i25 = tail call double @llvm.fabs.f64(double %1)
+  %47 = fcmp oeq double %1, 0.000000e+00
+  br i1 %47, label %48, label %50
 
-if.then7.i:                                       ; preds = %if.then9
-  store i8 48, ptr %decimal_rep, align 16
-  %arrayidx.i.i = getelementptr inbounds nuw i8, ptr %decimal_rep, i64 1
-  store i8 0, ptr %arrayidx.i.i, align 1
-  store i32 1, ptr %decimal_rep_length, align 4
-  store i32 1, ptr %decimal_point, align 4
-  br label %if.end14
+48:                                               ; preds = %46
+  store i8 48, ptr %6, align 16, !tbaa !23
+  %49 = getelementptr inbounds nuw i8, ptr %6, i64 1
+  store i8 0, ptr %49, align 1, !tbaa !23
+  store i32 1, ptr %7, align 4, !tbaa !26
+  store i32 1, ptr %5, align 4, !tbaa !26
+  br label %_ZN17double_conversion23DoubleToStringConverter13DoubleToAsciiEdNS0_8DtoaModeEiPciPbPiS4_.exit
 
-if.end10.i:                                       ; preds = %if.then9
-  %call11.i = call noundef zeroext i1 @_ZN17double_conversion8FastDtoaEdNS_12FastDtoaModeEiNS_6VectorIcEEPiS3_(double noundef %v.addr.0.i, i32 noundef 0, i32 noundef 0, ptr nonnull %decimal_rep, i32 122, ptr noundef nonnull %decimal_rep_length, ptr noundef nonnull %decimal_point)
-  br i1 %call11.i, label %if.end14, label %_ZN17double_conversionL20DtoaToBignumDtoaModeENS_23DoubleToStringConverter8DtoaModeE.exit.i
+50:                                               ; preds = %46
+  %51 = call noundef zeroext i1 @_ZN17double_conversion8FastDtoaEdNS_12FastDtoaModeEiNS_6VectorIcEEPiS3_(double noundef %.0.i25, i32 noundef 0, i32 noundef 0, ptr nonnull %6, i32 122, ptr noundef nonnull %7, ptr noundef nonnull %5)
+  br i1 %51, label %_ZN17double_conversion23DoubleToStringConverter13DoubleToAsciiEdNS0_8DtoaModeEiPciPbPiS4_.exit, label %_ZN17double_conversionL20DtoaToBignumDtoaModeENS_23DoubleToStringConverter8DtoaModeE.exit.i
 
-_ZN17double_conversionL20DtoaToBignumDtoaModeENS_23DoubleToStringConverter8DtoaModeE.exit.i: ; preds = %if.end10.i
-  call void @_ZN17double_conversion10BignumDtoaEdNS_14BignumDtoaModeEiNS_6VectorIcEEPiS3_(double noundef %v.addr.0.i, i32 noundef 0, i32 noundef 0, ptr nonnull %decimal_rep, i32 122, ptr noundef nonnull %decimal_rep_length, ptr noundef nonnull %decimal_point)
-  %12 = load i32, ptr %decimal_rep_length, align 4
-  %idxprom.i.i = sext i32 %12 to i64
-  %arrayidx.i26.i = getelementptr inbounds i8, ptr %decimal_rep, i64 %idxprom.i.i
-  store i8 0, ptr %arrayidx.i26.i, align 1
-  br label %if.end14
+_ZN17double_conversionL20DtoaToBignumDtoaModeENS_23DoubleToStringConverter8DtoaModeE.exit.i: ; preds = %50
+  call void @_ZN17double_conversion10BignumDtoaEdNS_14BignumDtoaModeEiNS_6VectorIcEEPiS3_(double noundef %.0.i25, i32 noundef 0, i32 noundef 0, ptr nonnull %6, i32 122, ptr noundef nonnull %7, ptr noundef nonnull %5)
+  %52 = load i32, ptr %7, align 4, !tbaa !26
+  %53 = sext i32 %52 to i64
+  %54 = getelementptr inbounds i8, ptr %6, i64 %53
+  store i8 0, ptr %54, align 1, !tbaa !23
+  br label %_ZN17double_conversion23DoubleToStringConverter13DoubleToAsciiEdNS0_8DtoaModeEiPciPbPiS4_.exit
 
-if.else:                                          ; preds = %if.end7
-  %add = add nuw nsw i32 %requested_digits, 1
-  %v.addr.0.i18 = tail call double @llvm.fabs.f64(double %value)
-  %cmp6.i20 = fcmp oeq double %value, 0.000000e+00
-  br i1 %cmp6.i20, label %if.then7.i25, label %if.end10.i21
+55:                                               ; preds = %44
+  %56 = add nuw nsw i32 %2, 1
+  %.0.i28 = tail call double @llvm.fabs.f64(double %1)
+  %57 = fcmp oeq double %1, 0.000000e+00
+  br i1 %57, label %58, label %60
 
-if.then7.i25:                                     ; preds = %if.else
-  store i8 48, ptr %decimal_rep, align 16
-  %arrayidx.i.i26 = getelementptr inbounds nuw i8, ptr %decimal_rep, i64 1
-  store i8 0, ptr %arrayidx.i.i26, align 1
-  store i32 1, ptr %decimal_point, align 4
-  br label %_ZN17double_conversion23DoubleToStringConverter13DoubleToAsciiEdNS0_8DtoaModeEiPciPbPiS4_.exit27
+58:                                               ; preds = %55
+  store i8 48, ptr %6, align 16, !tbaa !23
+  %59 = getelementptr inbounds nuw i8, ptr %6, i64 1
+  store i8 0, ptr %59, align 1, !tbaa !23
+  store i32 1, ptr %5, align 4, !tbaa !26
+  br label %_ZN17double_conversion23DoubleToStringConverter13DoubleToAsciiEdNS0_8DtoaModeEiPciPbPiS4_.exit31
 
-if.end10.i21:                                     ; preds = %if.else
-  %call22.i = call noundef zeroext i1 @_ZN17double_conversion8FastDtoaEdNS_12FastDtoaModeEiNS_6VectorIcEEPiS3_(double noundef %v.addr.0.i18, i32 noundef 2, i32 noundef %add, ptr nonnull %decimal_rep, i32 122, ptr noundef nonnull %decimal_rep_length, ptr noundef nonnull %decimal_point)
-  br i1 %call22.i, label %if.end10.i21._ZN17double_conversion23DoubleToStringConverter13DoubleToAsciiEdNS0_8DtoaModeEiPciPbPiS4_.exit27_crit_edge, label %_ZN17double_conversionL20DtoaToBignumDtoaModeENS_23DoubleToStringConverter8DtoaModeE.exit.i22
+60:                                               ; preds = %55
+  %61 = call noundef zeroext i1 @_ZN17double_conversion8FastDtoaEdNS_12FastDtoaModeEiNS_6VectorIcEEPiS3_(double noundef %.0.i28, i32 noundef 2, i32 noundef %56, ptr nonnull %6, i32 122, ptr noundef nonnull %7, ptr noundef nonnull %5)
+  br i1 %61, label %._ZN17double_conversion23DoubleToStringConverter13DoubleToAsciiEdNS0_8DtoaModeEiPciPbPiS4_.exit31_crit_edge, label %_ZN17double_conversionL20DtoaToBignumDtoaModeENS_23DoubleToStringConverter8DtoaModeE.exit.i30
 
-if.end10.i21._ZN17double_conversion23DoubleToStringConverter13DoubleToAsciiEdNS0_8DtoaModeEiPciPbPiS4_.exit27_crit_edge: ; preds = %if.end10.i21
-  %.pre = load i32, ptr %decimal_rep_length, align 4
-  br label %_ZN17double_conversion23DoubleToStringConverter13DoubleToAsciiEdNS0_8DtoaModeEiPciPbPiS4_.exit27
+._ZN17double_conversion23DoubleToStringConverter13DoubleToAsciiEdNS0_8DtoaModeEiPciPbPiS4_.exit31_crit_edge: ; preds = %60
+  %.pre = load i32, ptr %7, align 4, !tbaa !26
+  br label %_ZN17double_conversion23DoubleToStringConverter13DoubleToAsciiEdNS0_8DtoaModeEiPciPbPiS4_.exit31
 
-_ZN17double_conversionL20DtoaToBignumDtoaModeENS_23DoubleToStringConverter8DtoaModeE.exit.i22: ; preds = %if.end10.i21
-  call void @_ZN17double_conversion10BignumDtoaEdNS_14BignumDtoaModeEiNS_6VectorIcEEPiS3_(double noundef %v.addr.0.i18, i32 noundef 3, i32 noundef %add, ptr nonnull %decimal_rep, i32 122, ptr noundef nonnull %decimal_rep_length, ptr noundef nonnull %decimal_point)
-  %13 = load i32, ptr %decimal_rep_length, align 4
-  %idxprom.i.i23 = sext i32 %13 to i64
-  %arrayidx.i26.i24 = getelementptr inbounds i8, ptr %decimal_rep, i64 %idxprom.i.i23
-  store i8 0, ptr %arrayidx.i26.i24, align 1
-  br label %_ZN17double_conversion23DoubleToStringConverter13DoubleToAsciiEdNS0_8DtoaModeEiPciPbPiS4_.exit27
+_ZN17double_conversionL20DtoaToBignumDtoaModeENS_23DoubleToStringConverter8DtoaModeE.exit.i30: ; preds = %60
+  call void @_ZN17double_conversion10BignumDtoaEdNS_14BignumDtoaModeEiNS_6VectorIcEEPiS3_(double noundef %.0.i28, i32 noundef 3, i32 noundef %56, ptr nonnull %6, i32 122, ptr noundef nonnull %7, ptr noundef nonnull %5)
+  %62 = load i32, ptr %7, align 4, !tbaa !26
+  %63 = sext i32 %62 to i64
+  %64 = getelementptr inbounds i8, ptr %6, i64 %63
+  store i8 0, ptr %64, align 1, !tbaa !23
+  br label %_ZN17double_conversion23DoubleToStringConverter13DoubleToAsciiEdNS0_8DtoaModeEiPciPbPiS4_.exit31
 
-_ZN17double_conversion23DoubleToStringConverter13DoubleToAsciiEdNS0_8DtoaModeEiPciPbPiS4_.exit27: ; preds = %if.end10.i21._ZN17double_conversion23DoubleToStringConverter13DoubleToAsciiEdNS0_8DtoaModeEiPciPbPiS4_.exit27_crit_edge, %if.then7.i25, %_ZN17double_conversionL20DtoaToBignumDtoaModeENS_23DoubleToStringConverter8DtoaModeE.exit.i22
-  %14 = phi i32 [ %.pre, %if.end10.i21._ZN17double_conversion23DoubleToStringConverter13DoubleToAsciiEdNS0_8DtoaModeEiPciPbPiS4_.exit27_crit_edge ], [ 1, %if.then7.i25 ], [ %13, %_ZN17double_conversionL20DtoaToBignumDtoaModeENS_23DoubleToStringConverter8DtoaModeE.exit.i22 ]
-  %cmp12.not30 = icmp sgt i32 %14, %requested_digits
-  br i1 %cmp12.not30, label %for.end, label %for.body.preheader
+_ZN17double_conversion23DoubleToStringConverter13DoubleToAsciiEdNS0_8DtoaModeEiPciPbPiS4_.exit31: ; preds = %._ZN17double_conversion23DoubleToStringConverter13DoubleToAsciiEdNS0_8DtoaModeEiPciPbPiS4_.exit31_crit_edge, %58, %_ZN17double_conversionL20DtoaToBignumDtoaModeENS_23DoubleToStringConverter8DtoaModeE.exit.i30
+  %65 = phi i32 [ %.pre, %._ZN17double_conversion23DoubleToStringConverter13DoubleToAsciiEdNS0_8DtoaModeEiPciPbPiS4_.exit31_crit_edge ], [ 1, %58 ], [ %62, %_ZN17double_conversionL20DtoaToBignumDtoaModeENS_23DoubleToStringConverter8DtoaModeE.exit.i30 ]
+  %.not33 = icmp sgt i32 %65, %2
+  br i1 %.not33, label %._crit_edge, label %.lr.ph.preheader
 
-for.body.preheader:                               ; preds = %_ZN17double_conversion23DoubleToStringConverter13DoubleToAsciiEdNS0_8DtoaModeEiPciPbPiS4_.exit27
-  %15 = sext i32 %14 to i64
-  %scevgep = getelementptr i8, ptr %decimal_rep, i64 %15
-  %16 = sub i32 %requested_digits, %14
-  %17 = zext i32 %16 to i64
-  %18 = add nuw nsw i64 %17, 1
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %scevgep, i8 48, i64 %18, i1 false)
-  br label %for.end
+.lr.ph.preheader:                                 ; preds = %_ZN17double_conversion23DoubleToStringConverter13DoubleToAsciiEdNS0_8DtoaModeEiPciPbPiS4_.exit31
+  %66 = sext i32 %65 to i64
+  %scevgep = getelementptr i8, ptr %6, i64 %66
+  %67 = sub i32 %2, %65
+  %68 = zext i32 %67 to i64
+  %69 = add nuw nsw i64 %68, 1
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %scevgep, i8 48, i64 %69, i1 false), !tbaa !23
+  br label %._crit_edge
 
-for.end:                                          ; preds = %for.body.preheader, %_ZN17double_conversion23DoubleToStringConverter13DoubleToAsciiEdNS0_8DtoaModeEiPciPbPiS4_.exit27
-  store i32 %add, ptr %decimal_rep_length, align 4
-  br label %if.end14
+._crit_edge:                                      ; preds = %.lr.ph.preheader, %_ZN17double_conversion23DoubleToStringConverter13DoubleToAsciiEdNS0_8DtoaModeEiPciPbPiS4_.exit31
+  store i32 %56, ptr %7, align 4, !tbaa !26
+  br label %_ZN17double_conversion23DoubleToStringConverter13DoubleToAsciiEdNS0_8DtoaModeEiPciPbPiS4_.exit
 
-if.end14:                                         ; preds = %_ZN17double_conversionL20DtoaToBignumDtoaModeENS_23DoubleToStringConverter8DtoaModeE.exit.i, %if.end10.i, %if.then7.i, %for.end
-  %19 = load i32, ptr %this, align 8
-  %and = and i32 %19, 8
-  %cmp15.not = icmp eq i32 %and, 0
-  %tobool = icmp slt i64 %0, 0
-  %cmp16 = fcmp une double %value, 0.000000e+00
-  %brmerge = select i1 %cmp16, i1 true, i1 %cmp15.not
-  %or.cond14 = select i1 %tobool, i1 %brmerge, i1 false
-  br i1 %or.cond14, label %if.then18, label %if.end19
+_ZN17double_conversion23DoubleToStringConverter13DoubleToAsciiEdNS0_8DtoaModeEiPciPbPiS4_.exit: ; preds = %_ZN17double_conversionL20DtoaToBignumDtoaModeENS_23DoubleToStringConverter8DtoaModeE.exit.i, %50, %48, %._crit_edge
+  %70 = load i32, ptr %0, align 8, !tbaa !4
+  %71 = and i32 %70, 8
+  %.not23 = icmp eq i32 %71, 0
+  %72 = icmp slt i64 %8, 0
+  %73 = fcmp une double %1, 0.000000e+00
+  %brmerge = select i1 %73, i1 true, i1 %.not23
+  %or.cond24 = select i1 %72, i1 %brmerge, i1 false
+  br i1 %or.cond24, label %74, label %81
 
-if.then18:                                        ; preds = %if.end14
-  %position_.i = getelementptr inbounds nuw i8, ptr %result_builder, i64 16
-  %20 = load i32, ptr %position_.i, align 8
-  %inc.i = add nsw i32 %20, 1
-  store i32 %inc.i, ptr %position_.i, align 8
-  %21 = load ptr, ptr %result_builder, align 8
-  %idxprom.i.i28 = sext i32 %20 to i64
-  %arrayidx.i.i29 = getelementptr inbounds i8, ptr %21, i64 %idxprom.i.i28
-  store i8 45, ptr %arrayidx.i.i29, align 1
-  br label %if.end19
+74:                                               ; preds = %_ZN17double_conversion23DoubleToStringConverter13DoubleToAsciiEdNS0_8DtoaModeEiPciPbPiS4_.exit
+  %75 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %76 = load i32, ptr %75, align 8, !tbaa !19
+  %77 = add nsw i32 %76, 1
+  store i32 %77, ptr %75, align 8, !tbaa !19
+  %78 = load ptr, ptr %3, align 8, !tbaa !22
+  %79 = sext i32 %76 to i64
+  %80 = getelementptr inbounds i8, ptr %78, i64 %79
+  store i8 45, ptr %80, align 1, !tbaa !23
+  br label %81
 
-if.end19:                                         ; preds = %if.then18, %if.end14
-  %22 = load i32, ptr %decimal_point, align 4
-  %sub = add nsw i32 %22, -1
-  %23 = load i32, ptr %decimal_rep_length, align 4
-  call void @_ZNK17double_conversion23DoubleToStringConverter31CreateExponentialRepresentationEPKciiPNS_13StringBuilderE(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef nonnull %decimal_rep, i32 noundef %23, i32 noundef %sub, ptr noundef %result_builder)
-  br label %return
+81:                                               ; preds = %74, %_ZN17double_conversion23DoubleToStringConverter13DoubleToAsciiEdNS0_8DtoaModeEiPciPbPiS4_.exit
+  %82 = load i32, ptr %5, align 4, !tbaa !26
+  %83 = add nsw i32 %82, -1
+  %84 = load i32, ptr %7, align 4, !tbaa !26
+  call void @_ZNK17double_conversion23DoubleToStringConverter31CreateExponentialRepresentationEPKciiPNS_13StringBuilderE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull %6, i32 noundef %84, i32 noundef %83, ptr noundef %3)
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #13
+  call void @llvm.lifetime.end.p0(i64 122, ptr nonnull %6) #13
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #13
+  br label %_ZNK17double_conversion23DoubleToStringConverter19HandleSpecialValuesEdPNS_13StringBuilderE.exit
 
-return:                                           ; preds = %return.sink.split.i, %if.end7.i, %if.then.i, %if.end, %if.end19
-  %retval.0 = phi i1 [ true, %if.end19 ], [ false, %if.end ], [ false, %if.then.i ], [ false, %if.end7.i ], [ true, %return.sink.split.i ]
-  ret i1 %retval.0
+_ZNK17double_conversion23DoubleToStringConverter19HandleSpecialValuesEdPNS_13StringBuilderE.exit: ; preds = %.sink.split.i, %27, %14, %42, %81
+  %.0 = phi i1 [ true, %81 ], [ false, %42 ], [ false, %14 ], [ false, %27 ], [ true, %.sink.split.i ]
+  ret i1 %.0
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZNK17double_conversion23DoubleToStringConverter11ToPrecisionEdiPNS_13StringBuilderE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %this, double noundef %value, i32 noundef %precision, ptr noundef captures(none) %result_builder) local_unnamed_addr #4 align 2 {
-entry:
-  %decimal_point = alloca i32, align 4
-  %decimal_rep = alloca [121 x i8], align 16
-  %decimal_rep_length = alloca i32, align 4
-  %0 = bitcast double %value to i64
-  %and.i = and i64 %0, 9218868437227405312
-  %cmp.i = icmp eq i64 %and.i, 9218868437227405312
-  br i1 %cmp.i, label %if.then, label %if.end
+define noundef zeroext i1 @_ZNK17double_conversion23DoubleToStringConverter11ToPrecisionEdiPNS_13StringBuilderE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %0, double noundef %1, i32 noundef %2, ptr noundef captures(none) %3) local_unnamed_addr #5 align 2 {
+  %5 = alloca i32, align 4
+  %6 = alloca [121 x i8], align 16
+  %7 = alloca i32, align 4
+  %8 = bitcast double %1 to i64
+  %9 = and i64 %8, 9218868437227405312
+  %10 = icmp eq i64 %9, 9218868437227405312
+  br i1 %10, label %11, label %42
 
-if.then:                                          ; preds = %entry
-  %1 = tail call double @llvm.fabs.f64(double %value)
-  %2 = fcmp oeq double %1, 0x7FF0000000000000
-  br i1 %2, label %if.then.i, label %if.end7.i
+11:                                               ; preds = %4
+  %12 = tail call double @llvm.fabs.f64(double %1)
+  %13 = fcmp oeq double %12, 0x7FF0000000000000
+  br i1 %13, label %14, label %27
 
-if.then.i:                                        ; preds = %if.then
-  %infinity_symbol_.i = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %3 = load ptr, ptr %infinity_symbol_.i, align 8
-  %cmp.i13 = icmp eq ptr %3, null
-  br i1 %cmp.i13, label %return, label %if.end.i
+14:                                               ; preds = %11
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %16 = load ptr, ptr %15, align 8, !tbaa !11
+  %17 = icmp eq ptr %16, null
+  br i1 %17, label %_ZNK17double_conversion23DoubleToStringConverter19HandleSpecialValuesEdPNS_13StringBuilderE.exit, label %18
 
-if.end.i:                                         ; preds = %if.then.i
-  %cmp3.i = fcmp olt double %value, 0.000000e+00
-  br i1 %cmp3.i, label %if.then4.i, label %return.sink.split.i
+18:                                               ; preds = %14
+  %19 = fcmp olt double %1, 0.000000e+00
+  br i1 %19, label %20, label %.sink.split.i
 
-if.then4.i:                                       ; preds = %if.end.i
-  %position_.i.i = getelementptr inbounds nuw i8, ptr %result_builder, i64 16
-  %4 = load i32, ptr %position_.i.i, align 8
-  %inc.i.i = add nsw i32 %4, 1
-  store i32 %inc.i.i, ptr %position_.i.i, align 8
-  %5 = load ptr, ptr %result_builder, align 8
-  %idxprom.i.i.i = sext i32 %4 to i64
-  %arrayidx.i.i.i = getelementptr inbounds i8, ptr %5, i64 %idxprom.i.i.i
-  store i8 45, ptr %arrayidx.i.i.i, align 1
-  %.pre.i = load ptr, ptr %infinity_symbol_.i, align 8
-  br label %return.sink.split.i
+20:                                               ; preds = %18
+  %21 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %22 = load i32, ptr %21, align 8, !tbaa !19
+  %23 = add nsw i32 %22, 1
+  store i32 %23, ptr %21, align 8, !tbaa !19
+  %24 = load ptr, ptr %3, align 8, !tbaa !22
+  %25 = sext i32 %22 to i64
+  %26 = getelementptr inbounds i8, ptr %24, i64 %25
+  store i8 45, ptr %26, align 1, !tbaa !23
+  %.pre.i = load ptr, ptr %15, align 8, !tbaa !11
+  br label %.sink.split.i
 
-if.end7.i:                                        ; preds = %if.then
-  %6 = fcmp ord double %value, 0.000000e+00
-  %nan_symbol_.i = getelementptr inbounds nuw i8, ptr %this, i64 16
-  %7 = load ptr, ptr %nan_symbol_.i, align 8
-  %cmp10.i = icmp eq ptr %7, null
-  %or.cond.i = select i1 %6, i1 true, i1 %cmp10.i
-  br i1 %or.cond.i, label %return, label %return.sink.split.i
+27:                                               ; preds = %11
+  %28 = fcmp ord double %1, 0.000000e+00
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %30 = load ptr, ptr %29, align 8
+  %31 = icmp eq ptr %30, null
+  %or.cond.i = select i1 %28, i1 true, i1 %31
+  br i1 %or.cond.i, label %_ZNK17double_conversion23DoubleToStringConverter19HandleSpecialValuesEdPNS_13StringBuilderE.exit, label %.sink.split.i
 
-return.sink.split.i:                              ; preds = %if.end7.i, %if.then4.i, %if.end.i
-  %.sink18.i = phi ptr [ %.pre.i, %if.then4.i ], [ %3, %if.end.i ], [ %7, %if.end7.i ]
-  %call.i.i4.i = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.sink18.i) #13
-  %conv.i.i5.i = trunc i64 %call.i.i4.i to i32
-  %position_.i.i6.i = getelementptr inbounds nuw i8, ptr %result_builder, i64 16
-  %8 = load i32, ptr %position_.i.i6.i, align 8
-  %9 = load ptr, ptr %result_builder, align 8
-  %idxprom.i.i.i7.i = sext i32 %8 to i64
-  %arrayidx.i.i.i8.i = getelementptr inbounds i8, ptr %9, i64 %idxprom.i.i.i7.i
-  %sext.i9.i = shl i64 %call.i.i4.i, 32
-  %conv.i2.i10.i = ashr exact i64 %sext.i9.i, 32
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %arrayidx.i.i.i8.i, ptr nonnull align 1 %.sink18.i, i64 %conv.i2.i10.i, i1 false)
-  %10 = load i32, ptr %position_.i.i6.i, align 8
-  %add.i.i11.i = add nsw i32 %10, %conv.i.i5.i
-  store i32 %add.i.i11.i, ptr %position_.i.i6.i, align 8
-  br label %return
+.sink.split.i:                                    ; preds = %27, %20, %18
+  %.sink21.i = phi ptr [ %.pre.i, %20 ], [ %16, %18 ], [ %30, %27 ]
+  %32 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.sink21.i) #14
+  %33 = trunc i64 %32 to i32
+  %34 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %35 = load i32, ptr %34, align 8, !tbaa !19
+  %36 = load ptr, ptr %3, align 8, !tbaa !22
+  %37 = sext i32 %35 to i64
+  %38 = getelementptr inbounds i8, ptr %36, i64 %37
+  %sext.i8.i = shl i64 %32, 32
+  %39 = ashr exact i64 %sext.i8.i, 32
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %38, ptr nonnull align 1 %.sink21.i, i64 %39, i1 false)
+  %40 = load i32, ptr %34, align 8, !tbaa !19
+  %41 = add nsw i32 %40, %33
+  store i32 %41, ptr %34, align 8, !tbaa !19
+  br label %_ZNK17double_conversion23DoubleToStringConverter19HandleSpecialValuesEdPNS_13StringBuilderE.exit
 
-if.end:                                           ; preds = %entry
-  %11 = add i32 %precision, -121
-  %or.cond = icmp ult i32 %11, -120
-  br i1 %or.cond, label %return, label %if.end5.i
+42:                                               ; preds = %4
+  %43 = add i32 %2, -121
+  %or.cond = icmp ult i32 %43, -120
+  br i1 %or.cond, label %_ZNK17double_conversion23DoubleToStringConverter19HandleSpecialValuesEdPNS_13StringBuilderE.exit, label %44
 
-if.end5.i:                                        ; preds = %if.end
-  %v.addr.0.i = tail call double @llvm.fabs.f64(double %value)
-  %cmp6.i = fcmp oeq double %value, 0.000000e+00
-  br i1 %cmp6.i, label %if.then7.i, label %if.end10.i
+44:                                               ; preds = %42
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #13
+  call void @llvm.lifetime.start.p0(i64 121, ptr nonnull %6) #13
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #13
+  %.0.i25 = tail call double @llvm.fabs.f64(double %1)
+  %45 = fcmp oeq double %1, 0.000000e+00
+  br i1 %45, label %46, label %48
 
-if.then7.i:                                       ; preds = %if.end5.i
-  store i8 48, ptr %decimal_rep, align 16
-  %arrayidx.i.i = getelementptr inbounds nuw i8, ptr %decimal_rep, i64 1
-  store i8 0, ptr %arrayidx.i.i, align 1
-  store i32 1, ptr %decimal_rep_length, align 4
-  store i32 1, ptr %decimal_point, align 4
+46:                                               ; preds = %44
+  store i8 48, ptr %6, align 16, !tbaa !23
+  %47 = getelementptr inbounds nuw i8, ptr %6, i64 1
+  store i8 0, ptr %47, align 1, !tbaa !23
+  store i32 1, ptr %7, align 4, !tbaa !26
+  store i32 1, ptr %5, align 4, !tbaa !26
   br label %_ZN17double_conversion23DoubleToStringConverter13DoubleToAsciiEdNS0_8DtoaModeEiPciPbPiS4_.exit
 
-if.end10.i:                                       ; preds = %if.end5.i
-  %call22.i = call noundef zeroext i1 @_ZN17double_conversion8FastDtoaEdNS_12FastDtoaModeEiNS_6VectorIcEEPiS3_(double noundef %v.addr.0.i, i32 noundef 2, i32 noundef %precision, ptr nonnull %decimal_rep, i32 121, ptr noundef nonnull %decimal_rep_length, ptr noundef nonnull %decimal_point)
-  br i1 %call22.i, label %_ZN17double_conversion23DoubleToStringConverter13DoubleToAsciiEdNS0_8DtoaModeEiPciPbPiS4_.exit, label %_ZN17double_conversionL20DtoaToBignumDtoaModeENS_23DoubleToStringConverter8DtoaModeE.exit.i
+48:                                               ; preds = %44
+  %49 = call noundef zeroext i1 @_ZN17double_conversion8FastDtoaEdNS_12FastDtoaModeEiNS_6VectorIcEEPiS3_(double noundef %.0.i25, i32 noundef 2, i32 noundef %2, ptr nonnull %6, i32 121, ptr noundef nonnull %7, ptr noundef nonnull %5)
+  br i1 %49, label %_ZN17double_conversion23DoubleToStringConverter13DoubleToAsciiEdNS0_8DtoaModeEiPciPbPiS4_.exit, label %_ZN17double_conversionL20DtoaToBignumDtoaModeENS_23DoubleToStringConverter8DtoaModeE.exit.i
 
-_ZN17double_conversionL20DtoaToBignumDtoaModeENS_23DoubleToStringConverter8DtoaModeE.exit.i: ; preds = %if.end10.i
-  call void @_ZN17double_conversion10BignumDtoaEdNS_14BignumDtoaModeEiNS_6VectorIcEEPiS3_(double noundef %v.addr.0.i, i32 noundef 3, i32 noundef %precision, ptr nonnull %decimal_rep, i32 121, ptr noundef nonnull %decimal_rep_length, ptr noundef nonnull %decimal_point)
-  %12 = load i32, ptr %decimal_rep_length, align 4
-  %idxprom.i.i = sext i32 %12 to i64
-  %arrayidx.i26.i = getelementptr inbounds i8, ptr %decimal_rep, i64 %idxprom.i.i
-  store i8 0, ptr %arrayidx.i26.i, align 1
+_ZN17double_conversionL20DtoaToBignumDtoaModeENS_23DoubleToStringConverter8DtoaModeE.exit.i: ; preds = %48
+  call void @_ZN17double_conversion10BignumDtoaEdNS_14BignumDtoaModeEiNS_6VectorIcEEPiS3_(double noundef %.0.i25, i32 noundef 3, i32 noundef %2, ptr nonnull %6, i32 121, ptr noundef nonnull %7, ptr noundef nonnull %5)
+  %50 = load i32, ptr %7, align 4, !tbaa !26
+  %51 = sext i32 %50 to i64
+  %52 = getelementptr inbounds i8, ptr %6, i64 %51
+  store i8 0, ptr %52, align 1, !tbaa !23
   br label %_ZN17double_conversion23DoubleToStringConverter13DoubleToAsciiEdNS0_8DtoaModeEiPciPbPiS4_.exit
 
-_ZN17double_conversion23DoubleToStringConverter13DoubleToAsciiEdNS0_8DtoaModeEiPciPbPiS4_.exit: ; preds = %if.then7.i, %if.end10.i, %_ZN17double_conversionL20DtoaToBignumDtoaModeENS_23DoubleToStringConverter8DtoaModeE.exit.i
-  %13 = load i32, ptr %this, align 8
-  %and = and i32 %13, 8
-  %cmp6.not = icmp eq i32 %and, 0
-  %tobool = icmp slt i64 %0, 0
-  %cmp7 = fcmp une double %value, 0.000000e+00
-  %brmerge = select i1 %cmp7, i1 true, i1 %cmp6.not
-  %or.cond12 = select i1 %tobool, i1 %brmerge, i1 false
-  br i1 %or.cond12, label %if.then10, label %if.end11
+_ZN17double_conversion23DoubleToStringConverter13DoubleToAsciiEdNS0_8DtoaModeEiPciPbPiS4_.exit: ; preds = %46, %48, %_ZN17double_conversionL20DtoaToBignumDtoaModeENS_23DoubleToStringConverter8DtoaModeE.exit.i
+  %53 = load i32, ptr %0, align 8, !tbaa !4
+  %54 = and i32 %53, 8
+  %.not = icmp eq i32 %54, 0
+  %55 = icmp slt i64 %8, 0
+  %56 = fcmp une double %1, 0.000000e+00
+  %brmerge = select i1 %56, i1 true, i1 %.not
+  %or.cond24 = select i1 %55, i1 %brmerge, i1 false
+  br i1 %or.cond24, label %57, label %64
 
-if.then10:                                        ; preds = %_ZN17double_conversion23DoubleToStringConverter13DoubleToAsciiEdNS0_8DtoaModeEiPciPbPiS4_.exit
-  %position_.i = getelementptr inbounds nuw i8, ptr %result_builder, i64 16
-  %14 = load i32, ptr %position_.i, align 8
-  %inc.i = add nsw i32 %14, 1
-  store i32 %inc.i, ptr %position_.i, align 8
-  %15 = load ptr, ptr %result_builder, align 8
-  %idxprom.i.i15 = sext i32 %14 to i64
-  %arrayidx.i.i16 = getelementptr inbounds i8, ptr %15, i64 %idxprom.i.i15
-  store i8 45, ptr %arrayidx.i.i16, align 1
-  br label %if.end11
+57:                                               ; preds = %_ZN17double_conversion23DoubleToStringConverter13DoubleToAsciiEdNS0_8DtoaModeEiPciPbPiS4_.exit
+  %58 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %59 = load i32, ptr %58, align 8, !tbaa !19
+  %60 = add nsw i32 %59, 1
+  store i32 %60, ptr %58, align 8, !tbaa !19
+  %61 = load ptr, ptr %3, align 8, !tbaa !22
+  %62 = sext i32 %59 to i64
+  %63 = getelementptr inbounds i8, ptr %61, i64 %62
+  store i8 45, ptr %63, align 1, !tbaa !23
+  br label %64
 
-if.end11:                                         ; preds = %if.then10, %_ZN17double_conversion23DoubleToStringConverter13DoubleToAsciiEdNS0_8DtoaModeEiPciPbPiS4_.exit
-  %16 = load i32, ptr %decimal_point, align 4
-  %sub = add nsw i32 %16, -1
-  %add = sub i32 1, %16
-  %max_leading_padding_zeroes_in_precision_mode_ = getelementptr inbounds nuw i8, ptr %this, i64 36
-  %17 = load i32, ptr %max_leading_padding_zeroes_in_precision_mode_, align 4
-  %cmp16 = icmp sgt i32 %add, %17
-  %18 = load i32, ptr %this, align 8
-  br i1 %cmp16, label %lor.end.thread, label %lor.end
+64:                                               ; preds = %57, %_ZN17double_conversion23DoubleToStringConverter13DoubleToAsciiEdNS0_8DtoaModeEiPciPbPiS4_.exit
+  %65 = load i32, ptr %5, align 4, !tbaa !26
+  %66 = add nsw i32 %65, -1
+  %67 = sub i32 1, %65
+  %68 = getelementptr inbounds nuw i8, ptr %0, i64 36
+  %69 = load i32, ptr %68, align 4, !tbaa !16
+  %70 = icmp sgt i32 %67, %69
+  %71 = load i32, ptr %0, align 8, !tbaa !4
+  br i1 %70, label %.thread, label %72
 
-lor.end:                                          ; preds = %if.end11
-  %and13 = lshr i32 %18, 2
-  %and13.lobit = and i32 %and13, 1
-  %sub17 = sub i32 %16, %precision
-  %add18 = add nsw i32 %sub17, %and13.lobit
-  %max_trailing_padding_zeroes_in_precision_mode_ = getelementptr inbounds nuw i8, ptr %this, i64 40
-  %19 = load i32, ptr %max_trailing_padding_zeroes_in_precision_mode_, align 8
-  %cmp19 = icmp sgt i32 %add18, %19
-  %and22 = and i32 %18, 16
-  %cmp23.not = icmp eq i32 %and22, 0
-  br i1 %cmp23.not, label %if.end33, label %if.then24
+72:                                               ; preds = %64
+  %73 = lshr i32 %71, 2
+  %.lobit = and i32 %73, 1
+  %74 = sub i32 %65, %2
+  %75 = add nsw i32 %74, %.lobit
+  %76 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %77 = load i32, ptr %76, align 8, !tbaa !17
+  %78 = icmp sgt i32 %75, %77
+  %79 = and i32 %71, 16
+  %.not23 = icmp eq i32 %79, 0
+  br i1 %.not23, label %98, label %81
 
-lor.end.thread:                                   ; preds = %if.end11
-  %and2237 = and i32 %18, 16
-  %cmp23.not38 = icmp eq i32 %and2237, 0
-  br i1 %cmp23.not38, label %lor.end.thread.if.then35_crit_edge, label %cond.end
+.thread:                                          ; preds = %64
+  %80 = and i32 %71, 16
+  %.not2351 = icmp eq i32 %80, 0
+  br i1 %.not2351, label %.thread..thread53_crit_edge, label %.thread52
 
-lor.end.thread.if.then35_crit_edge:               ; preds = %lor.end.thread
-  %.pre52 = load i32, ptr %decimal_rep_length, align 4
-  br label %if.then35
+.thread..thread53_crit_edge:                      ; preds = %.thread
+  %.pre66 = load i32, ptr %7, align 4, !tbaa !26
+  br label %.thread53
 
-if.then24:                                        ; preds = %lor.end
-  br i1 %cmp19, label %cond.end, label %cond.false
+81:                                               ; preds = %72
+  br i1 %78, label %.thread52, label %82
 
-cond.false:                                       ; preds = %if.then24
-  %.sroa.speculated24 = call i32 @llvm.smax.i32(i32 %16, i32 1)
-  br label %cond.end
+82:                                               ; preds = %81
+  %.sroa.speculated32 = call i32 @llvm.smax.i32(i32 %65, i32 1)
+  br label %.thread52
 
-cond.end:                                         ; preds = %lor.end.thread, %if.then24, %cond.false
-  %20 = phi i1 [ false, %cond.false ], [ true, %if.then24 ], [ true, %lor.end.thread ]
-  %cond28 = phi i32 [ %.sroa.speculated24, %cond.false ], [ 1, %if.then24 ], [ 1, %lor.end.thread ]
-  %decimal_rep_length.promoted = load i32, ptr %decimal_rep_length, align 4
-  %cmp2943 = icmp sgt i32 %decimal_rep_length.promoted, %cond28
-  br i1 %cmp2943, label %land.rhs.preheader, label %while.end
+.thread52:                                        ; preds = %.thread, %81, %82
+  %83 = phi i1 [ false, %82 ], [ true, %81 ], [ true, %.thread ]
+  %84 = phi i32 [ %.sroa.speculated32, %82 ], [ 1, %81 ], [ 1, %.thread ]
+  %.promoted = load i32, ptr %7, align 4, !tbaa !26
+  %85 = icmp sgt i32 %.promoted, %84
+  br i1 %85, label %.lr.ph.preheader, label %.critedge
 
-land.rhs.preheader:                               ; preds = %cond.end
-  %21 = zext nneg i32 %decimal_rep_length.promoted to i64
-  %22 = zext nneg i32 %cond28 to i64
-  %indvars.iv.next61 = add nsw i64 %21, -1
-  %arrayidx62 = getelementptr inbounds [121 x i8], ptr %decimal_rep, i64 0, i64 %indvars.iv.next61
-  %23 = load i8, ptr %arrayidx62, align 1
-  %cmp3163 = icmp eq i8 %23, 48
-  br i1 %cmp3163, label %while.body, label %while.end
+.lr.ph.preheader:                                 ; preds = %.thread52
+  %86 = zext nneg i32 %.promoted to i64
+  %87 = zext nneg i32 %84 to i64
+  %indvars.iv.next75 = add nsw i64 %86, -1
+  %88 = getelementptr inbounds [121 x i8], ptr %6, i64 0, i64 %indvars.iv.next75
+  %89 = load i8, ptr %88, align 1, !tbaa !23
+  %90 = icmp eq i8 %89, 48
+  br i1 %90, label %.lr.ph77, label %.critedge
 
-land.rhs:                                         ; preds = %while.body
-  %indvars.iv.next = add nsw i64 %indvars.iv.next64, -1
-  %arrayidx = getelementptr inbounds [121 x i8], ptr %decimal_rep, i64 0, i64 %indvars.iv.next
-  %24 = load i8, ptr %arrayidx, align 1
-  %cmp31 = icmp eq i8 %24, 48
-  br i1 %cmp31, label %while.body, label %land.rhs.while.end.loopexit.split.loop.exit54_crit_edge, !llvm.loop !9
+.lr.ph:                                           ; preds = %.lr.ph77
+  %indvars.iv.next = add nsw i64 %indvars.iv.next76, -1
+  %91 = getelementptr inbounds [121 x i8], ptr %6, i64 0, i64 %indvars.iv.next
+  %92 = load i8, ptr %91, align 1, !tbaa !23
+  %93 = icmp eq i8 %92, 48
+  br i1 %93, label %.lr.ph77, label %.lr.ph..critedge.loopexit.split.loop.exit68_crit_edge, !llvm.loop !33
 
-while.body:                                       ; preds = %land.rhs.preheader, %land.rhs
-  %indvars.iv.next64 = phi i64 [ %indvars.iv.next, %land.rhs ], [ %indvars.iv.next61, %land.rhs.preheader ]
-  %25 = trunc nsw i64 %indvars.iv.next64 to i32
-  %cmp29 = icmp sgt i64 %indvars.iv.next64, %22
-  br i1 %cmp29, label %land.rhs, label %while.end.loopexit, !llvm.loop !9
+.lr.ph77:                                         ; preds = %.lr.ph.preheader, %.lr.ph
+  %indvars.iv.next76 = phi i64 [ %indvars.iv.next, %.lr.ph ], [ %indvars.iv.next75, %.lr.ph.preheader ]
+  %94 = trunc nsw i64 %indvars.iv.next76 to i32
+  %95 = icmp sgt i64 %indvars.iv.next76, %87
+  br i1 %95, label %.lr.ph, label %.critedge.loopexit, !llvm.loop !33
 
-land.rhs.while.end.loopexit.split.loop.exit54_crit_edge: ; preds = %land.rhs
-  store i32 %25, ptr %decimal_rep_length, align 4
-  %26 = trunc nuw nsw i64 %indvars.iv.next64 to i32
-  br label %while.end
+.lr.ph..critedge.loopexit.split.loop.exit68_crit_edge: ; preds = %.lr.ph
+  store i32 %94, ptr %7, align 4, !tbaa !26
+  %96 = trunc nuw nsw i64 %indvars.iv.next76 to i32
+  br label %.critedge
 
-while.end.loopexit:                               ; preds = %while.body
-  store i32 %25, ptr %decimal_rep_length, align 4
-  br label %while.end
+.critedge.loopexit:                               ; preds = %.lr.ph77
+  store i32 %94, ptr %7, align 4, !tbaa !26
+  br label %.critedge
 
-while.end:                                        ; preds = %while.end.loopexit, %land.rhs.preheader, %land.rhs.while.end.loopexit.split.loop.exit54_crit_edge, %cond.end
-  %27 = phi i32 [ %decimal_rep_length.promoted, %cond.end ], [ %25, %land.rhs.while.end.loopexit.split.loop.exit54_crit_edge ], [ %decimal_rep_length.promoted, %land.rhs.preheader ], [ %25, %while.end.loopexit ]
-  %.lcssa = phi i32 [ %decimal_rep_length.promoted, %cond.end ], [ %26, %land.rhs.while.end.loopexit.split.loop.exit54_crit_edge ], [ %decimal_rep_length.promoted, %land.rhs.preheader ], [ %cond28, %while.end.loopexit ]
-  %.sroa.speculated31 = call i32 @llvm.smin.i32(i32 %.lcssa, i32 %precision)
-  br i1 %20, label %if.then35, label %if.else
+.critedge:                                        ; preds = %.critedge.loopexit, %.lr.ph.preheader, %.lr.ph..critedge.loopexit.split.loop.exit68_crit_edge, %.thread52
+  %97 = phi i32 [ %.promoted, %.thread52 ], [ %94, %.lr.ph..critedge.loopexit.split.loop.exit68_crit_edge ], [ %.promoted, %.lr.ph.preheader ], [ %94, %.critedge.loopexit ]
+  %.lcssa = phi i32 [ %.promoted, %.thread52 ], [ %96, %.lr.ph..critedge.loopexit.split.loop.exit68_crit_edge ], [ %.promoted, %.lr.ph.preheader ], [ %84, %.critedge.loopexit ]
+  %.sroa.speculated42 = call i32 @llvm.smin.i32(i32 %.lcssa, i32 %2)
+  br i1 %83, label %.thread53, label %._crit_edge65
 
-if.end33:                                         ; preds = %lor.end
-  %.pre53 = load i32, ptr %decimal_rep_length, align 4
-  br i1 %cmp19, label %if.then35, label %if.else
+98:                                               ; preds = %72
+  %.pre67 = load i32, ptr %7, align 4, !tbaa !26
+  br i1 %78, label %.thread53, label %._crit_edge65
 
-if.then35:                                        ; preds = %lor.end.thread.if.then35_crit_edge, %while.end, %if.end33
-  %28 = phi i32 [ %.pre53, %if.end33 ], [ %27, %while.end ], [ %.pre52, %lor.end.thread.if.then35_crit_edge ]
-  %precision.addr.040 = phi i32 [ %precision, %if.end33 ], [ %.sroa.speculated31, %while.end ], [ %precision, %lor.end.thread.if.then35_crit_edge ]
-  %cmp3646 = icmp slt i32 %28, %precision.addr.040
-  br i1 %cmp3646, label %for.body.preheader, label %for.end
+.thread53:                                        ; preds = %.thread..thread53_crit_edge, %.critedge, %98
+  %99 = phi i32 [ %.pre67, %98 ], [ %97, %.critedge ], [ %.pre66, %.thread..thread53_crit_edge ]
+  %.05055 = phi i32 [ %2, %98 ], [ %.sroa.speculated42, %.critedge ], [ %2, %.thread..thread53_crit_edge ]
+  %100 = icmp slt i32 %99, %.05055
+  br i1 %100, label %.lr.ph60.preheader, label %._crit_edge
 
-for.body.preheader:                               ; preds = %if.then35
-  %29 = sext i32 %28 to i64
-  %scevgep = getelementptr i8, ptr %decimal_rep, i64 %29
-  %30 = xor i32 %28, -1
-  %31 = add i32 %precision.addr.040, %30
-  %32 = zext i32 %31 to i64
-  %33 = add nuw nsw i64 %32, 1
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %scevgep, i8 48, i64 %33, i1 false)
-  br label %for.end
+.lr.ph60.preheader:                               ; preds = %.thread53
+  %101 = sext i32 %99 to i64
+  %scevgep = getelementptr i8, ptr %6, i64 %101
+  %102 = xor i32 %99, -1
+  %103 = add i32 %.05055, %102
+  %104 = zext i32 %103 to i64
+  %105 = add nuw nsw i64 %104, 1
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %scevgep, i8 48, i64 %105, i1 false), !tbaa !23
+  br label %._crit_edge
 
-for.end:                                          ; preds = %for.body.preheader, %if.then35
-  call void @_ZNK17double_conversion23DoubleToStringConverter31CreateExponentialRepresentationEPKciiPNS_13StringBuilderE(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef nonnull %decimal_rep, i32 noundef %precision.addr.040, i32 noundef %sub, ptr noundef %result_builder)
-  br label %return
+._crit_edge:                                      ; preds = %.lr.ph60.preheader, %.thread53
+  call void @_ZNK17double_conversion23DoubleToStringConverter31CreateExponentialRepresentationEPKciiPNS_13StringBuilderE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull %6, i32 noundef %.05055, i32 noundef %66, ptr noundef %3)
+  br label %108
 
-if.else:                                          ; preds = %if.end33, %while.end
-  %34 = phi i32 [ %27, %while.end ], [ %.pre53, %if.end33 ]
-  %precision.addr.041 = phi i32 [ %.sroa.speculated31, %while.end ], [ %precision, %if.end33 ]
-  %sub43 = sub nsw i32 %precision.addr.041, %16
-  %.sroa.speculated = call i32 @llvm.smax.i32(i32 %sub43, i32 0)
-  call void @_ZNK17double_conversion23DoubleToStringConverter27CreateDecimalRepresentationEPKciiiPNS_13StringBuilderE(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef nonnull %decimal_rep, i32 noundef %34, i32 noundef %16, i32 noundef %.sroa.speculated, ptr noundef %result_builder)
-  br label %return
+._crit_edge65:                                    ; preds = %98, %.critedge
+  %106 = phi i32 [ %97, %.critedge ], [ %.pre67, %98 ]
+  %.05056 = phi i32 [ %.sroa.speculated42, %.critedge ], [ %2, %98 ]
+  %107 = sub nsw i32 %.05056, %65
+  %.sroa.speculated = call i32 @llvm.smax.i32(i32 %107, i32 0)
+  call void @_ZNK17double_conversion23DoubleToStringConverter27CreateDecimalRepresentationEPKciiiPNS_13StringBuilderE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull %6, i32 noundef %106, i32 noundef %65, i32 noundef %.sroa.speculated, ptr noundef %3)
+  br label %108
 
-return:                                           ; preds = %return.sink.split.i, %if.end7.i, %if.then.i, %for.end, %if.else, %if.end
-  %retval.0 = phi i1 [ false, %if.end ], [ true, %if.else ], [ true, %for.end ], [ false, %if.then.i ], [ false, %if.end7.i ], [ true, %return.sink.split.i ]
-  ret i1 %retval.0
+108:                                              ; preds = %._crit_edge65, %._crit_edge
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #13
+  call void @llvm.lifetime.end.p0(i64 121, ptr nonnull %6) #13
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #13
+  br label %_ZNK17double_conversion23DoubleToStringConverter19HandleSpecialValuesEdPNS_13StringBuilderE.exit
+
+_ZNK17double_conversion23DoubleToStringConverter19HandleSpecialValuesEdPNS_13StringBuilderE.exit: ; preds = %.sink.split.i, %27, %14, %42, %108
+  %.019 = phi i1 [ true, %108 ], [ false, %42 ], [ false, %14 ], [ false, %27 ], [ true, %.sink.split.i ]
+  ret i1 %.019
 }
 
-declare noundef zeroext i1 @_ZN17double_conversion8FastDtoaEdNS_12FastDtoaModeEiNS_6VectorIcEEPiS3_(double noundef, i32 noundef, i32 noundef, ptr, i32, ptr noundef, ptr noundef) local_unnamed_addr #5
+declare noundef zeroext i1 @_ZN17double_conversion8FastDtoaEdNS_12FastDtoaModeEiNS_6VectorIcEEPiS3_(double noundef, i32 noundef, i32 noundef, ptr, i32, ptr noundef, ptr noundef) local_unnamed_addr #6
 
-declare noundef zeroext i1 @_ZN17double_conversion13FastFixedDtoaEdiNS_6VectorIcEEPiS2_(double noundef, i32 noundef, ptr, i32, ptr noundef, ptr noundef) local_unnamed_addr #5
+declare noundef zeroext i1 @_ZN17double_conversion13FastFixedDtoaEdiNS_6VectorIcEEPiS2_(double noundef, i32 noundef, ptr, i32, ptr noundef, ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: cold nofree noreturn nounwind
-declare void @abort() local_unnamed_addr #6
+declare void @abort() local_unnamed_addr #7
 
-declare void @_ZN17double_conversion10BignumDtoaEdNS_14BignumDtoaModeEiNS_6VectorIcEEPiS3_(double noundef, i32 noundef, i32 noundef, ptr, i32, ptr noundef, ptr noundef) local_unnamed_addr #5
+declare void @_ZN17double_conversion10BignumDtoaEdNS_14BignumDtoaModeEiNS_6VectorIcEEPiS3_(double noundef, i32 noundef, i32 noundef, ptr, i32, ptr noundef, ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #7
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #8
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #8
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #9
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.fabs.f64(double) #9
+declare double @llvm.fabs.f64(double) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smin.i32(i32, i32) #9
+declare i32 @llvm.smin.i32(i32, i32) #10
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #10
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #11
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #11
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #12
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #9
+declare i32 @llvm.smax.i32(i32, i32) #10
 
-attributes #0 = { mustprogress nofree nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { nofree nounwind }
-attributes #2 = { mustprogress nofree nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { cold nofree noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #8 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #10 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #11 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #12 = { nounwind }
-attributes #13 = { nounwind willreturn memory(read) }
-attributes #14 = { noreturn nounwind }
+attributes #0 = { mustprogress nofree nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { nofree nounwind }
+attributes #3 = { mustprogress nofree nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { cold nofree noreturn nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #9 = { mustprogress nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #11 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #12 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #13 = { nounwind }
+attributes #14 = { nounwind willreturn memory(read) }
+attributes #15 = { noreturn nounwind }
 
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = !{!"branch_weights", i32 1, i32 1048575}
-!5 = distinct !{!5, !6}
-!6 = !{!"llvm.loop.mustprogress"}
-!7 = distinct !{!7, !6}
-!8 = distinct !{!8, !6}
-!9 = distinct !{!9, !6}
+!3 = !{!"branch_weights", i32 1, i32 1048575}
+!4 = !{!5, !6, i64 0}
+!5 = !{!"_ZTSN17double_conversion23DoubleToStringConverterE", !6, i64 0, !9, i64 8, !9, i64 16, !7, i64 24, !6, i64 28, !6, i64 32, !6, i64 36, !6, i64 40, !6, i64 44}
+!6 = !{!"int", !7, i64 0}
+!7 = !{!"omnipotent char", !8, i64 0}
+!8 = !{!"Simple C++ TBAA"}
+!9 = !{!"p1 omnipotent char", !10, i64 0}
+!10 = !{!"any pointer", !7, i64 0}
+!11 = !{!5, !9, i64 8}
+!12 = !{!5, !9, i64 16}
+!13 = !{!5, !7, i64 24}
+!14 = !{!5, !6, i64 28}
+!15 = !{!5, !6, i64 32}
+!16 = !{!5, !6, i64 36}
+!17 = !{!5, !6, i64 40}
+!18 = !{!5, !6, i64 44}
+!19 = !{!20, !6, i64 16}
+!20 = !{!"_ZTSN17double_conversion13StringBuilderE", !21, i64 0, !6, i64 16}
+!21 = !{!"_ZTSN17double_conversion6VectorIcEE", !9, i64 0, !6, i64 8}
+!22 = !{!21, !9, i64 0}
+!23 = !{!7, !7, i64 0}
+!24 = distinct !{!24, !25}
+!25 = !{!"llvm.loop.mustprogress"}
+!26 = !{!6, !6, i64 0}
+!27 = distinct !{!27, !25}
+!28 = distinct !{!28, !25}
+!29 = !{!30, !30, i64 0}
+!30 = !{!"bool", !7, i64 0}
+!31 = !{i8 0, i8 2}
+!32 = !{}
+!33 = distinct !{!33, !25}

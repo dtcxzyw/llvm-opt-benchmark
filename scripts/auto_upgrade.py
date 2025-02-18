@@ -79,6 +79,7 @@ supported_project = [
     "csmith",
     "cvc5",
     "cxxopts",
+    "double_conversion",
 ]
 
 modify_only = [

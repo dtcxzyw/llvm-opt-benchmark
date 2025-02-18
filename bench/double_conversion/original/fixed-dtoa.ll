@@ -1,5 +1,5 @@
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
-target triple = "x86_64-unknown-linux-gnu"
+target triple = "x86_64-pc-linux-gnu"
 
 %"class.double_conversion::Vector" = type <{ ptr, i32, [4 x i8] }>
 %"class.double_conversion::Double" = type { i64 }
@@ -32,1580 +32,1739 @@ $_ZN17double_conversion7UInt12814DivModPowerOf2Ei = comdat any
 $_ZNK17double_conversion7UInt1285BitAtEi = comdat any
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN17double_conversion13FastFixedDtoaEdiNS_6VectorIcEEPiS2_(double noundef %v, i32 noundef %fractional_count, ptr %buffer.coerce0, i32 %buffer.coerce1, ptr noundef %length, ptr noundef %decimal_point) #0 {
-entry:
-  %retval = alloca i1, align 1
-  %buffer = alloca %"class.double_conversion::Vector", align 8
-  %v.addr = alloca double, align 8
-  %fractional_count.addr = alloca i32, align 4
-  %length.addr = alloca ptr, align 8
-  %decimal_point.addr = alloca ptr, align 8
-  %kMaxUInt32 = alloca i32, align 4
-  %significand = alloca i64, align 8
-  %ref.tmp = alloca %"class.double_conversion::Double", align 8
-  %exponent = alloca i32, align 4
-  %ref.tmp1 = alloca %"class.double_conversion::Double", align 8
-  %kFive17 = alloca i64, align 8
-  %divisor = alloca i64, align 8
-  %divisor_power = alloca i32, align 4
-  %dividend = alloca i64, align 8
-  %quotient = alloca i32, align 4
-  %remainder = alloca i64, align 8
-  %agg.tmp = alloca %"class.double_conversion::Vector", align 8
-  %agg.tmp21 = alloca %"class.double_conversion::Vector", align 8
-  %agg.tmp27 = alloca %"class.double_conversion::Vector", align 8
-  %integrals = alloca i64, align 8
-  %fractionals = alloca i64, align 8
-  %agg.tmp39 = alloca %"class.double_conversion::Vector", align 8
-  %agg.tmp42 = alloca %"class.double_conversion::Vector", align 8
-  %agg.tmp44 = alloca %"class.double_conversion::Vector", align 8
-  %agg.tmp51 = alloca %"class.double_conversion::Vector", align 8
-  %agg.tmp56 = alloca %"class.double_conversion::Vector", align 8
-  %0 = getelementptr inbounds { ptr, i32 }, ptr %buffer, i32 0, i32 0
-  store ptr %buffer.coerce0, ptr %0, align 8
-  %1 = getelementptr inbounds { ptr, i32 }, ptr %buffer, i32 0, i32 1
-  store i32 %buffer.coerce1, ptr %1, align 8
-  store double %v, ptr %v.addr, align 8
-  store i32 %fractional_count, ptr %fractional_count.addr, align 4
-  store ptr %length, ptr %length.addr, align 8
-  store ptr %decimal_point, ptr %decimal_point.addr, align 8
-  store i32 -1, ptr %kMaxUInt32, align 4
-  %2 = load double, ptr %v.addr, align 8
-  call void @_ZN17double_conversion6DoubleC2Ed(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp, double noundef %2)
-  %call = call noundef i64 @_ZNK17double_conversion6Double11SignificandEv(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp)
-  store i64 %call, ptr %significand, align 8
-  %3 = load double, ptr %v.addr, align 8
-  call void @_ZN17double_conversion6DoubleC2Ed(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp1, double noundef %3)
-  %call2 = call noundef i32 @_ZNK17double_conversion6Double8ExponentEv(ptr noundef nonnull align 8 dereferenceable(8) %ref.tmp1)
-  store i32 %call2, ptr %exponent, align 4
-  %4 = load i32, ptr %exponent, align 4
-  %cmp = icmp sgt i32 %4, 20
-  br i1 %cmp, label %if.then, label %if.end
+define noundef zeroext i1 @_ZN17double_conversion13FastFixedDtoaEdiNS_6VectorIcEEPiS2_(double noundef %0, i32 noundef %1, ptr %2, i32 %3, ptr noundef %4, ptr noundef %5) #0 {
+  %7 = alloca i1, align 1
+  %8 = alloca %"class.double_conversion::Vector", align 8
+  %9 = alloca double, align 8
+  %10 = alloca i32, align 4
+  %11 = alloca ptr, align 8
+  %12 = alloca ptr, align 8
+  %13 = alloca i32, align 4
+  %14 = alloca i64, align 8
+  %15 = alloca %"class.double_conversion::Double", align 8
+  %16 = alloca i32, align 4
+  %17 = alloca %"class.double_conversion::Double", align 8
+  %18 = alloca i32, align 4
+  %19 = alloca i64, align 8
+  %20 = alloca i64, align 8
+  %21 = alloca i32, align 4
+  %22 = alloca i64, align 8
+  %23 = alloca i32, align 4
+  %24 = alloca i64, align 8
+  %25 = alloca %"class.double_conversion::Vector", align 8
+  %26 = alloca %"class.double_conversion::Vector", align 8
+  %27 = alloca %"class.double_conversion::Vector", align 8
+  %28 = alloca i64, align 8
+  %29 = alloca i64, align 8
+  %30 = alloca %"class.double_conversion::Vector", align 8
+  %31 = alloca %"class.double_conversion::Vector", align 8
+  %32 = alloca %"class.double_conversion::Vector", align 8
+  %33 = alloca %"class.double_conversion::Vector", align 8
+  %34 = alloca %"class.double_conversion::Vector", align 8
+  %35 = getelementptr inbounds nuw { ptr, i32 }, ptr %8, i32 0, i32 0
+  store ptr %2, ptr %35, align 8
+  %36 = getelementptr inbounds nuw { ptr, i32 }, ptr %8, i32 0, i32 1
+  store i32 %3, ptr %36, align 8
+  store double %0, ptr %9, align 8, !tbaa !3
+  store i32 %1, ptr %10, align 4, !tbaa !7
+  store ptr %4, ptr %11, align 8, !tbaa !9
+  store ptr %5, ptr %12, align 8, !tbaa !9
+  call void @llvm.lifetime.start.p0(i64 4, ptr %13) #4
+  store i32 -1, ptr %13, align 4, !tbaa !7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %14) #4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %15) #4
+  %37 = load double, ptr %9, align 8, !tbaa !3
+  call void @_ZN17double_conversion6DoubleC2Ed(ptr noundef nonnull align 8 dereferenceable(8) %15, double noundef %37)
+  %38 = call noundef i64 @_ZNK17double_conversion6Double11SignificandEv(ptr noundef nonnull align 8 dereferenceable(8) %15)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %15) #4
+  store i64 %38, ptr %14, align 8, !tbaa !12
+  call void @llvm.lifetime.start.p0(i64 4, ptr %16) #4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %17) #4
+  %39 = load double, ptr %9, align 8, !tbaa !3
+  call void @_ZN17double_conversion6DoubleC2Ed(ptr noundef nonnull align 8 dereferenceable(8) %17, double noundef %39)
+  %40 = call noundef i32 @_ZNK17double_conversion6Double8ExponentEv(ptr noundef nonnull align 8 dereferenceable(8) %17)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %17) #4
+  store i32 %40, ptr %16, align 4, !tbaa !7
+  %41 = load i32, ptr %16, align 4, !tbaa !7
+  %42 = icmp sgt i32 %41, 20
+  br i1 %42, label %43, label %44
 
-if.then:                                          ; preds = %entry
-  store i1 false, ptr %retval, align 1
-  br label %return
+43:                                               ; preds = %6
+  store i1 false, ptr %7, align 1
+  store i32 1, ptr %18, align 4
+  br label %212
 
-if.end:                                           ; preds = %entry
-  %5 = load i32, ptr %fractional_count.addr, align 4
-  %cmp3 = icmp sgt i32 %5, 20
-  br i1 %cmp3, label %if.then4, label %if.end5
+44:                                               ; preds = %6
+  %45 = load i32, ptr %10, align 4, !tbaa !7
+  %46 = icmp sgt i32 %45, 20
+  br i1 %46, label %47, label %48
 
-if.then4:                                         ; preds = %if.end
-  store i1 false, ptr %retval, align 1
-  br label %return
+47:                                               ; preds = %44
+  store i1 false, ptr %7, align 1
+  store i32 1, ptr %18, align 4
+  br label %212
 
-if.end5:                                          ; preds = %if.end
-  %6 = load ptr, ptr %length.addr, align 8
-  store i32 0, ptr %6, align 4
-  %7 = load i32, ptr %exponent, align 4
-  %add = add nsw i32 %7, 53
-  %cmp6 = icmp sgt i32 %add, 64
-  br i1 %cmp6, label %if.then7, label %if.else22
+48:                                               ; preds = %44
+  %49 = load ptr, ptr %11, align 8, !tbaa !9
+  store i32 0, ptr %49, align 4, !tbaa !7
+  %50 = load i32, ptr %16, align 4, !tbaa !7
+  %51 = add nsw i32 %50, 53
+  %52 = icmp sgt i32 %51, 64
+  br i1 %52, label %53, label %108
 
-if.then7:                                         ; preds = %if.end5
-  store i64 762939453125, ptr %kFive17, align 8
-  store i64 762939453125, ptr %divisor, align 8
-  store i32 17, ptr %divisor_power, align 4
-  %8 = load i64, ptr %significand, align 8
-  store i64 %8, ptr %dividend, align 8
-  %9 = load i32, ptr %exponent, align 4
-  %10 = load i32, ptr %divisor_power, align 4
-  %cmp8 = icmp sgt i32 %9, %10
-  br i1 %cmp8, label %if.then9, label %if.else
+53:                                               ; preds = %48
+  call void @llvm.lifetime.start.p0(i64 8, ptr %19) #4
+  store i64 762939453125, ptr %19, align 8, !tbaa !12
+  call void @llvm.lifetime.start.p0(i64 8, ptr %20) #4
+  store i64 762939453125, ptr %20, align 8, !tbaa !12
+  call void @llvm.lifetime.start.p0(i64 4, ptr %21) #4
+  store i32 17, ptr %21, align 4, !tbaa !7
+  call void @llvm.lifetime.start.p0(i64 8, ptr %22) #4
+  %54 = load i64, ptr %14, align 8, !tbaa !12
+  store i64 %54, ptr %22, align 8, !tbaa !12
+  call void @llvm.lifetime.start.p0(i64 4, ptr %23) #4
+  call void @llvm.lifetime.start.p0(i64 8, ptr %24) #4
+  %55 = load i32, ptr %16, align 4, !tbaa !7
+  %56 = load i32, ptr %21, align 4, !tbaa !7
+  %57 = icmp sgt i32 %55, %56
+  br i1 %57, label %58, label %75
 
-if.then9:                                         ; preds = %if.then7
-  %11 = load i32, ptr %exponent, align 4
-  %12 = load i32, ptr %divisor_power, align 4
-  %sub = sub nsw i32 %11, %12
-  %13 = load i64, ptr %dividend, align 8
-  %sh_prom = zext i32 %sub to i64
-  %shl = shl i64 %13, %sh_prom
-  store i64 %shl, ptr %dividend, align 8
-  %14 = load i64, ptr %dividend, align 8
-  %15 = load i64, ptr %divisor, align 8
-  %div = udiv i64 %14, %15
-  %conv = trunc i64 %div to i32
-  store i32 %conv, ptr %quotient, align 4
-  %16 = load i64, ptr %dividend, align 8
-  %17 = load i64, ptr %divisor, align 8
-  %rem = urem i64 %16, %17
-  %18 = load i32, ptr %divisor_power, align 4
-  %sh_prom10 = zext i32 %18 to i64
-  %shl11 = shl i64 %rem, %sh_prom10
-  store i64 %shl11, ptr %remainder, align 8
-  br label %if.end20
+58:                                               ; preds = %53
+  %59 = load i32, ptr %16, align 4, !tbaa !7
+  %60 = load i32, ptr %21, align 4, !tbaa !7
+  %61 = sub nsw i32 %59, %60
+  %62 = load i64, ptr %22, align 8, !tbaa !12
+  %63 = zext i32 %61 to i64
+  %64 = shl i64 %62, %63
+  store i64 %64, ptr %22, align 8, !tbaa !12
+  %65 = load i64, ptr %22, align 8, !tbaa !12
+  %66 = load i64, ptr %20, align 8, !tbaa !12
+  %67 = udiv i64 %65, %66
+  %68 = trunc i64 %67 to i32
+  store i32 %68, ptr %23, align 4, !tbaa !7
+  %69 = load i64, ptr %22, align 8, !tbaa !12
+  %70 = load i64, ptr %20, align 8, !tbaa !12
+  %71 = urem i64 %69, %70
+  %72 = load i32, ptr %21, align 4, !tbaa !7
+  %73 = zext i32 %72 to i64
+  %74 = shl i64 %71, %73
+  store i64 %74, ptr %24, align 8, !tbaa !12
+  br label %92
 
-if.else:                                          ; preds = %if.then7
-  %19 = load i32, ptr %divisor_power, align 4
-  %20 = load i32, ptr %exponent, align 4
-  %sub12 = sub nsw i32 %19, %20
-  %21 = load i64, ptr %divisor, align 8
-  %sh_prom13 = zext i32 %sub12 to i64
-  %shl14 = shl i64 %21, %sh_prom13
-  store i64 %shl14, ptr %divisor, align 8
-  %22 = load i64, ptr %dividend, align 8
-  %23 = load i64, ptr %divisor, align 8
-  %div15 = udiv i64 %22, %23
-  %conv16 = trunc i64 %div15 to i32
-  store i32 %conv16, ptr %quotient, align 4
-  %24 = load i64, ptr %dividend, align 8
-  %25 = load i64, ptr %divisor, align 8
-  %rem17 = urem i64 %24, %25
-  %26 = load i32, ptr %exponent, align 4
-  %sh_prom18 = zext i32 %26 to i64
-  %shl19 = shl i64 %rem17, %sh_prom18
-  store i64 %shl19, ptr %remainder, align 8
-  br label %if.end20
+75:                                               ; preds = %53
+  %76 = load i32, ptr %21, align 4, !tbaa !7
+  %77 = load i32, ptr %16, align 4, !tbaa !7
+  %78 = sub nsw i32 %76, %77
+  %79 = load i64, ptr %20, align 8, !tbaa !12
+  %80 = zext i32 %78 to i64
+  %81 = shl i64 %79, %80
+  store i64 %81, ptr %20, align 8, !tbaa !12
+  %82 = load i64, ptr %22, align 8, !tbaa !12
+  %83 = load i64, ptr %20, align 8, !tbaa !12
+  %84 = udiv i64 %82, %83
+  %85 = trunc i64 %84 to i32
+  store i32 %85, ptr %23, align 4, !tbaa !7
+  %86 = load i64, ptr %22, align 8, !tbaa !12
+  %87 = load i64, ptr %20, align 8, !tbaa !12
+  %88 = urem i64 %86, %87
+  %89 = load i32, ptr %16, align 4, !tbaa !7
+  %90 = zext i32 %89 to i64
+  %91 = shl i64 %88, %90
+  store i64 %91, ptr %24, align 8, !tbaa !12
+  br label %92
 
-if.end20:                                         ; preds = %if.else, %if.then9
-  %27 = load i32, ptr %quotient, align 4
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp, ptr align 8 %buffer, i64 16, i1 false)
-  %28 = load ptr, ptr %length.addr, align 8
-  %29 = getelementptr inbounds { ptr, i32 }, ptr %agg.tmp, i32 0, i32 0
-  %30 = load ptr, ptr %29, align 8
-  %31 = getelementptr inbounds { ptr, i32 }, ptr %agg.tmp, i32 0, i32 1
-  %32 = load i32, ptr %31, align 8
-  call void @_ZN17double_conversionL12FillDigits32EjNS_6VectorIcEEPi(i32 noundef %27, ptr %30, i32 %32, ptr noundef %28)
-  %33 = load i64, ptr %remainder, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp21, ptr align 8 %buffer, i64 16, i1 false)
-  %34 = load ptr, ptr %length.addr, align 8
-  %35 = getelementptr inbounds { ptr, i32 }, ptr %agg.tmp21, i32 0, i32 0
-  %36 = load ptr, ptr %35, align 8
-  %37 = getelementptr inbounds { ptr, i32 }, ptr %agg.tmp21, i32 0, i32 1
-  %38 = load i32, ptr %37, align 8
-  call void @_ZN17double_conversionL23FillDigits64FixedLengthEmNS_6VectorIcEEPi(i64 noundef %33, ptr %36, i32 %38, ptr noundef %34)
-  %39 = load ptr, ptr %length.addr, align 8
-  %40 = load i32, ptr %39, align 4
-  %41 = load ptr, ptr %decimal_point.addr, align 8
-  store i32 %40, ptr %41, align 4
-  br label %if.end55
-
-if.else22:                                        ; preds = %if.end5
-  %42 = load i32, ptr %exponent, align 4
-  %cmp23 = icmp sge i32 %42, 0
-  br i1 %cmp23, label %if.then24, label %if.else28
-
-if.then24:                                        ; preds = %if.else22
-  %43 = load i32, ptr %exponent, align 4
-  %44 = load i64, ptr %significand, align 8
-  %sh_prom25 = zext i32 %43 to i64
-  %shl26 = shl i64 %44, %sh_prom25
-  store i64 %shl26, ptr %significand, align 8
-  %45 = load i64, ptr %significand, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp27, ptr align 8 %buffer, i64 16, i1 false)
-  %46 = load ptr, ptr %length.addr, align 8
-  %47 = getelementptr inbounds { ptr, i32 }, ptr %agg.tmp27, i32 0, i32 0
-  %48 = load ptr, ptr %47, align 8
-  %49 = getelementptr inbounds { ptr, i32 }, ptr %agg.tmp27, i32 0, i32 1
-  %50 = load i32, ptr %49, align 8
-  call void @_ZN17double_conversionL12FillDigits64EmNS_6VectorIcEEPi(i64 noundef %45, ptr %48, i32 %50, ptr noundef %46)
-  %51 = load ptr, ptr %length.addr, align 8
-  %52 = load i32, ptr %51, align 4
-  %53 = load ptr, ptr %decimal_point.addr, align 8
-  store i32 %52, ptr %53, align 4
-  br label %if.end54
-
-if.else28:                                        ; preds = %if.else22
-  %54 = load i32, ptr %exponent, align 4
-  %cmp29 = icmp sgt i32 %54, -53
-  br i1 %cmp29, label %if.then30, label %if.else45
-
-if.then30:                                        ; preds = %if.else28
-  %55 = load i64, ptr %significand, align 8
-  %56 = load i32, ptr %exponent, align 4
-  %sub31 = sub nsw i32 0, %56
-  %sh_prom32 = zext i32 %sub31 to i64
-  %shr = lshr i64 %55, %sh_prom32
-  store i64 %shr, ptr %integrals, align 8
-  %57 = load i64, ptr %significand, align 8
-  %58 = load i64, ptr %integrals, align 8
-  %59 = load i32, ptr %exponent, align 4
-  %sub33 = sub nsw i32 0, %59
-  %sh_prom34 = zext i32 %sub33 to i64
-  %shl35 = shl i64 %58, %sh_prom34
-  %sub36 = sub i64 %57, %shl35
-  store i64 %sub36, ptr %fractionals, align 8
-  %60 = load i64, ptr %integrals, align 8
-  %cmp37 = icmp ugt i64 %60, 4294967295
-  br i1 %cmp37, label %if.then38, label %if.else40
-
-if.then38:                                        ; preds = %if.then30
-  %61 = load i64, ptr %integrals, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp39, ptr align 8 %buffer, i64 16, i1 false)
-  %62 = load ptr, ptr %length.addr, align 8
-  %63 = getelementptr inbounds { ptr, i32 }, ptr %agg.tmp39, i32 0, i32 0
-  %64 = load ptr, ptr %63, align 8
-  %65 = getelementptr inbounds { ptr, i32 }, ptr %agg.tmp39, i32 0, i32 1
-  %66 = load i32, ptr %65, align 8
-  call void @_ZN17double_conversionL12FillDigits64EmNS_6VectorIcEEPi(i64 noundef %61, ptr %64, i32 %66, ptr noundef %62)
-  br label %if.end43
-
-if.else40:                                        ; preds = %if.then30
-  %67 = load i64, ptr %integrals, align 8
-  %conv41 = trunc i64 %67 to i32
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp42, ptr align 8 %buffer, i64 16, i1 false)
-  %68 = load ptr, ptr %length.addr, align 8
-  %69 = getelementptr inbounds { ptr, i32 }, ptr %agg.tmp42, i32 0, i32 0
-  %70 = load ptr, ptr %69, align 8
-  %71 = getelementptr inbounds { ptr, i32 }, ptr %agg.tmp42, i32 0, i32 1
-  %72 = load i32, ptr %71, align 8
-  call void @_ZN17double_conversionL12FillDigits32EjNS_6VectorIcEEPi(i32 noundef %conv41, ptr %70, i32 %72, ptr noundef %68)
-  br label %if.end43
-
-if.end43:                                         ; preds = %if.else40, %if.then38
-  %73 = load ptr, ptr %length.addr, align 8
-  %74 = load i32, ptr %73, align 4
-  %75 = load ptr, ptr %decimal_point.addr, align 8
-  store i32 %74, ptr %75, align 4
-  %76 = load i64, ptr %fractionals, align 8
-  %77 = load i32, ptr %exponent, align 4
-  %78 = load i32, ptr %fractional_count.addr, align 4
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp44, ptr align 8 %buffer, i64 16, i1 false)
-  %79 = load ptr, ptr %length.addr, align 8
-  %80 = load ptr, ptr %decimal_point.addr, align 8
-  %81 = getelementptr inbounds { ptr, i32 }, ptr %agg.tmp44, i32 0, i32 0
-  %82 = load ptr, ptr %81, align 8
-  %83 = getelementptr inbounds { ptr, i32 }, ptr %agg.tmp44, i32 0, i32 1
-  %84 = load i32, ptr %83, align 8
-  call void @_ZN17double_conversionL15FillFractionalsEmiiNS_6VectorIcEEPiS2_(i64 noundef %76, i32 noundef %77, i32 noundef %78, ptr %82, i32 %84, ptr noundef %79, ptr noundef %80)
-  br label %if.end53
-
-if.else45:                                        ; preds = %if.else28
-  %85 = load i32, ptr %exponent, align 4
-  %cmp46 = icmp slt i32 %85, -128
-  br i1 %cmp46, label %if.then47, label %if.else50
-
-if.then47:                                        ; preds = %if.else45
-  %call48 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNK17double_conversion6VectorIcEixEi(ptr noundef nonnull align 8 dereferenceable(12) %buffer, i32 noundef 0)
-  store i8 0, ptr %call48, align 1
-  %86 = load ptr, ptr %length.addr, align 8
-  store i32 0, ptr %86, align 4
-  %87 = load i32, ptr %fractional_count.addr, align 4
-  %sub49 = sub nsw i32 0, %87
-  %88 = load ptr, ptr %decimal_point.addr, align 8
-  store i32 %sub49, ptr %88, align 4
-  br label %if.end52
-
-if.else50:                                        ; preds = %if.else45
-  %89 = load ptr, ptr %decimal_point.addr, align 8
-  store i32 0, ptr %89, align 4
-  %90 = load i64, ptr %significand, align 8
-  %91 = load i32, ptr %exponent, align 4
-  %92 = load i32, ptr %fractional_count.addr, align 4
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp51, ptr align 8 %buffer, i64 16, i1 false)
-  %93 = load ptr, ptr %length.addr, align 8
-  %94 = load ptr, ptr %decimal_point.addr, align 8
-  %95 = getelementptr inbounds { ptr, i32 }, ptr %agg.tmp51, i32 0, i32 0
+92:                                               ; preds = %75, %58
+  %93 = load i32, ptr %23, align 4, !tbaa !7
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %25, ptr align 8 %8, i64 16, i1 false), !tbaa.struct !14
+  %94 = load ptr, ptr %11, align 8, !tbaa !9
+  %95 = getelementptr inbounds nuw { ptr, i32 }, ptr %25, i32 0, i32 0
   %96 = load ptr, ptr %95, align 8
-  %97 = getelementptr inbounds { ptr, i32 }, ptr %agg.tmp51, i32 0, i32 1
+  %97 = getelementptr inbounds nuw { ptr, i32 }, ptr %25, i32 0, i32 1
   %98 = load i32, ptr %97, align 8
-  call void @_ZN17double_conversionL15FillFractionalsEmiiNS_6VectorIcEEPiS2_(i64 noundef %90, i32 noundef %91, i32 noundef %92, ptr %96, i32 %98, ptr noundef %93, ptr noundef %94)
-  br label %if.end52
-
-if.end52:                                         ; preds = %if.else50, %if.then47
-  br label %if.end53
-
-if.end53:                                         ; preds = %if.end52, %if.end43
-  br label %if.end54
-
-if.end54:                                         ; preds = %if.end53, %if.then24
-  br label %if.end55
-
-if.end55:                                         ; preds = %if.end54, %if.end20
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp56, ptr align 8 %buffer, i64 16, i1 false)
-  %99 = load ptr, ptr %length.addr, align 8
-  %100 = load ptr, ptr %decimal_point.addr, align 8
-  %101 = getelementptr inbounds { ptr, i32 }, ptr %agg.tmp56, i32 0, i32 0
+  call void @_ZN17double_conversionL12FillDigits32EjNS_6VectorIcEEPi(i32 noundef %93, ptr %96, i32 %98, ptr noundef %94)
+  %99 = load i64, ptr %24, align 8, !tbaa !12
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %26, ptr align 8 %8, i64 16, i1 false), !tbaa.struct !14
+  %100 = load ptr, ptr %11, align 8, !tbaa !9
+  %101 = getelementptr inbounds nuw { ptr, i32 }, ptr %26, i32 0, i32 0
   %102 = load ptr, ptr %101, align 8
-  %103 = getelementptr inbounds { ptr, i32 }, ptr %agg.tmp56, i32 0, i32 1
+  %103 = getelementptr inbounds nuw { ptr, i32 }, ptr %26, i32 0, i32 1
   %104 = load i32, ptr %103, align 8
-  call void @_ZN17double_conversionL9TrimZerosENS_6VectorIcEEPiS2_(ptr %102, i32 %104, ptr noundef %99, ptr noundef %100)
-  %105 = load ptr, ptr %length.addr, align 8
-  %106 = load i32, ptr %105, align 4
-  %call57 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNK17double_conversion6VectorIcEixEi(ptr noundef nonnull align 8 dereferenceable(12) %buffer, i32 noundef %106)
-  store i8 0, ptr %call57, align 1
-  %107 = load ptr, ptr %length.addr, align 8
-  %108 = load i32, ptr %107, align 4
-  %cmp58 = icmp eq i32 %108, 0
-  br i1 %cmp58, label %if.then59, label %if.end61
+  call void @_ZN17double_conversionL23FillDigits64FixedLengthEmNS_6VectorIcEEPi(i64 noundef %99, ptr %102, i32 %104, ptr noundef %100)
+  %105 = load ptr, ptr %11, align 8, !tbaa !9
+  %106 = load i32, ptr %105, align 4, !tbaa !7
+  %107 = load ptr, ptr %12, align 8, !tbaa !9
+  store i32 %106, ptr %107, align 4, !tbaa !7
+  call void @llvm.lifetime.end.p0(i64 8, ptr %24) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %23) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %22) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %21) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %20) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %19) #4
+  br label %194
 
-if.then59:                                        ; preds = %if.end55
-  %109 = load i32, ptr %fractional_count.addr, align 4
-  %sub60 = sub nsw i32 0, %109
-  %110 = load ptr, ptr %decimal_point.addr, align 8
-  store i32 %sub60, ptr %110, align 4
-  br label %if.end61
+108:                                              ; preds = %48
+  %109 = load i32, ptr %16, align 4, !tbaa !7
+  %110 = icmp sge i32 %109, 0
+  br i1 %110, label %111, label %125
 
-if.end61:                                         ; preds = %if.then59, %if.end55
-  store i1 true, ptr %retval, align 1
-  br label %return
+111:                                              ; preds = %108
+  %112 = load i32, ptr %16, align 4, !tbaa !7
+  %113 = load i64, ptr %14, align 8, !tbaa !12
+  %114 = zext i32 %112 to i64
+  %115 = shl i64 %113, %114
+  store i64 %115, ptr %14, align 8, !tbaa !12
+  %116 = load i64, ptr %14, align 8, !tbaa !12
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %27, ptr align 8 %8, i64 16, i1 false), !tbaa.struct !14
+  %117 = load ptr, ptr %11, align 8, !tbaa !9
+  %118 = getelementptr inbounds nuw { ptr, i32 }, ptr %27, i32 0, i32 0
+  %119 = load ptr, ptr %118, align 8
+  %120 = getelementptr inbounds nuw { ptr, i32 }, ptr %27, i32 0, i32 1
+  %121 = load i32, ptr %120, align 8
+  call void @_ZN17double_conversionL12FillDigits64EmNS_6VectorIcEEPi(i64 noundef %116, ptr %119, i32 %121, ptr noundef %117)
+  %122 = load ptr, ptr %11, align 8, !tbaa !9
+  %123 = load i32, ptr %122, align 4, !tbaa !7
+  %124 = load ptr, ptr %12, align 8, !tbaa !9
+  store i32 %123, ptr %124, align 4, !tbaa !7
+  br label %193
 
-return:                                           ; preds = %if.end61, %if.then4, %if.then
-  %111 = load i1, ptr %retval, align 1
-  ret i1 %111
+125:                                              ; preds = %108
+  %126 = load i32, ptr %16, align 4, !tbaa !7
+  %127 = icmp sgt i32 %126, -53
+  br i1 %127, label %128, label %171
+
+128:                                              ; preds = %125
+  call void @llvm.lifetime.start.p0(i64 8, ptr %28) #4
+  %129 = load i64, ptr %14, align 8, !tbaa !12
+  %130 = load i32, ptr %16, align 4, !tbaa !7
+  %131 = sub nsw i32 0, %130
+  %132 = zext i32 %131 to i64
+  %133 = lshr i64 %129, %132
+  store i64 %133, ptr %28, align 8, !tbaa !12
+  call void @llvm.lifetime.start.p0(i64 8, ptr %29) #4
+  %134 = load i64, ptr %14, align 8, !tbaa !12
+  %135 = load i64, ptr %28, align 8, !tbaa !12
+  %136 = load i32, ptr %16, align 4, !tbaa !7
+  %137 = sub nsw i32 0, %136
+  %138 = zext i32 %137 to i64
+  %139 = shl i64 %135, %138
+  %140 = sub i64 %134, %139
+  store i64 %140, ptr %29, align 8, !tbaa !12
+  %141 = load i64, ptr %28, align 8, !tbaa !12
+  %142 = icmp ugt i64 %141, 4294967295
+  br i1 %142, label %143, label %150
+
+143:                                              ; preds = %128
+  %144 = load i64, ptr %28, align 8, !tbaa !12
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %30, ptr align 8 %8, i64 16, i1 false), !tbaa.struct !14
+  %145 = load ptr, ptr %11, align 8, !tbaa !9
+  %146 = getelementptr inbounds nuw { ptr, i32 }, ptr %30, i32 0, i32 0
+  %147 = load ptr, ptr %146, align 8
+  %148 = getelementptr inbounds nuw { ptr, i32 }, ptr %30, i32 0, i32 1
+  %149 = load i32, ptr %148, align 8
+  call void @_ZN17double_conversionL12FillDigits64EmNS_6VectorIcEEPi(i64 noundef %144, ptr %147, i32 %149, ptr noundef %145)
+  br label %158
+
+150:                                              ; preds = %128
+  %151 = load i64, ptr %28, align 8, !tbaa !12
+  %152 = trunc i64 %151 to i32
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %31, ptr align 8 %8, i64 16, i1 false), !tbaa.struct !14
+  %153 = load ptr, ptr %11, align 8, !tbaa !9
+  %154 = getelementptr inbounds nuw { ptr, i32 }, ptr %31, i32 0, i32 0
+  %155 = load ptr, ptr %154, align 8
+  %156 = getelementptr inbounds nuw { ptr, i32 }, ptr %31, i32 0, i32 1
+  %157 = load i32, ptr %156, align 8
+  call void @_ZN17double_conversionL12FillDigits32EjNS_6VectorIcEEPi(i32 noundef %152, ptr %155, i32 %157, ptr noundef %153)
+  br label %158
+
+158:                                              ; preds = %150, %143
+  %159 = load ptr, ptr %11, align 8, !tbaa !9
+  %160 = load i32, ptr %159, align 4, !tbaa !7
+  %161 = load ptr, ptr %12, align 8, !tbaa !9
+  store i32 %160, ptr %161, align 4, !tbaa !7
+  %162 = load i64, ptr %29, align 8, !tbaa !12
+  %163 = load i32, ptr %16, align 4, !tbaa !7
+  %164 = load i32, ptr %10, align 4, !tbaa !7
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %32, ptr align 8 %8, i64 16, i1 false), !tbaa.struct !14
+  %165 = load ptr, ptr %11, align 8, !tbaa !9
+  %166 = load ptr, ptr %12, align 8, !tbaa !9
+  %167 = getelementptr inbounds nuw { ptr, i32 }, ptr %32, i32 0, i32 0
+  %168 = load ptr, ptr %167, align 8
+  %169 = getelementptr inbounds nuw { ptr, i32 }, ptr %32, i32 0, i32 1
+  %170 = load i32, ptr %169, align 8
+  call void @_ZN17double_conversionL15FillFractionalsEmiiNS_6VectorIcEEPiS2_(i64 noundef %162, i32 noundef %163, i32 noundef %164, ptr %168, i32 %170, ptr noundef %165, ptr noundef %166)
+  call void @llvm.lifetime.end.p0(i64 8, ptr %29) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %28) #4
+  br label %192
+
+171:                                              ; preds = %125
+  %172 = load i32, ptr %16, align 4, !tbaa !7
+  %173 = icmp slt i32 %172, -128
+  br i1 %173, label %174, label %180
+
+174:                                              ; preds = %171
+  %175 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNK17double_conversion6VectorIcEixEi(ptr noundef nonnull align 8 dereferenceable(12) %8, i32 noundef 0)
+  store i8 0, ptr %175, align 1, !tbaa !17
+  %176 = load ptr, ptr %11, align 8, !tbaa !9
+  store i32 0, ptr %176, align 4, !tbaa !7
+  %177 = load i32, ptr %10, align 4, !tbaa !7
+  %178 = sub nsw i32 0, %177
+  %179 = load ptr, ptr %12, align 8, !tbaa !9
+  store i32 %178, ptr %179, align 4, !tbaa !7
+  br label %191
+
+180:                                              ; preds = %171
+  %181 = load ptr, ptr %12, align 8, !tbaa !9
+  store i32 0, ptr %181, align 4, !tbaa !7
+  %182 = load i64, ptr %14, align 8, !tbaa !12
+  %183 = load i32, ptr %16, align 4, !tbaa !7
+  %184 = load i32, ptr %10, align 4, !tbaa !7
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %33, ptr align 8 %8, i64 16, i1 false), !tbaa.struct !14
+  %185 = load ptr, ptr %11, align 8, !tbaa !9
+  %186 = load ptr, ptr %12, align 8, !tbaa !9
+  %187 = getelementptr inbounds nuw { ptr, i32 }, ptr %33, i32 0, i32 0
+  %188 = load ptr, ptr %187, align 8
+  %189 = getelementptr inbounds nuw { ptr, i32 }, ptr %33, i32 0, i32 1
+  %190 = load i32, ptr %189, align 8
+  call void @_ZN17double_conversionL15FillFractionalsEmiiNS_6VectorIcEEPiS2_(i64 noundef %182, i32 noundef %183, i32 noundef %184, ptr %188, i32 %190, ptr noundef %185, ptr noundef %186)
+  br label %191
+
+191:                                              ; preds = %180, %174
+  br label %192
+
+192:                                              ; preds = %191, %158
+  br label %193
+
+193:                                              ; preds = %192, %111
+  br label %194
+
+194:                                              ; preds = %193, %92
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %34, ptr align 8 %8, i64 16, i1 false), !tbaa.struct !14
+  %195 = load ptr, ptr %11, align 8, !tbaa !9
+  %196 = load ptr, ptr %12, align 8, !tbaa !9
+  %197 = getelementptr inbounds nuw { ptr, i32 }, ptr %34, i32 0, i32 0
+  %198 = load ptr, ptr %197, align 8
+  %199 = getelementptr inbounds nuw { ptr, i32 }, ptr %34, i32 0, i32 1
+  %200 = load i32, ptr %199, align 8
+  call void @_ZN17double_conversionL9TrimZerosENS_6VectorIcEEPiS2_(ptr %198, i32 %200, ptr noundef %195, ptr noundef %196)
+  %201 = load ptr, ptr %11, align 8, !tbaa !9
+  %202 = load i32, ptr %201, align 4, !tbaa !7
+  %203 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNK17double_conversion6VectorIcEixEi(ptr noundef nonnull align 8 dereferenceable(12) %8, i32 noundef %202)
+  store i8 0, ptr %203, align 1, !tbaa !17
+  %204 = load ptr, ptr %11, align 8, !tbaa !9
+  %205 = load i32, ptr %204, align 4, !tbaa !7
+  %206 = icmp eq i32 %205, 0
+  br i1 %206, label %207, label %211
+
+207:                                              ; preds = %194
+  %208 = load i32, ptr %10, align 4, !tbaa !7
+  %209 = sub nsw i32 0, %208
+  %210 = load ptr, ptr %12, align 8, !tbaa !9
+  store i32 %209, ptr %210, align 4, !tbaa !7
+  br label %211
+
+211:                                              ; preds = %207, %194
+  store i1 true, ptr %7, align 1
+  store i32 1, ptr %18, align 4
+  br label %212
+
+212:                                              ; preds = %211, %47, %43
+  call void @llvm.lifetime.end.p0(i64 4, ptr %16) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %14) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %13) #4
+  %213 = load i1, ptr %7, align 1
+  ret i1 %213
 }
 
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
+
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr void @_ZN17double_conversion6DoubleC2Ed(ptr noundef nonnull align 8 dereferenceable(8) %this, double noundef %d) unnamed_addr #0 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %d.addr = alloca double, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store double %d, ptr %d.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %d64_ = getelementptr inbounds %"class.double_conversion::Double", ptr %this1, i32 0, i32 0
-  %0 = load double, ptr %d.addr, align 8
-  %call = call noundef i64 @_ZN17double_conversionL16double_to_uint64Ed(double noundef %0)
-  store i64 %call, ptr %d64_, align 8
+define linkonce_odr void @_ZN17double_conversion6DoubleC2Ed(ptr noundef nonnull align 8 dereferenceable(8) %0, double noundef %1) unnamed_addr #0 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca double, align 8
+  store ptr %0, ptr %3, align 8, !tbaa !18
+  store double %1, ptr %4, align 8, !tbaa !3
+  %5 = load ptr, ptr %3, align 8
+  %6 = getelementptr inbounds nuw %"class.double_conversion::Double", ptr %5, i32 0, i32 0
+  %7 = load double, ptr %4, align 8, !tbaa !3
+  %8 = call noundef i64 @_ZN17double_conversionL16double_to_uint64Ed(double noundef %7)
+  store i64 %8, ptr %6, align 8, !tbaa !20
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr noundef i64 @_ZNK17double_conversion6Double11SignificandEv(ptr noundef nonnull align 8 dereferenceable(8) %this) #0 comdat align 2 {
-entry:
-  %retval = alloca i64, align 8
-  %this.addr = alloca ptr, align 8
-  %d64 = alloca i64, align 8
-  %significand = alloca i64, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %call = call noundef i64 @_ZNK17double_conversion6Double8AsUint64Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1)
-  store i64 %call, ptr %d64, align 8
-  %0 = load i64, ptr %d64, align 8
-  %and = and i64 %0, 4503599627370495
-  store i64 %and, ptr %significand, align 8
-  %call2 = call noundef zeroext i1 @_ZNK17double_conversion6Double10IsDenormalEv(ptr noundef nonnull align 8 dereferenceable(8) %this1)
-  br i1 %call2, label %if.else, label %if.then
+define linkonce_odr noundef i64 @_ZNK17double_conversion6Double11SignificandEv(ptr noundef nonnull align 8 dereferenceable(8) %0) #0 comdat align 2 {
+  %2 = alloca i64, align 8
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  %5 = alloca i64, align 8
+  %6 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !18
+  %7 = load ptr, ptr %3, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %4) #4
+  %8 = call noundef i64 @_ZNK17double_conversion6Double8AsUint64Ev(ptr noundef nonnull align 8 dereferenceable(8) %7)
+  store i64 %8, ptr %4, align 8, !tbaa !12
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #4
+  %9 = load i64, ptr %4, align 8, !tbaa !12
+  %10 = and i64 %9, 4503599627370495
+  store i64 %10, ptr %5, align 8, !tbaa !12
+  %11 = call noundef zeroext i1 @_ZNK17double_conversion6Double10IsDenormalEv(ptr noundef nonnull align 8 dereferenceable(8) %7)
+  br i1 %11, label %15, label %12
 
-if.then:                                          ; preds = %entry
-  %1 = load i64, ptr %significand, align 8
-  %add = add i64 %1, 4503599627370496
-  store i64 %add, ptr %retval, align 8
-  br label %return
+12:                                               ; preds = %1
+  %13 = load i64, ptr %5, align 8, !tbaa !12
+  %14 = add i64 %13, 4503599627370496
+  store i64 %14, ptr %2, align 8
+  store i32 1, ptr %6, align 4
+  br label %17
 
-if.else:                                          ; preds = %entry
-  %2 = load i64, ptr %significand, align 8
-  store i64 %2, ptr %retval, align 8
-  br label %return
+15:                                               ; preds = %1
+  %16 = load i64, ptr %5, align 8, !tbaa !12
+  store i64 %16, ptr %2, align 8
+  store i32 1, ptr %6, align 4
+  br label %17
 
-return:                                           ; preds = %if.else, %if.then
-  %3 = load i64, ptr %retval, align 8
+17:                                               ; preds = %15, %12
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %4) #4
+  %18 = load i64, ptr %2, align 8
+  ret i64 %18
+}
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef i32 @_ZNK17double_conversion6Double8ExponentEv(ptr noundef nonnull align 8 dereferenceable(8) %0) #2 comdat align 2 {
+  %2 = alloca i32, align 4
+  %3 = alloca ptr, align 8
+  %4 = alloca i64, align 8
+  %5 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !18
+  %6 = load ptr, ptr %3, align 8
+  %7 = call noundef zeroext i1 @_ZNK17double_conversion6Double10IsDenormalEv(ptr noundef nonnull align 8 dereferenceable(8) %6)
+  br i1 %7, label %8, label %9
+
+8:                                                ; preds = %1
+  store i32 -1074, ptr %2, align 4
+  br label %17
+
+9:                                                ; preds = %1
+  call void @llvm.lifetime.start.p0(i64 8, ptr %4) #4
+  %10 = call noundef i64 @_ZNK17double_conversion6Double8AsUint64Ev(ptr noundef nonnull align 8 dereferenceable(8) %6)
+  store i64 %10, ptr %4, align 8, !tbaa !12
+  call void @llvm.lifetime.start.p0(i64 4, ptr %5) #4
+  %11 = load i64, ptr %4, align 8, !tbaa !12
+  %12 = and i64 %11, 9218868437227405312
+  %13 = lshr i64 %12, 52
+  %14 = trunc i64 %13 to i32
+  store i32 %14, ptr %5, align 4, !tbaa !7
+  %15 = load i32, ptr %5, align 4, !tbaa !7
+  %16 = sub nsw i32 %15, 1075
+  store i32 %16, ptr %2, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %5) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %4) #4
+  br label %17
+
+17:                                               ; preds = %9, %8
+  %18 = load i32, ptr %2, align 4
+  ret i32 %18
+}
+
+; Function Attrs: mustprogress uwtable
+define internal void @_ZN17double_conversionL12FillDigits32EjNS_6VectorIcEEPi(i32 noundef %0, ptr %1, i32 %2, ptr noundef %3) #0 {
+  %5 = alloca %"class.double_conversion::Vector", align 8
+  %6 = alloca i32, align 4
+  %7 = alloca ptr, align 8
+  %8 = alloca i32, align 4
+  %9 = alloca i32, align 4
+  %10 = alloca i32, align 4
+  %11 = alloca i32, align 4
+  %12 = alloca i8, align 1
+  %13 = getelementptr inbounds nuw { ptr, i32 }, ptr %5, i32 0, i32 0
+  store ptr %1, ptr %13, align 8
+  %14 = getelementptr inbounds nuw { ptr, i32 }, ptr %5, i32 0, i32 1
+  store i32 %2, ptr %14, align 8
+  store i32 %0, ptr %6, align 4, !tbaa !7
+  store ptr %3, ptr %7, align 8, !tbaa !9
+  call void @llvm.lifetime.start.p0(i64 4, ptr %8) #4
+  store i32 0, ptr %8, align 4, !tbaa !7
+  br label %15
+
+15:                                               ; preds = %18, %4
+  %16 = load i32, ptr %6, align 4, !tbaa !7
+  %17 = icmp ne i32 %16, 0
+  br i1 %17, label %18, label %33
+
+18:                                               ; preds = %15
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #4
+  %19 = load i32, ptr %6, align 4, !tbaa !7
+  %20 = urem i32 %19, 10
+  store i32 %20, ptr %9, align 4, !tbaa !7
+  %21 = load i32, ptr %6, align 4, !tbaa !7
+  %22 = udiv i32 %21, 10
+  store i32 %22, ptr %6, align 4, !tbaa !7
+  %23 = load i32, ptr %9, align 4, !tbaa !7
+  %24 = add nsw i32 48, %23
+  %25 = trunc i32 %24 to i8
+  %26 = load ptr, ptr %7, align 8, !tbaa !9
+  %27 = load i32, ptr %26, align 4, !tbaa !7
+  %28 = load i32, ptr %8, align 4, !tbaa !7
+  %29 = add nsw i32 %27, %28
+  %30 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNK17double_conversion6VectorIcEixEi(ptr noundef nonnull align 8 dereferenceable(12) %5, i32 noundef %29)
+  store i8 %25, ptr %30, align 1, !tbaa !17
+  %31 = load i32, ptr %8, align 4, !tbaa !7
+  %32 = add nsw i32 %31, 1
+  store i32 %32, ptr %8, align 4, !tbaa !7
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #4
+  br label %15, !llvm.loop !22
+
+33:                                               ; preds = %15
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #4
+  %34 = load ptr, ptr %7, align 8, !tbaa !9
+  %35 = load i32, ptr %34, align 4, !tbaa !7
+  store i32 %35, ptr %10, align 4, !tbaa !7
+  call void @llvm.lifetime.start.p0(i64 4, ptr %11) #4
+  %36 = load ptr, ptr %7, align 8, !tbaa !9
+  %37 = load i32, ptr %36, align 4, !tbaa !7
+  %38 = load i32, ptr %8, align 4, !tbaa !7
+  %39 = add nsw i32 %37, %38
+  %40 = sub nsw i32 %39, 1
+  store i32 %40, ptr %11, align 4, !tbaa !7
+  br label %41
+
+41:                                               ; preds = %45, %33
+  %42 = load i32, ptr %10, align 4, !tbaa !7
+  %43 = load i32, ptr %11, align 4, !tbaa !7
+  %44 = icmp slt i32 %42, %43
+  br i1 %44, label %45, label %61
+
+45:                                               ; preds = %41
+  call void @llvm.lifetime.start.p0(i64 1, ptr %12) #4
+  %46 = load i32, ptr %10, align 4, !tbaa !7
+  %47 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNK17double_conversion6VectorIcEixEi(ptr noundef nonnull align 8 dereferenceable(12) %5, i32 noundef %46)
+  %48 = load i8, ptr %47, align 1, !tbaa !17
+  store i8 %48, ptr %12, align 1, !tbaa !17
+  %49 = load i32, ptr %11, align 4, !tbaa !7
+  %50 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNK17double_conversion6VectorIcEixEi(ptr noundef nonnull align 8 dereferenceable(12) %5, i32 noundef %49)
+  %51 = load i8, ptr %50, align 1, !tbaa !17
+  %52 = load i32, ptr %10, align 4, !tbaa !7
+  %53 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNK17double_conversion6VectorIcEixEi(ptr noundef nonnull align 8 dereferenceable(12) %5, i32 noundef %52)
+  store i8 %51, ptr %53, align 1, !tbaa !17
+  %54 = load i8, ptr %12, align 1, !tbaa !17
+  %55 = load i32, ptr %11, align 4, !tbaa !7
+  %56 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNK17double_conversion6VectorIcEixEi(ptr noundef nonnull align 8 dereferenceable(12) %5, i32 noundef %55)
+  store i8 %54, ptr %56, align 1, !tbaa !17
+  %57 = load i32, ptr %10, align 4, !tbaa !7
+  %58 = add nsw i32 %57, 1
+  store i32 %58, ptr %10, align 4, !tbaa !7
+  %59 = load i32, ptr %11, align 4, !tbaa !7
+  %60 = add nsw i32 %59, -1
+  store i32 %60, ptr %11, align 4, !tbaa !7
+  call void @llvm.lifetime.end.p0(i64 1, ptr %12) #4
+  br label %41, !llvm.loop !24
+
+61:                                               ; preds = %41
+  %62 = load i32, ptr %8, align 4, !tbaa !7
+  %63 = load ptr, ptr %7, align 8, !tbaa !9
+  %64 = load i32, ptr %63, align 4, !tbaa !7
+  %65 = add nsw i32 %64, %62
+  store i32 %65, ptr %63, align 4, !tbaa !7
+  call void @llvm.lifetime.end.p0(i64 4, ptr %11) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %8) #4
+  ret void
+}
+
+; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
+
+; Function Attrs: mustprogress uwtable
+define internal void @_ZN17double_conversionL23FillDigits64FixedLengthEmNS_6VectorIcEEPi(i64 noundef %0, ptr %1, i32 %2, ptr noundef %3) #0 {
+  %5 = alloca %"class.double_conversion::Vector", align 8
+  %6 = alloca i64, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca i32, align 4
+  %9 = alloca i32, align 4
+  %10 = alloca i32, align 4
+  %11 = alloca i32, align 4
+  %12 = alloca %"class.double_conversion::Vector", align 8
+  %13 = alloca %"class.double_conversion::Vector", align 8
+  %14 = alloca %"class.double_conversion::Vector", align 8
+  %15 = getelementptr inbounds nuw { ptr, i32 }, ptr %5, i32 0, i32 0
+  store ptr %1, ptr %15, align 8
+  %16 = getelementptr inbounds nuw { ptr, i32 }, ptr %5, i32 0, i32 1
+  store i32 %2, ptr %16, align 8
+  store i64 %0, ptr %6, align 8, !tbaa !12
+  store ptr %3, ptr %7, align 8, !tbaa !9
+  call void @llvm.lifetime.start.p0(i64 4, ptr %8) #4
+  store i32 10000000, ptr %8, align 4, !tbaa !7
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #4
+  %17 = load i64, ptr %6, align 8, !tbaa !12
+  %18 = urem i64 %17, 10000000
+  %19 = trunc i64 %18 to i32
+  store i32 %19, ptr %9, align 4, !tbaa !7
+  %20 = load i64, ptr %6, align 8, !tbaa !12
+  %21 = udiv i64 %20, 10000000
+  store i64 %21, ptr %6, align 8, !tbaa !12
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #4
+  %22 = load i64, ptr %6, align 8, !tbaa !12
+  %23 = urem i64 %22, 10000000
+  %24 = trunc i64 %23 to i32
+  store i32 %24, ptr %10, align 4, !tbaa !7
+  call void @llvm.lifetime.start.p0(i64 4, ptr %11) #4
+  %25 = load i64, ptr %6, align 8, !tbaa !12
+  %26 = udiv i64 %25, 10000000
+  %27 = trunc i64 %26 to i32
+  store i32 %27, ptr %11, align 4, !tbaa !7
+  %28 = load i32, ptr %11, align 4, !tbaa !7
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %12, ptr align 8 %5, i64 16, i1 false), !tbaa.struct !14
+  %29 = load ptr, ptr %7, align 8, !tbaa !9
+  %30 = getelementptr inbounds nuw { ptr, i32 }, ptr %12, i32 0, i32 0
+  %31 = load ptr, ptr %30, align 8
+  %32 = getelementptr inbounds nuw { ptr, i32 }, ptr %12, i32 0, i32 1
+  %33 = load i32, ptr %32, align 8
+  call void @_ZN17double_conversionL23FillDigits32FixedLengthEjiNS_6VectorIcEEPi(i32 noundef %28, i32 noundef 3, ptr %31, i32 %33, ptr noundef %29)
+  %34 = load i32, ptr %10, align 4, !tbaa !7
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %13, ptr align 8 %5, i64 16, i1 false), !tbaa.struct !14
+  %35 = load ptr, ptr %7, align 8, !tbaa !9
+  %36 = getelementptr inbounds nuw { ptr, i32 }, ptr %13, i32 0, i32 0
+  %37 = load ptr, ptr %36, align 8
+  %38 = getelementptr inbounds nuw { ptr, i32 }, ptr %13, i32 0, i32 1
+  %39 = load i32, ptr %38, align 8
+  call void @_ZN17double_conversionL23FillDigits32FixedLengthEjiNS_6VectorIcEEPi(i32 noundef %34, i32 noundef 7, ptr %37, i32 %39, ptr noundef %35)
+  %40 = load i32, ptr %9, align 4, !tbaa !7
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %14, ptr align 8 %5, i64 16, i1 false), !tbaa.struct !14
+  %41 = load ptr, ptr %7, align 8, !tbaa !9
+  %42 = getelementptr inbounds nuw { ptr, i32 }, ptr %14, i32 0, i32 0
+  %43 = load ptr, ptr %42, align 8
+  %44 = getelementptr inbounds nuw { ptr, i32 }, ptr %14, i32 0, i32 1
+  %45 = load i32, ptr %44, align 8
+  call void @_ZN17double_conversionL23FillDigits32FixedLengthEjiNS_6VectorIcEEPi(i32 noundef %40, i32 noundef 7, ptr %43, i32 %45, ptr noundef %41)
+  call void @llvm.lifetime.end.p0(i64 4, ptr %11) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %8) #4
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define internal void @_ZN17double_conversionL12FillDigits64EmNS_6VectorIcEEPi(i64 noundef %0, ptr %1, i32 %2, ptr noundef %3) #0 {
+  %5 = alloca %"class.double_conversion::Vector", align 8
+  %6 = alloca i64, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca i32, align 4
+  %9 = alloca i32, align 4
+  %10 = alloca i32, align 4
+  %11 = alloca i32, align 4
+  %12 = alloca %"class.double_conversion::Vector", align 8
+  %13 = alloca %"class.double_conversion::Vector", align 8
+  %14 = alloca %"class.double_conversion::Vector", align 8
+  %15 = alloca %"class.double_conversion::Vector", align 8
+  %16 = alloca %"class.double_conversion::Vector", align 8
+  %17 = alloca %"class.double_conversion::Vector", align 8
+  %18 = getelementptr inbounds nuw { ptr, i32 }, ptr %5, i32 0, i32 0
+  store ptr %1, ptr %18, align 8
+  %19 = getelementptr inbounds nuw { ptr, i32 }, ptr %5, i32 0, i32 1
+  store i32 %2, ptr %19, align 8
+  store i64 %0, ptr %6, align 8, !tbaa !12
+  store ptr %3, ptr %7, align 8, !tbaa !9
+  call void @llvm.lifetime.start.p0(i64 4, ptr %8) #4
+  store i32 10000000, ptr %8, align 4, !tbaa !7
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #4
+  %20 = load i64, ptr %6, align 8, !tbaa !12
+  %21 = urem i64 %20, 10000000
+  %22 = trunc i64 %21 to i32
+  store i32 %22, ptr %9, align 4, !tbaa !7
+  %23 = load i64, ptr %6, align 8, !tbaa !12
+  %24 = udiv i64 %23, 10000000
+  store i64 %24, ptr %6, align 8, !tbaa !12
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #4
+  %25 = load i64, ptr %6, align 8, !tbaa !12
+  %26 = urem i64 %25, 10000000
+  %27 = trunc i64 %26 to i32
+  store i32 %27, ptr %10, align 4, !tbaa !7
+  call void @llvm.lifetime.start.p0(i64 4, ptr %11) #4
+  %28 = load i64, ptr %6, align 8, !tbaa !12
+  %29 = udiv i64 %28, 10000000
+  %30 = trunc i64 %29 to i32
+  store i32 %30, ptr %11, align 4, !tbaa !7
+  %31 = load i32, ptr %11, align 4, !tbaa !7
+  %32 = icmp ne i32 %31, 0
+  br i1 %32, label %33, label %52
+
+33:                                               ; preds = %4
+  %34 = load i32, ptr %11, align 4, !tbaa !7
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %12, ptr align 8 %5, i64 16, i1 false), !tbaa.struct !14
+  %35 = load ptr, ptr %7, align 8, !tbaa !9
+  %36 = getelementptr inbounds nuw { ptr, i32 }, ptr %12, i32 0, i32 0
+  %37 = load ptr, ptr %36, align 8
+  %38 = getelementptr inbounds nuw { ptr, i32 }, ptr %12, i32 0, i32 1
+  %39 = load i32, ptr %38, align 8
+  call void @_ZN17double_conversionL12FillDigits32EjNS_6VectorIcEEPi(i32 noundef %34, ptr %37, i32 %39, ptr noundef %35)
+  %40 = load i32, ptr %10, align 4, !tbaa !7
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %13, ptr align 8 %5, i64 16, i1 false), !tbaa.struct !14
+  %41 = load ptr, ptr %7, align 8, !tbaa !9
+  %42 = getelementptr inbounds nuw { ptr, i32 }, ptr %13, i32 0, i32 0
+  %43 = load ptr, ptr %42, align 8
+  %44 = getelementptr inbounds nuw { ptr, i32 }, ptr %13, i32 0, i32 1
+  %45 = load i32, ptr %44, align 8
+  call void @_ZN17double_conversionL23FillDigits32FixedLengthEjiNS_6VectorIcEEPi(i32 noundef %40, i32 noundef 7, ptr %43, i32 %45, ptr noundef %41)
+  %46 = load i32, ptr %9, align 4, !tbaa !7
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %14, ptr align 8 %5, i64 16, i1 false), !tbaa.struct !14
+  %47 = load ptr, ptr %7, align 8, !tbaa !9
+  %48 = getelementptr inbounds nuw { ptr, i32 }, ptr %14, i32 0, i32 0
+  %49 = load ptr, ptr %48, align 8
+  %50 = getelementptr inbounds nuw { ptr, i32 }, ptr %14, i32 0, i32 1
+  %51 = load i32, ptr %50, align 8
+  call void @_ZN17double_conversionL23FillDigits32FixedLengthEjiNS_6VectorIcEEPi(i32 noundef %46, i32 noundef 7, ptr %49, i32 %51, ptr noundef %47)
+  br label %76
+
+52:                                               ; preds = %4
+  %53 = load i32, ptr %10, align 4, !tbaa !7
+  %54 = icmp ne i32 %53, 0
+  br i1 %54, label %55, label %68
+
+55:                                               ; preds = %52
+  %56 = load i32, ptr %10, align 4, !tbaa !7
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %15, ptr align 8 %5, i64 16, i1 false), !tbaa.struct !14
+  %57 = load ptr, ptr %7, align 8, !tbaa !9
+  %58 = getelementptr inbounds nuw { ptr, i32 }, ptr %15, i32 0, i32 0
+  %59 = load ptr, ptr %58, align 8
+  %60 = getelementptr inbounds nuw { ptr, i32 }, ptr %15, i32 0, i32 1
+  %61 = load i32, ptr %60, align 8
+  call void @_ZN17double_conversionL12FillDigits32EjNS_6VectorIcEEPi(i32 noundef %56, ptr %59, i32 %61, ptr noundef %57)
+  %62 = load i32, ptr %9, align 4, !tbaa !7
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %16, ptr align 8 %5, i64 16, i1 false), !tbaa.struct !14
+  %63 = load ptr, ptr %7, align 8, !tbaa !9
+  %64 = getelementptr inbounds nuw { ptr, i32 }, ptr %16, i32 0, i32 0
+  %65 = load ptr, ptr %64, align 8
+  %66 = getelementptr inbounds nuw { ptr, i32 }, ptr %16, i32 0, i32 1
+  %67 = load i32, ptr %66, align 8
+  call void @_ZN17double_conversionL23FillDigits32FixedLengthEjiNS_6VectorIcEEPi(i32 noundef %62, i32 noundef 7, ptr %65, i32 %67, ptr noundef %63)
+  br label %75
+
+68:                                               ; preds = %52
+  %69 = load i32, ptr %9, align 4, !tbaa !7
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %17, ptr align 8 %5, i64 16, i1 false), !tbaa.struct !14
+  %70 = load ptr, ptr %7, align 8, !tbaa !9
+  %71 = getelementptr inbounds nuw { ptr, i32 }, ptr %17, i32 0, i32 0
+  %72 = load ptr, ptr %71, align 8
+  %73 = getelementptr inbounds nuw { ptr, i32 }, ptr %17, i32 0, i32 1
+  %74 = load i32, ptr %73, align 8
+  call void @_ZN17double_conversionL12FillDigits32EjNS_6VectorIcEEPi(i32 noundef %69, ptr %72, i32 %74, ptr noundef %70)
+  br label %75
+
+75:                                               ; preds = %68, %55
+  br label %76
+
+76:                                               ; preds = %75, %33
+  call void @llvm.lifetime.end.p0(i64 4, ptr %11) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %8) #4
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define internal void @_ZN17double_conversionL15FillFractionalsEmiiNS_6VectorIcEEPiS2_(i64 noundef %0, i32 noundef %1, i32 noundef %2, ptr %3, i32 %4, ptr noundef %5, ptr noundef %6) #0 {
+  %8 = alloca %"class.double_conversion::Vector", align 8
+  %9 = alloca i64, align 8
+  %10 = alloca i32, align 4
+  %11 = alloca i32, align 4
+  %12 = alloca ptr, align 8
+  %13 = alloca ptr, align 8
+  %14 = alloca i32, align 4
+  %15 = alloca i32, align 4
+  %16 = alloca i32, align 4
+  %17 = alloca i32, align 4
+  %18 = alloca %"class.double_conversion::Vector", align 8
+  %19 = alloca %"class.double_conversion::UInt128", align 8
+  %20 = alloca i32, align 4
+  %21 = alloca i32, align 4
+  %22 = alloca i32, align 4
+  %23 = alloca %"class.double_conversion::Vector", align 8
+  %24 = getelementptr inbounds nuw { ptr, i32 }, ptr %8, i32 0, i32 0
+  store ptr %3, ptr %24, align 8
+  %25 = getelementptr inbounds nuw { ptr, i32 }, ptr %8, i32 0, i32 1
+  store i32 %4, ptr %25, align 8
+  store i64 %0, ptr %9, align 8, !tbaa !12
+  store i32 %1, ptr %10, align 4, !tbaa !7
+  store i32 %2, ptr %11, align 4, !tbaa !7
+  store ptr %5, ptr %12, align 8, !tbaa !9
+  store ptr %6, ptr %13, align 8, !tbaa !9
+  %26 = load i32, ptr %10, align 4, !tbaa !7
+  %27 = sub nsw i32 0, %26
+  %28 = icmp sle i32 %27, 64
+  br i1 %28, label %29, label %90
+
+29:                                               ; preds = %7
+  call void @llvm.lifetime.start.p0(i64 4, ptr %14) #4
+  %30 = load i32, ptr %10, align 4, !tbaa !7
+  %31 = sub nsw i32 0, %30
+  store i32 %31, ptr %14, align 4, !tbaa !7
+  call void @llvm.lifetime.start.p0(i64 4, ptr %15) #4
+  store i32 0, ptr %15, align 4, !tbaa !7
+  br label %32
+
+32:                                               ; preds = %67, %29
+  %33 = load i32, ptr %15, align 4, !tbaa !7
+  %34 = load i32, ptr %11, align 4, !tbaa !7
+  %35 = icmp slt i32 %33, %34
+  br i1 %35, label %37, label %36
+
+36:                                               ; preds = %32
+  store i32 2, ptr %16, align 4
+  br label %70
+
+37:                                               ; preds = %32
+  %38 = load i64, ptr %9, align 8, !tbaa !12
+  %39 = icmp eq i64 %38, 0
+  br i1 %39, label %40, label %41
+
+40:                                               ; preds = %37
+  store i32 2, ptr %16, align 4
+  br label %70
+
+41:                                               ; preds = %37
+  %42 = load i64, ptr %9, align 8, !tbaa !12
+  %43 = mul i64 %42, 5
+  store i64 %43, ptr %9, align 8, !tbaa !12
+  %44 = load i32, ptr %14, align 4, !tbaa !7
+  %45 = add nsw i32 %44, -1
+  store i32 %45, ptr %14, align 4, !tbaa !7
+  call void @llvm.lifetime.start.p0(i64 4, ptr %17) #4
+  %46 = load i64, ptr %9, align 8, !tbaa !12
+  %47 = load i32, ptr %14, align 4, !tbaa !7
+  %48 = zext i32 %47 to i64
+  %49 = lshr i64 %46, %48
+  %50 = trunc i64 %49 to i32
+  store i32 %50, ptr %17, align 4, !tbaa !7
+  %51 = load i32, ptr %17, align 4, !tbaa !7
+  %52 = add nsw i32 48, %51
+  %53 = trunc i32 %52 to i8
+  %54 = load ptr, ptr %12, align 8, !tbaa !9
+  %55 = load i32, ptr %54, align 4, !tbaa !7
+  %56 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNK17double_conversion6VectorIcEixEi(ptr noundef nonnull align 8 dereferenceable(12) %8, i32 noundef %55)
+  store i8 %53, ptr %56, align 1, !tbaa !17
+  %57 = load ptr, ptr %12, align 8, !tbaa !9
+  %58 = load i32, ptr %57, align 4, !tbaa !7
+  %59 = add nsw i32 %58, 1
+  store i32 %59, ptr %57, align 4, !tbaa !7
+  %60 = load i32, ptr %17, align 4, !tbaa !7
+  %61 = sext i32 %60 to i64
+  %62 = load i32, ptr %14, align 4, !tbaa !7
+  %63 = zext i32 %62 to i64
+  %64 = shl i64 %61, %63
+  %65 = load i64, ptr %9, align 8, !tbaa !12
+  %66 = sub i64 %65, %64
+  store i64 %66, ptr %9, align 8, !tbaa !12
+  call void @llvm.lifetime.end.p0(i64 4, ptr %17) #4
+  br label %67
+
+67:                                               ; preds = %41
+  %68 = load i32, ptr %15, align 4, !tbaa !7
+  %69 = add nsw i32 %68, 1
+  store i32 %69, ptr %15, align 4, !tbaa !7
+  br label %32, !llvm.loop !25
+
+70:                                               ; preds = %40, %36
+  call void @llvm.lifetime.end.p0(i64 4, ptr %15) #4
+  br label %71
+
+71:                                               ; preds = %70
+  %72 = load i64, ptr %9, align 8, !tbaa !12
+  %73 = icmp ne i64 %72, 0
+  br i1 %73, label %74, label %89
+
+74:                                               ; preds = %71
+  %75 = load i64, ptr %9, align 8, !tbaa !12
+  %76 = load i32, ptr %14, align 4, !tbaa !7
+  %77 = sub nsw i32 %76, 1
+  %78 = zext i32 %77 to i64
+  %79 = lshr i64 %75, %78
+  %80 = and i64 %79, 1
+  %81 = icmp eq i64 %80, 1
+  br i1 %81, label %82, label %89
+
+82:                                               ; preds = %74
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %18, ptr align 8 %8, i64 16, i1 false), !tbaa.struct !14
+  %83 = load ptr, ptr %12, align 8, !tbaa !9
+  %84 = load ptr, ptr %13, align 8, !tbaa !9
+  %85 = getelementptr inbounds nuw { ptr, i32 }, ptr %18, i32 0, i32 0
+  %86 = load ptr, ptr %85, align 8
+  %87 = getelementptr inbounds nuw { ptr, i32 }, ptr %18, i32 0, i32 1
+  %88 = load i32, ptr %87, align 8
+  call void @_ZN17double_conversionL7RoundUpENS_6VectorIcEEPiS2_(ptr %86, i32 %88, ptr noundef %83, ptr noundef %84)
+  br label %89
+
+89:                                               ; preds = %82, %74, %71
+  call void @llvm.lifetime.end.p0(i64 4, ptr %14) #4
+  br label %134
+
+90:                                               ; preds = %7
+  call void @llvm.lifetime.start.p0(i64 16, ptr %19) #4
+  %91 = load i64, ptr %9, align 8, !tbaa !12
+  call void @_ZN17double_conversion7UInt128C2Emm(ptr noundef nonnull align 8 dereferenceable(16) %19, i64 noundef %91, i64 noundef 0)
+  %92 = load i32, ptr %10, align 4, !tbaa !7
+  %93 = sub nsw i32 0, %92
+  %94 = sub nsw i32 %93, 64
+  call void @_ZN17double_conversion7UInt1285ShiftEi(ptr noundef nonnull align 8 dereferenceable(16) %19, i32 noundef %94)
+  call void @llvm.lifetime.start.p0(i64 4, ptr %20) #4
+  store i32 128, ptr %20, align 4, !tbaa !7
+  call void @llvm.lifetime.start.p0(i64 4, ptr %21) #4
+  store i32 0, ptr %21, align 4, !tbaa !7
+  br label %95
+
+95:                                               ; preds = %117, %90
+  %96 = load i32, ptr %21, align 4, !tbaa !7
+  %97 = load i32, ptr %11, align 4, !tbaa !7
+  %98 = icmp slt i32 %96, %97
+  br i1 %98, label %100, label %99
+
+99:                                               ; preds = %95
+  store i32 5, ptr %16, align 4
+  br label %120
+
+100:                                              ; preds = %95
+  %101 = call noundef zeroext i1 @_ZNK17double_conversion7UInt1286IsZeroEv(ptr noundef nonnull align 8 dereferenceable(16) %19)
+  br i1 %101, label %102, label %103
+
+102:                                              ; preds = %100
+  store i32 5, ptr %16, align 4
+  br label %120
+
+103:                                              ; preds = %100
+  call void @_ZN17double_conversion7UInt1288MultiplyEj(ptr noundef nonnull align 8 dereferenceable(16) %19, i32 noundef 5)
+  %104 = load i32, ptr %20, align 4, !tbaa !7
+  %105 = add nsw i32 %104, -1
+  store i32 %105, ptr %20, align 4, !tbaa !7
+  call void @llvm.lifetime.start.p0(i64 4, ptr %22) #4
+  %106 = load i32, ptr %20, align 4, !tbaa !7
+  %107 = call noundef i32 @_ZN17double_conversion7UInt12814DivModPowerOf2Ei(ptr noundef nonnull align 8 dereferenceable(16) %19, i32 noundef %106)
+  store i32 %107, ptr %22, align 4, !tbaa !7
+  %108 = load i32, ptr %22, align 4, !tbaa !7
+  %109 = add nsw i32 48, %108
+  %110 = trunc i32 %109 to i8
+  %111 = load ptr, ptr %12, align 8, !tbaa !9
+  %112 = load i32, ptr %111, align 4, !tbaa !7
+  %113 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNK17double_conversion6VectorIcEixEi(ptr noundef nonnull align 8 dereferenceable(12) %8, i32 noundef %112)
+  store i8 %110, ptr %113, align 1, !tbaa !17
+  %114 = load ptr, ptr %12, align 8, !tbaa !9
+  %115 = load i32, ptr %114, align 4, !tbaa !7
+  %116 = add nsw i32 %115, 1
+  store i32 %116, ptr %114, align 4, !tbaa !7
+  call void @llvm.lifetime.end.p0(i64 4, ptr %22) #4
+  br label %117
+
+117:                                              ; preds = %103
+  %118 = load i32, ptr %21, align 4, !tbaa !7
+  %119 = add nsw i32 %118, 1
+  store i32 %119, ptr %21, align 4, !tbaa !7
+  br label %95, !llvm.loop !26
+
+120:                                              ; preds = %102, %99
+  call void @llvm.lifetime.end.p0(i64 4, ptr %21) #4
+  br label %121
+
+121:                                              ; preds = %120
+  %122 = load i32, ptr %20, align 4, !tbaa !7
+  %123 = sub nsw i32 %122, 1
+  %124 = call noundef i32 @_ZNK17double_conversion7UInt1285BitAtEi(ptr noundef nonnull align 8 dereferenceable(16) %19, i32 noundef %123)
+  %125 = icmp eq i32 %124, 1
+  br i1 %125, label %126, label %133
+
+126:                                              ; preds = %121
+  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %23, ptr align 8 %8, i64 16, i1 false), !tbaa.struct !14
+  %127 = load ptr, ptr %12, align 8, !tbaa !9
+  %128 = load ptr, ptr %13, align 8, !tbaa !9
+  %129 = getelementptr inbounds nuw { ptr, i32 }, ptr %23, i32 0, i32 0
+  %130 = load ptr, ptr %129, align 8
+  %131 = getelementptr inbounds nuw { ptr, i32 }, ptr %23, i32 0, i32 1
+  %132 = load i32, ptr %131, align 8
+  call void @_ZN17double_conversionL7RoundUpENS_6VectorIcEEPiS2_(ptr %130, i32 %132, ptr noundef %127, ptr noundef %128)
+  br label %133
+
+133:                                              ; preds = %126, %121
+  call void @llvm.lifetime.end.p0(i64 4, ptr %20) #4
+  call void @llvm.lifetime.end.p0(i64 16, ptr %19) #4
+  br label %134
+
+134:                                              ; preds = %133, %89
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef nonnull align 1 dereferenceable(1) ptr @_ZNK17double_conversion6VectorIcEixEi(ptr noundef nonnull align 8 dereferenceable(12) %0, i32 noundef %1) #2 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !27
+  store i32 %1, ptr %4, align 4, !tbaa !7
+  %5 = load ptr, ptr %3, align 8
+  %6 = getelementptr inbounds nuw %"class.double_conversion::Vector", ptr %5, i32 0, i32 0
+  %7 = load ptr, ptr %6, align 8, !tbaa !29
+  %8 = load i32, ptr %4, align 4, !tbaa !7
+  %9 = sext i32 %8 to i64
+  %10 = getelementptr inbounds i8, ptr %7, i64 %9
+  ret ptr %10
+}
+
+; Function Attrs: mustprogress uwtable
+define internal void @_ZN17double_conversionL9TrimZerosENS_6VectorIcEEPiS2_(ptr %0, i32 %1, ptr noundef %2, ptr noundef %3) #0 {
+  %5 = alloca %"class.double_conversion::Vector", align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca i32, align 4
+  %9 = alloca i32, align 4
+  %10 = getelementptr inbounds nuw { ptr, i32 }, ptr %5, i32 0, i32 0
+  store ptr %0, ptr %10, align 8
+  %11 = getelementptr inbounds nuw { ptr, i32 }, ptr %5, i32 0, i32 1
+  store i32 %1, ptr %11, align 8
+  store ptr %2, ptr %6, align 8, !tbaa !9
+  store ptr %3, ptr %7, align 8, !tbaa !9
+  br label %12
+
+12:                                               ; preds = %26, %4
+  %13 = load ptr, ptr %6, align 8, !tbaa !9
+  %14 = load i32, ptr %13, align 4, !tbaa !7
+  %15 = icmp sgt i32 %14, 0
+  br i1 %15, label %16, label %24
+
+16:                                               ; preds = %12
+  %17 = load ptr, ptr %6, align 8, !tbaa !9
+  %18 = load i32, ptr %17, align 4, !tbaa !7
+  %19 = sub nsw i32 %18, 1
+  %20 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNK17double_conversion6VectorIcEixEi(ptr noundef nonnull align 8 dereferenceable(12) %5, i32 noundef %19)
+  %21 = load i8, ptr %20, align 1, !tbaa !17
+  %22 = sext i8 %21 to i32
+  %23 = icmp eq i32 %22, 48
+  br label %24
+
+24:                                               ; preds = %16, %12
+  %25 = phi i1 [ false, %12 ], [ %23, %16 ]
+  br i1 %25, label %26, label %30
+
+26:                                               ; preds = %24
+  %27 = load ptr, ptr %6, align 8, !tbaa !9
+  %28 = load i32, ptr %27, align 4, !tbaa !7
+  %29 = add nsw i32 %28, -1
+  store i32 %29, ptr %27, align 4, !tbaa !7
+  br label %12, !llvm.loop !31
+
+30:                                               ; preds = %24
+  call void @llvm.lifetime.start.p0(i64 4, ptr %8) #4
+  store i32 0, ptr %8, align 4, !tbaa !7
+  br label %31
+
+31:                                               ; preds = %44, %30
+  %32 = load i32, ptr %8, align 4, !tbaa !7
+  %33 = load ptr, ptr %6, align 8, !tbaa !9
+  %34 = load i32, ptr %33, align 4, !tbaa !7
+  %35 = icmp slt i32 %32, %34
+  br i1 %35, label %36, label %42
+
+36:                                               ; preds = %31
+  %37 = load i32, ptr %8, align 4, !tbaa !7
+  %38 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNK17double_conversion6VectorIcEixEi(ptr noundef nonnull align 8 dereferenceable(12) %5, i32 noundef %37)
+  %39 = load i8, ptr %38, align 1, !tbaa !17
+  %40 = sext i8 %39 to i32
+  %41 = icmp eq i32 %40, 48
+  br label %42
+
+42:                                               ; preds = %36, %31
+  %43 = phi i1 [ false, %31 ], [ %41, %36 ]
+  br i1 %43, label %44, label %47
+
+44:                                               ; preds = %42
+  %45 = load i32, ptr %8, align 4, !tbaa !7
+  %46 = add nsw i32 %45, 1
+  store i32 %46, ptr %8, align 4, !tbaa !7
+  br label %31, !llvm.loop !32
+
+47:                                               ; preds = %42
+  %48 = load i32, ptr %8, align 4, !tbaa !7
+  %49 = icmp ne i32 %48, 0
+  br i1 %49, label %50, label %78
+
+50:                                               ; preds = %47
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #4
+  %51 = load i32, ptr %8, align 4, !tbaa !7
+  store i32 %51, ptr %9, align 4, !tbaa !7
+  br label %52
+
+52:                                               ; preds = %66, %50
+  %53 = load i32, ptr %9, align 4, !tbaa !7
+  %54 = load ptr, ptr %6, align 8, !tbaa !9
+  %55 = load i32, ptr %54, align 4, !tbaa !7
+  %56 = icmp slt i32 %53, %55
+  br i1 %56, label %58, label %57
+
+57:                                               ; preds = %52
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #4
+  br label %69
+
+58:                                               ; preds = %52
+  %59 = load i32, ptr %9, align 4, !tbaa !7
+  %60 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNK17double_conversion6VectorIcEixEi(ptr noundef nonnull align 8 dereferenceable(12) %5, i32 noundef %59)
+  %61 = load i8, ptr %60, align 1, !tbaa !17
+  %62 = load i32, ptr %9, align 4, !tbaa !7
+  %63 = load i32, ptr %8, align 4, !tbaa !7
+  %64 = sub nsw i32 %62, %63
+  %65 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNK17double_conversion6VectorIcEixEi(ptr noundef nonnull align 8 dereferenceable(12) %5, i32 noundef %64)
+  store i8 %61, ptr %65, align 1, !tbaa !17
+  br label %66
+
+66:                                               ; preds = %58
+  %67 = load i32, ptr %9, align 4, !tbaa !7
+  %68 = add nsw i32 %67, 1
+  store i32 %68, ptr %9, align 4, !tbaa !7
+  br label %52, !llvm.loop !33
+
+69:                                               ; preds = %57
+  %70 = load i32, ptr %8, align 4, !tbaa !7
+  %71 = load ptr, ptr %6, align 8, !tbaa !9
+  %72 = load i32, ptr %71, align 4, !tbaa !7
+  %73 = sub nsw i32 %72, %70
+  store i32 %73, ptr %71, align 4, !tbaa !7
+  %74 = load i32, ptr %8, align 4, !tbaa !7
+  %75 = load ptr, ptr %7, align 8, !tbaa !9
+  %76 = load i32, ptr %75, align 4, !tbaa !7
+  %77 = sub nsw i32 %76, %74
+  store i32 %77, ptr %75, align 4, !tbaa !7
+  br label %78
+
+78:                                               ; preds = %69, %47
+  call void @llvm.lifetime.end.p0(i64 4, ptr %8) #4
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define internal noundef i64 @_ZN17double_conversionL16double_to_uint64Ed(double noundef %0) #0 {
+  %2 = alloca double, align 8
+  store double %0, ptr %2, align 8, !tbaa !3
+  %3 = call noundef i64 @_ZN17double_conversion7BitCastImdEET_RKT0_(ptr noundef nonnull align 8 dereferenceable(8) %2)
   ret i64 %3
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr noundef i32 @_ZNK17double_conversion6Double8ExponentEv(ptr noundef nonnull align 8 dereferenceable(8) %this) #1 comdat align 2 {
-entry:
-  %retval = alloca i32, align 4
-  %this.addr = alloca ptr, align 8
-  %d64 = alloca i64, align 8
-  %biased_e = alloca i32, align 4
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %call = call noundef zeroext i1 @_ZNK17double_conversion6Double10IsDenormalEv(ptr noundef nonnull align 8 dereferenceable(8) %this1)
-  br i1 %call, label %if.then, label %if.end
-
-if.then:                                          ; preds = %entry
-  store i32 -1074, ptr %retval, align 4
-  br label %return
-
-if.end:                                           ; preds = %entry
-  %call2 = call noundef i64 @_ZNK17double_conversion6Double8AsUint64Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1)
-  store i64 %call2, ptr %d64, align 8
-  %0 = load i64, ptr %d64, align 8
-  %and = and i64 %0, 9218868437227405312
-  %shr = lshr i64 %and, 52
-  %conv = trunc i64 %shr to i32
-  store i32 %conv, ptr %biased_e, align 4
-  %1 = load i32, ptr %biased_e, align 4
-  %sub = sub nsw i32 %1, 1075
-  store i32 %sub, ptr %retval, align 4
-  br label %return
-
-return:                                           ; preds = %if.end, %if.then
-  %2 = load i32, ptr %retval, align 4
-  ret i32 %2
-}
-
-; Function Attrs: mustprogress uwtable
-define internal void @_ZN17double_conversionL12FillDigits32EjNS_6VectorIcEEPi(i32 noundef %number, ptr %buffer.coerce0, i32 %buffer.coerce1, ptr noundef %length) #0 {
-entry:
-  %buffer = alloca %"class.double_conversion::Vector", align 8
-  %number.addr = alloca i32, align 4
-  %length.addr = alloca ptr, align 8
-  %number_length = alloca i32, align 4
-  %digit = alloca i32, align 4
-  %i = alloca i32, align 4
-  %j = alloca i32, align 4
-  %tmp = alloca i8, align 1
-  %0 = getelementptr inbounds { ptr, i32 }, ptr %buffer, i32 0, i32 0
-  store ptr %buffer.coerce0, ptr %0, align 8
-  %1 = getelementptr inbounds { ptr, i32 }, ptr %buffer, i32 0, i32 1
-  store i32 %buffer.coerce1, ptr %1, align 8
-  store i32 %number, ptr %number.addr, align 4
-  store ptr %length, ptr %length.addr, align 8
-  store i32 0, ptr %number_length, align 4
-  br label %while.cond
-
-while.cond:                                       ; preds = %while.body, %entry
-  %2 = load i32, ptr %number.addr, align 4
-  %cmp = icmp ne i32 %2, 0
-  br i1 %cmp, label %while.body, label %while.end
-
-while.body:                                       ; preds = %while.cond
-  %3 = load i32, ptr %number.addr, align 4
-  %rem = urem i32 %3, 10
-  store i32 %rem, ptr %digit, align 4
-  %4 = load i32, ptr %number.addr, align 4
-  %div = udiv i32 %4, 10
-  store i32 %div, ptr %number.addr, align 4
-  %5 = load i32, ptr %digit, align 4
-  %add = add nsw i32 48, %5
-  %conv = trunc i32 %add to i8
-  %6 = load ptr, ptr %length.addr, align 8
-  %7 = load i32, ptr %6, align 4
-  %8 = load i32, ptr %number_length, align 4
-  %add1 = add nsw i32 %7, %8
-  %call = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNK17double_conversion6VectorIcEixEi(ptr noundef nonnull align 8 dereferenceable(12) %buffer, i32 noundef %add1)
-  store i8 %conv, ptr %call, align 1
-  %9 = load i32, ptr %number_length, align 4
-  %inc = add nsw i32 %9, 1
-  store i32 %inc, ptr %number_length, align 4
-  br label %while.cond, !llvm.loop !4
-
-while.end:                                        ; preds = %while.cond
-  %10 = load ptr, ptr %length.addr, align 8
-  %11 = load i32, ptr %10, align 4
-  store i32 %11, ptr %i, align 4
-  %12 = load ptr, ptr %length.addr, align 8
-  %13 = load i32, ptr %12, align 4
-  %14 = load i32, ptr %number_length, align 4
-  %add2 = add nsw i32 %13, %14
-  %sub = sub nsw i32 %add2, 1
-  store i32 %sub, ptr %j, align 4
-  br label %while.cond3
-
-while.cond3:                                      ; preds = %while.body5, %while.end
-  %15 = load i32, ptr %i, align 4
-  %16 = load i32, ptr %j, align 4
-  %cmp4 = icmp slt i32 %15, %16
-  br i1 %cmp4, label %while.body5, label %while.end11
-
-while.body5:                                      ; preds = %while.cond3
-  %17 = load i32, ptr %i, align 4
-  %call6 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNK17double_conversion6VectorIcEixEi(ptr noundef nonnull align 8 dereferenceable(12) %buffer, i32 noundef %17)
-  %18 = load i8, ptr %call6, align 1
-  store i8 %18, ptr %tmp, align 1
-  %19 = load i32, ptr %j, align 4
-  %call7 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNK17double_conversion6VectorIcEixEi(ptr noundef nonnull align 8 dereferenceable(12) %buffer, i32 noundef %19)
-  %20 = load i8, ptr %call7, align 1
-  %21 = load i32, ptr %i, align 4
-  %call8 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNK17double_conversion6VectorIcEixEi(ptr noundef nonnull align 8 dereferenceable(12) %buffer, i32 noundef %21)
-  store i8 %20, ptr %call8, align 1
-  %22 = load i8, ptr %tmp, align 1
-  %23 = load i32, ptr %j, align 4
-  %call9 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNK17double_conversion6VectorIcEixEi(ptr noundef nonnull align 8 dereferenceable(12) %buffer, i32 noundef %23)
-  store i8 %22, ptr %call9, align 1
-  %24 = load i32, ptr %i, align 4
-  %inc10 = add nsw i32 %24, 1
-  store i32 %inc10, ptr %i, align 4
-  %25 = load i32, ptr %j, align 4
-  %dec = add nsw i32 %25, -1
-  store i32 %dec, ptr %j, align 4
-  br label %while.cond3, !llvm.loop !6
-
-while.end11:                                      ; preds = %while.cond3
-  %26 = load i32, ptr %number_length, align 4
-  %27 = load ptr, ptr %length.addr, align 8
-  %28 = load i32, ptr %27, align 4
-  %add12 = add nsw i32 %28, %26
-  store i32 %add12, ptr %27, align 4
-  ret void
+define linkonce_odr noundef i64 @_ZN17double_conversion7BitCastImdEET_RKT0_(ptr noundef nonnull align 8 dereferenceable(8) %0) #2 comdat {
+  %2 = alloca ptr, align 8
+  %3 = alloca i64, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !34
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #4
+  %4 = load ptr, ptr %2, align 8, !tbaa !34
+  call void @llvm.memmove.p0.p0.i64(ptr align 8 %3, ptr align 8 %4, i64 8, i1 false)
+  %5 = load i64, ptr %3, align 8, !tbaa !12
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #4
+  ret i64 %5
 }
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias nocapture writeonly, ptr noalias nocapture readonly, i64, i1 immarg) #2
+declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #3
 
-; Function Attrs: mustprogress uwtable
-define internal void @_ZN17double_conversionL23FillDigits64FixedLengthEmNS_6VectorIcEEPi(i64 noundef %number, ptr %buffer.coerce0, i32 %buffer.coerce1, ptr noundef %length) #0 {
-entry:
-  %buffer = alloca %"class.double_conversion::Vector", align 8
-  %number.addr = alloca i64, align 8
-  %length.addr = alloca ptr, align 8
-  %kTen7 = alloca i32, align 4
-  %part2 = alloca i32, align 4
-  %part1 = alloca i32, align 4
-  %part0 = alloca i32, align 4
-  %agg.tmp = alloca %"class.double_conversion::Vector", align 8
-  %agg.tmp5 = alloca %"class.double_conversion::Vector", align 8
-  %agg.tmp6 = alloca %"class.double_conversion::Vector", align 8
-  %0 = getelementptr inbounds { ptr, i32 }, ptr %buffer, i32 0, i32 0
-  store ptr %buffer.coerce0, ptr %0, align 8
-  %1 = getelementptr inbounds { ptr, i32 }, ptr %buffer, i32 0, i32 1
-  store i32 %buffer.coerce1, ptr %1, align 8
-  store i64 %number, ptr %number.addr, align 8
-  store ptr %length, ptr %length.addr, align 8
-  store i32 10000000, ptr %kTen7, align 4
-  %2 = load i64, ptr %number.addr, align 8
-  %rem = urem i64 %2, 10000000
-  %conv = trunc i64 %rem to i32
-  store i32 %conv, ptr %part2, align 4
-  %3 = load i64, ptr %number.addr, align 8
-  %div = udiv i64 %3, 10000000
-  store i64 %div, ptr %number.addr, align 8
-  %4 = load i64, ptr %number.addr, align 8
-  %rem1 = urem i64 %4, 10000000
-  %conv2 = trunc i64 %rem1 to i32
-  store i32 %conv2, ptr %part1, align 4
-  %5 = load i64, ptr %number.addr, align 8
-  %div3 = udiv i64 %5, 10000000
-  %conv4 = trunc i64 %div3 to i32
-  store i32 %conv4, ptr %part0, align 4
-  %6 = load i32, ptr %part0, align 4
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp, ptr align 8 %buffer, i64 16, i1 false)
-  %7 = load ptr, ptr %length.addr, align 8
-  %8 = getelementptr inbounds { ptr, i32 }, ptr %agg.tmp, i32 0, i32 0
-  %9 = load ptr, ptr %8, align 8
-  %10 = getelementptr inbounds { ptr, i32 }, ptr %agg.tmp, i32 0, i32 1
-  %11 = load i32, ptr %10, align 8
-  call void @_ZN17double_conversionL23FillDigits32FixedLengthEjiNS_6VectorIcEEPi(i32 noundef %6, i32 noundef 3, ptr %9, i32 %11, ptr noundef %7)
-  %12 = load i32, ptr %part1, align 4
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp5, ptr align 8 %buffer, i64 16, i1 false)
-  %13 = load ptr, ptr %length.addr, align 8
-  %14 = getelementptr inbounds { ptr, i32 }, ptr %agg.tmp5, i32 0, i32 0
-  %15 = load ptr, ptr %14, align 8
-  %16 = getelementptr inbounds { ptr, i32 }, ptr %agg.tmp5, i32 0, i32 1
-  %17 = load i32, ptr %16, align 8
-  call void @_ZN17double_conversionL23FillDigits32FixedLengthEjiNS_6VectorIcEEPi(i32 noundef %12, i32 noundef 7, ptr %15, i32 %17, ptr noundef %13)
-  %18 = load i32, ptr %part2, align 4
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp6, ptr align 8 %buffer, i64 16, i1 false)
-  %19 = load ptr, ptr %length.addr, align 8
-  %20 = getelementptr inbounds { ptr, i32 }, ptr %agg.tmp6, i32 0, i32 0
-  %21 = load ptr, ptr %20, align 8
-  %22 = getelementptr inbounds { ptr, i32 }, ptr %agg.tmp6, i32 0, i32 1
-  %23 = load i32, ptr %22, align 8
-  call void @_ZN17double_conversionL23FillDigits32FixedLengthEjiNS_6VectorIcEEPi(i32 noundef %18, i32 noundef 7, ptr %21, i32 %23, ptr noundef %19)
-  ret void
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef i64 @_ZNK17double_conversion6Double8AsUint64Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #2 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !18
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.double_conversion::Double", ptr %3, i32 0, i32 0
+  %5 = load i64, ptr %4, align 8, !tbaa !20
+  ret i64 %5
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr noundef zeroext i1 @_ZNK17double_conversion6Double10IsDenormalEv(ptr noundef nonnull align 8 dereferenceable(8) %0) #2 comdat align 2 {
+  %2 = alloca ptr, align 8
+  %3 = alloca i64, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !18
+  %4 = load ptr, ptr %2, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %3) #4
+  %5 = call noundef i64 @_ZNK17double_conversion6Double8AsUint64Ev(ptr noundef nonnull align 8 dereferenceable(8) %4)
+  store i64 %5, ptr %3, align 8, !tbaa !12
+  %6 = load i64, ptr %3, align 8, !tbaa !12
+  %7 = and i64 %6, 9218868437227405312
+  %8 = icmp eq i64 %7, 0
+  call void @llvm.lifetime.end.p0(i64 8, ptr %3) #4
+  ret i1 %8
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN17double_conversionL12FillDigits64EmNS_6VectorIcEEPi(i64 noundef %number, ptr %buffer.coerce0, i32 %buffer.coerce1, ptr noundef %length) #0 {
-entry:
-  %buffer = alloca %"class.double_conversion::Vector", align 8
-  %number.addr = alloca i64, align 8
-  %length.addr = alloca ptr, align 8
-  %kTen7 = alloca i32, align 4
-  %part2 = alloca i32, align 4
-  %part1 = alloca i32, align 4
-  %part0 = alloca i32, align 4
-  %agg.tmp = alloca %"class.double_conversion::Vector", align 8
-  %agg.tmp5 = alloca %"class.double_conversion::Vector", align 8
-  %agg.tmp6 = alloca %"class.double_conversion::Vector", align 8
-  %agg.tmp9 = alloca %"class.double_conversion::Vector", align 8
-  %agg.tmp10 = alloca %"class.double_conversion::Vector", align 8
-  %agg.tmp12 = alloca %"class.double_conversion::Vector", align 8
-  %0 = getelementptr inbounds { ptr, i32 }, ptr %buffer, i32 0, i32 0
-  store ptr %buffer.coerce0, ptr %0, align 8
-  %1 = getelementptr inbounds { ptr, i32 }, ptr %buffer, i32 0, i32 1
-  store i32 %buffer.coerce1, ptr %1, align 8
-  store i64 %number, ptr %number.addr, align 8
-  store ptr %length, ptr %length.addr, align 8
-  store i32 10000000, ptr %kTen7, align 4
-  %2 = load i64, ptr %number.addr, align 8
-  %rem = urem i64 %2, 10000000
-  %conv = trunc i64 %rem to i32
-  store i32 %conv, ptr %part2, align 4
-  %3 = load i64, ptr %number.addr, align 8
-  %div = udiv i64 %3, 10000000
-  store i64 %div, ptr %number.addr, align 8
-  %4 = load i64, ptr %number.addr, align 8
-  %rem1 = urem i64 %4, 10000000
-  %conv2 = trunc i64 %rem1 to i32
-  store i32 %conv2, ptr %part1, align 4
-  %5 = load i64, ptr %number.addr, align 8
-  %div3 = udiv i64 %5, 10000000
-  %conv4 = trunc i64 %div3 to i32
-  store i32 %conv4, ptr %part0, align 4
-  %6 = load i32, ptr %part0, align 4
-  %cmp = icmp ne i32 %6, 0
-  br i1 %cmp, label %if.then, label %if.else
+define internal void @_ZN17double_conversionL23FillDigits32FixedLengthEjiNS_6VectorIcEEPi(i32 noundef %0, i32 noundef %1, ptr %2, i32 %3, ptr noundef %4) #0 {
+  %6 = alloca %"class.double_conversion::Vector", align 8
+  %7 = alloca i32, align 4
+  %8 = alloca i32, align 4
+  %9 = alloca ptr, align 8
+  %10 = alloca i32, align 4
+  %11 = getelementptr inbounds nuw { ptr, i32 }, ptr %6, i32 0, i32 0
+  store ptr %2, ptr %11, align 8
+  %12 = getelementptr inbounds nuw { ptr, i32 }, ptr %6, i32 0, i32 1
+  store i32 %3, ptr %12, align 8
+  store i32 %0, ptr %7, align 4, !tbaa !7
+  store i32 %1, ptr %8, align 4, !tbaa !7
+  store ptr %4, ptr %9, align 8, !tbaa !9
+  call void @llvm.lifetime.start.p0(i64 4, ptr %10) #4
+  %13 = load i32, ptr %8, align 4, !tbaa !7
+  %14 = sub nsw i32 %13, 1
+  store i32 %14, ptr %10, align 4, !tbaa !7
+  br label %15
 
-if.then:                                          ; preds = %entry
-  %7 = load i32, ptr %part0, align 4
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp, ptr align 8 %buffer, i64 16, i1 false)
-  %8 = load ptr, ptr %length.addr, align 8
-  %9 = getelementptr inbounds { ptr, i32 }, ptr %agg.tmp, i32 0, i32 0
-  %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds { ptr, i32 }, ptr %agg.tmp, i32 0, i32 1
-  %12 = load i32, ptr %11, align 8
-  call void @_ZN17double_conversionL12FillDigits32EjNS_6VectorIcEEPi(i32 noundef %7, ptr %10, i32 %12, ptr noundef %8)
-  %13 = load i32, ptr %part1, align 4
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp5, ptr align 8 %buffer, i64 16, i1 false)
-  %14 = load ptr, ptr %length.addr, align 8
-  %15 = getelementptr inbounds { ptr, i32 }, ptr %agg.tmp5, i32 0, i32 0
-  %16 = load ptr, ptr %15, align 8
-  %17 = getelementptr inbounds { ptr, i32 }, ptr %agg.tmp5, i32 0, i32 1
-  %18 = load i32, ptr %17, align 8
-  call void @_ZN17double_conversionL23FillDigits32FixedLengthEjiNS_6VectorIcEEPi(i32 noundef %13, i32 noundef 7, ptr %16, i32 %18, ptr noundef %14)
-  %19 = load i32, ptr %part2, align 4
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp6, ptr align 8 %buffer, i64 16, i1 false)
-  %20 = load ptr, ptr %length.addr, align 8
-  %21 = getelementptr inbounds { ptr, i32 }, ptr %agg.tmp6, i32 0, i32 0
-  %22 = load ptr, ptr %21, align 8
-  %23 = getelementptr inbounds { ptr, i32 }, ptr %agg.tmp6, i32 0, i32 1
-  %24 = load i32, ptr %23, align 8
-  call void @_ZN17double_conversionL23FillDigits32FixedLengthEjiNS_6VectorIcEEPi(i32 noundef %19, i32 noundef 7, ptr %22, i32 %24, ptr noundef %20)
-  br label %if.end13
+15:                                               ; preds = %31, %5
+  %16 = load i32, ptr %10, align 4, !tbaa !7
+  %17 = icmp sge i32 %16, 0
+  br i1 %17, label %19, label %18
 
-if.else:                                          ; preds = %entry
-  %25 = load i32, ptr %part1, align 4
-  %cmp7 = icmp ne i32 %25, 0
-  br i1 %cmp7, label %if.then8, label %if.else11
+18:                                               ; preds = %15
+  call void @llvm.lifetime.end.p0(i64 4, ptr %10) #4
+  br label %34
 
-if.then8:                                         ; preds = %if.else
-  %26 = load i32, ptr %part1, align 4
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp9, ptr align 8 %buffer, i64 16, i1 false)
-  %27 = load ptr, ptr %length.addr, align 8
-  %28 = getelementptr inbounds { ptr, i32 }, ptr %agg.tmp9, i32 0, i32 0
-  %29 = load ptr, ptr %28, align 8
-  %30 = getelementptr inbounds { ptr, i32 }, ptr %agg.tmp9, i32 0, i32 1
-  %31 = load i32, ptr %30, align 8
-  call void @_ZN17double_conversionL12FillDigits32EjNS_6VectorIcEEPi(i32 noundef %26, ptr %29, i32 %31, ptr noundef %27)
-  %32 = load i32, ptr %part2, align 4
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp10, ptr align 8 %buffer, i64 16, i1 false)
-  %33 = load ptr, ptr %length.addr, align 8
-  %34 = getelementptr inbounds { ptr, i32 }, ptr %agg.tmp10, i32 0, i32 0
-  %35 = load ptr, ptr %34, align 8
-  %36 = getelementptr inbounds { ptr, i32 }, ptr %agg.tmp10, i32 0, i32 1
-  %37 = load i32, ptr %36, align 8
-  call void @_ZN17double_conversionL23FillDigits32FixedLengthEjiNS_6VectorIcEEPi(i32 noundef %32, i32 noundef 7, ptr %35, i32 %37, ptr noundef %33)
-  br label %if.end
+19:                                               ; preds = %15
+  %20 = load i32, ptr %7, align 4, !tbaa !7
+  %21 = urem i32 %20, 10
+  %22 = add i32 48, %21
+  %23 = trunc i32 %22 to i8
+  %24 = load ptr, ptr %9, align 8, !tbaa !9
+  %25 = load i32, ptr %24, align 4, !tbaa !7
+  %26 = load i32, ptr %10, align 4, !tbaa !7
+  %27 = add nsw i32 %25, %26
+  %28 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNK17double_conversion6VectorIcEixEi(ptr noundef nonnull align 8 dereferenceable(12) %6, i32 noundef %27)
+  store i8 %23, ptr %28, align 1, !tbaa !17
+  %29 = load i32, ptr %7, align 4, !tbaa !7
+  %30 = udiv i32 %29, 10
+  store i32 %30, ptr %7, align 4, !tbaa !7
+  br label %31
 
-if.else11:                                        ; preds = %if.else
-  %38 = load i32, ptr %part2, align 4
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp12, ptr align 8 %buffer, i64 16, i1 false)
-  %39 = load ptr, ptr %length.addr, align 8
-  %40 = getelementptr inbounds { ptr, i32 }, ptr %agg.tmp12, i32 0, i32 0
-  %41 = load ptr, ptr %40, align 8
-  %42 = getelementptr inbounds { ptr, i32 }, ptr %agg.tmp12, i32 0, i32 1
-  %43 = load i32, ptr %42, align 8
-  call void @_ZN17double_conversionL12FillDigits32EjNS_6VectorIcEEPi(i32 noundef %38, ptr %41, i32 %43, ptr noundef %39)
-  br label %if.end
+31:                                               ; preds = %19
+  %32 = load i32, ptr %10, align 4, !tbaa !7
+  %33 = add nsw i32 %32, -1
+  store i32 %33, ptr %10, align 4, !tbaa !7
+  br label %15, !llvm.loop !36
 
-if.end:                                           ; preds = %if.else11, %if.then8
-  br label %if.end13
-
-if.end13:                                         ; preds = %if.end, %if.then
+34:                                               ; preds = %18
+  %35 = load i32, ptr %8, align 4, !tbaa !7
+  %36 = load ptr, ptr %9, align 8, !tbaa !9
+  %37 = load i32, ptr %36, align 4, !tbaa !7
+  %38 = add nsw i32 %37, %35
+  store i32 %38, ptr %36, align 4, !tbaa !7
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN17double_conversionL15FillFractionalsEmiiNS_6VectorIcEEPiS2_(i64 noundef %fractionals, i32 noundef %exponent, i32 noundef %fractional_count, ptr %buffer.coerce0, i32 %buffer.coerce1, ptr noundef %length, ptr noundef %decimal_point) #0 {
-entry:
-  %buffer = alloca %"class.double_conversion::Vector", align 8
-  %fractionals.addr = alloca i64, align 8
-  %exponent.addr = alloca i32, align 4
-  %fractional_count.addr = alloca i32, align 4
-  %length.addr = alloca ptr, align 8
-  %decimal_point.addr = alloca ptr, align 8
-  %point = alloca i32, align 4
-  %i = alloca i32, align 4
-  %digit = alloca i32, align 4
-  %agg.tmp = alloca %"class.double_conversion::Vector", align 8
-  %fractionals128 = alloca %"class.double_conversion::UInt128", align 8
-  %point19 = alloca i32, align 4
-  %i20 = alloca i32, align 4
-  %digit28 = alloca i32, align 4
-  %agg.tmp41 = alloca %"class.double_conversion::Vector", align 8
-  %0 = getelementptr inbounds { ptr, i32 }, ptr %buffer, i32 0, i32 0
-  store ptr %buffer.coerce0, ptr %0, align 8
-  %1 = getelementptr inbounds { ptr, i32 }, ptr %buffer, i32 0, i32 1
-  store i32 %buffer.coerce1, ptr %1, align 8
-  store i64 %fractionals, ptr %fractionals.addr, align 8
-  store i32 %exponent, ptr %exponent.addr, align 4
-  store i32 %fractional_count, ptr %fractional_count.addr, align 4
-  store ptr %length, ptr %length.addr, align 8
-  store ptr %decimal_point, ptr %decimal_point.addr, align 8
-  %2 = load i32, ptr %exponent.addr, align 4
-  %sub = sub nsw i32 0, %2
-  %cmp = icmp sle i32 %sub, 64
-  br i1 %cmp, label %if.then, label %if.else
+define internal void @_ZN17double_conversionL7RoundUpENS_6VectorIcEEPiS2_(ptr %0, i32 %1, ptr noundef %2, ptr noundef %3) #0 {
+  %5 = alloca %"class.double_conversion::Vector", align 8
+  %6 = alloca ptr, align 8
+  %7 = alloca ptr, align 8
+  %8 = alloca i32, align 4
+  %9 = alloca i32, align 4
+  %10 = getelementptr inbounds nuw { ptr, i32 }, ptr %5, i32 0, i32 0
+  store ptr %0, ptr %10, align 8
+  %11 = getelementptr inbounds nuw { ptr, i32 }, ptr %5, i32 0, i32 1
+  store i32 %1, ptr %11, align 8
+  store ptr %2, ptr %6, align 8, !tbaa !9
+  store ptr %3, ptr %7, align 8, !tbaa !9
+  %12 = load ptr, ptr %6, align 8, !tbaa !9
+  %13 = load i32, ptr %12, align 4, !tbaa !7
+  %14 = icmp eq i32 %13, 0
+  br i1 %14, label %15, label %19
 
-if.then:                                          ; preds = %entry
-  %3 = load i32, ptr %exponent.addr, align 4
-  %sub1 = sub nsw i32 0, %3
-  store i32 %sub1, ptr %point, align 4
-  store i32 0, ptr %i, align 4
-  br label %for.cond
+15:                                               ; preds = %4
+  %16 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNK17double_conversion6VectorIcEixEi(ptr noundef nonnull align 8 dereferenceable(12) %5, i32 noundef 0)
+  store i8 49, ptr %16, align 1, !tbaa !17
+  %17 = load ptr, ptr %7, align 8, !tbaa !9
+  store i32 1, ptr %17, align 4, !tbaa !7
+  %18 = load ptr, ptr %6, align 8, !tbaa !9
+  store i32 1, ptr %18, align 4, !tbaa !7
+  br label %63
 
-for.cond:                                         ; preds = %for.inc, %if.then
-  %4 = load i32, ptr %i, align 4
-  %5 = load i32, ptr %fractional_count.addr, align 4
-  %cmp2 = icmp slt i32 %4, %5
-  br i1 %cmp2, label %for.body, label %for.end
+19:                                               ; preds = %4
+  %20 = load ptr, ptr %6, align 8, !tbaa !9
+  %21 = load i32, ptr %20, align 4, !tbaa !7
+  %22 = sub nsw i32 %21, 1
+  %23 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNK17double_conversion6VectorIcEixEi(ptr noundef nonnull align 8 dereferenceable(12) %5, i32 noundef %22)
+  %24 = load i8, ptr %23, align 1, !tbaa !17
+  %25 = add i8 %24, 1
+  store i8 %25, ptr %23, align 1, !tbaa !17
+  call void @llvm.lifetime.start.p0(i64 4, ptr %8) #4
+  %26 = load ptr, ptr %6, align 8, !tbaa !9
+  %27 = load i32, ptr %26, align 4, !tbaa !7
+  %28 = sub nsw i32 %27, 1
+  store i32 %28, ptr %8, align 4, !tbaa !7
+  br label %29
 
-for.body:                                         ; preds = %for.cond
-  %6 = load i64, ptr %fractionals.addr, align 8
-  %cmp3 = icmp eq i64 %6, 0
-  br i1 %cmp3, label %if.then4, label %if.end
+29:                                               ; preds = %48, %19
+  %30 = load i32, ptr %8, align 4, !tbaa !7
+  %31 = icmp sgt i32 %30, 0
+  br i1 %31, label %33, label %32
 
-if.then4:                                         ; preds = %for.body
-  br label %for.end
+32:                                               ; preds = %29
+  store i32 2, ptr %9, align 4
+  br label %51
 
-if.end:                                           ; preds = %for.body
-  %7 = load i64, ptr %fractionals.addr, align 8
-  %mul = mul i64 %7, 5
-  store i64 %mul, ptr %fractionals.addr, align 8
-  %8 = load i32, ptr %point, align 4
-  %dec = add nsw i32 %8, -1
-  store i32 %dec, ptr %point, align 4
-  %9 = load i64, ptr %fractionals.addr, align 8
-  %10 = load i32, ptr %point, align 4
-  %sh_prom = zext i32 %10 to i64
-  %shr = lshr i64 %9, %sh_prom
-  %conv = trunc i64 %shr to i32
-  store i32 %conv, ptr %digit, align 4
-  %11 = load i32, ptr %digit, align 4
-  %add = add nsw i32 48, %11
-  %conv5 = trunc i32 %add to i8
-  %12 = load ptr, ptr %length.addr, align 8
-  %13 = load i32, ptr %12, align 4
-  %call = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNK17double_conversion6VectorIcEixEi(ptr noundef nonnull align 8 dereferenceable(12) %buffer, i32 noundef %13)
-  store i8 %conv5, ptr %call, align 1
-  %14 = load ptr, ptr %length.addr, align 8
-  %15 = load i32, ptr %14, align 4
-  %inc = add nsw i32 %15, 1
-  store i32 %inc, ptr %14, align 4
-  %16 = load i32, ptr %digit, align 4
-  %conv6 = sext i32 %16 to i64
-  %17 = load i32, ptr %point, align 4
-  %sh_prom7 = zext i32 %17 to i64
-  %shl = shl i64 %conv6, %sh_prom7
-  %18 = load i64, ptr %fractionals.addr, align 8
-  %sub8 = sub i64 %18, %shl
-  store i64 %sub8, ptr %fractionals.addr, align 8
-  br label %for.inc
+33:                                               ; preds = %29
+  %34 = load i32, ptr %8, align 4, !tbaa !7
+  %35 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNK17double_conversion6VectorIcEixEi(ptr noundef nonnull align 8 dereferenceable(12) %5, i32 noundef %34)
+  %36 = load i8, ptr %35, align 1, !tbaa !17
+  %37 = sext i8 %36 to i32
+  %38 = icmp ne i32 %37, 58
+  br i1 %38, label %39, label %40
 
-for.inc:                                          ; preds = %if.end
-  %19 = load i32, ptr %i, align 4
-  %inc9 = add nsw i32 %19, 1
-  store i32 %inc9, ptr %i, align 4
-  br label %for.cond, !llvm.loop !7
+39:                                               ; preds = %33
+  store i32 1, ptr %9, align 4
+  br label %51
 
-for.end:                                          ; preds = %if.then4, %for.cond
-  %20 = load i64, ptr %fractionals.addr, align 8
-  %cmp10 = icmp ne i64 %20, 0
-  br i1 %cmp10, label %land.lhs.true, label %if.end16
+40:                                               ; preds = %33
+  %41 = load i32, ptr %8, align 4, !tbaa !7
+  %42 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNK17double_conversion6VectorIcEixEi(ptr noundef nonnull align 8 dereferenceable(12) %5, i32 noundef %41)
+  store i8 48, ptr %42, align 1, !tbaa !17
+  %43 = load i32, ptr %8, align 4, !tbaa !7
+  %44 = sub nsw i32 %43, 1
+  %45 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNK17double_conversion6VectorIcEixEi(ptr noundef nonnull align 8 dereferenceable(12) %5, i32 noundef %44)
+  %46 = load i8, ptr %45, align 1, !tbaa !17
+  %47 = add i8 %46, 1
+  store i8 %47, ptr %45, align 1, !tbaa !17
+  br label %48
 
-land.lhs.true:                                    ; preds = %for.end
-  %21 = load i64, ptr %fractionals.addr, align 8
-  %22 = load i32, ptr %point, align 4
-  %sub11 = sub nsw i32 %22, 1
-  %sh_prom12 = zext i32 %sub11 to i64
-  %shr13 = lshr i64 %21, %sh_prom12
-  %and = and i64 %shr13, 1
-  %cmp14 = icmp eq i64 %and, 1
-  br i1 %cmp14, label %if.then15, label %if.end16
+48:                                               ; preds = %40
+  %49 = load i32, ptr %8, align 4, !tbaa !7
+  %50 = add nsw i32 %49, -1
+  store i32 %50, ptr %8, align 4, !tbaa !7
+  br label %29, !llvm.loop !37
 
-if.then15:                                        ; preds = %land.lhs.true
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp, ptr align 8 %buffer, i64 16, i1 false)
-  %23 = load ptr, ptr %length.addr, align 8
-  %24 = load ptr, ptr %decimal_point.addr, align 8
-  %25 = getelementptr inbounds { ptr, i32 }, ptr %agg.tmp, i32 0, i32 0
-  %26 = load ptr, ptr %25, align 8
-  %27 = getelementptr inbounds { ptr, i32 }, ptr %agg.tmp, i32 0, i32 1
-  %28 = load i32, ptr %27, align 8
-  call void @_ZN17double_conversionL7RoundUpENS_6VectorIcEEPiS2_(ptr %26, i32 %28, ptr noundef %23, ptr noundef %24)
-  br label %if.end16
+51:                                               ; preds = %39, %32
+  call void @llvm.lifetime.end.p0(i64 4, ptr %8) #4
+  %52 = load i32, ptr %9, align 4
+  switch i32 %52, label %64 [
+    i32 2, label %53
+    i32 1, label %63
+  ]
 
-if.end16:                                         ; preds = %if.then15, %land.lhs.true, %for.end
-  br label %if.end43
+53:                                               ; preds = %51
+  %54 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNK17double_conversion6VectorIcEixEi(ptr noundef nonnull align 8 dereferenceable(12) %5, i32 noundef 0)
+  %55 = load i8, ptr %54, align 1, !tbaa !17
+  %56 = sext i8 %55 to i32
+  %57 = icmp eq i32 %56, 58
+  br i1 %57, label %58, label %63
 
-if.else:                                          ; preds = %entry
-  %29 = load i64, ptr %fractionals.addr, align 8
-  call void @_ZN17double_conversion7UInt128C2Emm(ptr noundef nonnull align 8 dereferenceable(16) %fractionals128, i64 noundef %29, i64 noundef 0)
-  %30 = load i32, ptr %exponent.addr, align 4
-  %sub17 = sub nsw i32 0, %30
-  %sub18 = sub nsw i32 %sub17, 64
-  call void @_ZN17double_conversion7UInt1285ShiftEi(ptr noundef nonnull align 8 dereferenceable(16) %fractionals128, i32 noundef %sub18)
-  store i32 128, ptr %point19, align 4
-  store i32 0, ptr %i20, align 4
-  br label %for.cond21
+58:                                               ; preds = %53
+  %59 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNK17double_conversion6VectorIcEixEi(ptr noundef nonnull align 8 dereferenceable(12) %5, i32 noundef 0)
+  store i8 49, ptr %59, align 1, !tbaa !17
+  %60 = load ptr, ptr %7, align 8, !tbaa !9
+  %61 = load i32, ptr %60, align 4, !tbaa !7
+  %62 = add nsw i32 %61, 1
+  store i32 %62, ptr %60, align 4, !tbaa !7
+  br label %63
 
-for.cond21:                                       ; preds = %for.inc34, %if.else
-  %31 = load i32, ptr %i20, align 4
-  %32 = load i32, ptr %fractional_count.addr, align 4
-  %cmp22 = icmp slt i32 %31, %32
-  br i1 %cmp22, label %for.body23, label %for.end36
+63:                                               ; preds = %15, %51, %58, %53
+  ret void
 
-for.body23:                                       ; preds = %for.cond21
-  %call24 = call noundef zeroext i1 @_ZNK17double_conversion7UInt1286IsZeroEv(ptr noundef nonnull align 8 dereferenceable(16) %fractionals128)
-  br i1 %call24, label %if.then25, label %if.end26
+64:                                               ; preds = %51
+  unreachable
+}
 
-if.then25:                                        ; preds = %for.body23
-  br label %for.end36
-
-if.end26:                                         ; preds = %for.body23
-  call void @_ZN17double_conversion7UInt1288MultiplyEj(ptr noundef nonnull align 8 dereferenceable(16) %fractionals128, i32 noundef 5)
-  %33 = load i32, ptr %point19, align 4
-  %dec27 = add nsw i32 %33, -1
-  store i32 %dec27, ptr %point19, align 4
-  %34 = load i32, ptr %point19, align 4
-  %call29 = call noundef i32 @_ZN17double_conversion7UInt12814DivModPowerOf2Ei(ptr noundef nonnull align 8 dereferenceable(16) %fractionals128, i32 noundef %34)
-  store i32 %call29, ptr %digit28, align 4
-  %35 = load i32, ptr %digit28, align 4
-  %add30 = add nsw i32 48, %35
-  %conv31 = trunc i32 %add30 to i8
-  %36 = load ptr, ptr %length.addr, align 8
-  %37 = load i32, ptr %36, align 4
-  %call32 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNK17double_conversion6VectorIcEixEi(ptr noundef nonnull align 8 dereferenceable(12) %buffer, i32 noundef %37)
-  store i8 %conv31, ptr %call32, align 1
-  %38 = load ptr, ptr %length.addr, align 8
-  %39 = load i32, ptr %38, align 4
-  %inc33 = add nsw i32 %39, 1
-  store i32 %inc33, ptr %38, align 4
-  br label %for.inc34
-
-for.inc34:                                        ; preds = %if.end26
-  %40 = load i32, ptr %i20, align 4
-  %inc35 = add nsw i32 %40, 1
-  store i32 %inc35, ptr %i20, align 4
-  br label %for.cond21, !llvm.loop !8
-
-for.end36:                                        ; preds = %if.then25, %for.cond21
-  %41 = load i32, ptr %point19, align 4
-  %sub37 = sub nsw i32 %41, 1
-  %call38 = call noundef i32 @_ZNK17double_conversion7UInt1285BitAtEi(ptr noundef nonnull align 8 dereferenceable(16) %fractionals128, i32 noundef %sub37)
-  %cmp39 = icmp eq i32 %call38, 1
-  br i1 %cmp39, label %if.then40, label %if.end42
-
-if.then40:                                        ; preds = %for.end36
-  call void @llvm.memcpy.p0.p0.i64(ptr align 8 %agg.tmp41, ptr align 8 %buffer, i64 16, i1 false)
-  %42 = load ptr, ptr %length.addr, align 8
-  %43 = load ptr, ptr %decimal_point.addr, align 8
-  %44 = getelementptr inbounds { ptr, i32 }, ptr %agg.tmp41, i32 0, i32 0
-  %45 = load ptr, ptr %44, align 8
-  %46 = getelementptr inbounds { ptr, i32 }, ptr %agg.tmp41, i32 0, i32 1
-  %47 = load i32, ptr %46, align 8
-  call void @_ZN17double_conversionL7RoundUpENS_6VectorIcEEPiS2_(ptr %45, i32 %47, ptr noundef %42, ptr noundef %43)
-  br label %if.end42
-
-if.end42:                                         ; preds = %if.then40, %for.end36
-  br label %if.end43
-
-if.end43:                                         ; preds = %if.end42, %if.end16
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZN17double_conversion7UInt128C2Emm(ptr noundef nonnull align 8 dereferenceable(16) %0, i64 noundef %1, i64 noundef %2) unnamed_addr #2 comdat align 2 {
+  %4 = alloca ptr, align 8
+  %5 = alloca i64, align 8
+  %6 = alloca i64, align 8
+  store ptr %0, ptr %4, align 8, !tbaa !38
+  store i64 %1, ptr %5, align 8, !tbaa !12
+  store i64 %2, ptr %6, align 8, !tbaa !12
+  %7 = load ptr, ptr %4, align 8
+  %8 = getelementptr inbounds nuw %"class.double_conversion::UInt128", ptr %7, i32 0, i32 0
+  %9 = load i64, ptr %5, align 8, !tbaa !12
+  store i64 %9, ptr %8, align 8, !tbaa !40
+  %10 = getelementptr inbounds nuw %"class.double_conversion::UInt128", ptr %7, i32 0, i32 1
+  %11 = load i64, ptr %6, align 8, !tbaa !12
+  store i64 %11, ptr %10, align 8, !tbaa !42
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr noundef nonnull align 1 dereferenceable(1) ptr @_ZNK17double_conversion6VectorIcEixEi(ptr noundef nonnull align 8 dereferenceable(12) %this, i32 noundef %index) #1 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %index.addr = alloca i32, align 4
-  store ptr %this, ptr %this.addr, align 8
-  store i32 %index, ptr %index.addr, align 4
-  %this1 = load ptr, ptr %this.addr, align 8
-  %start_ = getelementptr inbounds %"class.double_conversion::Vector", ptr %this1, i32 0, i32 0
-  %0 = load ptr, ptr %start_, align 8
-  %1 = load i32, ptr %index.addr, align 4
-  %idxprom = sext i32 %1 to i64
-  %arrayidx = getelementptr inbounds i8, ptr %0, i64 %idxprom
-  ret ptr %arrayidx
-}
+define linkonce_odr void @_ZN17double_conversion7UInt1285ShiftEi(ptr noundef nonnull align 8 dereferenceable(16) %0, i32 noundef %1) #2 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !38
+  store i32 %1, ptr %4, align 4, !tbaa !7
+  %5 = load ptr, ptr %3, align 8
+  %6 = load i32, ptr %4, align 4, !tbaa !7
+  %7 = icmp eq i32 %6, 0
+  br i1 %7, label %8, label %9
 
-; Function Attrs: mustprogress uwtable
-define internal void @_ZN17double_conversionL9TrimZerosENS_6VectorIcEEPiS2_(ptr %buffer.coerce0, i32 %buffer.coerce1, ptr noundef %length, ptr noundef %decimal_point) #0 {
-entry:
-  %buffer = alloca %"class.double_conversion::Vector", align 8
-  %length.addr = alloca ptr, align 8
-  %decimal_point.addr = alloca ptr, align 8
-  %first_non_zero = alloca i32, align 4
-  %i = alloca i32, align 4
-  %0 = getelementptr inbounds { ptr, i32 }, ptr %buffer, i32 0, i32 0
-  store ptr %buffer.coerce0, ptr %0, align 8
-  %1 = getelementptr inbounds { ptr, i32 }, ptr %buffer, i32 0, i32 1
-  store i32 %buffer.coerce1, ptr %1, align 8
-  store ptr %length, ptr %length.addr, align 8
-  store ptr %decimal_point, ptr %decimal_point.addr, align 8
-  br label %while.cond
+8:                                                ; preds = %2
+  br label %73
 
-while.cond:                                       ; preds = %while.body, %entry
-  %2 = load ptr, ptr %length.addr, align 8
-  %3 = load i32, ptr %2, align 4
-  %cmp = icmp sgt i32 %3, 0
-  br i1 %cmp, label %land.rhs, label %land.end
+9:                                                ; preds = %2
+  %10 = load i32, ptr %4, align 4, !tbaa !7
+  %11 = icmp eq i32 %10, -64
+  br i1 %11, label %12, label %17
 
-land.rhs:                                         ; preds = %while.cond
-  %4 = load ptr, ptr %length.addr, align 8
-  %5 = load i32, ptr %4, align 4
-  %sub = sub nsw i32 %5, 1
-  %call = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNK17double_conversion6VectorIcEixEi(ptr noundef nonnull align 8 dereferenceable(12) %buffer, i32 noundef %sub)
-  %6 = load i8, ptr %call, align 1
-  %conv = sext i8 %6 to i32
-  %cmp1 = icmp eq i32 %conv, 48
-  br label %land.end
+12:                                               ; preds = %9
+  %13 = getelementptr inbounds nuw %"class.double_conversion::UInt128", ptr %5, i32 0, i32 1
+  %14 = load i64, ptr %13, align 8, !tbaa !42
+  %15 = getelementptr inbounds nuw %"class.double_conversion::UInt128", ptr %5, i32 0, i32 0
+  store i64 %14, ptr %15, align 8, !tbaa !40
+  %16 = getelementptr inbounds nuw %"class.double_conversion::UInt128", ptr %5, i32 0, i32 1
+  store i64 0, ptr %16, align 8, !tbaa !42
+  br label %72
 
-land.end:                                         ; preds = %land.rhs, %while.cond
-  %7 = phi i1 [ false, %while.cond ], [ %cmp1, %land.rhs ]
-  br i1 %7, label %while.body, label %while.end
+17:                                               ; preds = %9
+  %18 = load i32, ptr %4, align 4, !tbaa !7
+  %19 = icmp eq i32 %18, 64
+  br i1 %19, label %20, label %25
 
-while.body:                                       ; preds = %land.end
-  %8 = load ptr, ptr %length.addr, align 8
-  %9 = load i32, ptr %8, align 4
-  %dec = add nsw i32 %9, -1
-  store i32 %dec, ptr %8, align 4
-  br label %while.cond, !llvm.loop !9
+20:                                               ; preds = %17
+  %21 = getelementptr inbounds nuw %"class.double_conversion::UInt128", ptr %5, i32 0, i32 0
+  %22 = load i64, ptr %21, align 8, !tbaa !40
+  %23 = getelementptr inbounds nuw %"class.double_conversion::UInt128", ptr %5, i32 0, i32 1
+  store i64 %22, ptr %23, align 8, !tbaa !42
+  %24 = getelementptr inbounds nuw %"class.double_conversion::UInt128", ptr %5, i32 0, i32 0
+  store i64 0, ptr %24, align 8, !tbaa !40
+  br label %71
 
-while.end:                                        ; preds = %land.end
-  store i32 0, ptr %first_non_zero, align 4
-  br label %while.cond2
+25:                                               ; preds = %17
+  %26 = load i32, ptr %4, align 4, !tbaa !7
+  %27 = icmp sle i32 %26, 0
+  br i1 %27, label %28, label %50
 
-while.cond2:                                      ; preds = %while.body9, %while.end
-  %10 = load i32, ptr %first_non_zero, align 4
-  %11 = load ptr, ptr %length.addr, align 8
-  %12 = load i32, ptr %11, align 4
-  %cmp3 = icmp slt i32 %10, %12
-  br i1 %cmp3, label %land.rhs4, label %land.end8
+28:                                               ; preds = %25
+  %29 = load i32, ptr %4, align 4, !tbaa !7
+  %30 = sub nsw i32 0, %29
+  %31 = getelementptr inbounds nuw %"class.double_conversion::UInt128", ptr %5, i32 0, i32 0
+  %32 = load i64, ptr %31, align 8, !tbaa !40
+  %33 = zext i32 %30 to i64
+  %34 = shl i64 %32, %33
+  store i64 %34, ptr %31, align 8, !tbaa !40
+  %35 = getelementptr inbounds nuw %"class.double_conversion::UInt128", ptr %5, i32 0, i32 1
+  %36 = load i64, ptr %35, align 8, !tbaa !42
+  %37 = load i32, ptr %4, align 4, !tbaa !7
+  %38 = add nsw i32 64, %37
+  %39 = zext i32 %38 to i64
+  %40 = lshr i64 %36, %39
+  %41 = getelementptr inbounds nuw %"class.double_conversion::UInt128", ptr %5, i32 0, i32 0
+  %42 = load i64, ptr %41, align 8, !tbaa !40
+  %43 = add i64 %42, %40
+  store i64 %43, ptr %41, align 8, !tbaa !40
+  %44 = load i32, ptr %4, align 4, !tbaa !7
+  %45 = sub nsw i32 0, %44
+  %46 = getelementptr inbounds nuw %"class.double_conversion::UInt128", ptr %5, i32 0, i32 1
+  %47 = load i64, ptr %46, align 8, !tbaa !42
+  %48 = zext i32 %45 to i64
+  %49 = shl i64 %47, %48
+  store i64 %49, ptr %46, align 8, !tbaa !42
+  br label %70
 
-land.rhs4:                                        ; preds = %while.cond2
-  %13 = load i32, ptr %first_non_zero, align 4
-  %call5 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNK17double_conversion6VectorIcEixEi(ptr noundef nonnull align 8 dereferenceable(12) %buffer, i32 noundef %13)
-  %14 = load i8, ptr %call5, align 1
-  %conv6 = sext i8 %14 to i32
-  %cmp7 = icmp eq i32 %conv6, 48
-  br label %land.end8
+50:                                               ; preds = %25
+  %51 = load i32, ptr %4, align 4, !tbaa !7
+  %52 = getelementptr inbounds nuw %"class.double_conversion::UInt128", ptr %5, i32 0, i32 1
+  %53 = load i64, ptr %52, align 8, !tbaa !42
+  %54 = zext i32 %51 to i64
+  %55 = lshr i64 %53, %54
+  store i64 %55, ptr %52, align 8, !tbaa !42
+  %56 = getelementptr inbounds nuw %"class.double_conversion::UInt128", ptr %5, i32 0, i32 0
+  %57 = load i64, ptr %56, align 8, !tbaa !40
+  %58 = load i32, ptr %4, align 4, !tbaa !7
+  %59 = sub nsw i32 64, %58
+  %60 = zext i32 %59 to i64
+  %61 = shl i64 %57, %60
+  %62 = getelementptr inbounds nuw %"class.double_conversion::UInt128", ptr %5, i32 0, i32 1
+  %63 = load i64, ptr %62, align 8, !tbaa !42
+  %64 = add i64 %63, %61
+  store i64 %64, ptr %62, align 8, !tbaa !42
+  %65 = load i32, ptr %4, align 4, !tbaa !7
+  %66 = getelementptr inbounds nuw %"class.double_conversion::UInt128", ptr %5, i32 0, i32 0
+  %67 = load i64, ptr %66, align 8, !tbaa !40
+  %68 = zext i32 %65 to i64
+  %69 = lshr i64 %67, %68
+  store i64 %69, ptr %66, align 8, !tbaa !40
+  br label %70
 
-land.end8:                                        ; preds = %land.rhs4, %while.cond2
-  %15 = phi i1 [ false, %while.cond2 ], [ %cmp7, %land.rhs4 ]
-  br i1 %15, label %while.body9, label %while.end10
+70:                                               ; preds = %50, %28
+  br label %71
 
-while.body9:                                      ; preds = %land.end8
-  %16 = load i32, ptr %first_non_zero, align 4
-  %inc = add nsw i32 %16, 1
-  store i32 %inc, ptr %first_non_zero, align 4
-  br label %while.cond2, !llvm.loop !10
+71:                                               ; preds = %70, %20
+  br label %72
 
-while.end10:                                      ; preds = %land.end8
-  %17 = load i32, ptr %first_non_zero, align 4
-  %cmp11 = icmp ne i32 %17, 0
-  br i1 %cmp11, label %if.then, label %if.end
+72:                                               ; preds = %71, %12
+  br label %73
 
-if.then:                                          ; preds = %while.end10
-  %18 = load i32, ptr %first_non_zero, align 4
-  store i32 %18, ptr %i, align 4
-  br label %for.cond
-
-for.cond:                                         ; preds = %for.inc, %if.then
-  %19 = load i32, ptr %i, align 4
-  %20 = load ptr, ptr %length.addr, align 8
-  %21 = load i32, ptr %20, align 4
-  %cmp12 = icmp slt i32 %19, %21
-  br i1 %cmp12, label %for.body, label %for.end
-
-for.body:                                         ; preds = %for.cond
-  %22 = load i32, ptr %i, align 4
-  %call13 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNK17double_conversion6VectorIcEixEi(ptr noundef nonnull align 8 dereferenceable(12) %buffer, i32 noundef %22)
-  %23 = load i8, ptr %call13, align 1
-  %24 = load i32, ptr %i, align 4
-  %25 = load i32, ptr %first_non_zero, align 4
-  %sub14 = sub nsw i32 %24, %25
-  %call15 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNK17double_conversion6VectorIcEixEi(ptr noundef nonnull align 8 dereferenceable(12) %buffer, i32 noundef %sub14)
-  store i8 %23, ptr %call15, align 1
-  br label %for.inc
-
-for.inc:                                          ; preds = %for.body
-  %26 = load i32, ptr %i, align 4
-  %inc16 = add nsw i32 %26, 1
-  store i32 %inc16, ptr %i, align 4
-  br label %for.cond, !llvm.loop !11
-
-for.end:                                          ; preds = %for.cond
-  %27 = load i32, ptr %first_non_zero, align 4
-  %28 = load ptr, ptr %length.addr, align 8
-  %29 = load i32, ptr %28, align 4
-  %sub17 = sub nsw i32 %29, %27
-  store i32 %sub17, ptr %28, align 4
-  %30 = load i32, ptr %first_non_zero, align 4
-  %31 = load ptr, ptr %decimal_point.addr, align 8
-  %32 = load i32, ptr %31, align 4
-  %sub18 = sub nsw i32 %32, %30
-  store i32 %sub18, ptr %31, align 4
-  br label %if.end
-
-if.end:                                           ; preds = %for.end, %while.end10
-  ret void
-}
-
-; Function Attrs: mustprogress uwtable
-define internal noundef i64 @_ZN17double_conversionL16double_to_uint64Ed(double noundef %d) #0 {
-entry:
-  %d.addr = alloca double, align 8
-  store double %d, ptr %d.addr, align 8
-  %call = call noundef i64 @_ZN17double_conversion7BitCastImdEET_RKT0_(ptr noundef nonnull align 8 dereferenceable(8) %d.addr)
-  ret i64 %call
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr noundef i64 @_ZN17double_conversion7BitCastImdEET_RKT0_(ptr noundef nonnull align 8 dereferenceable(8) %source) #1 comdat {
-entry:
-  %source.addr = alloca ptr, align 8
-  %dest = alloca i64, align 8
-  store ptr %source, ptr %source.addr, align 8
-  %0 = load ptr, ptr %source.addr, align 8
-  call void @llvm.memmove.p0.p0.i64(ptr align 8 %dest, ptr align 8 %0, i64 8, i1 false)
-  %1 = load i64, ptr %dest, align 8
-  ret i64 %1
-}
-
-; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memmove.p0.p0.i64(ptr nocapture writeonly, ptr nocapture readonly, i64, i1 immarg) #2
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr noundef i64 @_ZNK17double_conversion6Double8AsUint64Ev(ptr noundef nonnull align 8 dereferenceable(8) %this) #1 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %d64_ = getelementptr inbounds %"class.double_conversion::Double", ptr %this1, i32 0, i32 0
-  %0 = load i64, ptr %d64_, align 8
-  ret i64 %0
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr noundef zeroext i1 @_ZNK17double_conversion6Double10IsDenormalEv(ptr noundef nonnull align 8 dereferenceable(8) %this) #1 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %d64 = alloca i64, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %call = call noundef i64 @_ZNK17double_conversion6Double8AsUint64Ev(ptr noundef nonnull align 8 dereferenceable(8) %this1)
-  store i64 %call, ptr %d64, align 8
-  %0 = load i64, ptr %d64, align 8
-  %and = and i64 %0, 9218868437227405312
-  %cmp = icmp eq i64 %and, 0
-  ret i1 %cmp
-}
-
-; Function Attrs: mustprogress uwtable
-define internal void @_ZN17double_conversionL23FillDigits32FixedLengthEjiNS_6VectorIcEEPi(i32 noundef %number, i32 noundef %requested_length, ptr %buffer.coerce0, i32 %buffer.coerce1, ptr noundef %length) #0 {
-entry:
-  %buffer = alloca %"class.double_conversion::Vector", align 8
-  %number.addr = alloca i32, align 4
-  %requested_length.addr = alloca i32, align 4
-  %length.addr = alloca ptr, align 8
-  %i = alloca i32, align 4
-  %0 = getelementptr inbounds { ptr, i32 }, ptr %buffer, i32 0, i32 0
-  store ptr %buffer.coerce0, ptr %0, align 8
-  %1 = getelementptr inbounds { ptr, i32 }, ptr %buffer, i32 0, i32 1
-  store i32 %buffer.coerce1, ptr %1, align 8
-  store i32 %number, ptr %number.addr, align 4
-  store i32 %requested_length, ptr %requested_length.addr, align 4
-  store ptr %length, ptr %length.addr, align 8
-  %2 = load i32, ptr %requested_length.addr, align 4
-  %sub = sub nsw i32 %2, 1
-  store i32 %sub, ptr %i, align 4
-  br label %for.cond
-
-for.cond:                                         ; preds = %for.inc, %entry
-  %3 = load i32, ptr %i, align 4
-  %cmp = icmp sge i32 %3, 0
-  br i1 %cmp, label %for.body, label %for.end
-
-for.body:                                         ; preds = %for.cond
-  %4 = load i32, ptr %number.addr, align 4
-  %rem = urem i32 %4, 10
-  %add = add i32 48, %rem
-  %conv = trunc i32 %add to i8
-  %5 = load ptr, ptr %length.addr, align 8
-  %6 = load i32, ptr %5, align 4
-  %7 = load i32, ptr %i, align 4
-  %add1 = add nsw i32 %6, %7
-  %call = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNK17double_conversion6VectorIcEixEi(ptr noundef nonnull align 8 dereferenceable(12) %buffer, i32 noundef %add1)
-  store i8 %conv, ptr %call, align 1
-  %8 = load i32, ptr %number.addr, align 4
-  %div = udiv i32 %8, 10
-  store i32 %div, ptr %number.addr, align 4
-  br label %for.inc
-
-for.inc:                                          ; preds = %for.body
-  %9 = load i32, ptr %i, align 4
-  %dec = add nsw i32 %9, -1
-  store i32 %dec, ptr %i, align 4
-  br label %for.cond, !llvm.loop !12
-
-for.end:                                          ; preds = %for.cond
-  %10 = load i32, ptr %requested_length.addr, align 4
-  %11 = load ptr, ptr %length.addr, align 8
-  %12 = load i32, ptr %11, align 4
-  %add2 = add nsw i32 %12, %10
-  store i32 %add2, ptr %11, align 4
-  ret void
-}
-
-; Function Attrs: mustprogress uwtable
-define internal void @_ZN17double_conversionL7RoundUpENS_6VectorIcEEPiS2_(ptr %buffer.coerce0, i32 %buffer.coerce1, ptr noundef %length, ptr noundef %decimal_point) #0 {
-entry:
-  %buffer = alloca %"class.double_conversion::Vector", align 8
-  %length.addr = alloca ptr, align 8
-  %decimal_point.addr = alloca ptr, align 8
-  %i = alloca i32, align 4
-  %0 = getelementptr inbounds { ptr, i32 }, ptr %buffer, i32 0, i32 0
-  store ptr %buffer.coerce0, ptr %0, align 8
-  %1 = getelementptr inbounds { ptr, i32 }, ptr %buffer, i32 0, i32 1
-  store i32 %buffer.coerce1, ptr %1, align 8
-  store ptr %length, ptr %length.addr, align 8
-  store ptr %decimal_point, ptr %decimal_point.addr, align 8
-  %2 = load ptr, ptr %length.addr, align 8
-  %3 = load i32, ptr %2, align 4
-  %cmp = icmp eq i32 %3, 0
-  br i1 %cmp, label %if.then, label %if.end
-
-if.then:                                          ; preds = %entry
-  %call = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNK17double_conversion6VectorIcEixEi(ptr noundef nonnull align 8 dereferenceable(12) %buffer, i32 noundef 0)
-  store i8 49, ptr %call, align 1
-  %4 = load ptr, ptr %decimal_point.addr, align 8
-  store i32 1, ptr %4, align 4
-  %5 = load ptr, ptr %length.addr, align 8
-  store i32 1, ptr %5, align 4
-  br label %if.end18
-
-if.end:                                           ; preds = %entry
-  %6 = load ptr, ptr %length.addr, align 8
-  %7 = load i32, ptr %6, align 4
-  %sub = sub nsw i32 %7, 1
-  %call1 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNK17double_conversion6VectorIcEixEi(ptr noundef nonnull align 8 dereferenceable(12) %buffer, i32 noundef %sub)
-  %8 = load i8, ptr %call1, align 1
-  %inc = add i8 %8, 1
-  store i8 %inc, ptr %call1, align 1
-  %9 = load ptr, ptr %length.addr, align 8
-  %10 = load i32, ptr %9, align 4
-  %sub2 = sub nsw i32 %10, 1
-  store i32 %sub2, ptr %i, align 4
-  br label %for.cond
-
-for.cond:                                         ; preds = %for.inc, %if.end
-  %11 = load i32, ptr %i, align 4
-  %cmp3 = icmp sgt i32 %11, 0
-  br i1 %cmp3, label %for.body, label %for.end
-
-for.body:                                         ; preds = %for.cond
-  %12 = load i32, ptr %i, align 4
-  %call4 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNK17double_conversion6VectorIcEixEi(ptr noundef nonnull align 8 dereferenceable(12) %buffer, i32 noundef %12)
-  %13 = load i8, ptr %call4, align 1
-  %conv = sext i8 %13 to i32
-  %cmp5 = icmp ne i32 %conv, 58
-  br i1 %cmp5, label %if.then6, label %if.end7
-
-if.then6:                                         ; preds = %for.body
-  br label %if.end18
-
-if.end7:                                          ; preds = %for.body
-  %14 = load i32, ptr %i, align 4
-  %call8 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNK17double_conversion6VectorIcEixEi(ptr noundef nonnull align 8 dereferenceable(12) %buffer, i32 noundef %14)
-  store i8 48, ptr %call8, align 1
-  %15 = load i32, ptr %i, align 4
-  %sub9 = sub nsw i32 %15, 1
-  %call10 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNK17double_conversion6VectorIcEixEi(ptr noundef nonnull align 8 dereferenceable(12) %buffer, i32 noundef %sub9)
-  %16 = load i8, ptr %call10, align 1
-  %inc11 = add i8 %16, 1
-  store i8 %inc11, ptr %call10, align 1
-  br label %for.inc
-
-for.inc:                                          ; preds = %if.end7
-  %17 = load i32, ptr %i, align 4
-  %dec = add nsw i32 %17, -1
-  store i32 %dec, ptr %i, align 4
-  br label %for.cond, !llvm.loop !13
-
-for.end:                                          ; preds = %for.cond
-  %call12 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNK17double_conversion6VectorIcEixEi(ptr noundef nonnull align 8 dereferenceable(12) %buffer, i32 noundef 0)
-  %18 = load i8, ptr %call12, align 1
-  %conv13 = sext i8 %18 to i32
-  %cmp14 = icmp eq i32 %conv13, 58
-  br i1 %cmp14, label %if.then15, label %if.end18
-
-if.then15:                                        ; preds = %for.end
-  %call16 = call noundef nonnull align 1 dereferenceable(1) ptr @_ZNK17double_conversion6VectorIcEixEi(ptr noundef nonnull align 8 dereferenceable(12) %buffer, i32 noundef 0)
-  store i8 49, ptr %call16, align 1
-  %19 = load ptr, ptr %decimal_point.addr, align 8
-  %20 = load i32, ptr %19, align 4
-  %inc17 = add nsw i32 %20, 1
-  store i32 %inc17, ptr %19, align 4
-  br label %if.end18
-
-if.end18:                                         ; preds = %if.then15, %for.end, %if.then6, %if.then
+73:                                               ; preds = %8, %72
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN17double_conversion7UInt128C2Emm(ptr noundef nonnull align 8 dereferenceable(16) %this, i64 noundef %high, i64 noundef %low) unnamed_addr #1 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %high.addr = alloca i64, align 8
-  %low.addr = alloca i64, align 8
-  store ptr %this, ptr %this.addr, align 8
-  store i64 %high, ptr %high.addr, align 8
-  store i64 %low, ptr %low.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %high_bits_ = getelementptr inbounds %"class.double_conversion::UInt128", ptr %this1, i32 0, i32 0
-  %0 = load i64, ptr %high.addr, align 8
-  store i64 %0, ptr %high_bits_, align 8
-  %low_bits_ = getelementptr inbounds %"class.double_conversion::UInt128", ptr %this1, i32 0, i32 1
-  %1 = load i64, ptr %low.addr, align 8
-  store i64 %1, ptr %low_bits_, align 8
+define linkonce_odr noundef zeroext i1 @_ZNK17double_conversion7UInt1286IsZeroEv(ptr noundef nonnull align 8 dereferenceable(16) %0) #2 comdat align 2 {
+  %2 = alloca ptr, align 8
+  store ptr %0, ptr %2, align 8, !tbaa !38
+  %3 = load ptr, ptr %2, align 8
+  %4 = getelementptr inbounds nuw %"class.double_conversion::UInt128", ptr %3, i32 0, i32 0
+  %5 = load i64, ptr %4, align 8, !tbaa !40
+  %6 = icmp eq i64 %5, 0
+  br i1 %6, label %7, label %11
+
+7:                                                ; preds = %1
+  %8 = getelementptr inbounds nuw %"class.double_conversion::UInt128", ptr %3, i32 0, i32 1
+  %9 = load i64, ptr %8, align 8, !tbaa !42
+  %10 = icmp eq i64 %9, 0
+  br label %11
+
+11:                                               ; preds = %7, %1
+  %12 = phi i1 [ false, %1 ], [ %10, %7 ]
+  ret i1 %12
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr void @_ZN17double_conversion7UInt1288MultiplyEj(ptr noundef nonnull align 8 dereferenceable(16) %0, i32 noundef %1) #2 comdat align 2 {
+  %3 = alloca ptr, align 8
+  %4 = alloca i32, align 4
+  %5 = alloca i64, align 8
+  %6 = alloca i32, align 4
+  store ptr %0, ptr %3, align 8, !tbaa !38
+  store i32 %1, ptr %4, align 4, !tbaa !7
+  %7 = load ptr, ptr %3, align 8
+  call void @llvm.lifetime.start.p0(i64 8, ptr %5) #4
+  %8 = getelementptr inbounds nuw %"class.double_conversion::UInt128", ptr %7, i32 0, i32 1
+  %9 = load i64, ptr %8, align 8, !tbaa !42
+  %10 = and i64 %9, 4294967295
+  %11 = load i32, ptr %4, align 4, !tbaa !7
+  %12 = zext i32 %11 to i64
+  %13 = mul i64 %10, %12
+  store i64 %13, ptr %5, align 8, !tbaa !12
+  call void @llvm.lifetime.start.p0(i64 4, ptr %6) #4
+  %14 = load i64, ptr %5, align 8, !tbaa !12
+  %15 = and i64 %14, 4294967295
+  %16 = trunc i64 %15 to i32
+  store i32 %16, ptr %6, align 4, !tbaa !7
+  %17 = load i64, ptr %5, align 8, !tbaa !12
+  %18 = lshr i64 %17, 32
+  store i64 %18, ptr %5, align 8, !tbaa !12
+  %19 = load i64, ptr %5, align 8, !tbaa !12
+  %20 = getelementptr inbounds nuw %"class.double_conversion::UInt128", ptr %7, i32 0, i32 1
+  %21 = load i64, ptr %20, align 8, !tbaa !42
+  %22 = lshr i64 %21, 32
+  %23 = load i32, ptr %4, align 4, !tbaa !7
+  %24 = zext i32 %23 to i64
+  %25 = mul i64 %22, %24
+  %26 = add i64 %19, %25
+  store i64 %26, ptr %5, align 8, !tbaa !12
+  %27 = load i64, ptr %5, align 8, !tbaa !12
+  %28 = shl i64 %27, 32
+  %29 = load i32, ptr %6, align 4, !tbaa !7
+  %30 = zext i32 %29 to i64
+  %31 = add i64 %28, %30
+  %32 = getelementptr inbounds nuw %"class.double_conversion::UInt128", ptr %7, i32 0, i32 1
+  store i64 %31, ptr %32, align 8, !tbaa !42
+  %33 = load i64, ptr %5, align 8, !tbaa !12
+  %34 = lshr i64 %33, 32
+  store i64 %34, ptr %5, align 8, !tbaa !12
+  %35 = load i64, ptr %5, align 8, !tbaa !12
+  %36 = getelementptr inbounds nuw %"class.double_conversion::UInt128", ptr %7, i32 0, i32 0
+  %37 = load i64, ptr %36, align 8, !tbaa !40
+  %38 = and i64 %37, 4294967295
+  %39 = load i32, ptr %4, align 4, !tbaa !7
+  %40 = zext i32 %39 to i64
+  %41 = mul i64 %38, %40
+  %42 = add i64 %35, %41
+  store i64 %42, ptr %5, align 8, !tbaa !12
+  %43 = load i64, ptr %5, align 8, !tbaa !12
+  %44 = and i64 %43, 4294967295
+  %45 = trunc i64 %44 to i32
+  store i32 %45, ptr %6, align 4, !tbaa !7
+  %46 = load i64, ptr %5, align 8, !tbaa !12
+  %47 = lshr i64 %46, 32
+  store i64 %47, ptr %5, align 8, !tbaa !12
+  %48 = load i64, ptr %5, align 8, !tbaa !12
+  %49 = getelementptr inbounds nuw %"class.double_conversion::UInt128", ptr %7, i32 0, i32 0
+  %50 = load i64, ptr %49, align 8, !tbaa !40
+  %51 = lshr i64 %50, 32
+  %52 = load i32, ptr %4, align 4, !tbaa !7
+  %53 = zext i32 %52 to i64
+  %54 = mul i64 %51, %53
+  %55 = add i64 %48, %54
+  store i64 %55, ptr %5, align 8, !tbaa !12
+  %56 = load i64, ptr %5, align 8, !tbaa !12
+  %57 = shl i64 %56, 32
+  %58 = load i32, ptr %6, align 4, !tbaa !7
+  %59 = zext i32 %58 to i64
+  %60 = add i64 %57, %59
+  %61 = getelementptr inbounds nuw %"class.double_conversion::UInt128", ptr %7, i32 0, i32 0
+  store i64 %60, ptr %61, align 8, !tbaa !40
+  call void @llvm.lifetime.end.p0(i64 4, ptr %6) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %5) #4
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN17double_conversion7UInt1285ShiftEi(ptr noundef nonnull align 8 dereferenceable(16) %this, i32 noundef %shift_amount) #1 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %shift_amount.addr = alloca i32, align 4
-  store ptr %this, ptr %this.addr, align 8
-  store i32 %shift_amount, ptr %shift_amount.addr, align 4
-  %this1 = load ptr, ptr %this.addr, align 8
-  %0 = load i32, ptr %shift_amount.addr, align 4
-  %cmp = icmp eq i32 %0, 0
-  br i1 %cmp, label %if.then, label %if.else
+define linkonce_odr noundef i32 @_ZN17double_conversion7UInt12814DivModPowerOf2Ei(ptr noundef nonnull align 8 dereferenceable(16) %0, i32 noundef %1) #2 comdat align 2 {
+  %3 = alloca i32, align 4
+  %4 = alloca ptr, align 8
+  %5 = alloca i32, align 4
+  %6 = alloca i32, align 4
+  %7 = alloca i64, align 8
+  %8 = alloca i64, align 8
+  %9 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !38
+  store i32 %1, ptr %5, align 4, !tbaa !7
+  %10 = load ptr, ptr %4, align 8
+  %11 = load i32, ptr %5, align 4, !tbaa !7
+  %12 = icmp sge i32 %11, 64
+  br i1 %12, label %13, label %31
 
-if.then:                                          ; preds = %entry
-  br label %if.end38
+13:                                               ; preds = %2
+  call void @llvm.lifetime.start.p0(i64 4, ptr %6) #4
+  %14 = getelementptr inbounds nuw %"class.double_conversion::UInt128", ptr %10, i32 0, i32 0
+  %15 = load i64, ptr %14, align 8, !tbaa !40
+  %16 = load i32, ptr %5, align 4, !tbaa !7
+  %17 = sub nsw i32 %16, 64
+  %18 = zext i32 %17 to i64
+  %19 = lshr i64 %15, %18
+  %20 = trunc i64 %19 to i32
+  store i32 %20, ptr %6, align 4, !tbaa !7
+  %21 = load i32, ptr %6, align 4, !tbaa !7
+  %22 = sext i32 %21 to i64
+  %23 = load i32, ptr %5, align 4, !tbaa !7
+  %24 = sub nsw i32 %23, 64
+  %25 = zext i32 %24 to i64
+  %26 = shl i64 %22, %25
+  %27 = getelementptr inbounds nuw %"class.double_conversion::UInt128", ptr %10, i32 0, i32 0
+  %28 = load i64, ptr %27, align 8, !tbaa !40
+  %29 = sub i64 %28, %26
+  store i64 %29, ptr %27, align 8, !tbaa !40
+  %30 = load i32, ptr %6, align 4, !tbaa !7
+  store i32 %30, ptr %3, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %6) #4
+  br label %56
 
-if.else:                                          ; preds = %entry
-  %1 = load i32, ptr %shift_amount.addr, align 4
-  %cmp2 = icmp eq i32 %1, -64
-  br i1 %cmp2, label %if.then3, label %if.else5
+31:                                               ; preds = %2
+  call void @llvm.lifetime.start.p0(i64 8, ptr %7) #4
+  %32 = getelementptr inbounds nuw %"class.double_conversion::UInt128", ptr %10, i32 0, i32 1
+  %33 = load i64, ptr %32, align 8, !tbaa !42
+  %34 = load i32, ptr %5, align 4, !tbaa !7
+  %35 = zext i32 %34 to i64
+  %36 = lshr i64 %33, %35
+  store i64 %36, ptr %7, align 8, !tbaa !12
+  call void @llvm.lifetime.start.p0(i64 8, ptr %8) #4
+  %37 = getelementptr inbounds nuw %"class.double_conversion::UInt128", ptr %10, i32 0, i32 0
+  %38 = load i64, ptr %37, align 8, !tbaa !40
+  %39 = load i32, ptr %5, align 4, !tbaa !7
+  %40 = sub nsw i32 64, %39
+  %41 = zext i32 %40 to i64
+  %42 = shl i64 %38, %41
+  store i64 %42, ptr %8, align 8, !tbaa !12
+  call void @llvm.lifetime.start.p0(i64 4, ptr %9) #4
+  %43 = load i64, ptr %7, align 8, !tbaa !12
+  %44 = load i64, ptr %8, align 8, !tbaa !12
+  %45 = add i64 %43, %44
+  %46 = trunc i64 %45 to i32
+  store i32 %46, ptr %9, align 4, !tbaa !7
+  %47 = getelementptr inbounds nuw %"class.double_conversion::UInt128", ptr %10, i32 0, i32 0
+  store i64 0, ptr %47, align 8, !tbaa !40
+  %48 = load i64, ptr %7, align 8, !tbaa !12
+  %49 = load i32, ptr %5, align 4, !tbaa !7
+  %50 = zext i32 %49 to i64
+  %51 = shl i64 %48, %50
+  %52 = getelementptr inbounds nuw %"class.double_conversion::UInt128", ptr %10, i32 0, i32 1
+  %53 = load i64, ptr %52, align 8, !tbaa !42
+  %54 = sub i64 %53, %51
+  store i64 %54, ptr %52, align 8, !tbaa !42
+  %55 = load i32, ptr %9, align 4, !tbaa !7
+  store i32 %55, ptr %3, align 4
+  call void @llvm.lifetime.end.p0(i64 4, ptr %9) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %8) #4
+  call void @llvm.lifetime.end.p0(i64 8, ptr %7) #4
+  br label %56
 
-if.then3:                                         ; preds = %if.else
-  %low_bits_ = getelementptr inbounds %"class.double_conversion::UInt128", ptr %this1, i32 0, i32 1
-  %2 = load i64, ptr %low_bits_, align 8
-  %high_bits_ = getelementptr inbounds %"class.double_conversion::UInt128", ptr %this1, i32 0, i32 0
-  store i64 %2, ptr %high_bits_, align 8
-  %low_bits_4 = getelementptr inbounds %"class.double_conversion::UInt128", ptr %this1, i32 0, i32 1
-  store i64 0, ptr %low_bits_4, align 8
-  br label %if.end37
-
-if.else5:                                         ; preds = %if.else
-  %3 = load i32, ptr %shift_amount.addr, align 4
-  %cmp6 = icmp eq i32 %3, 64
-  br i1 %cmp6, label %if.then7, label %if.else11
-
-if.then7:                                         ; preds = %if.else5
-  %high_bits_8 = getelementptr inbounds %"class.double_conversion::UInt128", ptr %this1, i32 0, i32 0
-  %4 = load i64, ptr %high_bits_8, align 8
-  %low_bits_9 = getelementptr inbounds %"class.double_conversion::UInt128", ptr %this1, i32 0, i32 1
-  store i64 %4, ptr %low_bits_9, align 8
-  %high_bits_10 = getelementptr inbounds %"class.double_conversion::UInt128", ptr %this1, i32 0, i32 0
-  store i64 0, ptr %high_bits_10, align 8
-  br label %if.end36
-
-if.else11:                                        ; preds = %if.else5
-  %5 = load i32, ptr %shift_amount.addr, align 4
-  %cmp12 = icmp sle i32 %5, 0
-  br i1 %cmp12, label %if.then13, label %if.else23
-
-if.then13:                                        ; preds = %if.else11
-  %6 = load i32, ptr %shift_amount.addr, align 4
-  %sub = sub nsw i32 0, %6
-  %high_bits_14 = getelementptr inbounds %"class.double_conversion::UInt128", ptr %this1, i32 0, i32 0
-  %7 = load i64, ptr %high_bits_14, align 8
-  %sh_prom = zext i32 %sub to i64
-  %shl = shl i64 %7, %sh_prom
-  store i64 %shl, ptr %high_bits_14, align 8
-  %low_bits_15 = getelementptr inbounds %"class.double_conversion::UInt128", ptr %this1, i32 0, i32 1
-  %8 = load i64, ptr %low_bits_15, align 8
-  %9 = load i32, ptr %shift_amount.addr, align 4
-  %add = add nsw i32 64, %9
-  %sh_prom16 = zext i32 %add to i64
-  %shr = lshr i64 %8, %sh_prom16
-  %high_bits_17 = getelementptr inbounds %"class.double_conversion::UInt128", ptr %this1, i32 0, i32 0
-  %10 = load i64, ptr %high_bits_17, align 8
-  %add18 = add i64 %10, %shr
-  store i64 %add18, ptr %high_bits_17, align 8
-  %11 = load i32, ptr %shift_amount.addr, align 4
-  %sub19 = sub nsw i32 0, %11
-  %low_bits_20 = getelementptr inbounds %"class.double_conversion::UInt128", ptr %this1, i32 0, i32 1
-  %12 = load i64, ptr %low_bits_20, align 8
-  %sh_prom21 = zext i32 %sub19 to i64
-  %shl22 = shl i64 %12, %sh_prom21
-  store i64 %shl22, ptr %low_bits_20, align 8
-  br label %if.end
-
-if.else23:                                        ; preds = %if.else11
-  %13 = load i32, ptr %shift_amount.addr, align 4
-  %low_bits_24 = getelementptr inbounds %"class.double_conversion::UInt128", ptr %this1, i32 0, i32 1
-  %14 = load i64, ptr %low_bits_24, align 8
-  %sh_prom25 = zext i32 %13 to i64
-  %shr26 = lshr i64 %14, %sh_prom25
-  store i64 %shr26, ptr %low_bits_24, align 8
-  %high_bits_27 = getelementptr inbounds %"class.double_conversion::UInt128", ptr %this1, i32 0, i32 0
-  %15 = load i64, ptr %high_bits_27, align 8
-  %16 = load i32, ptr %shift_amount.addr, align 4
-  %sub28 = sub nsw i32 64, %16
-  %sh_prom29 = zext i32 %sub28 to i64
-  %shl30 = shl i64 %15, %sh_prom29
-  %low_bits_31 = getelementptr inbounds %"class.double_conversion::UInt128", ptr %this1, i32 0, i32 1
-  %17 = load i64, ptr %low_bits_31, align 8
-  %add32 = add i64 %17, %shl30
-  store i64 %add32, ptr %low_bits_31, align 8
-  %18 = load i32, ptr %shift_amount.addr, align 4
-  %high_bits_33 = getelementptr inbounds %"class.double_conversion::UInt128", ptr %this1, i32 0, i32 0
-  %19 = load i64, ptr %high_bits_33, align 8
-  %sh_prom34 = zext i32 %18 to i64
-  %shr35 = lshr i64 %19, %sh_prom34
-  store i64 %shr35, ptr %high_bits_33, align 8
-  br label %if.end
-
-if.end:                                           ; preds = %if.else23, %if.then13
-  br label %if.end36
-
-if.end36:                                         ; preds = %if.end, %if.then7
-  br label %if.end37
-
-if.end37:                                         ; preds = %if.end36, %if.then3
-  br label %if.end38
-
-if.end38:                                         ; preds = %if.end37, %if.then
-  ret void
+56:                                               ; preds = %31, %13
+  %57 = load i32, ptr %3, align 4
+  ret i32 %57
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr noundef zeroext i1 @_ZNK17double_conversion7UInt1286IsZeroEv(ptr noundef nonnull align 8 dereferenceable(16) %this) #1 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  store ptr %this, ptr %this.addr, align 8
-  %this1 = load ptr, ptr %this.addr, align 8
-  %high_bits_ = getelementptr inbounds %"class.double_conversion::UInt128", ptr %this1, i32 0, i32 0
-  %0 = load i64, ptr %high_bits_, align 8
-  %cmp = icmp eq i64 %0, 0
-  br i1 %cmp, label %land.rhs, label %land.end
+define linkonce_odr noundef i32 @_ZNK17double_conversion7UInt1285BitAtEi(ptr noundef nonnull align 8 dereferenceable(16) %0, i32 noundef %1) #2 comdat align 2 {
+  %3 = alloca i32, align 4
+  %4 = alloca ptr, align 8
+  %5 = alloca i32, align 4
+  store ptr %0, ptr %4, align 8, !tbaa !38
+  store i32 %1, ptr %5, align 4, !tbaa !7
+  %6 = load ptr, ptr %4, align 8
+  %7 = load i32, ptr %5, align 4, !tbaa !7
+  %8 = icmp sge i32 %7, 64
+  br i1 %8, label %9, label %18
 
-land.rhs:                                         ; preds = %entry
-  %low_bits_ = getelementptr inbounds %"class.double_conversion::UInt128", ptr %this1, i32 0, i32 1
-  %1 = load i64, ptr %low_bits_, align 8
-  %cmp2 = icmp eq i64 %1, 0
-  br label %land.end
+9:                                                ; preds = %2
+  %10 = getelementptr inbounds nuw %"class.double_conversion::UInt128", ptr %6, i32 0, i32 0
+  %11 = load i64, ptr %10, align 8, !tbaa !40
+  %12 = load i32, ptr %5, align 4, !tbaa !7
+  %13 = sub nsw i32 %12, 64
+  %14 = zext i32 %13 to i64
+  %15 = lshr i64 %11, %14
+  %16 = trunc i64 %15 to i32
+  %17 = and i32 %16, 1
+  store i32 %17, ptr %3, align 4
+  br label %26
 
-land.end:                                         ; preds = %land.rhs, %entry
-  %2 = phi i1 [ false, %entry ], [ %cmp2, %land.rhs ]
-  ret i1 %2
+18:                                               ; preds = %2
+  %19 = getelementptr inbounds nuw %"class.double_conversion::UInt128", ptr %6, i32 0, i32 1
+  %20 = load i64, ptr %19, align 8, !tbaa !42
+  %21 = load i32, ptr %5, align 4, !tbaa !7
+  %22 = zext i32 %21 to i64
+  %23 = lshr i64 %20, %22
+  %24 = trunc i64 %23 to i32
+  %25 = and i32 %24, 1
+  store i32 %25, ptr %3, align 4
+  br label %26
+
+26:                                               ; preds = %18, %9
+  %27 = load i32, ptr %3, align 4
+  ret i32 %27
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN17double_conversion7UInt1288MultiplyEj(ptr noundef nonnull align 8 dereferenceable(16) %this, i32 noundef %multiplicand) #1 comdat align 2 {
-entry:
-  %this.addr = alloca ptr, align 8
-  %multiplicand.addr = alloca i32, align 4
-  %accumulator = alloca i64, align 8
-  %part = alloca i32, align 4
-  store ptr %this, ptr %this.addr, align 8
-  store i32 %multiplicand, ptr %multiplicand.addr, align 4
-  %this1 = load ptr, ptr %this.addr, align 8
-  %low_bits_ = getelementptr inbounds %"class.double_conversion::UInt128", ptr %this1, i32 0, i32 1
-  %0 = load i64, ptr %low_bits_, align 8
-  %and = and i64 %0, 4294967295
-  %1 = load i32, ptr %multiplicand.addr, align 4
-  %conv = zext i32 %1 to i64
-  %mul = mul i64 %and, %conv
-  store i64 %mul, ptr %accumulator, align 8
-  %2 = load i64, ptr %accumulator, align 8
-  %and2 = and i64 %2, 4294967295
-  %conv3 = trunc i64 %and2 to i32
-  store i32 %conv3, ptr %part, align 4
-  %3 = load i64, ptr %accumulator, align 8
-  %shr = lshr i64 %3, 32
-  store i64 %shr, ptr %accumulator, align 8
-  %4 = load i64, ptr %accumulator, align 8
-  %low_bits_4 = getelementptr inbounds %"class.double_conversion::UInt128", ptr %this1, i32 0, i32 1
-  %5 = load i64, ptr %low_bits_4, align 8
-  %shr5 = lshr i64 %5, 32
-  %6 = load i32, ptr %multiplicand.addr, align 4
-  %conv6 = zext i32 %6 to i64
-  %mul7 = mul i64 %shr5, %conv6
-  %add = add i64 %4, %mul7
-  store i64 %add, ptr %accumulator, align 8
-  %7 = load i64, ptr %accumulator, align 8
-  %shl = shl i64 %7, 32
-  %8 = load i32, ptr %part, align 4
-  %conv8 = zext i32 %8 to i64
-  %add9 = add i64 %shl, %conv8
-  %low_bits_10 = getelementptr inbounds %"class.double_conversion::UInt128", ptr %this1, i32 0, i32 1
-  store i64 %add9, ptr %low_bits_10, align 8
-  %9 = load i64, ptr %accumulator, align 8
-  %shr11 = lshr i64 %9, 32
-  store i64 %shr11, ptr %accumulator, align 8
-  %10 = load i64, ptr %accumulator, align 8
-  %high_bits_ = getelementptr inbounds %"class.double_conversion::UInt128", ptr %this1, i32 0, i32 0
-  %11 = load i64, ptr %high_bits_, align 8
-  %and12 = and i64 %11, 4294967295
-  %12 = load i32, ptr %multiplicand.addr, align 4
-  %conv13 = zext i32 %12 to i64
-  %mul14 = mul i64 %and12, %conv13
-  %add15 = add i64 %10, %mul14
-  store i64 %add15, ptr %accumulator, align 8
-  %13 = load i64, ptr %accumulator, align 8
-  %and16 = and i64 %13, 4294967295
-  %conv17 = trunc i64 %and16 to i32
-  store i32 %conv17, ptr %part, align 4
-  %14 = load i64, ptr %accumulator, align 8
-  %shr18 = lshr i64 %14, 32
-  store i64 %shr18, ptr %accumulator, align 8
-  %15 = load i64, ptr %accumulator, align 8
-  %high_bits_19 = getelementptr inbounds %"class.double_conversion::UInt128", ptr %this1, i32 0, i32 0
-  %16 = load i64, ptr %high_bits_19, align 8
-  %shr20 = lshr i64 %16, 32
-  %17 = load i32, ptr %multiplicand.addr, align 4
-  %conv21 = zext i32 %17 to i64
-  %mul22 = mul i64 %shr20, %conv21
-  %add23 = add i64 %15, %mul22
-  store i64 %add23, ptr %accumulator, align 8
-  %18 = load i64, ptr %accumulator, align 8
-  %shl24 = shl i64 %18, 32
-  %19 = load i32, ptr %part, align 4
-  %conv25 = zext i32 %19 to i64
-  %add26 = add i64 %shl24, %conv25
-  %high_bits_27 = getelementptr inbounds %"class.double_conversion::UInt128", ptr %this1, i32 0, i32 0
-  store i64 %add26, ptr %high_bits_27, align 8
-  ret void
-}
+attributes #0 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #2 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #4 = { nounwind }
 
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr noundef i32 @_ZN17double_conversion7UInt12814DivModPowerOf2Ei(ptr noundef nonnull align 8 dereferenceable(16) %this, i32 noundef %power) #1 comdat align 2 {
-entry:
-  %retval = alloca i32, align 4
-  %this.addr = alloca ptr, align 8
-  %power.addr = alloca i32, align 4
-  %result = alloca i32, align 4
-  %part_low = alloca i64, align 8
-  %part_high = alloca i64, align 8
-  %result13 = alloca i32, align 4
-  store ptr %this, ptr %this.addr, align 8
-  store i32 %power, ptr %power.addr, align 4
-  %this1 = load ptr, ptr %this.addr, align 8
-  %0 = load i32, ptr %power.addr, align 4
-  %cmp = icmp sge i32 %0, 64
-  br i1 %cmp, label %if.then, label %if.else
-
-if.then:                                          ; preds = %entry
-  %high_bits_ = getelementptr inbounds %"class.double_conversion::UInt128", ptr %this1, i32 0, i32 0
-  %1 = load i64, ptr %high_bits_, align 8
-  %2 = load i32, ptr %power.addr, align 4
-  %sub = sub nsw i32 %2, 64
-  %sh_prom = zext i32 %sub to i64
-  %shr = lshr i64 %1, %sh_prom
-  %conv = trunc i64 %shr to i32
-  store i32 %conv, ptr %result, align 4
-  %3 = load i32, ptr %result, align 4
-  %conv2 = sext i32 %3 to i64
-  %4 = load i32, ptr %power.addr, align 4
-  %sub3 = sub nsw i32 %4, 64
-  %sh_prom4 = zext i32 %sub3 to i64
-  %shl = shl i64 %conv2, %sh_prom4
-  %high_bits_5 = getelementptr inbounds %"class.double_conversion::UInt128", ptr %this1, i32 0, i32 0
-  %5 = load i64, ptr %high_bits_5, align 8
-  %sub6 = sub i64 %5, %shl
-  store i64 %sub6, ptr %high_bits_5, align 8
-  %6 = load i32, ptr %result, align 4
-  store i32 %6, ptr %retval, align 4
-  br label %return
-
-if.else:                                          ; preds = %entry
-  %low_bits_ = getelementptr inbounds %"class.double_conversion::UInt128", ptr %this1, i32 0, i32 1
-  %7 = load i64, ptr %low_bits_, align 8
-  %8 = load i32, ptr %power.addr, align 4
-  %sh_prom7 = zext i32 %8 to i64
-  %shr8 = lshr i64 %7, %sh_prom7
-  store i64 %shr8, ptr %part_low, align 8
-  %high_bits_9 = getelementptr inbounds %"class.double_conversion::UInt128", ptr %this1, i32 0, i32 0
-  %9 = load i64, ptr %high_bits_9, align 8
-  %10 = load i32, ptr %power.addr, align 4
-  %sub10 = sub nsw i32 64, %10
-  %sh_prom11 = zext i32 %sub10 to i64
-  %shl12 = shl i64 %9, %sh_prom11
-  store i64 %shl12, ptr %part_high, align 8
-  %11 = load i64, ptr %part_low, align 8
-  %12 = load i64, ptr %part_high, align 8
-  %add = add i64 %11, %12
-  %conv14 = trunc i64 %add to i32
-  store i32 %conv14, ptr %result13, align 4
-  %high_bits_15 = getelementptr inbounds %"class.double_conversion::UInt128", ptr %this1, i32 0, i32 0
-  store i64 0, ptr %high_bits_15, align 8
-  %13 = load i64, ptr %part_low, align 8
-  %14 = load i32, ptr %power.addr, align 4
-  %sh_prom16 = zext i32 %14 to i64
-  %shl17 = shl i64 %13, %sh_prom16
-  %low_bits_18 = getelementptr inbounds %"class.double_conversion::UInt128", ptr %this1, i32 0, i32 1
-  %15 = load i64, ptr %low_bits_18, align 8
-  %sub19 = sub i64 %15, %shl17
-  store i64 %sub19, ptr %low_bits_18, align 8
-  %16 = load i32, ptr %result13, align 4
-  store i32 %16, ptr %retval, align 4
-  br label %return
-
-return:                                           ; preds = %if.else, %if.then
-  %17 = load i32, ptr %retval, align 4
-  ret i32 %17
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr noundef i32 @_ZNK17double_conversion7UInt1285BitAtEi(ptr noundef nonnull align 8 dereferenceable(16) %this, i32 noundef %position) #1 comdat align 2 {
-entry:
-  %retval = alloca i32, align 4
-  %this.addr = alloca ptr, align 8
-  %position.addr = alloca i32, align 4
-  store ptr %this, ptr %this.addr, align 8
-  store i32 %position, ptr %position.addr, align 4
-  %this1 = load ptr, ptr %this.addr, align 8
-  %0 = load i32, ptr %position.addr, align 4
-  %cmp = icmp sge i32 %0, 64
-  br i1 %cmp, label %if.then, label %if.else
-
-if.then:                                          ; preds = %entry
-  %high_bits_ = getelementptr inbounds %"class.double_conversion::UInt128", ptr %this1, i32 0, i32 0
-  %1 = load i64, ptr %high_bits_, align 8
-  %2 = load i32, ptr %position.addr, align 4
-  %sub = sub nsw i32 %2, 64
-  %sh_prom = zext i32 %sub to i64
-  %shr = lshr i64 %1, %sh_prom
-  %conv = trunc i64 %shr to i32
-  %and = and i32 %conv, 1
-  store i32 %and, ptr %retval, align 4
-  br label %return
-
-if.else:                                          ; preds = %entry
-  %low_bits_ = getelementptr inbounds %"class.double_conversion::UInt128", ptr %this1, i32 0, i32 1
-  %3 = load i64, ptr %low_bits_, align 8
-  %4 = load i32, ptr %position.addr, align 4
-  %sh_prom2 = zext i32 %4 to i64
-  %shr3 = lshr i64 %3, %sh_prom2
-  %conv4 = trunc i64 %shr3 to i32
-  %and5 = and i32 %conv4, 1
-  store i32 %and5, ptr %retval, align 4
-  br label %return
-
-return:                                           ; preds = %if.else, %if.then
-  %5 = load i32, ptr %retval, align 4
-  ret i32 %5
-}
-
-attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-
-!llvm.module.flags = !{!0, !1, !2, !3}
+!llvm.module.flags = !{!0, !1, !2}
 
 !0 = !{i32 1, !"wchar_size", i32 4}
 !1 = !{i32 8, !"PIC Level", i32 2}
 !2 = !{i32 7, !"uwtable", i32 2}
-!3 = !{i32 7, !"frame-pointer", i32 2}
-!4 = distinct !{!4, !5}
-!5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}
-!7 = distinct !{!7, !5}
-!8 = distinct !{!8, !5}
-!9 = distinct !{!9, !5}
-!10 = distinct !{!10, !5}
-!11 = distinct !{!11, !5}
-!12 = distinct !{!12, !5}
-!13 = distinct !{!13, !5}
+!3 = !{!4, !4, i64 0}
+!4 = !{!"double", !5, i64 0}
+!5 = !{!"omnipotent char", !6, i64 0}
+!6 = !{!"Simple C++ TBAA"}
+!7 = !{!8, !8, i64 0}
+!8 = !{!"int", !5, i64 0}
+!9 = !{!10, !10, i64 0}
+!10 = !{!"p1 int", !11, i64 0}
+!11 = !{!"any pointer", !5, i64 0}
+!12 = !{!13, !13, i64 0}
+!13 = !{!"long", !5, i64 0}
+!14 = !{i64 0, i64 8, !15, i64 8, i64 4, !7}
+!15 = !{!16, !16, i64 0}
+!16 = !{!"p1 omnipotent char", !11, i64 0}
+!17 = !{!5, !5, i64 0}
+!18 = !{!19, !19, i64 0}
+!19 = !{!"p1 _ZTSN17double_conversion6DoubleE", !11, i64 0}
+!20 = !{!21, !13, i64 0}
+!21 = !{!"_ZTSN17double_conversion6DoubleE", !13, i64 0}
+!22 = distinct !{!22, !23}
+!23 = !{!"llvm.loop.mustprogress"}
+!24 = distinct !{!24, !23}
+!25 = distinct !{!25, !23}
+!26 = distinct !{!26, !23}
+!27 = !{!28, !28, i64 0}
+!28 = !{!"p1 _ZTSN17double_conversion6VectorIcEE", !11, i64 0}
+!29 = !{!30, !16, i64 0}
+!30 = !{!"_ZTSN17double_conversion6VectorIcEE", !16, i64 0, !8, i64 8}
+!31 = distinct !{!31, !23}
+!32 = distinct !{!32, !23}
+!33 = distinct !{!33, !23}
+!34 = !{!35, !35, i64 0}
+!35 = !{!"p1 double", !11, i64 0}
+!36 = distinct !{!36, !23}
+!37 = distinct !{!37, !23}
+!38 = !{!39, !39, i64 0}
+!39 = !{!"p1 _ZTSN17double_conversion7UInt128E", !11, i64 0}
+!40 = !{!41, !13, i64 0}
+!41 = !{!"_ZTSN17double_conversion7UInt128E", !13, i64 0, !13, i64 8}
+!42 = !{!41, !13, i64 8}
